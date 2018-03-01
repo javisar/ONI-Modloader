@@ -4,13 +4,14 @@ A modloader for Oxygen Not Included based in Harmony
 This project uses source code and is based on:
 * https://github.com/zeobviouslyfakeacc/ModLoaderInstaller
 * https://github.com/pardeike/Harmony
+* https://github.com/Moonkis/onion-patcher
 
 
 Projects
 --------
 * Injector: It injects the call to the modloader in Assembly-CSharp.dll
 * ModLoader: The modloader itself.
-* Patches: An example mod.
+* Patches: An example mod. Just now it only modifies the max range of the HydroSensor (like in onion patcher)
 * Hook: Just a helper to generate IL code for the Injector.
 
 Instructions
