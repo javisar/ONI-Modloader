@@ -1,4 +1,4 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.23107.0
@@ -10,6 +10,12 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Injector", "Injector\Injector.csproj", "{60FAC32D-A261-4C4F-A8D6-7DA7B1BA53EA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Patches", "Patches\Patches.csproj", "{0A8D7289-BF9D-4110-B512-7DD528DC7EDE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SensorsMod", "SensorsMod\SensorsMod.csproj", "{75214DCE-A2BD-403A-806E-A82CC89F7942}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FastModeMod", "FastModeMod\FastModeMod.csproj", "{FF9011A6-FD08-45B5-AB3E-195C9C804AF8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpeedControlMod", "SpeedControlMod\SpeedControlMod.csproj", "{77E7922A-306F-45E5-B572-FCDB9BA99374}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +39,18 @@ Global
 		{0A8D7289-BF9D-4110-B512-7DD528DC7EDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0A8D7289-BF9D-4110-B512-7DD528DC7EDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0A8D7289-BF9D-4110-B512-7DD528DC7EDE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75214DCE-A2BD-403A-806E-A82CC89F7942}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75214DCE-A2BD-403A-806E-A82CC89F7942}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75214DCE-A2BD-403A-806E-A82CC89F7942}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75214DCE-A2BD-403A-806E-A82CC89F7942}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF9011A6-FD08-45B5-AB3E-195C9C804AF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF9011A6-FD08-45B5-AB3E-195C9C804AF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF9011A6-FD08-45B5-AB3E-195C9C804AF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF9011A6-FD08-45B5-AB3E-195C9C804AF8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77E7922A-306F-45E5-B572-FCDB9BA99374}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77E7922A-306F-45E5-B572-FCDB9BA99374}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77E7922A-306F-45E5-B572-FCDB9BA99374}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77E7922A-306F-45E5-B572-FCDB9BA99374}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
