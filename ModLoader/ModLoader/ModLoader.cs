@@ -73,6 +73,7 @@ namespace ModLoader
                 try
                 {
                     Assembly modAssembly = Assembly.LoadFrom(file.FullName);
+                    Debug.Log("Loading "+modAssembly.FullName);
                     loadedAssemblies.Add(modAssembly);
                 }
                 catch (Exception e)
