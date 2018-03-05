@@ -4,29 +4,22 @@ A modloader for Oxygen Not Included based in Harmony
 This project uses source code of and is based on:
 * https://github.com/zeobviouslyfakeacc/ModLoaderInstaller
 * https://github.com/pardeike/Harmony
-* https://github.com/Moonkis/onion-patcher
-* https://github.com/Moonkis/onion-hooks
+* https://forums.kleientertainment.com/topic/81296-mod159-materialcolor-onionpatcher/
 
 
 Projects
 --------
 * Injector: It injects the call to the modloader in 'Assembly-CSharp.dll'
 * ModLoader: The modloader itself.
-* Patches: Mod Examples.
 * Hook: Just a helper to generate IL code for the Injector.
 
 
 Examples
 --------
-* InstantBuildMod: Duplicants will build very fast.
-* InstantDigMod: Duplicants will dig very fast.
-* CameraControlMod: Makes the zoom out bigger for the camera (from Onion patcher)
-* FallingWaterMod: Sets gravity. (Currently it doesn't working)
-* NoOxygenBreatherMod: Duplicants will no longer consume oxygen.
-* PressureSensorGasMod: Max Range set to 25 (from Onion patcher)
-* PressureSensorLiquidMod: Max Range set to 10000 (from Onion patcher)
+* FastModeMod: Duplicants will build an dig very fast.
+* SensorsMod: It modifies some ranges y automation sensors (taken from Onion patcher).
 * SpeedControlMod: Overwrites the method SpeedControlScreen.OnChange. Fast Speed set to behave like Ultra Speed in debug mode.
-* TemperatureSensorMod: Max Temp set to 1573.15 (from Onion patcher)
+* Patches: Some incomplete tests.
 
 
 Installation
@@ -76,6 +69,7 @@ Harmony Tutorials
 * https://github.com/pardeike/Harmony/wiki/
 * https://github.com/roxxploxx/RimWorldModGuide/wiki/SHORTTUTORIAL:-Harmony
 * https://github.com/UnlimitedHugs/RimworldHugsLib/wiki/Introduction-to-Patching
+* https://github.com/UnlimitedHugs/RimworldHugsLib/wiki/Detouring
 
 
 Tips
