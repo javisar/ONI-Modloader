@@ -1,11 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using Mono.Cecil;
 using Mono.Cecil.Cil;
-using UnityEngine;
 using System.IO;
+using Mono.Collections.Generic;
 
 namespace spaar.ModLoader.Injector
 {
@@ -29,8 +28,8 @@ namespace spaar.ModLoader.Injector
                 throw new Exception("Global.Awake not found");
             }
 
-            var p = planetStart.Body.GetILProcessor();
-            var i = p.Body.Instructions;
+            ILProcessor p = planetStart.Body.GetILProcessor();
+            Collection<Instruction> i = p.Body.Instructions;
             /*
             i.Insert(0, p.Create(OpCodes.Nop));
             i.Insert(1, p.Create(OpCodes.Nop));
@@ -50,7 +49,7 @@ namespace spaar.ModLoader.Injector
 
             //i.Insert(3, p.Create(OpCodes.Stloc_0));
 
-            i.Insert(index++, p.Create(OpCodes.Ldstr, "/Mods/ModLoader.dll"));
+            i.Insert(index++, p.Create(OpCodes.Ldstr, "/ModLoader.dll"));
             i.Insert(index++, p.Create(OpCodes.Call, Util.ImportMethod<string>(game, "Concat", typeof(string), typeof(string))));
             i.Insert(index++, p.Create(OpCodes.Call, Util.ImportMethod<Assembly>(game, "LoadFrom", typeof(string))));
             // .GetType("spaar.ModLoader.Internal.Activator()

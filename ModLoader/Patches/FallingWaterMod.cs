@@ -1,16 +1,12 @@
 ﻿using Harmony;
-using System;
-using System.Collections.Generic;
 using System.Reflection;
-using System.Reflection.Emit;
-using UnityEngine;
 
 namespace ModLoader
 {           	
     
     [HarmonyPatch(typeof(FallingWater))]
     [HarmonyPatch("gravityScale", PropertyMethod.Getter)]
-    internal class FallingWaterMod
+    internal static class FallingWaterMod
     {
         private static readonly FieldInfo gravityScale = AccessTools.Field(typeof(FallingWater), "gravityScale");
 

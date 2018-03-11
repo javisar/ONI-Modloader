@@ -6,7 +6,7 @@ namespace FastModeMod
 {
 
     [HarmonyPatch(typeof(Constructable), "GetEfficiencyMultiplier", new Type[] { typeof(Worker) })]
-    internal class InstantDigAndBuildMod
+    internal static class InstantDigAndBuildMod
     {
 
         private static void Postfix(Constructable __instance, Worker worker, ref float __result)
@@ -14,7 +14,9 @@ namespace FastModeMod
             //Debug.Log(" === GetEfficiencyMultiplier InstantDigAndBuildMod === " + __instance.GetType().ToString());
             if (__instance.GetType().Equals(typeof(Constructable))
                 || __instance.GetType().Equals(typeof(Diggable)))
+            {
                 __result = 100.0f;
+            }
         }
     }
 

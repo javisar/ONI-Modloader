@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace ONI
 {
-    public class Global
+    public static class Global
     {
         public static void Awake()
         {
@@ -19,7 +19,7 @@ namespace ONI
                 Assembly modLoaderAssembly = Assembly.LoadFrom(Path.Combine(managedPath, "ModLoader.dll"));
                 Type modLoaderType = modLoaderAssembly.GetType("ModLoader.ModLoader", true);
                 MethodInfo startMethod = modLoaderType.GetMethod("Start", new Type[0]);
-                startMethod.Invoke(null, new object[0]);
+                startMethod?.Invoke(null, new object[0]);
             }
             catch (Exception e)
             {

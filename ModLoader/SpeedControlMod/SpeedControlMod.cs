@@ -1,15 +1,12 @@
 ﻿using Harmony;
 using System;
-using System.Collections.Generic;
-using System.Reflection;
-using System.Reflection.Emit;
 using UnityEngine;
 
 namespace SpeedControlMod
 {           	
     
     [HarmonyPatch(typeof(SpeedControlScreen), "OnChanged", new Type[0])]
-    internal class SpeedControlMod
+    internal static class SpeedControlMod
     {
 
         private static bool Prefix(SpeedControlScreen __instance)

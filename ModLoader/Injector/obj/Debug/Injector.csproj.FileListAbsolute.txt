@@ -1,0 +1,8 @@
+C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\Injector\bin\Debug\Injector.exe
+C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\Injector\bin\Debug\Injector.pdb
+C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\Injector\bin\Debug\Mono.Cecil.dll
+C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\Injector\obj\Debug\Injector.csprojResolveAssemblyReference.cache
+C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\Injector\obj\Debug\Injector.csproj.CoreCompileInputs.cache
+C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\Injector\obj\Debug\Injector.exe
+C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\Managed\Injector.exe
+C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\Injector\obj\Debug\Injector.csproj.CopyComplete

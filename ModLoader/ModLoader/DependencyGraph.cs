@@ -16,8 +16,8 @@ namespace ModLoader
         public DependencyGraph(List<Assembly> modAssemblies)
         {
             int size = modAssemblies.Count;
-            vertices = new Vertex[size];
-            nameLookup = new Dictionary<string, Vertex>(size);
+            this.vertices = new Vertex[size];
+            this.nameLookup = new Dictionary<string, Vertex>(size);
 
             // Create vertices
             for (int i = 0; i < size; ++i)
@@ -26,19 +26,19 @@ namespace ModLoader
                 string modName = Path.GetFileNameWithoutExtension(modAssembly.Location);
 
                 Vertex modVertex = new Vertex(i, modAssembly, modName);
-                vertices[i] = modVertex;
-                nameLookup[modAssembly.FullName] = modVertex;
+                this.vertices[i] = modVertex;
+                this.nameLookup[modAssembly.FullName] = modVertex;
             }
 
             // Add edges
-            foreach (Vertex modVertex in vertices)
+            foreach (Vertex modVertex in this.vertices)
             {
                 Assembly modAssembly = modVertex.assembly;
 
                 foreach (AssemblyName referenced in modAssembly.GetReferencedAssemblies())
                 {
                     Vertex dependencyVertex;
-                    if (nameLookup.TryGetValue(referenced.FullName, out dependencyVertex))
+                    if (this.nameLookup.TryGetValue(referenced.FullName, out dependencyVertex))
                     {
                         modVertex.dependencies.Add(dependencyVertex);
                         dependencyVertex.dependents.Add(modVertex);
@@ -53,19 +53,21 @@ namespace ModLoader
 
         public List<Assembly> TopologicalSort()
         {
-            int[] unloadedDependencies = new int[vertices.Length];
+            int[] unloadedDependencies = new int[this.vertices.Length];
             SortedList<String, Vertex> loadableMods = new SortedList<string, Vertex>();
-            List<Assembly> loadedMods = new List<Assembly>(vertices.Length);
+            List<Assembly> loadedMods = new List<Assembly>(this.vertices.Length);
 
             // Initialize the directory
-            for (int i = 0; i < vertices.Length; ++i)
+            for (int i = 0; i < this.vertices.Length; ++i)
             {
-                Vertex vertex = vertices[i];
+                Vertex vertex = this.vertices[i];
                 int dependencyCount = vertex.dependencies.Count;
 
                 unloadedDependencies[i] = dependencyCount;
                 if (dependencyCount == 0)
+                {
                     loadableMods.Add(vertex.name, vertex);
+                }
             }
 
             // Perform the (reverse) topological sorting
@@ -85,8 +87,11 @@ namespace ModLoader
                 }
             }
 
-            if (loadedMods.Count < vertices.Length)
+            if (loadedMods.Count < this.vertices.Length)
+            {
                 throw new ArgumentException("Could not sort dependencies topologically due to a cyclic dependency.");
+            }
+
             return loadedMods;
         }
 
@@ -106,8 +111,8 @@ namespace ModLoader
                 this.assembly = assembly;
                 this.name = name;
 
-                dependencies = new List<Vertex>();
-                dependents = new List<Vertex>();
+                this.dependencies = new List<Vertex>();
+                this.dependents = new List<Vertex>();
             }
         }
     }

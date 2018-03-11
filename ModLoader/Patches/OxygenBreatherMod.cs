@@ -1,15 +1,10 @@
 ﻿using Harmony;
-using Klei.AI;
 using System;
-using System.Collections.Generic;
-using System.Reflection;
-using System.Reflection.Emit;
-using UnityEngine;
 
 namespace OxygenBreatherMod
 {
     [HarmonyPatch(typeof(OxygenBreather), "Sim200ms", new Type[] { typeof(float) })]
-    internal class NoOxygenConsumptionMod
+    internal static class NoOxygenConsumptionMod
     {
 
        private static bool Prefix(OxygenBreather __instance, ref float dt)

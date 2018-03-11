@@ -12,8 +12,8 @@ namespace spaar.ModLoader.Injector
 
             Console.WriteLine("Assembly-UnityScript.dll location:");
 
-            System.IO.File.Delete(currentPath + "\\Assembly-CSharp.dll.orig");
-            System.IO.File.Move(currentPath + "\\Assembly-CSharp.dll", currentPath + "\\Assembly-CSharp.dll.orig");
+            File.Delete(currentPath + "\\Assembly-CSharp.dll.orig");
+            File.Move(currentPath + "\\Assembly-CSharp.dll", currentPath + "\\Assembly-CSharp.dll.orig");
 
             //string pathUnityScript = Console.ReadLine();
             string pathUnityScript = currentPath+"\\Assembly-CSharp.dll.orig";

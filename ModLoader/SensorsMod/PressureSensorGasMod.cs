@@ -1,15 +1,12 @@
 ﻿using Harmony;
 using System;
-using System.Collections.Generic;
-using System.Reflection;
-using System.Reflection.Emit;
 using UnityEngine;
 
 namespace SensorsMod
 {
 
     [HarmonyPatch(typeof(LogicPressureSensorGasConfig), "DoPostConfigureComplete", new Type[] { typeof(GameObject) })]
-    internal class PressureSensorGasMod
+    internal static class PressureSensorGasMod
     {
 
         private static void Postfix(LogicPressureSensorGasConfig __instance, GameObject go)

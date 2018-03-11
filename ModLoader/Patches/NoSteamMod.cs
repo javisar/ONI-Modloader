@@ -8,7 +8,7 @@ namespace NoSteamMod
 {
 
     [HarmonyPatch(typeof(Global), "Awake", new Type[0])]
-    internal class NoSteamMod
+    internal static class NoSteamMod
     {
         private static IEnumerable<CodeInstruction> Transpiler(MethodBase original, IEnumerable<CodeInstruction> instructions)
         {

@@ -1,15 +1,12 @@
 ﻿using Harmony;
 using System;
-using System.Collections.Generic;
-using System.Reflection;
-using System.Reflection.Emit;
 using UnityEngine;
 
 namespace SensorsMod
 {
 
     [HarmonyPatch(typeof(LogicTemperatureSensorConfig), "DoPostConfigureComplete", new Type[] { typeof(GameObject) })]
-    internal class TemperatureSensorMod
+    internal static class TemperatureSensorMod
     {
         private static void Postfix(LogicTemperatureSensorConfig __instance, GameObject go)
         {

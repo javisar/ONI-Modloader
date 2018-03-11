@@ -43,17 +43,17 @@ namespace ModLoader
         {
             DirectoryInfo dataDir = new DirectoryInfo(Application.dataPath);
 
-            DirectoryInfo tldBaseDirectory;
+            DirectoryInfo oniBaseDirectory;
             if (Application.platform == RuntimePlatform.OSXPlayer)
             {
-                tldBaseDirectory = dataDir; 
+                oniBaseDirectory = dataDir.Parent?.Parent; 
             }
             else
             {
-                tldBaseDirectory = dataDir;
+                oniBaseDirectory = dataDir.Parent;
             }
-
-            return new DirectoryInfo(Path.Combine(tldBaseDirectory.FullName, "Managed//mods"));
+            Debug.Log("Path to mods is: " + Path.Combine(oniBaseDirectory?.FullName, "Mods"));
+            return new DirectoryInfo(Path.Combine(oniBaseDirectory?.FullName, "Mods"));
         }
 
         private static DependencyGraph LoadModAssemblies(FileInfo[] assemblyFiles)
@@ -65,10 +65,14 @@ namespace ModLoader
             foreach (FileInfo file in assemblyFiles)
             {
                 if (file.Extension != ".dll") // GetFiles filter is too inclusive
+                {
                     continue;
+                }
 
                 if (file.Name.ToLower() == "0harmony" || file.Name.ToLower() == "modloader") // GetFiles filter is too inclusive
+                {
                     continue;
+                }
 
                 try
                 {

@@ -8,7 +8,7 @@ namespace ModLoader
 {           
 	
     [HarmonyPatch(typeof(CameraController), "OnSpawn", new Type[0] )]
-    internal class CameraControllerMod
+    internal static class CameraControllerMod
     {
         private static IEnumerable<CodeInstruction> Transpiler(MethodBase original, IEnumerable<CodeInstruction> instructions)
         {
