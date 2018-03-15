@@ -2,6 +2,5 @@ C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\SpeedControlMod\bin
 C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\SpeedControlMod\bin\Debug\SpeedControlMod.pdb
 C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\Managed\Mods\SpeedControlMod.dll
 C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\SpeedControlMod\obj\Debug\SpeedControlMod.csproj.CoreCompileInputs.cache
-C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\SpeedControlMod\obj\Debug\SpeedControlMod.csproj.CopyComplete
 C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\SpeedControlMod\obj\Debug\SpeedControlMod.dll
 C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\SpeedControlMod\obj\Debug\SpeedControlMod.csprojResolveAssemblyReference.cache

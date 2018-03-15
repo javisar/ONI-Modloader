@@ -58,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Class3.cs" />
+    <Compile Include="Extensions\Class2.cs" />
     <Compile Include="TemperatureOverlay\ColorThresholdTemperatureSorter.cs" />
     <Compile Include="Helpers\ColorHelper.cs" />
     <None Include="ColorHelper_Patched.cs" />

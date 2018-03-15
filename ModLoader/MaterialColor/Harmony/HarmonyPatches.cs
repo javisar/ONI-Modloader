@@ -11,11 +11,13 @@ using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
 using System.Reflection.Emit;
+using Common.Json;
 using MaterialColor.TemperatureOverlay;
 using ONI_Common;
 using ONI_Common.Core;
 using ONI_Common.Data;
 using ONI_Common.IO;
+using ProcGen;
 using UnityEngine;
 
 namespace MaterialColor
@@ -547,7 +549,7 @@ namespace MaterialColor
             #endregion Public Methods
         }
 
-
+        // Todo: add options ingamem, make optional
         [HarmonyPatch(typeof(LogicWireBridgeConfig), nameof(LogicWireBridgeConfig.CreateBuildingDef))]
         public static class LogicWireBridgeConfig_CreateBuildingDef
         {
@@ -652,12 +654,37 @@ namespace MaterialColor
             #endregion Public Methods
         }
 
+
+        // Custom map size, todo: make it optional and accessable
+      //  [HarmonyPatch(typeof(GridSettings), "Reset")]
+      //  public static class GridSettings_Reset
+      //  {
+      //      public static void Prefix(ref int width, ref int height)
+      //      {
+      //          if (Config.Enabled && Config.CustomWorldSize)
+      //          {
+      //              try
+      //              {
+      //                  width = Config.Width * 32;
+      //                  height = Config.Height * 32;
+      //
+      //                  _logger.Log("Custom world dimensions applied");
+      //              }
+      //              catch (Exception e)
+      //              {
+      //                  _logger.Log(e);
+      //                  _logger.Log("On do offline world gen failed");
+      //              }
+      //          }
+      //      }
+      //  }
+
         [HarmonyPatch(typeof(SimDebugView), "GetOxygenMapColour")]
         public static class SimDebugView_GetOxygenMapColour
         {
             #region Public Methods
-
-            public static void Postfix(int cell, ref Color __result)
+            public static Color32 unbreathableColour = new Color(0.5f, 0f, 0f);
+            public static bool Prefix(int cell, ref Color __result)
             {
                 float minMass = State.ConfiguratorState.GasPressureStart;
                 float maxMass = State.ConfiguratorState.GasPressureEnd;
@@ -667,7 +694,7 @@ namespace MaterialColor
                 if (!element.IsGas)
                 {
                     __result = NotGasColor;
-                    return;
+                    return false;
                 }
 
                 Color gasColor = ColorHelper.GetCellOverlayColor(cell);
@@ -688,12 +715,50 @@ namespace MaterialColor
                     maxMass = float.Epsilon;
                 }
 
-                float intensity = GetGasColorIntensity(gasMass, maxMass);
+                float intensity;
+                ColorHSV gasColorHSV = gasColor;
+                    float mass = global::Grid.Mass[cell];
+                if (element.id == global::SimHashes.Oxygen || element.id == global::SimHashes.ContaminatedOxygen)
+                {
+                    float optimallyBreathable = global::SimDebugView.optimallyBreathable;
+                    intensity = Mathf.Clamp((mass - global::SimDebugView.minimumBreathable) / optimallyBreathable, 0.05f, 1f);
 
-                gasColor *= intensity;
-                gasColor.a = 1;
+                    // To red for thin air
+                    if (intensity < 1f)
+                    {
+                        gasColorHSV.v = Mathf.Min(gasColorHSV.v+1f-intensity, 0.9f);
+                    }
 
-                __result = gasColor;
+                }
+                else
+                {
+                intensity = GetGasColorIntensity(gasMass, maxMass);
+                }
+                //Pop ear drum avoider
+                if (mass > 2.5f)
+                {
+                    gasColorHSV.h += 0.035f* Mathf.InverseLerp(2.5f, 3.5f, mass);
+                    if (gasColorHSV.h > 1f)
+                    {
+                        gasColorHSV.h -= 1f;
+
+                    }
+                    float intens = Mathf.InverseLerp(20f, 3.5f, mass);
+
+                    gasColorHSV.v = Mathf.Max(0.5f, gasColorHSV.v * intens);
+
+                }
+
+
+                // New code, use the saturation of a color for the pressure
+                gasColorHSV.s = intensity*0.8f;
+                __result = gasColorHSV;
+
+                return false;
+
+                // gasColor *= intensity;
+                // gasColor.a = 1;
+                // __result = gasColor;
             }
 
             #endregion Public Methods

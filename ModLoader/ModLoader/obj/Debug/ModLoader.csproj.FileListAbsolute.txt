@@ -5,5 +5,4 @@ C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\Managed\Mods\ModLoader.dll
 C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\ModLoader\obj\Debug\ModLoader.csprojResolveAssemblyReference.cache
 C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\ModLoader\obj\Debug\ModLoader.csproj.CoreCompileInputs.cache
 C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\ModLoaderInstaller\resources\ModLoader.dll
-C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\ModLoader\obj\Debug\ModLoader.csproj.CopyComplete
 C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\ModLoader\obj\Debug\ModLoader.dll
