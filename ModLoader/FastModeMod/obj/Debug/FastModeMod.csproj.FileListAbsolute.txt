@@ -1,8 +1,8 @@
 C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\FastModeMod\bin\Debug\FastModeMod.dll
 C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\FastModeMod\bin\Debug\FastModeMod.pdb
-C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\FastModeMod\obj\Debug\FastModeMod.csprojResolveAssemblyReference.cache
-C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\FastModeMod\obj\Debug\FastModeMod.csproj.CoreCompileInputs.cache
-C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\FastModeMod\obj\Debug\FastModeMod.dll
-C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\FastModeMod\obj\Debug\FastModeMod.csproj.CopyComplete
 C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\FastModeMod\bin\Debug\0Harmony.dll
 C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\Managed\Mods\FastModeMod.dll
+C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\FastModeMod\obj\Debug\FastModeMod.csprojResolveAssemblyReference.cache
+C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\FastModeMod\obj\Debug\FastModeMod.csproj.CoreCompileInputs.cache
+C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\FastModeMod\obj\Debug\FastModeMod.csproj.CopyComplete
+C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\FastModeMod\obj\Debug\FastModeMod.dll

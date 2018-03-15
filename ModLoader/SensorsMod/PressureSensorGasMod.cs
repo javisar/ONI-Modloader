@@ -1,11 +1,10 @@
 ﻿using Harmony;
-using System;
 using UnityEngine;
 
 namespace SensorsMod
 {
 
-    [HarmonyPatch(typeof(LogicPressureSensorGasConfig), "DoPostConfigureComplete", new Type[] { typeof(GameObject) })]
+    [HarmonyPatch(typeof(LogicPressureSensorGasConfig), "DoPostConfigureComplete", new[] { typeof(GameObject) })]
     internal static class PressureSensorGasMod
     {
 
@@ -13,7 +12,8 @@ namespace SensorsMod
         {
             Debug.Log(" === PressureSensorGasMod INI === ");
             LogicPressureSensor logicPressureSensor = go.AddOrGet<LogicPressureSensor>();
-            logicPressureSensor.rangeMax = 25f;
+            AccessTools.Field(typeof(LogicPressureSensor), "rangeMax").SetValue(logicPressureSensor, 25f);
+           // logicPressureSensor.rangeMax = 25f;
             Debug.Log(" === PressureSensorGasMod END === ");
         }
     }

@@ -1,8 +1,8 @@
 C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\Patches\bin\Debug\Patches.dll
 C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\Patches\bin\Debug\Patches.pdb
+C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\Patches\bin\Debug\0Harmony.dll
 C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\Patches\obj\Debug\Patches.csprojResolveAssemblyReference.cache
 C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\Patches\obj\Debug\Patches.csproj.CoreCompileInputs.cache
+C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\Patches\obj\Debug\Patches.csproj.CopyComplete
 C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\Patches\obj\Debug\Patches.dll
 C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\Patches\obj\Debug\Patches.pdb
-C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\Patches\obj\Debug\Patches.csproj.CopyComplete
-C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\Patches\bin\Debug\0Harmony.dll

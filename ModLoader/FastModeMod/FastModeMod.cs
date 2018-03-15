@@ -1,11 +1,12 @@
 ﻿using Harmony;
-using System;
+using System.Diagnostics.CodeAnalysis;
 
 
 namespace FastModeMod
 {
 
-    [HarmonyPatch(typeof(Constructable), "GetEfficiencyMultiplier", new Type[] { typeof(Worker) })]
+    [HarmonyPatch(typeof(Constructable), "GetEfficiencyMultiplier", new[] { typeof(Worker) })]
+    [SuppressMessage("ReSharper", "UnusedParameter.Local")]
     internal static class InstantDigAndBuildMod
     {
 

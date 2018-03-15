@@ -1,6 +1,6 @@
 C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\SensorsMod\bin\Debug\SensorsMod.dll
 C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\SensorsMod\bin\Debug\SensorsMod.pdb
+C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\Managed\Mods\SensorsMod.dll
 C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\SensorsMod\obj\Debug\SensorsMod.csprojResolveAssemblyReference.cache
 C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\SensorsMod\obj\Debug\SensorsMod.csproj.CoreCompileInputs.cache
 C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\SensorsMod\obj\Debug\SensorsMod.dll
-C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\Managed\Mods\SensorsMod.dll

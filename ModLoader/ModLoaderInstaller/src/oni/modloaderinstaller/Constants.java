@@ -45,7 +45,7 @@ public final class Constants {
 	public static final String UNPATCHED_SHA1;
 	public static final String PATCHED_SHA1;
 
-	public static final String MOD_LOADER_SHA1 = "942717f5104e4579f6eb4e2f5b013de0773a0cee";
+	public static final String MOD_LOADER_SHA1 = "2b31e9ceb956b7c627aaf17be04f9128b71e3df7";
 	public static final String ERROR_SHA1 = "- ERROR -";
 
 

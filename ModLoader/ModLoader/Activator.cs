@@ -2,7 +2,7 @@
 {
     public static class Activator
     {
-        private static bool activated = false;
+        private static bool activated;
 
         /// <summary>
         /// Activate the mod loader.
@@ -12,7 +12,6 @@
         {
             if (!activated)
             {
-                ModLoader md = new ModLoader();
                 activated = true;
                 ModLoader.Start();                
             }

@@ -1,6 +1,4 @@
-C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\MaterialColor\obj\Debug\MaterialColor.csprojResolveAssemblyReference.cache
-C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\MaterialColor\obj\Debug\MaterialColor.csproj.CoreCompileInputs.cache
 C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\MaterialColor\bin\Debug\MaterialColor.dll
 C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\MaterialColor\bin\Debug\MaterialColor.pdb
-C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\MaterialColor\obj\Debug\MaterialColor.dll
-C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\MaterialColor\obj\Debug\MaterialColor.pdb
+C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\MaterialColor\obj\Debug\MaterialColor.csprojResolveAssemblyReference.cache
+C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\MaterialColor\obj\Debug\MaterialColor.csproj.CoreCompileInputs.cache

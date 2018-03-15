@@ -1,9 +1,8 @@
 ﻿using Harmony;
-using System;
 
 namespace OxygenBreatherMod
 {
-    [HarmonyPatch(typeof(OxygenBreather), "Sim200ms", new Type[] { typeof(float) })]
+    [HarmonyPatch(typeof(OxygenBreather), "Sim200ms", new[] { typeof(float) })]
     internal static class NoOxygenConsumptionMod
     {
 

@@ -1,23 +1,26 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using Mono.Cecil;
 using Mono.Cecil.Cil;
-using System.IO;
 using Mono.Collections.Generic;
 
-namespace spaar.ModLoader.Injector
+namespace Injector
 {
     public static class Injector
     {
 
         public static void Inject(AssemblyDefinition game, string outputPath)
         {
+
             TypeDefinition planetRotate = game.MainModule.GetType("", "Global");
 
             if (planetRotate == null)
             {
-                throw new Exception("Global not found");
+                Console.WriteLine("Global not found");
+                Console.Read();
+                return; 
             }
 
             MethodDefinition planetStart = planetRotate.Methods.FirstOrDefault(
@@ -25,7 +28,9 @@ namespace spaar.ModLoader.Injector
 
             if (planetStart == null)
             {
-                throw new Exception("Global.Awake not found");
+                Console.WriteLine( "Global.Awake not found");
+                Console.Read();
+                return;
             }
 
             ILProcessor p = planetStart.Body.GetILProcessor();
@@ -41,8 +46,8 @@ namespace spaar.ModLoader.Injector
             int index = 0;
             // Assembly.LoadFrom(Application.dataPath + "/Mods/ModLoader.dll")
             //i.Insert(0, p.Create(OpCodes.Call, Util.ImportMethod<Application>(game, "get_dataPath")));
-            i.Insert(index++, p.Create(OpCodes.Call, Util.ImportMethod<Assembly>(game, "GetExecutingAssembly")));
-            i.Insert(index++, p.Create(OpCodes.Callvirt, Util.ImportMethod<Assembly>(game, "get_Location")));
+            i.Insert(index++, p.Create(OpCodes.Call, spaar.ModLoader.Injector.Util.ImportMethod<Assembly>(game, "GetExecutingAssembly")));
+            i.Insert(index++, p.Create(OpCodes.Callvirt, spaar.ModLoader.Injector.Util.ImportMethod<Assembly>(game, "get_Location")));
             //i.Insert(2, p.Create(OpCodes.Call, Util.ImportMethod<Path>(game, "GetDirectoryName", typeof(string))));
             Type[] types = { typeof(string) };
             i.Insert(index++, p.Create(OpCodes.Call, game.MainModule.ImportReference(typeof(Path).GetMethod("GetDirectoryName", types))));
@@ -50,18 +55,18 @@ namespace spaar.ModLoader.Injector
             //i.Insert(3, p.Create(OpCodes.Stloc_0));
 
             i.Insert(index++, p.Create(OpCodes.Ldstr, "/ModLoader.dll"));
-            i.Insert(index++, p.Create(OpCodes.Call, Util.ImportMethod<string>(game, "Concat", typeof(string), typeof(string))));
-            i.Insert(index++, p.Create(OpCodes.Call, Util.ImportMethod<Assembly>(game, "LoadFrom", typeof(string))));
+            i.Insert(index++, p.Create(OpCodes.Call, spaar.ModLoader.Injector.Util.ImportMethod<string>(game, "Concat", typeof(string), typeof(string))));
+            i.Insert(index++, p.Create(OpCodes.Call, spaar.ModLoader.Injector.Util.ImportMethod<Assembly>(game, "LoadFrom", typeof(string))));
             // .GetType("spaar.ModLoader.Internal.Activator()
             i.Insert(index++, p.Create(OpCodes.Ldstr, "ModLoader.Activator"));
-            i.Insert(index++, p.Create(OpCodes.Callvirt, Util.ImportMethod<Assembly>(game, "GetType", typeof(string))));
+            i.Insert(index++, p.Create(OpCodes.Callvirt, spaar.ModLoader.Injector.Util.ImportMethod<Assembly>(game, "GetType", typeof(string))));
             // .GetMethod("Activate")
             i.Insert(index++, p.Create(OpCodes.Ldstr, "Activate"));
-            i.Insert(index++, p.Create(OpCodes.Callvirt, Util.ImportMethod<Type>(game, "GetMethod", typeof(string))));
+            i.Insert(index++, p.Create(OpCodes.Callvirt, spaar.ModLoader.Injector.Util.ImportMethod<Type>(game, "GetMethod", typeof(string))));
             // .Invoke(null, null);
             i.Insert(index++, p.Create(OpCodes.Ldnull));
             i.Insert(index++, p.Create(OpCodes.Ldnull));
-            i.Insert(index++, p.Create(OpCodes.Callvirt, Util.ImportMethod<MethodBase>(game, "Invoke", typeof(object), typeof(object[]))));
+            i.Insert(index++, p.Create(OpCodes.Callvirt, spaar.ModLoader.Injector.Util.ImportMethod<MethodBase>(game, "Invoke", typeof(object), typeof(object[]))));
             i.Insert(index++, p.Create(OpCodes.Pop));
 
             /*
@@ -83,26 +88,8 @@ namespace spaar.ModLoader.Injector
             i.Insert(11, p.Create(OpCodes.Pop));
             */
             game.Write(outputPath);
-        }
 
-    }
 
-    public static class Util
-    {
-        public static MethodReference ImportMethod<T>(AssemblyDefinition assembly, string name)
-        {
-            return assembly.MainModule.ImportReference(typeof(T).GetMethod(name, Type.EmptyTypes));
-        }
-
-        public static MethodReference ImportMethod<T>(AssemblyDefinition assembly, string name, params Type[] types)
-        {
-            return assembly.MainModule.ImportReference(typeof(T).GetMethod(name, types));
-        }
-
-        public static MethodReference ImportMethod(AssemblyDefinition assembly, string type, string method, params Type[] types)
-        {
-            TypeReference reference = assembly.MainModule.Types.First(t => t.Name == type);
-            return assembly.MainModule.ImportReference(reference.Resolve().Methods.First(m => m.Name == method));
         }
     }
 }

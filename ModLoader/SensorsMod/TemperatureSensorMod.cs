@@ -1,18 +1,20 @@
 ﻿using Harmony;
-using System;
 using UnityEngine;
 
 namespace SensorsMod
 {
 
-    [HarmonyPatch(typeof(LogicTemperatureSensorConfig), "DoPostConfigureComplete", new Type[] { typeof(GameObject) })]
+    [HarmonyPatch(typeof(LogicTemperatureSensorConfig), "DoPostConfigureComplete", new[] { typeof(GameObject) })]
     internal static class TemperatureSensorMod
     {
         private static void Postfix(LogicTemperatureSensorConfig __instance, GameObject go)
         {
             Debug.Log(" === TemperatureSensorMod INI === ");
             LogicTemperatureSensor logicTemperatureSensor = go.AddOrGet<LogicTemperatureSensor>();
-            logicTemperatureSensor.maxTemp = 1573.15f;
+
+            AccessTools.Field(typeof(LogicTemperatureSensor), "maxTemp").SetValue(logicTemperatureSensor, 1573.15f);
+
+           // logicTemperatureSensor.maxTemp = 1573.15f;
             Debug.Log(" === TemperatureSensorMod END === ");
         }
     }

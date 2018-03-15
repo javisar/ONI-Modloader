@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
-using UnityEngine;
 
 namespace ModLoader
 {
@@ -37,15 +36,14 @@ namespace ModLoader
 
                 foreach (AssemblyName referenced in modAssembly.GetReferencedAssemblies())
                 {
-                    Vertex dependencyVertex;
-                    if (this.nameLookup.TryGetValue(referenced.FullName, out dependencyVertex))
+                    if (this.nameLookup.TryGetValue(referenced.FullName, out Vertex dependencyVertex))
                     {
                         modVertex.dependencies.Add(dependencyVertex);
                         dependencyVertex.dependents.Add(modVertex);
                     }
                     else if (referenced.CodeBase != null)
                     {
-                        Debug.Log("Dependency " + referenced.FullName + " at " + referenced.CodeBase + " was not a mod");
+                        UnityEngine.Debug.Log("Dependency " + referenced.FullName + " at " + referenced.CodeBase + " was not a mod");
                     }
                 }
             }
