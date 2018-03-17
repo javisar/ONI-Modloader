@@ -1,6 +1,6 @@
 ﻿namespace ONI_Common.Data
 {
-    public class OnionState
+    public class OnionState : OnionConfig
     {
         public bool Enabled { get; set; } = true;
         public bool CustomWorldSize { get; set; } = false;
@@ -16,5 +16,9 @@
         public int LayoutSeed { get; set; } = 0;
         public int TerrainSeed { get; set; } = 0;
         public int NoiseSeed { get; set; } = 0;
+    }
+
+    public abstract class OnionConfig
+    {
     }
 }

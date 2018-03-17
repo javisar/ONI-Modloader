@@ -58,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Core\State.cs" />
+    <Compile Include="Data\OnionState.cs" />
     <Compile Include="OnionHooks\Hooks.cs" />
     <None Include="ColorHelperONI.cs" />
     <Compile Include="DraggablePanel.cs" />
@@ -70,7 +71,6 @@
     <Compile Include="Data\ElementColorInfo.cs" />
     <Compile Include="Data\InjectorState.cs" />
     <Compile Include="Data\MaterialColorState.cs" />
-    <Compile Include="Data\OnionState.cs" />
     <Compile Include="Data\SerializeableVector2.cs" />
     <Compile Include="Data\TemperatureOverlayState.cs" />
     <None Include="EventHashes.cs" />

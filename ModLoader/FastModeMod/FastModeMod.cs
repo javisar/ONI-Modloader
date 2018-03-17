@@ -6,15 +6,14 @@ namespace FastModeMod
 {
 
     [HarmonyPatch(typeof(Constructable), "GetEfficiencyMultiplier", new[] { typeof(Worker) })]
-    [SuppressMessage("ReSharper", "UnusedParameter.Local")]
     internal static class InstantDigAndBuildMod
     {
 
         private static void Postfix(Constructable __instance, Worker worker, ref float __result)
         {
             //Debug.Log(" === GetEfficiencyMultiplier InstantDigAndBuildMod === " + __instance.GetType().ToString());
-            if (__instance.GetType().Equals(typeof(Constructable))
-                || __instance.GetType().Equals(typeof(Diggable)))
+            if (__instance.GetType() == typeof(Constructable)
+                || __instance.GetType() == typeof(Diggable))
             {
                 __result = 100.0f;
             }

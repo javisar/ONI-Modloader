@@ -400,8 +400,6 @@ namespace Injector
 
         private  void InjectOnionPatcher()
         {
-            this.InjectOnionDoWorldGen();
-            this.InjectOnionCameraController();
             this.InjectOnionDebugHandler();
             this.InjectOnionInitRandom();
         }
@@ -415,39 +413,6 @@ namespace Injector
                 );
         }
 
-        private  void InjectOnionDoWorldGen()
-        {
-            try
-            {
-                MethodBody doWorldGenInitialiseBody = CecilHelper.GetMethodDefinition(this._csharpModule, "OfflineWorldGen", "DoWordGenInitialise").Body;
-
-                Instruction callResetInstruction = doWorldGenInitialiseBody
-                    .Instructions
-                    .Where(instruction => instruction.OpCode == OpCodes.Call)
-                    .Reverse()
-                    .Skip(3)
-                    .First();
-
-                InstructionInserter instructionInserter = new InstructionInserter(doWorldGenInitialiseBody);
-
-                instructionInserter.InsertBefore(callResetInstruction, Instruction.Create(OpCodes.Pop));
-                instructionInserter.InsertBefore(callResetInstruction, Instruction.Create(OpCodes.Pop));
-
-                this._onionToCSharpInjector.InjectBefore(
-                    "Hooks", "OnDoOfflineWorldGen",
-                    doWorldGenInitialiseBody,
-                    callResetInstruction);
-
-                this._csharpInstructionRemover.ReplaceByNop(doWorldGenInitialiseBody, callResetInstruction);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("World generation injection failed");
-                Console.WriteLine(e);
-
-                Failed = true;
-            }
-        }
 
         private  void InjectOnionDebugHandler()
         {
@@ -483,23 +448,6 @@ namespace Injector
             this._onionToCSharpInjector.InjectBefore("Hooks", "OnDebugHandlerCtor", debugHandlerConstructorBody, lastInstruction);
         }
 
-        private  void InjectOnionCameraController()
-        {
-            const string TypeName = "CameraController";
-
-            this._csharpPublisher.MakeFieldPublic(TypeName, "maxOrthographicSize");
-            this._csharpPublisher.MakeFieldPublic(TypeName, "maxOrthographicSizeDebug");
-
-            MethodBody cameraControllerOnSpawnBody = CecilHelper.GetMethodDefinition(this._csharpModule, TypeName, "OnSpawn").Body;
-            Instruction restoreCall = cameraControllerOnSpawnBody.Instructions.Last(instruction => instruction.OpCode == OpCodes.Call);
-
-            this._onionToCSharpInjector.InjectBefore(
-                "Hooks",
-                "OnCameraControllerCtor",
-                cameraControllerOnSpawnBody,
-                restoreCall,
-                true);
-        }
 
 
 

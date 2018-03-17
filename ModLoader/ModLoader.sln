@@ -20,6 +20,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ONI-Common", "ONI-Common\ON
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ONI-Patcher", "ONI-Patcher", "{7167B5F4-71C4-4991-9879-EEBA6CA3AEB2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomWorldMod", "CustomWorldMod\CustomWorldMod.csproj", "{0D05225C-C127-40DA-9D80-F1BA481B7616}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -58,6 +60,10 @@ Global
 		{1208647D-C8C2-48DB-BF29-60C6F3E2B016}.Debug|Any CPU.Build.0 = Patching|Any CPU
 		{1208647D-C8C2-48DB-BF29-60C6F3E2B016}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1208647D-C8C2-48DB-BF29-60C6F3E2B016}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D05225C-C127-40DA-9D80-F1BA481B7616}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D05225C-C127-40DA-9D80-F1BA481B7616}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D05225C-C127-40DA-9D80-F1BA481B7616}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D05225C-C127-40DA-9D80-F1BA481B7616}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,5 +1,4 @@
 ﻿using Common;
-using Core;
 using Core.IO;
 using Harmony;
 using MaterialColor.Extensions;
@@ -10,14 +9,11 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
-using System.Reflection.Emit;
-using Common.Json;
 using MaterialColor.TemperatureOverlay;
 using ONI_Common;
 using ONI_Common.Core;
 using ONI_Common.Data;
 using ONI_Common.IO;
-using ProcGen;
 using UnityEngine;
 
 namespace MaterialColor
@@ -782,6 +778,7 @@ namespace MaterialColor
 
             #endregion Private Methods
         }
+
 
         /// <summary>
         /// Material + element color

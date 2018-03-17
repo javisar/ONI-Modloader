@@ -63,7 +63,6 @@
   <ItemGroup>
     <Compile Include="Activator.cs" />
     <Compile Include="Core\IO\FileManager.cs" />
-    <Compile Include="Core\KeybindingsManager.cs" />
     <Compile Include="Core\State.cs" />
     <Compile Include="DependencyGraph.cs" />
     <Compile Include="ModLoader.cs" />

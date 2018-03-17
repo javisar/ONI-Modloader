@@ -4,37 +4,34 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{FAAB5987-0B05-4114-808E-6C95D9EEA378}</ProjectGuid>
+    <ProjectGuid>{0D05225C-C127-40DA-9D80-F1BA481B7616}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MaterialColor</RootNamespace>
-    <AssemblyName>MaterialColor</AssemblyName>
+    <RootNamespace>CustomWorldMod</RootNamespace>
+    <AssemblyName>CustomWorldMod</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>false</DebugSymbols>
-    <DebugType>none</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\Managed\Mods\</OutputPath>
+    <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>none</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\Mods\MaterialColor\Assemblies\</OutputPath>
+    <OutputPath>..\..\Mods\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="0Harmony">
-      <HintPath>..\lib\0Harmony.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Less Serious\Assemblies\0Harmony.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Assembly-CSharp">
@@ -47,6 +44,10 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
     <Reference Include="UnityEngine">
       <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\SteamApps\common\OxygenNotIncluded\OxygenNotIncluded_Data\Managed\UnityEngine.dll</HintPath>
       <Private>False</Private>
@@ -57,33 +58,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Extensions\ColorHSV.cs" />
-    <Compile Include="TemperatureOverlay\ColorThresholdTemperatureSorter.cs" />
-    <Compile Include="Helpers\ColorHelper.cs" />
-    <None Include="ColorHelper_Patched.cs" />
-    <None Include="Extensions\Class1.cs" />
-    <Compile Include="Harmony\HarmonyPatches.cs" />
-    <Compile Include="Extensions\Color32Extensions.cs" />
-    <Compile Include="Helpers\MaterialHelper.cs" />
-    <Compile Include="TemperatureOverlayState.cs" />
-    <Compile Include="Extensions\SimHashesExtensions.cs" />
+    <Compile Include="HarmonyPatches.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ModLoader\ModLoader.csproj">
-      <Project>{1f2af815-740e-4310-869e-d0544c702389}</Project>
-      <Name>ModLoader</Name>
-      <Private>False</Private>
-    </ProjectReference>
-    <ProjectReference Include="..\ONI-Common\ONI-Common.csproj">
-      <Project>{1208647d-c8c2-48db-bf29-60c6f3e2b016}</Project>
-      <Name>ONI-Common</Name>
-      <Private>False</Private>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <PropertyGroup>
-    <PostBuildEvent>xcopy "$(TargetDir)$(TargetFileName)" "Z:\Applications\Steam Games\SteamApps\common\OxygenNotIncluded\Mods\MaterialColor\Assemblies" /Y</PostBuildEvent>
-  </PropertyGroup>
 </Project>

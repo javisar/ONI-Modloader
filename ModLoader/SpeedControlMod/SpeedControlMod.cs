@@ -29,10 +29,8 @@ namespace SpeedControlMod
             {
                 Time.timeScale = 10f;
             }
-            if (__instance.OnGameSpeedChanged != null)
-            {
-                __instance.OnGameSpeedChanged();
-            }
+
+            __instance.OnGameSpeedChanged?.Invoke();
 
             Debug.Log(" === SpeedControlMod END === ");
 

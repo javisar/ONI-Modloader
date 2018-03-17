@@ -82,7 +82,6 @@ namespace ONI_Common.OnionHooks
 
             TryLoadConfig();
             UpdateDebugHandler();
-            UpdateCameraController();
         }
 
         public static void OnInitRandom(ref int worldSeed, ref int layoutSeed, ref int terrainSeed, ref int noiseSeed)
@@ -150,14 +149,6 @@ namespace ONI_Common.OnionHooks
             }
         }
 
-        public static void OnCameraControllerCtor(CameraController cameraController)
-        {
-            _cameraController = cameraController;
-
-            _logger.Log("New CameraController was created");
-
-            UpdateCameraController();
-        }
 
         public static void UpdateDebugHandler()
         {
@@ -167,33 +158,5 @@ namespace ONI_Common.OnionHooks
             DebugHandler.FreeCameraMode = Config.Enabled && Config.FreeCamera;
         }
 
-        public static void UpdateCameraController()
-        {
-            try
-            {
-#if !Patch
-                if (Config.Enabled && Config.CustomMaxCameraDistance)
-                {
-                    _cameraController.maxOrthographicSizeDebug = _cameraController.maxOrthographicSize = Config.MaxCameraDistance;
-                }
-                else
-                {
-                    _cameraController.maxOrthographicSizeDebug = _cameraController.maxOrthographicSize = CameraController.DEFAULT_MAX_ORTHO_SIZE;
-                }
-#endif
-
-                UpdateQueueManager.EnqueueAction(UpdateCameraOrthographicsSize);
-            }
-            catch (Exception e)
-            {
-                _logger.Log("Update camera controller failed");
-                _logger.Log(e);
-            }
-        }
-
-        private static void UpdateCameraOrthographicsSize(object sender, EventArgs e)
-        {
-            _cameraController.SetOrthographicsSize(CameraController.DEFAULT_MAX_ORTHO_SIZE);
-        }
     }
 }
