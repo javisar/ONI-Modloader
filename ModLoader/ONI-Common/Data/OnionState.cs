@@ -1,6 +1,7 @@
 ﻿namespace ONI_Common.Data
 {
-    public class OnionState : OnionConfig
+   // [KSerialization.SerializationConfig(KSerialization.MemberSerialization.Fields)]
+    public class OnionState
     {
         public bool Enabled { get; set; } = true;
         public bool CustomWorldSize { get; set; } = false;
@@ -18,7 +19,5 @@
         public int NoiseSeed { get; set; } = 0;
     }
 
-    public abstract class OnionConfig
-    {
-    }
+
 }

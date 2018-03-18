@@ -42,7 +42,7 @@ namespace Injector
 
             this.SaveModule(module, path);
             // Harmony & Co.
-PatchMod(path);
+            this.PatchMod(path);
 
         }
         public void MakeBackup(string filePath)
