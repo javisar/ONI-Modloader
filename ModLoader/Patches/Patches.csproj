@@ -74,9 +74,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CameraControllerMod.cs" />
-    <Compile Include="FallingWaterMod.cs" />
-    <Compile Include="NoSteamMod.cs" />
-    <Compile Include="OxygenBreatherMod.cs" />
+    <None Include="FallingWaterMod.cs" />
+    <None Include="NoSteamMod.cs" />
+    <None Include="OxygenBreatherMod.cs" />
+    <None Include="ElectrolyzerMod.cs" />
+    <Compile Include="LogicWireBridgeMod.cs" />
+    <Compile Include="PressureDoorMod.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
@@ -94,7 +97,6 @@
   <Target Name="AfterBuild" DependsOnTargets="BuildPlugins">
   </Target>
   <PropertyGroup>
-    <PostBuildEvent>
-    </PostBuildEvent>
+    <PostBuildEvent>xcopy "$(TargetDir)$(TargetFileName)" "Z:\Applications\Steam Games\SteamApps\common\OxygenNotIncluded\Mods" /Y</PostBuildEvent>
   </PropertyGroup>
 </Project>

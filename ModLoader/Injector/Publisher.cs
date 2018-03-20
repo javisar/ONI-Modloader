@@ -1,15 +1,15 @@
-﻿using Mono.Cecil;
-
-namespace Injector
+﻿namespace Injector
 {
+    using Mono.Cecil;
+
     public class Publisher
     {
+        private readonly ModuleDefinition _targetModule;
+
         public Publisher(ModuleDefinition targetModule)
         {
             this._targetModule = targetModule;
         }
-
-        private readonly ModuleDefinition _targetModule;
 
         public void MakeFieldPublic(string typeName, string fieldName)
         {

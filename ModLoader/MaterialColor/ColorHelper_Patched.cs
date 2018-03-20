@@ -9,7 +9,7 @@ using UnityEngine;
 
 namespace MaterialColor
 {
-   public static class ColorHelper_Patched
+    public static class ColorHelper_Patched
     {
         public static Color?[] TileColors;
 
@@ -30,9 +30,11 @@ namespace MaterialColor
                     case ColorMode.Json:
                         color = material.GetMaterialColorForType(buildingName);
                         break;
+
                     case ColorMode.DebugColor:
                         color = material.ToDebugColor();
                         break;
+
                     case ColorMode.None:
                     default:
                         color = DefaultColor;
@@ -122,7 +124,7 @@ namespace MaterialColor
         }
         private static void SetFilteredStorageColors(FilteredStorage storage, Color32 color, Color32 dimmedColor)
         {
-            storage.filterTint   = color;
+            storage.filterTint = color;
             storage.noFilterTint = dimmedColor;
             storage.FilterChanged();
         }

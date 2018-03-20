@@ -1,14 +1,19 @@
-﻿using System;
-using System.IO;
-using Common.Json;
-using ONI_Common.Core;
-using ONI_Common.Data;
-using ONI_Common.IO;
-
-namespace ONI_Common.OnionHooks
+﻿namespace ONI_Common.OnionHooks
 {
+    using ONI_Common.Data;
+    using ONI_Common.IO;
+    using ONI_Common.Json;
+    using System;
+    using System.IO;
+
     public static class Hooks
     {
+        private static readonly Logger _logger = new IO.Logger(Paths.OnionLogFileName);
+
+        private static OnionState _config;
+
+        private static ConfiguratorStateManager _stateManager;
+
         public static OnionState Config
         {
             get
@@ -34,77 +39,24 @@ namespace ONI_Common.OnionHooks
 
                 return _config;
             }
+
             private set
             {
                 _config = value;
             }
         }
 
-        private static OnionState _config;
-        private static ConfiguratorStateManager _stateManager;
-        private static readonly ONI_Common.IO.Logger _logger = new ONI_Common.IO.Logger(Paths.OnionLogFileName);
-
-        private static CameraController _cameraController;
-
-        private static bool TryLoadConfig()
+        public static void OnDebugHandlerCtor()
         {
             try
             {
-                Config = _stateManager.LoadOnionState();
-
-                _logger.Log("OnionState.json loaded");
-
-                return true;
+                UpdateDebugHandler();
             }
-            catch
+            catch (Exception e)
             {
-                Config = new OnionState();
-
-                const string Message = "OnionState.json loading failed";
-
-                _logger.Log(Message);
-                Debug.LogError(Message);
-
-                return false;
+                _logger.Log("On debug handler constructor failed");
+                _logger.Log(e);
             }
-        }
-
-        private static void StartConfigFileWatcher()
-        {
-            FileChangeNotifier.StartFileWatch(Paths.OnionStateFileName, Paths.OnionConfigPath, OnConfigChanged);
-
-            _logger.Log("Config file watcher started");
-        }
-
-        private static void OnConfigChanged(object sender, FileSystemEventArgs e)
-        {
-            _logger.Log("Config changed");
-
-            TryLoadConfig();
-            UpdateDebugHandler();
-        }
-
-        public static void OnInitRandom(ref int worldSeed, ref int layoutSeed, ref int terrainSeed, ref int noiseSeed)
-        {
-            if (!Config.Enabled || !Config.CustomSeeds)
-            {
-                return;
-            }
-
-            worldSeed = Config.WorldSeed >= 0 ? Config.WorldSeed : worldSeed;
-            layoutSeed = Config.LayoutSeed >= 0 ? Config.LayoutSeed : layoutSeed;
-            terrainSeed = Config.TerrainSeed >= 0 ? Config.TerrainSeed : terrainSeed;
-            noiseSeed = Config.NoiseSeed >= 0 ? Config.NoiseSeed : noiseSeed;
-
-            if (!Config.LogSeed)
-            {
-                return;
-            }
-
-            string message = string.Format($"Size: {Config.Width}x{Config.Height} World Seed: {worldSeed} Layout Seed: {layoutSeed}" +
-                                        $"Terrain Seed: {terrainSeed} Noise Seed: {noiseSeed}");
-
-            _logger.Log(message);
         }
 
         public static void OnDoOfflineWorldGen()
@@ -131,32 +83,81 @@ namespace ONI_Common.OnionHooks
             }
         }
 
+        public static void OnInitRandom(ref int worldSeed, ref int layoutSeed, ref int terrainSeed, ref int noiseSeed)
+        {
+            if (!Config.Enabled || !Config.CustomSeeds)
+            {
+                return;
+            }
+
+            worldSeed   = Config.WorldSeed   >= 0 ? Config.WorldSeed : worldSeed;
+            layoutSeed  = Config.LayoutSeed  >= 0 ? Config.LayoutSeed : layoutSeed;
+            terrainSeed = Config.TerrainSeed >= 0 ? Config.TerrainSeed : terrainSeed;
+            noiseSeed   = Config.NoiseSeed   >= 0 ? Config.NoiseSeed : noiseSeed;
+
+            if (!Config.LogSeed)
+            {
+                return;
+            }
+
+            string message = string.Format(
+                                           $"Size: {Config.Width}x{Config.Height} World Seed: {worldSeed} Layout Seed: {layoutSeed}"
+                                         + $"Terrain Seed: {terrainSeed} Noise Seed: {noiseSeed}");
+
+            _logger.Log(message);
+        }
+
+        public static void UpdateDebugHandler()
+        {
+#if !Patch
+
+            // DebugHandler.enabled = Config.Enabled && Config.Debug;
+#endif
+
+            // DebugHandler.FreeCameraMode = Config.Enabled && Config.FreeCamera;
+        }
+
+        private static void OnConfigChanged(object sender, FileSystemEventArgs e)
+        {
+            _logger.Log("Config changed");
+
+            TryLoadConfig();
+            UpdateDebugHandler();
+        }
+
         private static void ResetGridSettingsChunks(int width, int height)
         {
             GridSettings.Reset(width * 32, height * 32);
         }
 
-        public static void OnDebugHandlerCtor()
+        private static void StartConfigFileWatcher()
+        {
+            FileChangeNotifier.StartFileWatch(Paths.OnionStateFileName, Paths.OnionConfigPath, OnConfigChanged);
+
+            _logger.Log("Config file watcher started");
+        }
+
+        private static bool TryLoadConfig()
         {
             try
             {
-                UpdateDebugHandler();
+                Config = _stateManager.LoadOnionState();
+
+                _logger.Log("OnionState.json loaded");
+
+                return true;
             }
-            catch (Exception e)
+            catch
             {
-                _logger.Log("On debug handler constructor failed");
-                _logger.Log(e);
+                Config = new OnionState();
+
+                const string Message = "OnionState.json loading failed";
+
+                _logger.Log(Message);
+                Debug.LogError(Message);
+
+                return false;
             }
         }
-
-
-        public static void UpdateDebugHandler()
-        {
-#if !Patch
-            DebugHandler.enabled = Config.Enabled && Config.Debug;
-#endif
-            DebugHandler.FreeCameraMode = Config.Enabled && Config.FreeCamera;
-        }
-
     }
 }

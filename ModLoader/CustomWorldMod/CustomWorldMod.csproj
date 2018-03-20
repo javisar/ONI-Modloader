@@ -58,8 +58,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="HarmonyPatches.cs" />
+    <None Include="HarmonyPatches.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>xcopy "$(TargetDir)$(TargetFileName)" "Z:\Applications\Steam Games\SteamApps\common\OxygenNotIncluded\Mods" /Y</PostBuildEvent>
+  </PropertyGroup>
 </Project>

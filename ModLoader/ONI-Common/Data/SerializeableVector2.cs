@@ -1,7 +1,7 @@
-﻿using UnityEngine;
-
-namespace ONI_Common.Data
+﻿namespace ONI_Common.Data
 {
+    using UnityEngine;
+
     public struct SerializeableVector2
     {
         public SerializeableVector2(float x, float y)
@@ -11,6 +11,7 @@ namespace ONI_Common.Data
         }
 
         public float x;
+
         public float y;
 
         public Vector2 ToVector2()

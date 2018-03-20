@@ -1,35 +1,20 @@
-﻿using Harmony;
-using System;
-using System.Collections.Generic;
-using System.Reflection;
-using System.Reflection.Emit;
+﻿namespace ModLoader
+{
+    using Harmony;
 
-namespace ModLoader
-{           
-	
-    [HarmonyPatch(typeof(CameraController), "OnSpawn", new Type[0] )]
-    internal static class CameraControllerMod
+    [HarmonyPatch(typeof(CameraController), "OnSpawn")]
+    public static class CameraControllerMod
     {
-        private static IEnumerable<CodeInstruction> Transpiler(MethodBase original, IEnumerable<CodeInstruction> instructions)
+        public static void Prefix(CameraController __instance)
         {
             Debug.Log(" === CameraControllerMod INI === ");
 
-            List<CodeInstruction> codes = new List<CodeInstruction>(instructions);
+            AccessTools.Field(typeof(CameraController), "maxOrthographicSize").SetValue(__instance, 100f);
+            AccessTools.Field(typeof(CameraController), "maxOrthographicSizeDebug").SetValue(__instance, 300f);
 
-            for (int i = codes.Count-1; i >= 0; i--)
-            {
-                CodeInstruction instruction = codes[i];
-                if (instruction.opcode == OpCodes.Call)
-                {
-                    
-                    Traverse.Create<CameraController>().Property("maxOrthographicSize").SetValue(300.0);
-                    Traverse.Create<CameraController>().Property("maxOrthographicSizeDebug").SetValue(300.0);
-
-                    //Traverse.Create<CameraController>().Method("SetOrthographicsSize").SetValue(Traverse.Create<CameraController>().Property("DEFAULT_MAX_ORTHO_SIZE").GetValue());
-                }
-                yield return instruction;
-            }
+            // Traverse.Create<CameraController>().Property("maxOrthographicSize").SetValue(100.0);
+            // Traverse.Create<CameraController>().Property("maxOrthographicSizeDebug").SetValue(200.0);
             Debug.Log(" === CameraControllerMod END === ");
         }
-    }	
+    }
 }

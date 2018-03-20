@@ -1,11 +1,13 @@
-﻿using System.IO;
-using Mono.Cecil;
-
-namespace Injector.IO
+﻿namespace Injector.IO
 {
+    using Mono.Cecil;
+    using System.IO;
+
     public class FileManager
     {
         public const string BackupString = ".backup";
+
+        public bool BackupForFileExists(string filePath) => File.Exists(GetBackupPathForFile(filePath));
 
         public void MakeBackup(string filePath)
         {
@@ -19,17 +21,11 @@ namespace Injector.IO
             File.Move(filePath, backupPath);
         }
 
-        public bool BackupForFileExists(string filePath)
-            => File.Exists(GetBackupPathForFile(filePath));
-
-        private static string GetBackupPathForFile(string filePath)
-            => filePath + BackupString;
-
         public bool RestoreBackupForFile(string filePath)
         {
             string backupPath   = GetBackupPathForFile(filePath);
-            bool backupExists = this.BackupForFileExists(filePath);
-            bool pathBlocked  = File.Exists(filePath);
+            bool   backupExists = this.BackupForFileExists(filePath);
+            bool   pathBlocked  = File.Exists(filePath);
 
             if (!backupExists)
             {
@@ -50,5 +46,7 @@ namespace Injector.IO
         {
             module.Write(filePath);
         }
+
+        private static string GetBackupPathForFile(string filePath) => filePath + BackupString;
     }
 }

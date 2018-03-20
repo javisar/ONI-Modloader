@@ -17,9 +17,5 @@ namespace MaterialColor.Extensions
         {
             return color.r << 16 | color.g << 8 | color.b;
         }
-
-
-
-
     }
 }

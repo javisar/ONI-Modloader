@@ -1,19 +1,14 @@
-﻿using Harmony;
-using System.Diagnostics.CodeAnalysis;
-
-
-namespace FastModeMod
+﻿namespace FastModeMod
 {
+    using Harmony;
 
     [HarmonyPatch(typeof(Constructable), "GetEfficiencyMultiplier", new[] { typeof(Worker) })]
     internal static class InstantDigAndBuildMod
     {
-
         private static void Postfix(Constructable __instance, Worker worker, ref float __result)
         {
-            //Debug.Log(" === GetEfficiencyMultiplier InstantDigAndBuildMod === " + __instance.GetType().ToString());
-            if (__instance.GetType() == typeof(Constructable)
-                || __instance.GetType() == typeof(Diggable))
+            // Debug.Log(" === GetEfficiencyMultiplier InstantDigAndBuildMod === " + __instance.GetType().ToString());
+            if (__instance.GetType() == typeof(Constructable) || __instance.GetType() == typeof(Diggable))
             {
                 __result = 100.0f;
             }
@@ -35,5 +30,4 @@ namespace FastModeMod
         }
     }
     */
-
 }

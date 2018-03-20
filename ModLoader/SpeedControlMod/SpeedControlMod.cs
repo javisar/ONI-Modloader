@@ -1,14 +1,13 @@
-﻿using Harmony;
-using System;
-using UnityEngine;
+﻿namespace SpeedControlMod
+{
+    using Harmony;
+    using System;
+    using UnityEngine;
+    using Debug = Debug;
 
-namespace SpeedControlMod
-{           	
-    
     [HarmonyPatch(typeof(SpeedControlScreen), "OnChanged", new Type[0])]
     internal static class SpeedControlMod
     {
-
         private static bool Prefix(SpeedControlScreen __instance)
         {
             Debug.Log(" === SpeedControlMod INI === ");
@@ -37,5 +36,4 @@ namespace SpeedControlMod
             return false;
         }
     }
-    
 }

@@ -1,35 +1,27 @@
-﻿using Mono.Cecil;
-using Mono.Cecil.Cil;
-using System.Collections.Generic;
-using System.Linq;
-using MethodBody = Mono.Cecil.Cil.MethodBody;
-
-namespace Injector
+﻿namespace Injector
 {
+    using Mono.Cecil;
+    using Mono.Cecil.Cil;
+    using System.Collections.Generic;
+    using System.Linq;
+
     public class InstructionInserter
     {
-        public InstructionInserter(MethodDefinition targetMethod) : this(targetMethod.Body.GetILProcessor()) { }
+        private readonly ILProcessor _ilProcessor;
 
-        public InstructionInserter(MethodBody targetMethodBody) : this(targetMethodBody.GetILProcessor()) { }
+        public InstructionInserter(MethodDefinition targetMethod)
+        : this(targetMethod.Body.GetILProcessor())
+        {
+        }
+
+        public InstructionInserter(MethodBody targetMethodBody)
+        : this(targetMethodBody.GetILProcessor())
+        {
+        }
 
         public InstructionInserter(ILProcessor targetMethodILProcessor)
         {
             this._ilProcessor = targetMethodILProcessor;
-        }
-
-        private readonly ILProcessor _ilProcessor;
-
-        public void InsertBefore(Instruction targetInstruction, IEnumerable<Instruction> instructionsToInsert)
-        {
-            foreach (Instruction newInstruction in instructionsToInsert)
-            {
-                this._ilProcessor.InsertBefore(targetInstruction, newInstruction);
-            }
-        }
-
-        public void InsertBefore(Instruction targetInstruction, Instruction instructionToInsert)
-        {
-            this._ilProcessor.InsertBefore(targetInstruction, instructionToInsert);
         }
 
         public void InsertAfter(Instruction targetInstruction, IEnumerable<Instruction> instructionsToInsert)
@@ -50,6 +42,19 @@ namespace Injector
         public void InsertAfter(Instruction targetInstruction, Instruction instructionToInsert)
         {
             this._ilProcessor.InsertAfter(targetInstruction, instructionToInsert);
+        }
+
+        public void InsertBefore(Instruction targetInstruction, IEnumerable<Instruction> instructionsToInsert)
+        {
+            foreach (Instruction newInstruction in instructionsToInsert)
+            {
+                this._ilProcessor.InsertBefore(targetInstruction, newInstruction);
+            }
+        }
+
+        public void InsertBefore(Instruction targetInstruction, Instruction instructionToInsert)
+        {
+            this._ilProcessor.InsertBefore(targetInstruction, instructionToInsert);
         }
     }
 }

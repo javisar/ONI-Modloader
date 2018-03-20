@@ -1,20 +1,23 @@
-﻿using ONI_Common;
-using ONI_Common.Data;
-
-namespace Core
+﻿namespace Core
 {
+    using ONI_Common;
+    using ONI_Common.Data;
+    using ONI_Common.IO;
+
     public static class State
     {
-        public static ONI_Common.IO.Logger Logger
-        {
-            get { return _logger ?? (_logger = new ONI_Common.IO.Logger(Paths.CoreLogFileName)); }
-        }
-
-        private static ONI_Common.IO.Logger _logger;
-
-        public static DraggableUIState UIState
-            => _uiState ?? (_uiState = new DraggableUIState());
+        private static Logger _logger;
 
         private static DraggableUIState _uiState;
+
+        public static Logger Logger
+        {
+            get
+            {
+                return _logger ?? (_logger = new ONI_Common.IO.Logger(Paths.CoreLogFileName));
+            }
+        }
+
+        public static DraggableUIState UIState => _uiState ?? (_uiState = new DraggableUIState());
     }
 }

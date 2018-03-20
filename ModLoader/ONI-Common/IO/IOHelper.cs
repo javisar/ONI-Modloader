@@ -1,7 +1,7 @@
-﻿using System.IO;
-
-namespace ONI_Common.IO
+﻿namespace ONI_Common.IO
 {
+    using System.IO;
+
     public static class IOHelper
     {
         public static void EnsureDirectoryExists(string path)

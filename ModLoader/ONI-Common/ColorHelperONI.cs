@@ -4,15 +4,11 @@ namespace MaterialColor.Helpers
 {
     public static class ColorHelperONI
     {
-
-
-
         public static readonly Color32 MissingDebugColor =
             new Color32(byte.MaxValue, 0, byte.MaxValue, byte.MaxValue);
 
         public static readonly Color32 NoOffset =
             new Color32(0, 0, 0, byte.MaxValue);
-
 
         public static bool TryGetTypeStandardColor(string typeName, out Color32 standardColor)
         {

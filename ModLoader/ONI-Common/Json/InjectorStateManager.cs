@@ -1,16 +1,15 @@
-﻿using ONI_Common;
-using ONI_Common.Data;
-
-namespace Common.Json
+﻿namespace ONI_Common.Json
 {
+    using ONI_Common.Data;
+
     public class InjectorStateManager
     {
+        private readonly JsonManager _manager;
+
         public InjectorStateManager(JsonManager manager)
         {
             this._manager = manager;
         }
-
-        private readonly JsonManager _manager;
 
         public InjectorState LoadState()
         {

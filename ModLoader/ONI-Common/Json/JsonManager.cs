@@ -1,11 +1,12 @@
-﻿using Newtonsoft.Json;
-using System.IO;
-
-namespace Common.Json
+﻿namespace ONI_Common.Json
 {
+    using Newtonsoft.Json;
+    using System.IO;
+
     public class JsonManager
     {
-        public JsonSerializer Serializer = JsonSerializer.CreateDefault(new JsonSerializerSettings { Formatting = Formatting.Indented });
+        public JsonSerializer Serializer =
+        JsonSerializer.CreateDefault(new JsonSerializerSettings { Formatting = Formatting.Indented });
 
         public T Deserialize<T>(string path)
         {
@@ -19,6 +20,7 @@ namespace Common.Json
 
                     jsonReader.Close();
                 }
+
                 streamReader.Close();
             }
 
@@ -35,6 +37,7 @@ namespace Common.Json
 
                     jsonReader.Close();
                 }
+
                 streamReader.Close();
             }
         }

@@ -1,25 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using Common.Json;
-using UnityEngine;
-
-namespace ONI_Common.Data
+﻿namespace ONI_Common.Data
 {
+    using ONI_Common.Json;
+    using System;
+    using System.Collections.Generic;
+    using UnityEngine;
+
     public class DraggableUIState
     {
-        private Dictionary<string, SerializeableVector2> WindowPositions
-            => this._windowPositions ?? (this._windowPositions = this.LoadFile());
+        private JsonManager _jsonManager = new JsonManager();
 
         private Dictionary<string, SerializeableVector2> _windowPositions;
 
-        public void SaveWindowPosition(GameObject window, Vector2 position)
-        {
-            string key = this.ExtractKey(window);
-
-            this.WindowPositions[key] = this.VectorToTuple(position);
-
-            this.UpdateFile();
-        }
+        private Dictionary<string, SerializeableVector2> WindowPositions =>
+        this._windowPositions ?? (this._windowPositions = this.LoadFile());
 
         public bool LoadWindowPosition(GameObject window, out Vector2 position)
         {
@@ -34,28 +27,24 @@ namespace ONI_Common.Data
             return result;
         }
 
-        private string ExtractKey(GameObject window)
-            => window.name;
-
-        private void UpdateFile()
+        public void SaveWindowPosition(GameObject window, Vector2 position)
         {
-            try
-            {
-                this._jsonManager.Serialize(this.WindowPositions, Paths.DraggableUIStatePath);
-            }
-            catch (Exception e)
-            {
+            string key = this.ExtractKey(window);
 
-                State.Logger.Log("Draggable UI state save failed.");
-                State.Logger.Log(e);
-            }
+            this.WindowPositions[key] = this.VectorToTuple(position);
+
+            this.UpdateFile();
         }
+
+        private string ExtractKey(GameObject window) => window.name;
 
         private Dictionary<string, SerializeableVector2> LoadFile()
         {
             try
             {
-                return this._jsonManager.Deserialize<Dictionary<string, SerializeableVector2>>(Paths.DraggableUIStatePath);
+                return this._jsonManager.Deserialize<Dictionary<string, SerializeableVector2>>(
+                                                                                               Paths
+                                                                                              .DraggableUIStatePath);
             }
             catch (Exception e)
             {
@@ -66,9 +55,19 @@ namespace ONI_Common.Data
             }
         }
 
-        private JsonManager _jsonManager = new JsonManager();
+        private void UpdateFile()
+        {
+            try
+            {
+                this._jsonManager.Serialize(this.WindowPositions, Paths.DraggableUIStatePath);
+            }
+            catch (Exception e)
+            {
+                State.Logger.Log("Draggable UI state save failed.");
+                State.Logger.Log(e);
+            }
+        }
 
-        private SerializeableVector2 VectorToTuple(Vector2 vector)
-            => new SerializeableVector2(vector.x, vector.y);
+        private SerializeableVector2 VectorToTuple(Vector2 vector) => new SerializeableVector2(vector.x, vector.y);
     }
 }

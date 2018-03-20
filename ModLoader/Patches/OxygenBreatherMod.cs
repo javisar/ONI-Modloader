@@ -5,8 +5,7 @@ namespace OxygenBreatherMod
     [HarmonyPatch(typeof(OxygenBreather), "Sim200ms", new[] { typeof(float) })]
     internal static class NoOxygenConsumptionMod
     {
-
-       private static bool Prefix(OxygenBreather __instance, ref float dt)
+        private static bool Prefix(OxygenBreather __instance, ref float dt)
         {
             dt = 0;
             return true;
@@ -17,16 +16,15 @@ namespace OxygenBreatherMod
     [HarmonyPatch(typeof(OxygenBreather), "OnSpawn", new Type[0] )]
     internal class NoOxygenConsumptionMod
     {
-
         private static readonly FieldInfo eggProgressField = AccessTools.Field(typeof(OxygenBreather), "airConsumptionRate");
 
         private static bool Prefix(OxygenBreather __instance)
         {
             // Disable all code in OxygenBreather.Sim200ms
-            //return false;           
+            //return false;
             AttributeInstance att = (AttributeInstance)eggProgressField.GetValue(__instance);
             Klei.AI.Attribute nat =new Klei.AI.Attribute("AirConsumptionRate", false, Klei.AI.Attribute.Display.Normal, false, -100f);
-            
+
             eggProgressField.SetValue(__instance, nat);
 
             //eggProgressField.SetValue(__instance, 0);
@@ -40,14 +38,13 @@ namespace OxygenBreatherMod
     [HarmonyPatch(typeof(OxygenBreather), "Sim200ms", new Type[] { typeof(float) })]
     internal class NoOxygenConsumptionMod
     {
-
         private static readonly FieldInfo eggProgressField = AccessTools.Field(typeof(OxygenBreather), "airConsumptionRate");
 
         private static bool Prefix(OxygenBreather __instance, float dt)
         {
             // Disable all code in OxygenBreather.Sim200ms
             //return false;
-            
+
             AttributeInstance att =  (AttributeInstance)eggProgressField.GetValue(__instance);
             Debug.Log(" === OxygenBreather.Sim200ms === " + att.GetTotalValue());
             Debug.Log(" === OxygenBreather.Sim200ms === " + att.GetBaseValue());
@@ -68,7 +65,7 @@ namespace OxygenBreatherMod
             return false;
         }
     }
-    
+
     [HarmonyPatch(typeof(BreathMonitor.Instance), "GetBreath", new Type[0])]
     internal class BreathMonitorMod
     {
@@ -119,7 +116,6 @@ namespace OxygenBreatherMod
     [HarmonyPatch("IsSuffocating", PropertyMethod.Getter)]
     public static class NoSuffocatingMod
     {
-
         [HarmonyPostfix]
         public static void IsSuffocating(OxygenBreather __instance, ref bool __result)
         {
@@ -193,7 +189,7 @@ namespace OxygenBreatherMod
                 }
                 if (flag != (bool)hasAir.GetValue(__instance,null))
                 {
-                    hasAirTimer_Start.Invoke(hasAirTimer.GetValue(__instance, null),null);                    
+                    hasAirTimer_Start.Invoke(hasAirTimer.GetValue(__instance, null),null);
                     if ((bool)hasAirTimer_TryStop.Invoke(hasAirTimer.GetValue(__instance, null), new object[] { 2f }))
                     {
                         hasAir.SetValue(__instance, flag, null);

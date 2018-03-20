@@ -1,10 +1,14 @@
-﻿using JetBrains.Annotations;
-using MaterialColor.Helpers;
-using ONI_Common.Data;
-using UnityEngine;
-
-namespace MaterialColor.Extensions
+﻿namespace MaterialColor.Extensions
 {
+    using JetBrains.Annotations;
+
+    using MaterialColor.Helpers;
+
+    using ONI_Common;
+    using ONI_Common.Data;
+
+    using UnityEngine;
+
     public static class SimHashesExtensions
     {
         public static Color GetMaterialColorForType(this SimHashes material, string objectTypeName)
@@ -27,8 +31,8 @@ namespace MaterialColor.Extensions
 
             ElementColorInfo elementColorInfo = material.GetMaterialColorInfo();
 
-          //  UnityEngine.Debug.Log("About to multiply - "+ objectTypeName+"-"  + material + "-" + elementColorInfo.ColorMultiplier.Red + "-"+ elementColorInfo.Brightness);
-            Color32 multiply = colorOffsetForWhite.Multiply(elementColorInfo.ColorMultiplier);
+            // UnityEngine.Debug.Log("About to multiply - "+ objectTypeName+"-"  + material + "-" + elementColorInfo.ColorMultiplier.Red + "-"+ elementColorInfo.Brightness);
+            Color32 multiply      = colorOffsetForWhite.Multiply(elementColorInfo.ColorMultiplier);
             Color32 materialColor = multiply.SetBrightness(elementColorInfo.Brightness);
 
             return materialColor;
@@ -56,10 +60,9 @@ namespace MaterialColor.Extensions
             ElementColorInfo colorInfo = material.GetMaterialColorInfo();
 
             Color result = new Color(
-                colorInfo.ColorMultiplier.Red,
-                colorInfo.ColorMultiplier.Green,
-                colorInfo.ColorMultiplier.Blue
-                ) * colorInfo.Brightness;
+                                     colorInfo.ColorMultiplier.Red,
+                                     colorInfo.ColorMultiplier.Green,
+                                     colorInfo.ColorMultiplier.Blue) * colorInfo.Brightness;
 
             result.a = byte.MaxValue;
 

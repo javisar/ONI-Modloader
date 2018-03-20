@@ -1,8 +1,10 @@
-﻿using Harmony;
-using UnityEngine;
-
-namespace SensorsMod
+﻿namespace SensorsMod
 {
+    using Harmony;
+
+    using UnityEngine;
+
+    using Debug = Debug;
 
     [HarmonyPatch(typeof(LogicTemperatureSensorConfig), "DoPostConfigureComplete", new[] { typeof(GameObject) })]
     internal static class TemperatureSensorMod
@@ -14,7 +16,7 @@ namespace SensorsMod
 
             AccessTools.Field(typeof(LogicTemperatureSensor), "maxTemp").SetValue(logicTemperatureSensor, 1573.15f);
 
-           // logicTemperatureSensor.maxTemp = 1573.15f;
+            // logicTemperatureSensor.maxTemp = 1573.15f;
             Debug.Log(" === TemperatureSensorMod END === ");
         }
     }

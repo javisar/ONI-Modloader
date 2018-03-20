@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-
-namespace ONI_Common.IO
+﻿namespace ONI_Common.IO
 {
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Linq;
+
     public static class FileChangeNotifier
     {
         private static readonly List<FileWatcherInfo> _fileWatcherInfos = new List<FileWatcherInfo>();
@@ -25,8 +25,9 @@ namespace ONI_Common.IO
                 return;             // ...because of this return,
             }
 
-            if (watcherInfo == null) // REFACTOR (weakman)  , Which means this is currently always true...
+            if (watcherInfo == null)
             {
+                // REFACTOR (weakman)  , Which means this is currently always true...
                 IOHelper.EnsureDirectoryExists(parentDirectory);
 
                 watcherInfo = new FileWatcherInfo(new FileSystemWatcher(parentDirectory, filter), callback);
@@ -35,8 +36,9 @@ namespace ONI_Common.IO
 
                 _fileWatcherInfos.Add(watcherInfo);
             }
-            else // REFACTOR (weakman) ...so this is never executed
+            else
             {
+                // REFACTOR (weakman) ...so this is never executed
                 foreach (FileSystemEventHandler sub in watcherInfo.Subscribers)
                 {
                     if (sub == callback)
@@ -52,9 +54,10 @@ namespace ONI_Common.IO
 
         public static void StopFileWatch(string filter, string parentDirectory, FileSystemEventHandler callback)
         {
-            FileWatcherInfo watcherInfo = _fileWatcherInfos.FirstOrDefault(
-                info => info.FileWatcher.Filter == filter &&
-                        info.FileWatcher.Path == parentDirectory);
+            FileWatcherInfo watcherInfo =
+            _fileWatcherInfos.FirstOrDefault(
+                                             info => info.FileWatcher.Filter == filter
+                                                  && info.FileWatcher.Path   == parentDirectory);
 
             if (watcherInfo == null)
             {
@@ -69,8 +72,19 @@ namespace ONI_Common.IO
             }
         }
 
+        private static void InitializeWatcher(FileSystemWatcher watcher)
+        {
+            watcher.NotifyFilter = NotifyFilters.LastWrite | NotifyFilters.Size | NotifyFilters.Attributes
+                                 | NotifyFilters.FileName  | NotifyFilters.DirectoryName;
+            watcher.EnableRaisingEvents = true;
+        }
+
         private class FileWatcherInfo
         {
+            public readonly FileSystemWatcher FileWatcher;
+
+            public readonly List<FileSystemEventHandler> Subscribers = new List<FileSystemEventHandler>();
+
             public FileWatcherInfo(FileSystemWatcher watcher, FileSystemEventHandler callback)
             {
                 this.FileWatcher = watcher;
@@ -78,8 +92,7 @@ namespace ONI_Common.IO
                 this.TryAddSubscriber(callback);
             }
 
-            public readonly FileSystemWatcher FileWatcher;
-            public readonly List<FileSystemEventHandler> Subscribers = new List<FileSystemEventHandler>();
+            public bool HasSubscribers() => this.Subscribers.Count > 0;
 
             public bool TryAddSubscriber(FileSystemEventHandler callback)
             {
@@ -120,15 +133,6 @@ namespace ONI_Common.IO
 
                 return result;
             }
-
-            public bool HasSubscribers()
-                => this.Subscribers.Count > 0;
-        }
-
-        private static void InitializeWatcher(FileSystemWatcher watcher)
-        {
-            watcher.NotifyFilter = NotifyFilters.LastWrite | NotifyFilters.Size | NotifyFilters.Attributes | NotifyFilters.FileName | NotifyFilters.DirectoryName;
-            watcher.EnableRaisingEvents = true;
         }
     }
 }

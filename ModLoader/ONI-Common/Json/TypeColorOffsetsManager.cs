@@ -1,23 +1,23 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
-using System.IO;
-using System;
-using ONI_Common;
-
-namespace Common.Json
+﻿namespace ONI_Common.Json
 {
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+
+    using UnityEngine;
+
+    using Logger = ONI_Common.IO.Logger;
+
     public class TypeColorOffsetsManager : BaseManager
     {
-        public TypeColorOffsetsManager(JsonManager manager, ONI_Common.IO.Logger logger = null) : base(manager, logger) { }
-
-        public void SaveTypesColors(Dictionary<string, Color32> dictionary, string path = null)
+        public TypeColorOffsetsManager(JsonManager manager, Logger logger = null)
+        : base(manager, logger)
         {
-            if (path == null)
-            {
-                path = Paths.DefaultTypeColorOffsetsPath;
-            }
+        }
 
-            this._manager.Serialize(dictionary, path);
+        public Dictionary<string, Color32> LoadSingleTypeColorOffsetsFile(string path)
+        {
+            return this._manager.Deserialize<Dictionary<string, Color32>>(path);
         }
 
         public Dictionary<string, Color32> LoadTypeColorOffsetsDirectory(string directoryPath = null)
@@ -28,13 +28,13 @@ namespace Common.Json
             }
 
             DirectoryInfo directory = new DirectoryInfo(directoryPath);
-            FileInfo[] files = directory.GetFiles("*.json");
+            FileInfo[]    files     = directory.GetFiles("*.json");
 
             Dictionary<string, Color32> result = new Dictionary<string, Color32>();
 
             foreach (FileInfo file in files)
             {
-                string filePath = Path.Combine(directoryPath, file.Name);
+                string                      filePath = Path.Combine(directoryPath, file.Name);
                 Dictionary<string, Color32> resultFromCurrentFile;
 
                 try
@@ -48,6 +48,7 @@ namespace Common.Json
                         this._logger.Log($"Error loading {filePath} as TypeColorOffset configuration file.");
                         this._logger.Log(e);
                     }
+
                     continue;
                 }
 
@@ -69,9 +70,14 @@ namespace Common.Json
             return result;
         }
 
-        public Dictionary<string, Color32> LoadSingleTypeColorOffsetsFile(string path)
+        public void SaveTypesColors(Dictionary<string, Color32> dictionary, string path = null)
         {
-            return this._manager.Deserialize<Dictionary<string, Color32>>(path);
+            if (path == null)
+            {
+                path = Paths.DefaultTypeColorOffsetsPath;
+            }
+
+            this._manager.Serialize(dictionary, path);
         }
     }
 }

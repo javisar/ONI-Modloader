@@ -1,16 +1,16 @@
-﻿using System;
-using System.IO;
-
-namespace ONI_Common.IO
+﻿namespace ONI_Common.IO
 {
+    using System;
+    using System.IO;
+
     public class Logger
     {
+        private readonly string _fileName;
+
         public Logger(string fileName)
         {
             this._fileName = fileName;
         }
-
-        private readonly string _fileName;
 
         public void Log(string message)
         {
@@ -20,7 +20,7 @@ namespace ONI_Common.IO
 
             using (StreamWriter writer = new StreamWriter(path, true))
             {
-                System.DateTime now = System.DateTime.Now;
+                DateTime now = System.DateTime.Now;
 
                 writer.WriteLine($"[{now.ToShortDateString()}, {now.TimeOfDay}] {message}\r\n");
                 writer.Close();
@@ -32,19 +32,16 @@ namespace ONI_Common.IO
             this.Log($"{exception?.Message}\n{exception?.StackTrace}");
         }
 
-    //    public void LogProperties(object target)
-    //    {
-    //        var builder = new StringBuilder();
-    //
-    //        foreach (var property in target.GetType().GetProperties())
-    //        {
-    //            builder.Append(property.Name);
-    //            builder.Append(":");
-    //            builder.Append(property.GetValue(target));
-    //            builder.Append("\n");
-    //        }
-    //
-    //        Log(builder.ToString());
-        }
+        // public void LogProperties(object target)
+        // {
+        // var builder = new StringBuilder();
+        // foreach (var property in target.GetType().GetProperties())
+        // {
+        // builder.Append(property.Name);
+        // builder.Append(":");
+        // builder.Append(property.GetValue(target));
+        // builder.Append("\n");
+        // }
+        // Log(builder.ToString());
+    }
 }
-

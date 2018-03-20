@@ -1,16 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace ONI_Common.Core
+﻿namespace ONI_Common.Core
 {
+    using System;
+    using System.Collections.Generic;
+
     public static class UpdateQueueManager
     {
+        private static readonly Queue<EventHandler> _actionQueue = new Queue<EventHandler>();
+
         public static void EnqueueAction(EventHandler action)
         {
             _actionQueue.Enqueue(action);
         }
-
-        private static readonly Queue<EventHandler> _actionQueue = new Queue<EventHandler>();
 
         public static void OnGameUpdate()
         {

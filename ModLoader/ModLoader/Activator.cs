@@ -13,7 +13,7 @@
             if (!activated)
             {
                 activated = true;
-                ModLoader.Start();                
+                ModLoader.Start();
             }
         }
     }

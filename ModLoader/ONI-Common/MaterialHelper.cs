@@ -5,7 +5,6 @@ namespace MaterialColor.Helpers
 {
     public static class MaterialHelper
     {
-
         public static SimHashes ExtractMaterial(Component component)
         {
             PrimaryElement primaryElement = component.GetComponent<PrimaryElement>();

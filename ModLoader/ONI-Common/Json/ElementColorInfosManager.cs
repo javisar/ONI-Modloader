@@ -1,23 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using ONI_Common;
-using ONI_Common.Data;
-
-namespace Common.Json
+﻿namespace ONI_Common.Json
 {
+    using ONI_Common.Data;
+    using ONI_Common.IO;
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+
     public class ElementColorInfosManager : BaseManager
     {
-        public ElementColorInfosManager(JsonManager manager, ONI_Common.IO.Logger logger = null) : base(manager, logger) { }
-
-        public void SaveElementsColorInfo(Dictionary<SimHashes, ElementColorInfo> dictionary, string path = null)
+        public ElementColorInfosManager(JsonManager manager, Logger logger = null)
+        : base(manager, logger)
         {
-            if (path == null)
-            {
-                path = Paths.DefaultElementColorInfosPath;
-            }
-
-            this._manager.Serialize(dictionary, path);
         }
 
         /// <summary>
@@ -32,13 +25,13 @@ namespace Common.Json
             }
 
             DirectoryInfo directory = new DirectoryInfo(directoryPath);
-            FileInfo[] files = directory.GetFiles("*.json");
+            FileInfo[]    files     = directory.GetFiles("*.json");
 
             Dictionary<SimHashes, ElementColorInfo> result = new Dictionary<SimHashes, ElementColorInfo>();
 
             foreach (FileInfo file in files)
             {
-                string filePath = Path.Combine(directoryPath, file.Name);
+                string                                  filePath = Path.Combine(directoryPath, file.Name);
                 Dictionary<SimHashes, ElementColorInfo> resultFromCurrentFile;
 
                 try
@@ -52,6 +45,7 @@ namespace Common.Json
                         this._logger.Log($"Error loading {filePath} as ElementColorInfo configuration file.");
                         this._logger.Log(e);
                     }
+
                     continue;
                 }
 
@@ -76,6 +70,16 @@ namespace Common.Json
         public Dictionary<SimHashes, ElementColorInfo> LoadSingleElementColorInfosFile(string filePath)
         {
             return this._manager.Deserialize<Dictionary<SimHashes, ElementColorInfo>>(filePath);
+        }
+
+        public void SaveElementsColorInfo(Dictionary<SimHashes, ElementColorInfo> dictionary, string path = null)
+        {
+            if (path == null)
+            {
+                path = Paths.DefaultElementColorInfosPath;
+            }
+
+            this._manager.Serialize(dictionary, path);
         }
     }
 }

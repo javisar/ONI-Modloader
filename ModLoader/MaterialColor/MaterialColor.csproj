@@ -57,15 +57,69 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Extensions\ColorHSV.cs" />
+    <Compile Include="Extensions\ColorHSB.cs" />
+    <Compile Include="Harmony\ImprovedGasOverlayMod.cs" />
     <Compile Include="TemperatureOverlay\ColorThresholdTemperatureSorter.cs" />
     <Compile Include="Helpers\ColorHelper.cs" />
+    <None Include="..\..\Mods\MaterialColor\Config\ElementColorInfos\00-solid.json">
+      <Link>Config\ElementColorInfos\00-solid.json</Link>
+    </None>
+    <None Include="..\..\Mods\MaterialColor\Config\ElementColorInfos\01-liquid.json">
+      <Link>Config\ElementColorInfos\01-liquid.json</Link>
+    </None>
+    <None Include="..\..\Mods\MaterialColor\Config\ElementColorInfos\02-gas.json">
+      <Link>Config\ElementColorInfos\02-gas.json</Link>
+    </None>
+    <None Include="..\..\Mods\MaterialColor\Config\ElementColorInfos\03-special.json">
+      <Link>Config\ElementColorInfos\03-special.json</Link>
+    </None>
+    <None Include="..\..\Mods\MaterialColor\Config\InjectorState.json">
+      <Link>Config\InjectorState.json</Link>
+    </None>
+    <None Include="..\..\Mods\MaterialColor\Config\MaterialColorState.json">
+      <Link>Config\MaterialColorState.json</Link>
+    </None>
+    <None Include="..\..\Mods\MaterialColor\Config\TypeColorOffsets\00-machine.json">
+      <Link>Config\TypeColorOffsets\00-machine.json</Link>
+    </None>
+    <None Include="..\..\Mods\MaterialColor\Config\TypeColorOffsets\01-door.json">
+      <Link>Config\TypeColorOffsets\01-door.json</Link>
+    </None>
+    <None Include="..\..\Mods\MaterialColor\Config\TypeColorOffsets\02-liquid.json">
+      <Link>Config\TypeColorOffsets\02-liquid.json</Link>
+    </None>
+    <None Include="..\..\Mods\MaterialColor\Config\TypeColorOffsets\03-gas.json">
+      <Link>Config\TypeColorOffsets\03-gas.json</Link>
+    </None>
+    <None Include="..\..\Mods\MaterialColor\Config\TypeColorOffsets\04-power.json">
+      <Link>Config\TypeColorOffsets\04-power.json</Link>
+    </None>
+    <None Include="..\..\Mods\MaterialColor\Config\TypeColorOffsets\05-other.json">
+      <Link>Config\TypeColorOffsets\05-other.json</Link>
+    </None>
+    <None Include="..\..\Mods\MaterialColor\Config\TypeColorOffsets\06-creature.json">
+      <Link>Config\TypeColorOffsets\06-creature.json</Link>
+    </None>
+    <None Include="..\..\Mods\MaterialColor\Config\TypeColorOffsets\07-exosuit.json">
+      <Link>Config\TypeColorOffsets\07-exosuit.json</Link>
+    </None>
+    <None Include="..\..\Mods\MaterialColor\Config\TypeColorOffsets\08-automation.json">
+      <Link>Config\TypeColorOffsets\08-automation.json</Link>
+    </None>
+    <None Include="..\..\Mods\MaterialColor\Config\TypeColorOffsets\09-tiles.json">
+      <Link>Config\TypeColorOffsets\09-tiles.json</Link>
+    </None>
+    <None Include="..\..\Mods\MaterialColor\Config\TypeColorOffsets\10-tubular.json">
+      <Link>Config\TypeColorOffsets\10-tubular.json</Link>
+    </None>
+    <None Include="..\..\Mods\Overlays\Config\TemperatureOverlayState.json">
+      <Link>Config\TemperatureOverlayState.json</Link>
+    </None>
     <None Include="ColorHelper_Patched.cs" />
     <None Include="Extensions\Class1.cs" />
     <Compile Include="Harmony\HarmonyPatches.cs" />
     <Compile Include="Extensions\Color32Extensions.cs" />
     <Compile Include="Helpers\MaterialHelper.cs" />
-    <Compile Include="TemperatureOverlayState.cs" />
     <Compile Include="Extensions\SimHashesExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

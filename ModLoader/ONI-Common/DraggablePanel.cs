@@ -1,10 +1,46 @@
-﻿using ONI_Common.Core;
-using UnityEngine;
-
-namespace Core
+﻿namespace ONI_Common
 {
+    using ONI_Common.Core;
+
+    using UnityEngine;
+
+    /// <summary>
+    /// The draggable panel.
+    /// </summary>
     public class DraggablePanel : MonoBehaviour
     {
+        public Vector3 Offset;
+
+        // Use GetComponent<KScreen>() instead?
+        public KScreen Screen;
+
+        private bool _isDragging;
+
+        public static void Attach(KScreen screen)
+        {
+            DraggablePanel panel = screen.FindOrAddUnityComponent<DraggablePanel>();
+
+            if (panel == null)
+            {
+                return;
+            }
+
+            panel.Screen = screen;
+        }
+
+        // TODO: call when position is set by game
+        public static void SetPositionFromFile(KScreen screen)
+        {
+            Vector2 newPosition;
+
+            DraggablePanel panel = screen.FindOrAddUnityComponent<DraggablePanel>();
+
+            if (panel != null && panel.LoadPosition(out newPosition))
+            {
+                panel.SetPosition(newPosition);
+            }
+        }
+
         // Todo: fix the mashup with injection, move to Harmony
         public void Update()
         {
@@ -42,47 +78,15 @@ namespace Core
             this.SetPosition(newPosition);
         }
 
-        private bool _isDragging;
-
-        // Use GetComponent<KScreen>() instead?
-        public KScreen Screen;
-
-        public Vector3 Offset;
-
-        public static void Attach(KScreen screen)
+        private bool LoadPosition(out Vector2 position)
         {
-            DraggablePanel panel = screen.FindOrAddUnityComponent<DraggablePanel>();
-
-            if (panel == null)
-            {
-                return;
-            }
-
-            panel.Screen = screen;
-        }
-
-        // TODO: call when position is set by game
-        public static void SetPositionFromFile(KScreen screen)
-        {
-            Vector2 newPosition;
-
-            DraggablePanel panel = screen.FindOrAddUnityComponent<DraggablePanel>();
-
-            if (panel != null && panel.LoadPosition(out newPosition))
-            {
-                panel.SetPosition(newPosition);
-            }
+            return DraggableUI.UIState.LoadWindowPosition(this.gameObject, out position);
         }
 
         // TODO: queue save to file
         private void SavePosition(Vector2 position)
         {
-            State.UIState.SaveWindowPosition(this.gameObject, position);
-        }
-
-        private bool LoadPosition(out Vector2 position)
-        {
-            return State.UIState.LoadWindowPosition(this.gameObject, out position);
+            DraggableUI.UIState.SaveWindowPosition(this.gameObject, position);
         }
 
         // use offset?

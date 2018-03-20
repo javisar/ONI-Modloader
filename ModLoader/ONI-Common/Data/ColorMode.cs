@@ -3,7 +3,9 @@
     public enum ColorMode
     {
         None,
+
         Json,
+
         DebugColor
     }
 }

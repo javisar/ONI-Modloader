@@ -6,7 +6,6 @@ using System.Reflection.Emit;
 
 namespace NoSteamMod
 {
-
     [HarmonyPatch(typeof(Global), "Awake", new Type[0])]
     internal static class NoSteamMod
     {
@@ -36,7 +35,6 @@ namespace NoSteamMod
     [HarmonyPatch(typeof(DistributionPlatform), "Initialize", new Type[0])]
     internal class NoSteamMod
     {
-
         private static bool Prefix(DistributionPlatform __instance)
         {
             Debug.Log(" === NoSteamMod === ");

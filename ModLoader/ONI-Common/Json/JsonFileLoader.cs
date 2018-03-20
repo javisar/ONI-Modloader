@@ -1,31 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using ONI_Common;
-using ONI_Common.Data;
-using UnityEngine;
-
-namespace Common.Json
+﻿namespace ONI_Common.Json
 {
+    using ONI_Common.Data;
+    using System;
+    using System.Collections.Generic;
+    using UnityEngine;
+    using Logger = ONI_Common.IO.Logger;
+
     public class JsonFileLoader
     {
-        public JsonFileLoader(JsonManager jsonManager, ONI_Common.IO.Logger logger = null)
+        private readonly Logger _logger;
+
+        private ConfiguratorStateManager _configuratorStateManager;
+
+        private ElementColorInfosManager _elementColorInfosManager;
+
+        private TypeColorOffsetsManager _typeColorOffsetsManager;
+
+        public JsonFileLoader(JsonManager jsonManager, Logger logger = null)
         {
             this._logger = logger;
 
             this.InitializeManagers(jsonManager);
-        }
-
-        private readonly ONI_Common.IO.Logger _logger;
-
-        private ConfiguratorStateManager _configuratorStateManager;
-        private ElementColorInfosManager _elementColorInfosManager;
-        private TypeColorOffsetsManager _typeColorOffsetsManager;
-
-        private void InitializeManagers(JsonManager manager)
-        {
-            this._configuratorStateManager = new ConfiguratorStateManager(manager, this._logger);
-            this._elementColorInfosManager = new ElementColorInfosManager(manager, this._logger);
-            this._typeColorOffsetsManager = new TypeColorOffsetsManager(manager, this._logger);
         }
 
         public bool TryLoadConfiguratorState(out MaterialColorState state)
@@ -42,7 +37,7 @@ namespace Common.Json
                 this._logger.Log(ex);
                 this._logger.Log(Message);
 
-                UnityEngine.Debug.LogError(Message);
+                Debug.LogError(Message);
 
                 state = new MaterialColorState();
 
@@ -61,33 +56,12 @@ namespace Common.Json
             {
                 const string Message = "Can't load ElementColorInfos";
 
-                UnityEngine.Debug.LogError(Message + '\n' + e.Message + '\n');
+                Debug.LogError(Message + '\n' + e.Message + '\n');
 
                 State.Logger.Log(Message);
                 State.Logger.Log(e);
 
                 elementColorInfos = new Dictionary<SimHashes, ElementColorInfo>();
-                return false;
-            }
-        }
-
-        public bool TryLoadTypeColorOffsets(out Dictionary<string, Color32> typeColorOffsets)
-        {
-            try
-            {
-                typeColorOffsets = this._typeColorOffsetsManager.LoadTypeColorOffsetsDirectory();
-                return true;
-            }
-            catch (Exception e)
-            {
-                const string Message = "Can't load TypeColorOffsets";
-
-                UnityEngine.Debug.LogError(Message + '\n' + e.Message + '\n');
-
-                State.Logger.Log(Message);
-                State.Logger.Log(e);
-
-                typeColorOffsets = new Dictionary<string, Color32>();
                 return false;
             }
         }
@@ -108,6 +82,34 @@ namespace Common.Json
 
                 return false;
             }
+        }
+
+        public bool TryLoadTypeColorOffsets(out Dictionary<string, Color32> typeColorOffsets)
+        {
+            try
+            {
+                typeColorOffsets = this._typeColorOffsetsManager.LoadTypeColorOffsetsDirectory();
+                return true;
+            }
+            catch (Exception e)
+            {
+                const string Message = "Can't load TypeColorOffsets";
+
+                Debug.LogError(Message + '\n' + e.Message + '\n');
+
+                State.Logger.Log(Message);
+                State.Logger.Log(e);
+
+                typeColorOffsets = new Dictionary<string, Color32>();
+                return false;
+            }
+        }
+
+        private void InitializeManagers(JsonManager manager)
+        {
+            this._configuratorStateManager = new ConfiguratorStateManager(manager, this._logger);
+            this._elementColorInfosManager = new ElementColorInfosManager(manager, this._logger);
+            this._typeColorOffsetsManager  = new TypeColorOffsetsManager(manager, this._logger);
         }
     }
 }
