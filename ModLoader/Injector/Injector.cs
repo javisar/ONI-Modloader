@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using Mono.Cecil;
 using Mono.Cecil.Cil;
-using UnityEngine;
 using System.IO;
 
 namespace spaar.ModLoader.Injector
@@ -14,19 +12,19 @@ namespace spaar.ModLoader.Injector
 
         public static void Inject(AssemblyDefinition game, string outputPath)
         {
-            TypeDefinition planetRotate = game.MainModule.GetType("", "Global");
+            TypeDefinition launchInitializer = game.MainModule.GetType("", "LaunchInitializer");
 
-            if (planetRotate == null)
+            if (launchInitializer == null)
             {
-                throw new Exception("Global not found");
+                throw new Exception("LaunchInitializer not found");
             }
 
-            MethodDefinition planetStart = planetRotate.Methods.FirstOrDefault(
+            MethodDefinition planetStart = launchInitializer.Methods.FirstOrDefault(
               method => method.Name == "Awake");
 
             if (planetStart == null)
             {
-                throw new Exception("Global.Awake not found");
+                throw new Exception("LaunchInitializer.Awake not found");
             }
 
             var p = planetStart.Body.GetILProcessor();
