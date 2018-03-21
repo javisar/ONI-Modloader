@@ -1,6 +1,9 @@
 # ONI-Modloader
 A modloader for Oxygen Not Included based in Harmony
 
+Forums in Klei:
+https://forums.kleientertainment.com/topic/88186-mod01-oni-modloader/
+
 This project uses source code of and is based on:
 * https://github.com/zeobviouslyfakeacc/ModLoaderInstaller
 * https://github.com/pardeike/Harmony
@@ -16,6 +19,7 @@ Projects
 
 Examples
 --------
+* InsulatedDoorsMod: Doors can be constructed using any buildable element (ie: Abyssalite). Also it adds a new element Insulated Pressure Door.
 * FastModeMod: Duplicants will build an dig very fast.
 * SensorsMod: It modifies some ranges y automation sensors (taken from Onion patcher).
 * SpeedControlMod: Overwrites the method SpeedControlScreen.OnChange. Fast Speed set to behave like Ultra Speed in debug mode.
@@ -24,7 +28,7 @@ Examples
 
 Installation
 ------------
-1. Copy 'Injector.exe' and 'Mono.Cecil.dll' to the folder: ...\OxygenNotIncluded_Data\Managed\
+1. Copy 'Injector.exe' and 'Mono.Cecil.dll' to the folder: ..\OxygenNotIncluded_Data\Managed\
 2. Execute 'Injector.exe'. It will create a backup of 'Assembly-CSharp.dll' in 'Assembly-CSharp.dll.orig' and a new already patched 'Assembly-CSharp.dll'
 3. Create the folder: ...\OxygenNotIncluded_Data\Managed\Mods\
 4. Move to this folder the following files:
@@ -71,10 +75,6 @@ Harmony Tutorials
 * https://github.com/UnlimitedHugs/RimworldHugsLib/wiki/Introduction-to-Patching
 * https://github.com/UnlimitedHugs/RimworldHugsLib/wiki/Detouring
 
-
-Tips
-----
-* If you create a Class in your mod with the same name as a Class in ONI code, the Class Loader will load first the class in your mod. This is a way to overwrite entire classes.
 
 
 Disclaimer
