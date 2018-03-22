@@ -1,6 +1,6 @@
-﻿namespace ONI_Common
+﻿namespace DraggablePanelMod
 {
-    using ONI_Common.Core;
+    using DraggablePanelMod.Core;
 
     using UnityEngine;
 

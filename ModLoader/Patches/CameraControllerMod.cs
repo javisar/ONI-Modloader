@@ -2,7 +2,7 @@
 {
     using Harmony;
 
-    [HarmonyPatch(typeof(CameraController), "OnSpawn")]
+    [HarmonyPatch(typeof(CameraController), "OnPrefabInit")]
     public static class CameraControllerMod
     {
         public static void Prefix(CameraController __instance)

@@ -61,46 +61,46 @@
             // }
 
             // if (injectorState.EnableDraggableGUI)
-            try
-            {
-                MethodInjector methodInjector = new MethodInjector(this._onionModule, this._firstPassModule);
-
-                methodInjector.InjectAsFirst(
-                                             "DraggablePanel",
-                                             "Attach",
-                                             "KScreen",
-                                             "OnPrefabInit",
-                                             includeCallingObject: true);
-
-                TypeDefinition kScreen     = this._firstPassModule.Types.First(t => t.Name == "KScreen");
-                MethodBody     onSpawnBody = kScreen.Methods.First(m => m.Name == "OnSpawn").Body;
-
-                Instruction lastInstruction = onSpawnBody.Instructions.Last();
-
-                methodInjector.InjectBefore(
-                                            "DraggablePanel",
-                                            "SetPositionFromFile",
-                                            onSpawnBody,
-                                            lastInstruction,
-                                            includeCallingObject: true);
-
-                Instruction injectedCallFirstInstruction =
-                onSpawnBody.Instructions.Last(i => i.OpCode == OpCodes.Ldarg_0);
-
-                foreach (Instruction branch in onSpawnBody.Instructions.Where(
-                                                                              i => i.OpCode == OpCodes.Brtrue
-                                                                                || i.OpCode == OpCodes.Brfalse))
-                {
-                    branch.Operand = injectedCallFirstInstruction;
-                }
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("Draggable GUI injection failed");
-                Console.WriteLine(e);
-
-                this.Failed = true;
-            }
+           // try
+           // {
+           //     MethodInjector methodInjector = new MethodInjector(this._onionModule, this._firstPassModule);
+           //
+           //     methodInjector.InjectAsFirst(
+           //                                  "DraggablePanel",
+           //                                  "Attach",
+           //                                  "KScreen",
+           //                                  "OnPrefabInit",
+           //                                  includeCallingObject: true);
+           //
+           //     TypeDefinition kScreen     = this._firstPassModule.Types.First(t => t.Name == "KScreen");
+           //     MethodBody     onSpawnBody = kScreen.Methods.First(m => m.Name == "OnSpawn").Body;
+           //
+           //     Instruction lastInstruction = onSpawnBody.Instructions.Last();
+           //
+           //     methodInjector.InjectBefore(
+           //                                 "DraggablePanel",
+           //                                 "SetPositionFromFile",
+           //                                 onSpawnBody,
+           //                                 lastInstruction,
+           //                                 includeCallingObject: true);
+           //
+           //     Instruction injectedCallFirstInstruction =
+           //     onSpawnBody.Instructions.Last(i => i.OpCode == OpCodes.Ldarg_0);
+           //
+           //     foreach (Instruction branch in onSpawnBody.Instructions.Where(
+           //                                                                   i => i.OpCode == OpCodes.Brtrue
+           //                                                                     || i.OpCode == OpCodes.Brfalse))
+           //     {
+           //         branch.Operand = injectedCallFirstInstruction;
+           //     }
+           // }
+           // catch (Exception e)
+           // {
+           //     Console.WriteLine("Draggable GUI injection failed");
+           //     Console.WriteLine(e);
+           //
+           //     this.Failed = true;
+           // }
 
             // if (injectorState.InjectMaterialColor)
 
@@ -297,7 +297,7 @@
             handler.TryEnd       = tryEndInstruction;
             handler.HandlerStart = tryEndInstruction;
             handler.HandlerEnd   = methodInstructions.Last();
-            handler.CatchType    = this._csharpModule.Import(typeof(Exception));
+            handler.CatchType    = this._csharpModule.ImportReference(typeof(Exception));
 
             methodBody.ExceptionHandlers.Clear();
             methodBody.ExceptionHandlers.Add(handler);

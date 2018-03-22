@@ -1,14 +1,13 @@
-﻿namespace MaterialColor
+﻿using Harmony;
+using MaterialColor.Extensions;
+using UnityEngine;
+
+namespace ImprovedGasColourMod
 {
-    using Harmony;
-
-    using MaterialColor.Extensions;
-    using MaterialColor.Helpers;
-
-    using UnityEngine;
-
-    internal static partial class HarmonyPatches
+    public static class HarmonyPatches
     {
+        private static readonly Color NotGasColor = new Color(0.6f, 0.6f, 0.6f);
+
         [HarmonyPatch(typeof(SimDebugView), "GetOxygenMapColour")]
         public static class ImprovedGasOverlayMod
         {
@@ -25,7 +24,7 @@
                     return false;
                 }
 
-                Color gasColor = ColorHelper.GetCellOverlayColor(cell);
+                Color gasColor = GetCellOverlayColor(cell);
 
                 float gasMass = Grid.Mass[cell];
 
@@ -44,7 +43,7 @@
                 }
 
                 float    intensity;
-                ColorHSB gasColorHSB = gasColor;
+                ColorHSV gasColorHSV = gasColor;
                 float    mass        = Grid.Mass[cell];
                 if (element.id == SimHashes.Oxygen || element.id == SimHashes.ContaminatedOxygen)
                 {
@@ -54,7 +53,7 @@
                     // To red for thin air
                     if (intensity < 1f)
                     {
-                        gasColorHSB.B = Mathf.Min(gasColorHSB.B + 1f - intensity, 0.9f);
+                        gasColorHSV.V = Mathf.Min(gasColorHSV.V + 1f - intensity, 0.9f);
                     }
                 }
                 else
@@ -65,26 +64,38 @@
                 // Pop ear drum marker
                 if (mass > 2.5f)
                 {
-                    gasColorHSB.H += 0.02f * Mathf.InverseLerp(2.5f, 3.5f, mass);
-                    if (gasColorHSB.H > 1f)
+                    gasColorHSV.H += 0.02f * Mathf.InverseLerp(2.5f, 3.5f, mass);
+                    if (gasColorHSV.H > 1f)
                     {
-                        gasColorHSB.H -= 1f;
+                        gasColorHSV.H -= 1f;
                     }
 
                     float intens = Mathf.InverseLerp(20f, 3.5f, mass);
 
-                    gasColorHSB.B = Mathf.Max(0.5f, gasColorHSB.B * intens);
+                    gasColorHSV.V = Mathf.Max(0.5f, gasColorHSV.V * intens);
                 }
 
                 // New code, use the saturation of a color for the pressure
-                gasColorHSB.S = intensity * 0.7f;
-                __result      = gasColorHSB;
+                gasColorHSV.S = intensity * 0.7f;
+                __result      = gasColorHSV;
 
                 return false;
 
                 // gasColor *= intensity;
                 // gasColor.a = 1;
                 // __result = gasColor;
+            }
+
+            public static Color GetCellOverlayColor(int cellIndex)
+            {
+                Element   element   = Grid.Element[cellIndex];
+                Substance substance = element.substance;
+
+                Color32 overlayColor = substance.overlayColour;
+
+                overlayColor.a = byte.MaxValue;
+
+                return overlayColor;
             }
 
             private static float GetGasColorIntensity(float mass, float maxMass)

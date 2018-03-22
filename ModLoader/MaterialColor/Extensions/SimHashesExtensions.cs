@@ -2,7 +2,7 @@
 {
     using JetBrains.Annotations;
 
-    using MaterialColor.Helpers;
+    using Helpers;
 
     using ONI_Common;
     using ONI_Common.Data;
@@ -17,7 +17,7 @@
             {
                 if (State.ConfiguratorState.ShowMissingTypeColorOffsets)
                 {
-                    UnityEngine.Debug.LogError($"Can't find <{objectTypeName}> type color");
+                    Debug.LogError($"Can't find <{objectTypeName}> type color");
                     return typeStandardColor;
                 }
             }
@@ -51,7 +51,7 @@
                 return new ElementColorInfo(Color32Multiplier.One);
             }
 
-            UnityEngine.Debug.LogError($"Can't find <{materialHash}> color info");
+            Debug.LogError($"Can't find <{materialHash}> color info");
             return new ElementColorInfo(new Color32Multiplier(1, 0, 1));
         }
 

@@ -1,8 +1,12 @@
-﻿namespace ONI_Common.Data
+﻿namespace DraggablePanelMod.Data
 {
-    using ONI_Common.Json;
     using System;
     using System.Collections.Generic;
+
+    using ONI_Common;
+    using ONI_Common.Data;
+    using ONI_Common.Json;
+
     using UnityEngine;
 
     public class DraggableUIState
@@ -16,6 +20,12 @@
 
         public bool LoadWindowPosition(GameObject window, out Vector2 position)
         {
+            if (window == null)
+            {
+                position= Vector2.zero;
+                return false;
+            }
+
             string key = this.ExtractKey(window);
 
             SerializeableVector2 sVector2;

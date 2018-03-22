@@ -57,8 +57,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Extensions\ColorHSB.cs" />
-    <Compile Include="Harmony\ImprovedGasOverlayMod.cs" />
     <Compile Include="TemperatureOverlay\ColorThresholdTemperatureSorter.cs" />
     <Compile Include="Helpers\ColorHelper.cs" />
     <None Include="..\..\Mods\MaterialColor\Config\ElementColorInfos\00-solid.json">

@@ -1,6 +1,6 @@
-﻿namespace ONI_Common.Core
+﻿namespace DraggablePanelMod.Core
 {
-    using ONI_Common.Data;
+    using DraggablePanelMod.Data;
 
     public static class DraggableUI
     {

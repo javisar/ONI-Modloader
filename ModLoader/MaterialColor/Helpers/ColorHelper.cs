@@ -1,6 +1,6 @@
 ﻿namespace MaterialColor.Helpers
 {
-    using MaterialColor.Extensions;
+    using Extensions;
     using System;
     using UnityEngine;
 
@@ -37,17 +37,6 @@
             return material.ToCellMaterialColor();
         }
 
-        public static Color GetCellOverlayColor(int cellIndex)
-        {
-            Element   element   = Grid.Element[cellIndex];
-            Substance substance = element.substance;
-
-            Color32 overlayColor = substance.overlayColour;
-
-            overlayColor.a = byte.MaxValue;
-
-            return overlayColor;
-        }
 
         public static bool TryGetTypeStandardColor(string typeName, out Color32 standardColor)
         {

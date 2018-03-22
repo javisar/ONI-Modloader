@@ -2,9 +2,9 @@
 {
     using Core.IO;
     using Harmony;
-    using MaterialColor.Extensions;
-    using MaterialColor.Helpers;
-    using MaterialColor.TemperatureOverlay;
+    using Extensions;
+    using Helpers;
+    using TemperatureOverlay;
     using ONI_Common;
     using ONI_Common.Core;
     using ONI_Common.Data;
@@ -14,12 +14,14 @@
     using System.Collections.Generic;
     using System.IO;
     using System.Linq;
+
+    using JetBrains.Annotations;
+
     using UnityEngine;
     using Action = Action;
 
     internal static partial class HarmonyPatches
     {
-        private static readonly Color NotGasColor = new Color(0.6f, 0.6f, 0.6f);
 
         private static bool _configuratorStateChanged;
 
@@ -167,7 +169,7 @@
                             }
                             else
                             {
-                                UnityEngine.Debug.LogError(
+                                Debug.LogError(
                                                            $"Can't find KAnimControllerBase component in <{buildingName}> and its not a registered tile.");
                             }
                         }
@@ -216,7 +218,7 @@
                 const string message = "Element color infos changed.";
 
                 State.Logger.Log(message);
-                UnityEngine.Debug.LogError(message);
+                Debug.LogError(message);
             }
             else
             {
@@ -236,7 +238,7 @@
             const string message = "Configurator state changed.";
 
             State.Logger.Log(message);
-            UnityEngine.Debug.LogError(message);
+            Debug.LogError(message);
         }
 
         // TODO: log failed reload on other eventhandlers
@@ -255,7 +257,7 @@
             }
 
             State.Logger.Log(message);
-            UnityEngine.Debug.LogError(message);
+            Debug.LogError(message);
         }
 
         private static void OnTypeColorOffsetsChanged(object sender, FileSystemEventArgs e)
@@ -270,7 +272,7 @@
             const string message = "Type colors changed.";
 
             State.Logger.Log(message);
-            UnityEngine.Debug.LogError(message);
+            Debug.LogError(message);
         }
 
         private static void RebuildAllTiles()
@@ -295,7 +297,10 @@
             }
         }
 
-        private static void SetFilteredStorageColors(FilteredStorage storage, Color32 color, Color32 dimmedColor)
+        private static void SetFilteredStorageColors(
+        [NotNull] FilteredStorage storage,
+        Color32                   color,
+        Color32                   dimmedColor)
         {
             storage.filterTint   = color;
             storage.noFilterTint = dimmedColor;
@@ -640,7 +645,7 @@
                         State.Logger.Log(message);
                         State.Logger.Log(e);
 
-                        UnityEngine.Debug.LogError(message);
+                        Debug.LogError(message);
                     }
 
                     // Temp col overlay
