@@ -4,7 +4,7 @@ A modloader for Oxygen Not Included based in Harmony
 Forums in Klei:
 https://forums.kleientertainment.com/topic/88186-mod01-oni-modloader/
 
-This project uses source code of and is based on:
+This project uses source code from:
 * https://github.com/zeobviouslyfakeacc/ModLoaderInstaller
 * https://github.com/pardeike/Harmony
 * https://forums.kleientertainment.com/topic/81296-mod159-materialcolor-onionpatcher/
@@ -19,6 +19,7 @@ Projects
 
 Examples
 --------
+* AlternateOrdersMod: Now, the Fabricators and Refineries will alternate between infinity orders.
 * InsulatedDoorsMod: Doors can be constructed using any buildable element (ie: Abyssalite). Also it adds a new element Insulated Pressure Door.
 * FastModeMod: Duplicants will build an dig very fast.
 * SensorsMod: It modifies some ranges y automation sensors (taken from Onion patcher).
@@ -45,10 +46,10 @@ Just rename 'Assembly-CSharp.dll.orig' to 'Assembly-CSharp.dll'
 
 Requirements
 ------------
-.NET Framework 3.5
-Harmony Patcher
-Mono.Cecil
-Visual Studio 2015
+* .NET Framework 3.5
+* Harmony Patcher
+* Mono.Cecil
+* Visual Studio 2015
 
 
 Creating a Mod
@@ -58,6 +59,7 @@ Creating a Mod
    * Assembly-CSharp-firstpass.dll
    * Assembly-UnityScript-firstpass.dll
    * UnityEngine.dll
+   * UnityEngine.UI.dll
 2. Open the solution with Visual Studio.
 3. Create a new mod or modify the 'Patches' project.
 4. Compile it to generate the mod dll file.

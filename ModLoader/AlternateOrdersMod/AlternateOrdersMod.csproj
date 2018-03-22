@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0D1B0286-01ED-4DB6-9D7B-EF03F4E4C449}</ProjectGuid>
+    <ProjectGuid>{9C74ECCA-976C-4DA2-869E-BDBBF59158C5}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>InsulatedDoorsMod</RootNamespace>
-    <AssemblyName>InsulatedDoorsMod</AssemblyName>
+    <RootNamespace>AlternateOrdersMod</RootNamespace>
+    <AssemblyName>AlternateOrdersMod</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -61,8 +61,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="InsulatedDoorsMod.cs" />
-    <Compile Include="InsulatedPressureDoorConfig.cs" />
+    <Compile Include="AlternateOrdersMod.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
