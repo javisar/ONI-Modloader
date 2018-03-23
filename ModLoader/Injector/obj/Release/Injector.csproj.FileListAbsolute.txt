@@ -5,3 +5,4 @@ C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\Managed\Injector.exe
 C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\Injector\obj\Release\Injector.csproj.CoreCompileInputs.cache
 C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\Injector\obj\Release\Injector.csproj.CopyComplete
 C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\Injector\obj\Release\Injector.exe
+C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\Injector\obj\Release\Injector.csprojResolveAssemblyReference.cache
