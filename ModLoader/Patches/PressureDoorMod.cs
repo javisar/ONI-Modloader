@@ -2,7 +2,7 @@
 {
     using Harmony;
 
-    [HarmonyPatch(typeof(PressureDoorConfig), "CreateBuildingDef")]
+    [HarmonyPatch(typeof(PressureDoorConfig), nameof(PressureDoorConfig.CreateBuildingDef))]
     public static class PressureDoorMod
     {
         public static void Postfix(PressureDoorConfig __instance, BuildingDef __result)

@@ -2,7 +2,6 @@ C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\Injector\bin\Releas
 C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\Injector\bin\Release\Injector.pdb
 C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\Injector\bin\Release\Mono.Cecil.dll
 C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\Managed\Injector.exe
-C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\Injector\obj\Release\Injector.csprojResolveAssemblyReference.cache
 C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\Injector\obj\Release\Injector.csproj.CoreCompileInputs.cache
 C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\Injector\obj\Release\Injector.csproj.CopyComplete
 C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\Injector\obj\Release\Injector.exe

@@ -76,7 +76,7 @@ namespace ImprovedGasColourMod
                 }
 
                 // New code, use the saturation of a color for the pressure
-                gasColorHSV.S = intensity * 0.7f;
+                gasColorHSV.S = Mathf.Max(intensity * 0.7f, gasColorHSV.S);
                 __result      = gasColorHSV;
 
                 return false;
