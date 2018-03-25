@@ -17,7 +17,7 @@ Projects
 Examples
 --------
 • CameraControllerMod: Enable further zoom-outs in play and dev mode (taken from Onion patcher).
-• CustomWorldMod: Enables the player to user custom world sizes. Stand alone mod currently diabled, please edit the OnionConfig.json file for changes (taken from Onion patcher)
+* CustomWorldMod: Enables the player to user custom world sizes. Stand alone mod currently diabled, please edit the OnionConfig.json file for changes (taken from Onion patcher)
 * FastModeMod: Duplicants will build an dig very fast.
 • ImprovedGasColourMod: Replaces the oxygen overly with gas colors. Also visualizes the density (taken from Onion patcher, modified).
 • MaterialColor: Adds an overlay option to visualize what a building is made of (taken from Onion patcher).
