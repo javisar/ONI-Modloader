@@ -72,7 +72,7 @@ namespace ImprovedGasColourMod
 
                     float intens = Mathf.InverseLerp(3.5f, 20f, mass);
 
-                    float min = gasColorHSV.V *0.5f;
+                    float min = gasColorHSV.V *0.7f;
                     float current = gasColorHSV.V * intens;
 
                     gasColorHSV.V = Mathf.Max(min, current);
