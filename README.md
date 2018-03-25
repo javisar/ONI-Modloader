@@ -29,6 +29,7 @@ Examples
 Installation
 ------------
 Make sure you're using a fresh install of ONI, meaning you'll need the original/unpatched Assembyl-CSharp.dll and Assembly-CSharp-firstpass.dll as it comes with a clean install.
+Note: You'll need to re-run the injector every time ONI gets updated.
 1. Copy the contents of the "Managed" folder to: ...\OxygenNotIncluded_Data\Managed\
 2. Execute 'Injector.exe'. It will create a backups of 'Assembly-CSharp.dll' and Assembly-CSharp-firstpass.dll with the extension ".orig"  and a new patched set of dlls.
 3. You should now find a folder called "Mods" in your ONI main directory
