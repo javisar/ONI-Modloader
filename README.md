@@ -30,10 +30,13 @@ Installation
 ------------
 Make sure you're using a fresh install of ONI, meaning you'll need the original/unpatched Assembyl-CSharp.dll and Assembly-CSharp-firstpass.dll as it comes with a clean install.
 Note: You'll need to re-run the injector every time ONI gets updated.
+
+Click "Clone or Download" for the current version as the releases are currently not up to date.
+
 1. Copy the contents of the "Managed" folder to: ...\OxygenNotIncluded_Data\Managed\
 2. Execute 'Injector.exe'. It will create a backups of 'Assembly-CSharp.dll' and Assembly-CSharp-firstpass.dll with the extension ".orig"  and a new patched set of dlls.
 3. You should now find a folder called "Mods" in your ONI main directory
-4. Move or copy all the mods you'd like to use to "Mods"
+4. Move or copy all the mods you'd like to use from the extracted "Mods" folder to the newly created "Mods" in the ONI main directory
 5. Run the game and check ../OxygenNotIncluded_Data/output_log.txt for any errors.
 
 Pleaso don't report bugs you encounter while mods are active. People at Klei work hard and shouldn't be bothered with bug reports which might originate from mods.
