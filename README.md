@@ -11,12 +11,16 @@ Projects
 --------
 * Injector: It injects the call to the modloader in 'Assembly-CSharp.dll'
 * ModLoader: The modloader itself.
-* Hook: Just a helper to generate IL code for the Injector.
+* OnionHook: Just a helper to generate IL code for the Injector.
 
 
 Examples
 --------
+• CameraControllerMod: Enable further zoom-outs in play and dev mode (taken from Onion patcher).
+• CustomWorldMod: Enables the player to user custom world sizes. Stand alone mod currently diabled, please edit the OnionConfig.json file for changes (taken from Onion patcher).
 * FastModeMod: Duplicants will build an dig very fast.
+• ImprovedGasColourMod: Replaces the oxygen overly with gas colors. Also visualizes the density (taken from Onion patcher, modified).
+• MaterialColor: Adds an overlay option to visualize what a building is made of (taken from Onion patcher).
 * SensorsMod: It modifies some ranges y automation sensors (taken from Onion patcher).
 * SpeedControlMod: Overwrites the method SpeedControlScreen.OnChange. Fast Speed set to behave like Ultra Speed in debug mode.
 * Patches: Some incomplete tests.
@@ -24,19 +28,18 @@ Examples
 
 Installation
 ------------
-1. Copy 'Injector.exe' and 'Mono.Cecil.dll' to the folder: ...\OxygenNotIncluded_Data\Managed\
-2. Execute 'Injector.exe'. It will create a backup of 'Assembly-CSharp.dll' in 'Assembly-CSharp.dll.orig' and a new already patched 'Assembly-CSharp.dll'
-3. Create the folder: ...\OxygenNotIncluded_Data\Managed\Mods\
-4. Move to this folder the following files:
-   * 0Harmony.dll
-   * ModLoader.dll
-5. Also move to this folder all the mods you want to run.
-6. Run the game and check ../OxygenNotIncluded_Data/output_log.txt for any errors.
+Make sure you're using a fresh install of ONI, meaning you'll need the original/unpatched Assembyl-CSharp.dll and Assembly-CSharp-firstpass.dll as it comes with a clean install.
+1. Copy the contents of the "Managed" folder to: ...\OxygenNotIncluded_Data\Managed\
+2. Execute 'Injector.exe'. It will create a backups of 'Assembly-CSharp.dll' and Assembly-CSharp-firstpass.dll with the extension ".orig"  and a new patched set of dlls.
+3. You should now find a folder called "Mods" in your ONI main directory
+4. Move or copy all the mods you'd like to use to "Mods"
+5. Run the game and check ../OxygenNotIncluded_Data/output_log.txt for any errors.
 
+Pleaso don't report bugs you encounter while mods are active. People at Klei work hard and shouldn't be bothered with bug reports which might originate from mods.
 
 Uninstallation
 --------------
-Just rename 'Assembly-CSharp.dll.orig' to 'Assembly-CSharp.dll'
+Just rename 'Assembly-CSharp.dll.orig' to 'Assembly-CSharp.dll' and 'Assembly-CSharp-firstpass.dll.orig' to 'Assembly-CSharp-firstpass.dll'
 
 
 Requirements
@@ -49,19 +52,19 @@ Visual Studio 2015
 
 Creating a Mod
 --------------
-1. Copy the following files from ONI folder to the solution folder '\Modloader\lib\'
-   * Assembly-CSharp.dll
-   * Assembly-CSharp-firstpass.dll
-   * Assembly-UnityScript-firstpass.dll
-   * UnityEngine.dll
-2. Open the solution with Visual Studio.
-3. Create a new mod or modify the 'Patches' project.
-4. Compile it to generate the mod dll file.
+1. Open the solution with Visual Studio.
+2. Create a new mod or modify the 'Patches' project.
+3. Compile it to generate the mod dll file.
+
+Dlls will be recognized by the mod loader if 
+• they reside in the main mod direcotory 
+OR
+• they are inside a subfolder inside a subfolder names 'Assemblies' (see MaterialColor mod)
 
 
 Downloads
 ---------
-See Releases section.
+Choose 'Clone or download'. Releases are currently not updated and lack some described mods/features.
 
 
 Harmony Tutorials
