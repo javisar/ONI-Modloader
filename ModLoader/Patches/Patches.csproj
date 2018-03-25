@@ -73,7 +73,6 @@
     </PluginReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CameraControllerMod.cs" />
     <None Include="FallingWaterMod.cs" />
     <None Include="NoSteamMod.cs" />
     <None Include="OxygenBreatherMod.cs" />

@@ -26,6 +26,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DraggablePanelMod", "Dragga
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImprovedGasColourMod", "ImprovedGasColourMod\ImprovedGasColourMod.csproj", "{4475E088-4830-4BB4-BC97-FC8ACC18AFCB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CameraControllerMod", "CameraControllerMod\CameraControllerMod.csproj", "{2F67E9DC-1B57-4CD3-8043-0A59DDF81F06}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -76,6 +78,10 @@ Global
 		{4475E088-4830-4BB4-BC97-FC8ACC18AFCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4475E088-4830-4BB4-BC97-FC8ACC18AFCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4475E088-4830-4BB4-BC97-FC8ACC18AFCB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F67E9DC-1B57-4CD3-8043-0A59DDF81F06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F67E9DC-1B57-4CD3-8043-0A59DDF81F06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F67E9DC-1B57-4CD3-8043-0A59DDF81F06}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F67E9DC-1B57-4CD3-8043-0A59DDF81F06}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

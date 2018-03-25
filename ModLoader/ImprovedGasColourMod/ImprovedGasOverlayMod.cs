@@ -70,13 +70,16 @@ namespace ImprovedGasColourMod
                         gasColorHSV.H -= 1f;
                     }
 
-                    float intens = Mathf.InverseLerp(20f, 3.5f, mass);
+                    float intens = Mathf.InverseLerp(3.5f, 20f, mass);
 
-                    gasColorHSV.V = Mathf.Max(0.5f, gasColorHSV.V * intens);
+                    float min = gasColorHSV.V *0.5f;
+                    float current = gasColorHSV.V * intens;
+
+                    gasColorHSV.V = Mathf.Max(min, current);
                 }
 
                 // New code, use the saturation of a color for the pressure
-                gasColorHSV.S = Mathf.Max(intensity * 0.7f, gasColorHSV.S);
+                gasColorHSV.S *= intensity;
                 __result      = gasColorHSV;
 
                 return false;
