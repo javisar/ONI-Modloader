@@ -42,14 +42,14 @@ namespace ImprovedGasColourMod
                     maxMass = float.Epsilon;
                 }
 
-                float    intensity;
+                float intensity;
                 ColorHSV gasColorHSV = gasColor;
-                float    mass        = Grid.Mass[cell];
+                float mass = Grid.Mass[cell];
                 if (element.id == SimHashes.Oxygen || element.id == SimHashes.ContaminatedOxygen)
                 {
                     float optimallyBreathable = SimDebugView.optimallyBreathable;
                     intensity = Mathf.Clamp((mass - SimDebugView.minimumBreathable) / optimallyBreathable, 0.05f, 1f);
-                    
+
                     // To red for thin air
                     if (intensity < 1f)
                     {
@@ -61,7 +61,7 @@ namespace ImprovedGasColourMod
                     intensity = GetGasColorIntensity(gasMass, maxMass);
                 }
                 // cap the saturation
-                intensity = Mathf.Max(intensity, 0, 2f);
+                intensity = Mathf.Max(intensity, 0.2f);
                 // Pop ear drum marker
                 if (mass > 2.5f)
                 {
@@ -73,7 +73,7 @@ namespace ImprovedGasColourMod
 
                     float intens = Mathf.InverseLerp(3.5f, 20f, mass);
 
-                    float min = gasColorHSV.V *0.7f;
+                    float min = gasColorHSV.V * 0.7f;
                     float current = gasColorHSV.V * intens;
 
                     gasColorHSV.V = Mathf.Max(min, current);
@@ -81,7 +81,7 @@ namespace ImprovedGasColourMod
 
                 // New code, use the saturation of a color for the pressure
                 gasColorHSV.S *= intensity;
-                __result      = gasColorHSV;
+                __result = gasColorHSV;
 
                 return false;
 
@@ -92,7 +92,7 @@ namespace ImprovedGasColourMod
 
             public static Color GetCellOverlayColor(int cellIndex)
             {
-                Element   element   = Grid.Element[cellIndex];
+                Element element = Grid.Element[cellIndex];
                 Substance substance = element.substance;
 
                 Color32 overlayColor = substance.overlayColour;
@@ -110,7 +110,7 @@ namespace ImprovedGasColourMod
 
                 intensity = Mathf.Sqrt(intensity);
 
-                intensity =  Mathf.Clamp01(intensity);
+                intensity = Mathf.Clamp01(intensity);
                 intensity *= 1 - minIntensity;
                 intensity += minIntensity;
 
