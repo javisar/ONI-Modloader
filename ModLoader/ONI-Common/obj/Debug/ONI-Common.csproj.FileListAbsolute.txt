@@ -1,0 +1,3 @@
+C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\ONI-Common\obj\Debug\ONI-Common.csproj.CoreCompileInputs.cache
+C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\Managed\ONI-Common.dll
+C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\ONI-Common\obj\Debug\ONI-Common.dll

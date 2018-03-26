@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FAAB5987-0B05-4114-808E-6C95D9EEA378}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MaterialColor</RootNamespace>
+    <AssemblyName>MaterialColor</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>false</DebugSymbols>
+    <DebugType>none</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\Managed\Mods\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\Mods\MaterialColor\Assemblies\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="0Harmony">
+      <HintPath>..\lib\0Harmony.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\SteamApps\common\OxygenNotIncluded\OxygenNotIncluded_Data\Managed\Assembly-CSharp.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Assembly-CSharp-firstpass">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\SteamApps\common\OxygenNotIncluded\OxygenNotIncluded_Data\Managed\Assembly-CSharp-firstpass.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="UnityEngine">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\SteamApps\common\OxygenNotIncluded\OxygenNotIncluded_Data\Managed\UnityEngine.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\SteamApps\common\OxygenNotIncluded\OxygenNotIncluded_Data\Managed\UnityEngine.UI.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="TemperatureOverlay\ColorThresholdTemperatureSorter.cs" />
+    <Compile Include="Helpers\ColorHelper.cs" />
+    <None Include="..\..\Mods\MaterialColor\Config\ElementColorInfos\00-solid.json">
+      <Link>Config\ElementColorInfos\00-solid.json</Link>
+    </None>
+    <None Include="..\..\Mods\MaterialColor\Config\ElementColorInfos\01-liquid.json">
+      <Link>Config\ElementColorInfos\01-liquid.json</Link>
+    </None>
+    <None Include="..\..\Mods\MaterialColor\Config\ElementColorInfos\02-gas.json">
+      <Link>Config\ElementColorInfos\02-gas.json</Link>
+    </None>
+    <None Include="..\..\Mods\MaterialColor\Config\ElementColorInfos\03-special.json">
+      <Link>Config\ElementColorInfos\03-special.json</Link>
+    </None>
+    <None Include="..\..\Mods\MaterialColor\Config\InjectorState.json">
+      <Link>Config\InjectorState.json</Link>
+    </None>
+    <None Include="..\..\Mods\MaterialColor\Config\MaterialColorState.json">
+      <Link>Config\MaterialColorState.json</Link>
+    </None>
+    <None Include="..\..\Mods\MaterialColor\Config\TypeColorOffsets\00-machine.json">
+      <Link>Config\TypeColorOffsets\00-machine.json</Link>
+    </None>
+    <None Include="..\..\Mods\MaterialColor\Config\TypeColorOffsets\01-door.json">
+      <Link>Config\TypeColorOffsets\01-door.json</Link>
+    </None>
+    <None Include="..\..\Mods\MaterialColor\Config\TypeColorOffsets\02-liquid.json">
+      <Link>Config\TypeColorOffsets\02-liquid.json</Link>
+    </None>
+    <None Include="..\..\Mods\MaterialColor\Config\TypeColorOffsets\03-gas.json">
+      <Link>Config\TypeColorOffsets\03-gas.json</Link>
+    </None>
+    <None Include="..\..\Mods\MaterialColor\Config\TypeColorOffsets\04-power.json">
+      <Link>Config\TypeColorOffsets\04-power.json</Link>
+    </None>
+    <None Include="..\..\Mods\MaterialColor\Config\TypeColorOffsets\05-other.json">
+      <Link>Config\TypeColorOffsets\05-other.json</Link>
+    </None>
+    <None Include="..\..\Mods\MaterialColor\Config\TypeColorOffsets\06-creature.json">
+      <Link>Config\TypeColorOffsets\06-creature.json</Link>
+    </None>
+    <None Include="..\..\Mods\MaterialColor\Config\TypeColorOffsets\07-exosuit.json">
+      <Link>Config\TypeColorOffsets\07-exosuit.json</Link>
+    </None>
+    <None Include="..\..\Mods\MaterialColor\Config\TypeColorOffsets\08-automation.json">
+      <Link>Config\TypeColorOffsets\08-automation.json</Link>
+    </None>
+    <None Include="..\..\Mods\MaterialColor\Config\TypeColorOffsets\09-tiles.json">
+      <Link>Config\TypeColorOffsets\09-tiles.json</Link>
+    </None>
+    <None Include="..\..\Mods\MaterialColor\Config\TypeColorOffsets\10-tubular.json">
+      <Link>Config\TypeColorOffsets\10-tubular.json</Link>
+    </None>
+    <None Include="..\..\Mods\Overlays\Config\TemperatureOverlayState.json">
+      <Link>Config\TemperatureOverlayState.json</Link>
+    </None>
+    <None Include="ColorHelper_Patched.cs" />
+    <None Include="Extensions\Class1.cs" />
+    <Compile Include="Harmony\HarmonyPatches.cs" />
+    <Compile Include="Extensions\Color32Extensions.cs" />
+    <Compile Include="Helpers\MaterialHelper.cs" />
+    <Compile Include="Extensions\SimHashesExtensions.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ModLoader\ModLoader.csproj">
+      <Project>{1f2af815-740e-4310-869e-d0544c702389}</Project>
+      <Name>ModLoader</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\ONI-Common\ONI-Common.csproj">
+      <Project>{1208647d-c8c2-48db-bf29-60c6f3e2b016}</Project>
+      <Name>ONI-Common</Name>
+      <Private>False</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>xcopy "$(TargetDir)$(TargetFileName)" "Z:\Applications\Steam Games\SteamApps\common\OxygenNotIncluded\Mods\MaterialColor\Assemblies" /Y</PostBuildEvent>
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="ONI-ModLoaderInstaller">
+    <output-path>$PROJECT_DIR$/out</output-path>
+    <root id="archive" name="ONI-ModLoaderInstaller.jar">
+      <element id="module-output" name="ONI-ModLoaderInstaller" />
+    </root>
+  </artifact>
+</component>

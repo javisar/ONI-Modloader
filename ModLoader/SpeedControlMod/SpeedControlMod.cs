@@ -1,17 +1,13 @@
-﻿using Harmony;
-using System;
-using System.Collections.Generic;
-using System.Reflection;
-using System.Reflection.Emit;
-using UnityEngine;
+﻿namespace SpeedControlMod
+{
+    using Harmony;
+    using System;
+    using UnityEngine;
+    using Debug = Debug;
 
-namespace SpeedControlMod
-{           	
-    
     [HarmonyPatch(typeof(SpeedControlScreen), "OnChanged", new Type[0])]
-    internal class SpeedControlMod
+    internal static class SpeedControlMod
     {
-
         private static bool Prefix(SpeedControlScreen __instance)
         {
             Debug.Log(" === SpeedControlMod INI === ");
@@ -32,15 +28,12 @@ namespace SpeedControlMod
             {
                 Time.timeScale = 10f;
             }
-            if (__instance.OnGameSpeedChanged != null)
-            {
-                __instance.OnGameSpeedChanged();
-            }
+
+            __instance.OnGameSpeedChanged?.Invoke();
 
             Debug.Log(" === SpeedControlMod END === ");
 
             return false;
         }
     }
-    
 }

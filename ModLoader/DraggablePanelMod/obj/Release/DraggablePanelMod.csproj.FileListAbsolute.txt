@@ -1,0 +1,4 @@
+C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\Mods\DraggablePanelMod.dll
+C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\DraggablePanelMod\obj\Release\DraggablePanelMod.csprojResolveAssemblyReference.cache
+C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\DraggablePanelMod\obj\Release\DraggablePanelMod.csproj.CoreCompileInputs.cache
+C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\DraggablePanelMod\obj\Release\DraggablePanelMod.dll

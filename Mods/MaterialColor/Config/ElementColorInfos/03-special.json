@@ -1,0 +1,18 @@
+{
+  "Unobtanium": {
+    "ColorMultiplier": {
+      "Red": 0.2,
+      "Green": 1.0,
+      "Blue": 1.0
+    },
+    "Brightness": 0.8
+  },
+  "Vacuum": {
+    "ColorMultiplier": {
+      "Red": 1.0,
+      "Green": 1.0,
+      "Blue": 1.0
+    },
+    "Brightness": 1.0
+  }
+}

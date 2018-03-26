@@ -1,0 +1,20 @@
+{
+  "AirborneCreatureLure": {
+    "r": 0,
+    "g": 30,
+    "b": 20,
+    "a": 255
+  },
+  "CreatureDeliveryPoint": {
+    "r": 0,
+    "g": 30,
+    "b": 20,
+    "a": 255
+  },
+  "CreatureTrap": {
+    "r": 0,
+    "g": 30,
+    "b": 20,
+    "a": 255
+  }
+}
