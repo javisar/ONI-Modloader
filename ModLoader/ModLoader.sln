@@ -28,6 +28,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImprovedGasColourMod", "Imp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CameraControllerMod", "CameraControllerMod\CameraControllerMod.csproj", "{2F67E9DC-1B57-4CD3-8043-0A59DDF81F06}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StorageLockerMod", "StorageLockerMod\StorageLockerMod.csproj", "{BDDD3B63-D3FE-44B5-9A55-3DE835CC9A43}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PressureDoorMod", "PressureDoorMod\PressureDoorMod.csproj", "{BE9B1AAD-7C29-441C-912A-44670B473EBA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -82,6 +86,14 @@ Global
 		{2F67E9DC-1B57-4CD3-8043-0A59DDF81F06}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2F67E9DC-1B57-4CD3-8043-0A59DDF81F06}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2F67E9DC-1B57-4CD3-8043-0A59DDF81F06}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BDDD3B63-D3FE-44B5-9A55-3DE835CC9A43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDDD3B63-D3FE-44B5-9A55-3DE835CC9A43}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDDD3B63-D3FE-44B5-9A55-3DE835CC9A43}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDDD3B63-D3FE-44B5-9A55-3DE835CC9A43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE9B1AAD-7C29-441C-912A-44670B473EBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE9B1AAD-7C29-441C-912A-44670B473EBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE9B1AAD-7C29-441C-912A-44670B473EBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE9B1AAD-7C29-441C-912A-44670B473EBA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

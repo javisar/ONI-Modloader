@@ -49,7 +49,7 @@ namespace ImprovedGasColourMod
                 {
                     float optimallyBreathable = SimDebugView.optimallyBreathable;
                     intensity = Mathf.Clamp((mass - SimDebugView.minimumBreathable) / optimallyBreathable, 0.05f, 1f);
-
+                    
                     // To red for thin air
                     if (intensity < 1f)
                     {
@@ -60,7 +60,8 @@ namespace ImprovedGasColourMod
                 {
                     intensity = GetGasColorIntensity(gasMass, maxMass);
                 }
-
+                // cap the saturation
+                intensity = Mathf.Max(intensity, 0, 2f);
                 // Pop ear drum marker
                 if (mass > 2.5f)
                 {
