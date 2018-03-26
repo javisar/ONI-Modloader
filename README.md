@@ -1,10 +1,7 @@
 # ONI-Modloader
 A modloader for Oxygen Not Included based in Harmony
 
-Forums in Klei:
-https://forums.kleientertainment.com/topic/88186-mod01-oni-modloader/
-
-This project uses source code from:
+This project uses source code of and is based on:
 * https://github.com/zeobviouslyfakeacc/ModLoaderInstaller
 * https://github.com/pardeike/Harmony
 * https://forums.kleientertainment.com/topic/81296-mod159-materialcolor-onionpatcher/
@@ -19,13 +16,8 @@ Projects
 
 Examples
 --------
-<<<<<<< HEAD
 * CameraControllerMod: Enable further zoom-outs in play and dev mode (taken from Onion patcher).
 * CustomWorldMod: Enables the player to user custom world sizes. Stand alone mod currently diabled, please edit the OnionConfig.json file for changes (taken from Onion patcher)
-=======
-* AlternateOrdersMod: Now, the Fabricators and Refineries will alternate between infinity orders.
-* InsulatedDoorsMod: Doors can be constructed using any buildable element (ie: Abyssalite). Also it adds a new element Insulated Pressure Door.
->>>>>>> upstream/master
 * FastModeMod: Duplicants will build an dig very fast.
 * ImprovedGasColourMod: Replaces the oxygen overly with gas colors. Also visualizes the density (taken from Onion patcher, modified).
 * MaterialColor: Adds an overlay option to visualize what a building is made of (taken from Onion patcher).
@@ -38,19 +30,8 @@ Examples
 
 Installation
 ------------
-<<<<<<< HEAD
 Make sure you're using a fresh install of ONI, meaning you'll need the original/unpatched Assembyl-CSharp.dll and Assembly-CSharp-firstpass.dll as it comes with a clean install.
 Note: You'll need to re-run the injector every time ONI gets updated.
-=======
-1. Copy 'Injector.exe' and 'Mono.Cecil.dll' to the folder: ..\OxygenNotIncluded_Data\Managed\
-2. Execute 'Injector.exe'. It will create a backup of 'Assembly-CSharp.dll' in 'Assembly-CSharp.dll.orig' and a new already patched 'Assembly-CSharp.dll'
-3. Create the folder: ...\OxygenNotIncluded_Data\Managed\Mods\
-4. Move to this folder the following files:
-   * 0Harmony.dll
-   * ModLoader.dll
-5. Also move to this folder all the mods you want to run.
-6. Run the game and check ../OxygenNotIncluded_Data/output_log.txt for any errors.
->>>>>>> upstream/master
 
 Click "Clone or Download" for the current version as the releases are currently not up to date.
 
@@ -69,15 +50,14 @@ Just rename 'Assembly-CSharp.dll.orig' to 'Assembly-CSharp.dll' and 'Assembly-CS
 
 Requirements
 ------------
-* .NET Framework 3.5
-* Harmony Patcher
-* Mono.Cecil
-* Visual Studio 2015
+.NET Framework 3.5
+Harmony Patcher
+Mono.Cecil
+Visual Studio 2015
 
 
 Creating a Mod
 --------------
-<<<<<<< HEAD
 1. Open the solution with Visual Studio.
 2. Create a new mod or modify the 'Patches' project.
 3. Compile it to generate the mod dll file.
@@ -86,17 +66,6 @@ Dlls will be recognized by the mod loader if
 • they reside in the main mod direcotory 
 OR
 • they are inside a subfolder inside a subfolder names 'Assemblies' (see MaterialColor mod)
-=======
-1. Copy the following files from ONI folder to the solution folder '\Modloader\lib\'
-   * Assembly-CSharp.dll
-   * Assembly-CSharp-firstpass.dll
-   * Assembly-UnityScript-firstpass.dll
-   * UnityEngine.dll
-   * UnityEngine.UI.dll
-2. Open the solution with Visual Studio.
-3. Create a new mod or modify the 'Patches' project.
-4. Compile it to generate the mod dll file.
->>>>>>> upstream/master
 
 
 Downloads
@@ -112,8 +81,11 @@ Harmony Tutorials
 * https://github.com/UnlimitedHugs/RimworldHugsLib/wiki/Detouring
 
 
+Tips
+----
+* If you create a Class in your mod with the same name as a Class in ONI code, the Class Loader will load first the class in your mod. This is a way to overwrite entire classes.
+
 
 Disclaimer
 ----------
 I do not take any responsibility for broken saves or any other damage. Use this software at your own risk.
-
