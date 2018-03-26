@@ -44,17 +44,33 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="Assembly-CSharp">
+<<<<<<< HEAD
       <HintPath>Z:\Applications\Steam Games\SteamApps\common\OxygenNotIncluded\OxygenNotIncluded.app\Contents\Resources\Data\Managed\Assembly-CSharp.dll</HintPath>
+=======
+      <HintPath>..\lib\Assembly-CSharp.dll</HintPath>
+>>>>>>> upstream/master
       <Private>False</Private>
     </Reference>
     <Reference Include="Assembly-CSharp-firstpass, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
+<<<<<<< HEAD
       <HintPath>Z:\Applications\Steam Games\SteamApps\common\OxygenNotIncluded\OxygenNotIncluded.app\Contents\Resources\Data\Managed\Assembly-CSharp-firstpass.dll</HintPath>
+=======
+      <HintPath>..\lib\Assembly-CSharp-firstpass.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="0Harmony">
+      <HintPath>..\lib\0Harmony.dll</HintPath>
+>>>>>>> upstream/master
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Core" />
     <Reference Include="UnityEngine">
+<<<<<<< HEAD
       <HintPath>Z:\Applications\Steam Games\SteamApps\common\OxygenNotIncluded\OxygenNotIncluded.app\Contents\Resources\Data\Managed\UnityEngine.dll</HintPath>
+=======
+      <HintPath>..\lib\UnityEngine.dll</HintPath>
+>>>>>>> upstream/master
       <Private>False</Private>
     </Reference>
   </ItemGroup>
@@ -95,7 +111,10 @@
   </Target>
   <Target Name="AfterBuild" DependsOnTargets="BuildPlugins">
   </Target>
+<<<<<<< HEAD
   <PropertyGroup>
     <PostBuildEvent>xcopy "$(TargetDir)$(TargetFileName)" "Z:\Applications\Steam Games\SteamApps\common\OxygenNotIncluded\Mods" /Y</PostBuildEvent>
   </PropertyGroup>
+=======
+>>>>>>> upstream/master
 </Project>

@@ -17,9 +17,14 @@
     <DebugSymbols>false</DebugSymbols>
     <DebugType>none</DebugType>
     <Optimize>false</Optimize>
+<<<<<<< HEAD
     <OutputPath>..\ModLoaderInstaller\resources\</OutputPath>
     <DefineConstants>
     </DefineConstants>
+=======
+    <OutputPath>..\dist\Managed\Mods\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+>>>>>>> upstream/master
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -27,7 +32,11 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>none</DebugType>
     <Optimize>true</Optimize>
+<<<<<<< HEAD
     <OutputPath>..\..\Managed\</OutputPath>
+=======
+    <OutputPath>..\dist\Managed\Mods\</OutputPath>
+>>>>>>> upstream/master
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -42,21 +51,36 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="Assembly-CSharp">
+<<<<<<< HEAD
       <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\SteamApps\common\OxygenNotIncluded\OxygenNotIncluded_Data\Managed\Assembly-CSharp.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Assembly-CSharp-firstpass">
       <HintPath>Z:\Applications\Steam Games\SteamApps\common\OxygenNotIncluded\OxygenNotIncluded.app\Contents\Resources\Data\Managed\Assembly-CSharp-firstpass.dll</HintPath>
       <Private>False</Private>
+=======
+      <HintPath>..\lib\Assembly-CSharp.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+	<Reference Include="0Harmony">
+      <HintPath>..\lib\0Harmony.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+      <Aliases>global</Aliases>
+>>>>>>> upstream/master
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="UnityEngine">
+<<<<<<< HEAD
       <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\SteamApps\common\OxygenNotIncluded\OxygenNotIncluded_Data\Managed\UnityEngine.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\SteamApps\common\OxygenNotIncluded\OxygenNotIncluded_Data\Managed\UnityEngine.UI.dll</HintPath>
+=======
+      <HintPath>..\lib\UnityEngine.dll</HintPath>
+>>>>>>> upstream/master
       <Private>False</Private>
     </Reference>
   </ItemGroup>
@@ -86,4 +110,11 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  
+  <Target Name="Zip">
+        <CreateItem Include="$(ReleaseDir)\*.*" >
+                <Output ItemName="ZipFiles" TaskParameter="Include"/>
+        </CreateItem>
+        <Zip ZipFileName="$(ReleaseDir)\..\ONI-ModLoader.zip" WorkingDirectory="$(ReleaseDir)" Files="@(ZipFiles)" />
+  </Target>
 </Project>

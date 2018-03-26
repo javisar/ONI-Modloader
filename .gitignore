@@ -1,0 +1,13 @@
+
+ModLoader/.vs/ModLoader/v15/
+ModLoader/lib/Assembly-CSharp-firstpass.dll
+ModLoader/lib/Assembly-CSharp.dll
+ModLoader/lib/Assembly-UnityScript-firstpass.dll
+ModLoader/lib/UnityEngine.dll
+ModLoader/lib/UnityEngine.UI.dll
+*.FileListAbsolute.txt
+*.CopyComplete
+*.cache
+*.exe
+*.pdb
+*.zip

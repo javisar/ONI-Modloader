@@ -1,4 +1,15 @@
+<<<<<<< HEAD
 ﻿namespace Injector
+=======
+﻿using System;
+using System.Linq;
+using System.Reflection;
+using Mono.Cecil;
+using Mono.Cecil.Cil;
+using System.IO;
+
+namespace spaar.ModLoader.Injector
+>>>>>>> upstream/master
 {
     using Mono.Cecil;
     using Mono.Cecil.Cil;
@@ -12,10 +23,15 @@
     {
         public static void Inject(AssemblyDefinition game, string outputPath)
         {
+<<<<<<< HEAD
             TypeDefinition planetRotate = game.MainModule.GetType(string.Empty, "Global");
+=======
+            TypeDefinition launchInitializer = game.MainModule.GetType("", "LaunchInitializer");
+>>>>>>> upstream/master
 
-            if (planetRotate == null)
+            if (launchInitializer == null)
             {
+<<<<<<< HEAD
                 Console.WriteLine("Global not found");
                 Console.Read();
                 return;
@@ -28,6 +44,17 @@
                 Console.WriteLine("Global.Awake not found");
                 Console.Read();
                 return;
+=======
+                throw new Exception("LaunchInitializer not found");
+            }
+
+            MethodDefinition planetStart = launchInitializer.Methods.FirstOrDefault(
+              method => method.Name == "Awake");
+
+            if (planetStart == null)
+            {
+                throw new Exception("LaunchInitializer.Awake not found");
+>>>>>>> upstream/master
             }
 
             ILProcessor             p = planetStart.Body.GetILProcessor();
