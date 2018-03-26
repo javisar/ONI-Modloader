@@ -21,7 +21,7 @@ Examples
 * FastModeMod: Duplicants will build an dig very fast.
 * ImprovedGasColourMod: Replaces the oxygen overly with gas colors. Also visualizes the density (taken from Onion patcher, modified).
 * MaterialColor: Adds an overlay option to visualize what a building is made of (taken from Onion patcher).
-* PressureDoorMod: Removes the enery need for the mechanized pressure door and makes it buildable from all material.
+* PressureDoorMod: Removes the energy need for the mechanized pressure door and makes it buildable from all material.
 * SensorsMod: It modifies some ranges y automation sensors (taken from Onion patcher).
 * StorageLockerMod: Storage lockers won't need a foundation to be built.
 * SpeedControlMod: Overwrites the method SpeedControlScreen.OnChange. Fast Speed set to behave like Ultra Speed in debug mode.
