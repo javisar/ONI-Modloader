@@ -11,3 +11,6 @@ C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\Mods\MaterialColor\Assemblies
 C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\MaterialColor\obj\Release\MaterialColor.csprojResolveAssemblyReference.cache
 C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\MaterialColor\obj\Release\MaterialColor.csproj.CoreCompileInputs.cache
 C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\MaterialColor\obj\Release\MaterialColor.dll
+E:\ONI\ONI-Modloader\Mods\MaterialColor\Assemblies\MaterialColor.dll
+E:\ONI\ONI-Modloader\ModLoader\MaterialColor\obj\Release\MaterialColor.csprojResolveAssemblyReference.cache
+E:\ONI\ONI-Modloader\ModLoader\MaterialColor\obj\Release\MaterialColor.dll

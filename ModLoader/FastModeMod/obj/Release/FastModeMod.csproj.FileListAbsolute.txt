@@ -2,3 +2,5 @@ C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\Mods\FastModeMod.dll
 C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\FastModeMod\obj\Release\FastModeMod.csprojResolveAssemblyReference.cache
 C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\FastModeMod\obj\Release\FastModeMod.csproj.CoreCompileInputs.cache
 C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\FastModeMod\obj\Release\FastModeMod.dll
+E:\ONI\ONI-Modloader\Mods\FastModeMod.dll
+E:\ONI\ONI-Modloader\ModLoader\FastModeMod\obj\Release\FastModeMod.dll

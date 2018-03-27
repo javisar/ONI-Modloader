@@ -2,3 +2,5 @@ C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\Mods\PressureDoorMod.dll
 C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\PressureDoorMod\obj\Release\PressureDoorMod.csprojResolveAssemblyReference.cache
 C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\PressureDoorMod\obj\Release\PressureDoorMod.csproj.CoreCompileInputs.cache
 C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\PressureDoorMod\obj\Release\PressureDoorMod.dll
+E:\ONI\ONI-Modloader\Mods\PressureDoorMod.dll
+E:\ONI\ONI-Modloader\ModLoader\PressureDoorMod\obj\Release\PressureDoorMod.dll

@@ -5,3 +5,6 @@ C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\Managed\ModLoader.dll
 C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\ModLoader\obj\Release\ModLoader.csprojResolveAssemblyReference.cache
 C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\ModLoader\obj\Release\ModLoader.csproj.CoreCompileInputs.cache
 C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\ModLoader\obj\Release\ModLoader.dll
+E:\ONI\ONI-Modloader\Managed\ModLoader.dll
+E:\ONI\ONI-Modloader\ModLoader\ModLoader\obj\Release\ModLoader.csprojResolveAssemblyReference.cache
+E:\ONI\ONI-Modloader\ModLoader\ModLoader\obj\Release\ModLoader.dll

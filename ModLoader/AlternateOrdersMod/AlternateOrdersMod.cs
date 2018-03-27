@@ -11,19 +11,19 @@ namespace AlternateOrdersMod
     {
         private static void Prefix(Fabricator __instance, bool force_update = false)
         {
-            Debug.Log(" === AlternateOrdersMod1 Prefix === ");
+            Debug.Log(" === AlternateOrdersMod1 Prefix === "+__instance.ToString());
 
-			PropertyInfo userOrders_ = AccessTools.Property(typeof(Fabricator), "userOrders");
-			PropertyInfo operational_ = AccessTools.Property(typeof(Fabricator), "operational");
-			PropertyInfo machineOrders_ = AccessTools.Property(typeof(Fabricator), "machineOrders");
-			MethodInfo AlreadyMachineQueued = AccessTools.Method(typeof(Fabricator), "AlreadyMachineQueued", new Type[] { typeof(Fabricator.UserOrder) });
+			FieldInfo userOrders_ = AccessTools.Field(typeof(Fabricator), "userOrders");
+            FieldInfo operational_ = AccessTools.Field(typeof(Fabricator), "operational");
+            FieldInfo machineOrders_ = AccessTools.Field(typeof(Fabricator), "machineOrders");
+            MethodInfo AlreadyMachineQueued = AccessTools.Method(typeof(Fabricator), "AlreadyMachineQueued", new Type[] { typeof(Fabricator.UserOrder) });
 
-			List<Fabricator.UserOrder> userOrders = (List <Fabricator.UserOrder>) userOrders_.GetValue(__instance, null);
-			Operational operational = (Operational) operational_.GetValue(__instance, null);
-			List<Fabricator.MachineOrder> machineOrders = (List<Fabricator.MachineOrder>) machineOrders_.GetValue(__instance, null);
+            List<Fabricator.UserOrder> userOrders = (List <Fabricator.UserOrder>) userOrders_.GetValue(__instance);
+            Operational operational = (Operational) operational_.GetValue(__instance);
+            List<Fabricator.MachineOrder> machineOrders = (List<Fabricator.MachineOrder>) machineOrders_.GetValue(__instance);
 
 
-			if (!force_update && !operational.IsOperational)
+            if (!force_update && !operational.IsOperational)
 			{
 				return;
 			}
