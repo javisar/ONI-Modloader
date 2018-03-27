@@ -6,6 +6,7 @@ https://forums.kleientertainment.com/topic/88186-mod01-oni-modloader/
 
 This project uses source code of and is based on:
 * https://github.com/zeobviouslyfakeacc/ModLoaderInstaller
+* https://github.com/spaar/besiege-modloader
 * https://github.com/pardeike/Harmony
 * https://forums.kleientertainment.com/topic/81296-mod159-materialcolor-onionpatcher/
 
@@ -48,6 +49,14 @@ Click "Clone or Download" for the current version as the releases are currently 
 
 Please don't report bugs you encounter while mods are active. People at Klei work hard and shouldn't be bothered with bug reports which might originate from mods.
 
+
+Alternative Installation
+----------------------
+1. Download last version in Release section.
+2. Unzip in the ONI main directory.
+3. Execute 'Injector.exe' (only if you have the unpatched dlls )
+4. Remove all unwanted mods from "Mods" folder. 
+
 Uninstallation
 --------------
 Just rename 'Assembly-CSharp.dll.orig' to 'Assembly-CSharp.dll' and 'Assembly-CSharp-firstpass.dll.orig' to 'Assembly-CSharp-firstpass.dll'
@@ -63,15 +72,15 @@ Requirements
 
 Creating a Mod
 --------------
-0. Copy the following files from a Previously Patched ONI folder to the solution folder '\Modloader\lib\'
+1. Copy the following files from a Previously Patched ONI folder to the solution folder '\Modloader\lib\'
    * Assembly-CSharp.dll
    * Assembly-CSharp-firstpass.dll
    * Assembly-UnityScript-firstpass.dll
    * UnityEngine.dll
    * UnityEngine.UI.dll
-1. Open the solution with Visual Studio.
-2. Create a new mod or modify the 'Patches' project.
-3. Compile it to generate the mod dll file.
+2. Open the solution with Visual Studio.
+3. Create a new mod or modify the 'Patches' project.
+4. Compile it to generate the mod dll file.
 
 Dlls will be recognized by the mod loader if 
 • they reside in the main mod direcotory 
@@ -81,7 +90,8 @@ OR
 
 Downloads
 ---------
-Choose 'Clone or download'. Releases are currently not updated and lack some described mods/features.
+Choose 'Clone or download'.
+See Releases section.
 
 
 Harmony Tutorials
@@ -95,4 +105,4 @@ Harmony Tutorials
 
 Disclaimer
 ----------
-I do not take any responsibility for broken saves or any other damage. Use this software at your own risk.
+We do not take any responsibility for broken saves or any other damage. Use this software at your own risk.
