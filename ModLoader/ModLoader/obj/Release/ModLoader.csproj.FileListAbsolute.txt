@@ -1,0 +1,7 @@
+C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\ModLoader\bin\Release\ModLoader.dll
+C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\ModLoader\bin\Release\ModLoader.pdb
+C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\ModLoader\bin\Release\Assembly-CSharp-firstpass.dll
+C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\Managed\ModLoader.dll
+C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\ModLoader\obj\Release\ModLoader.csprojResolveAssemblyReference.cache
+C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\ModLoader\obj\Release\ModLoader.csproj.CoreCompileInputs.cache
+C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\ModLoader\obj\Release\ModLoader.dll

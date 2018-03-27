@@ -1,0 +1,11 @@
+{
+  "Enabled": true,
+  "ColorMode": 1,
+  "ShowMissingElementColorInfos": false,
+  "ShowMissingTypeColorOffsets": false,
+  "ShowBuildingsAsWhite": false,
+  "LegacyTileColorHandling": false,
+  "MinimumGasColorIntensity": 0.25,
+  "GasPressureStart": 0.1,
+  "GasPressureEnd": 2.5
+}

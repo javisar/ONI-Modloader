@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace ModLoader
+﻿namespace ModLoader
 {
     public static class Activator
     {
-        private static bool activated = false;
+        private static bool activated;
 
         /// <summary>
         /// Activate the mod loader.
@@ -17,9 +12,8 @@ namespace ModLoader
         {
             if (!activated)
             {
-                ModLoader md = new ModLoader();
                 activated = true;
-                ModLoader.Start();                
+                ModLoader.Start();
             }
         }
     }
