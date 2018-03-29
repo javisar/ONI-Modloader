@@ -17,4 +17,12 @@
             Debug.Log(" === CameraControllerMod END === ");
         }
     }
+    [HarmonyPatch(typeof(CameraController), nameof(CameraController.SetMaxOrthographicSize))]
+    public static class CameraControllerMod2
+    {
+        public static void Prefix(CameraController __instance, ref float size)
+        {
+            size = 100f;
+        }
+    }
 }
