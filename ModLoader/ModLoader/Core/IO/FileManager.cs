@@ -4,7 +4,7 @@
 
     using UnityEngine;
 
-    public class FileManager
+    public static class FileManager
     {
         public static Sprite LoadSpriteFromFile(string path, int width, int height)
         {

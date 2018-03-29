@@ -12,9 +12,8 @@ namespace CustomWorldMod
         public static class MyClass
         {
             public static SettingConfig UseCustomWorld = new ToggleSettingConfig(UseCustomWorldSize,
-                                                                               "Custom size always uses 12x16",
-                                                                               //     "Use custom world size",
-                                                                               "Default 8x12; If enabled, the world will be generated with the values provided",
+                                                                                    "Use custom world size",
+                                                                               "Default 256x384 tiles; If enabled, the world will be generated with the values provided",
                                                                                new SettingLevel("Disabled",
                                                                                                 "Name01",
                                                                                                 "Tooltip01"),
@@ -26,22 +25,26 @@ namespace CustomWorldMod
             public static readonly SettingConfig WorldgenSeedX = new ListSettingConfig(WorldsizeX, "Custom World Width ", "Use a custom size.",
                                                                               new List<SettingLevel>
                                                                               {
-                                                                              new SettingLevel("8",  "8",  "8"),
-                                                                              new SettingLevel("10", "10", "10"),
-                                                                              new SettingLevel("12", "12", "12"),
-                                                                              new SettingLevel("14", "14", "14"),
-                                                                              new SettingLevel("16", "16", "16")
-                                                                              }, "8");
+                                                                              new SettingLevel("256",  "256",  "256"),
+                                                                              new SettingLevel("320", "320", "320"),
+                                                                              new SettingLevel("384", "384", "384"),
+                                                                              new SettingLevel("448", "448", "448"),
+                                                                              new SettingLevel("512", "512", "512")
+                                                                              }, "256");
 
             public static readonly SettingConfig WorldgenSeedY = new ListSettingConfig(WorldsizeY, "Custom World Height", "Use a custom size.",
                                                                               new List<SettingLevel>
                                                                               {
-                                                                              new SettingLevel("12", "12", "12"),
-                                                                              new SettingLevel("16", "16", "16"),
-                                                                              new SettingLevel("20", "20", "20"),
-                                                                              new SettingLevel("24", "24", "24")
-                                                                              }, "12");
-
+                                                                              new SettingLevel("384", "384", "384"),
+                                                                              new SettingLevel("512", "512", "512"),
+                                                                              new SettingLevel("640", "640", "640"),
+                                                                              new SettingLevel("768", "768", "768")
+                                                                              }, "384");
+            /// <summary>
+            /// Adds the settings before the immunity
+            /// </summary>
+            /// <param name="__instance"></param>
+            /// <param name="config"></param>
             public static void Prefix(CustomGameSettings __instance, SettingConfig config)
             {
                 if (config != CustomGameSettingConfigs.ImmuneSystem)
@@ -78,43 +81,33 @@ namespace CustomWorldMod
 
             public static void Prefix(ref int width, ref int height)
             {
-                // 8x12 default
-                //    if ()
-                {
-                    width = 12 * 32;
-                    height = 16 * 32;
-                }
-                return;
-                //  ModConfig Config = new ModConfig(ModName);
+                // 256x512 default
 
-                //   return;
-
-                if (Game.Instance == null)
+                Debug.Log("CWS: Using custom world size ...");
+                if (!CustomGameSettings.Get().is_custom_game)
                 {
+                    Debug.Log("CWS: Nah, no custom game ...");
                     return;
                 }
-
-                SettingConfig settingConfig = Game.Instance.customSettings.QualitySettings[UseCustomWorldSize];
+                
+                SettingConfig settingConfig = CustomGameSettings.Get().QualitySettings[UseCustomWorldSize];
                 SettingLevel currentQualitySetting =
-                Game.Instance.customSettings.GetCurrentQualitySetting(UseCustomWorldSize);
+                CustomGameSettings.Get().GetCurrentQualitySetting(UseCustomWorldSize);
 
-                bool allowCustomSize = settingConfig?.IsDefaultLevel(currentQualitySetting.id) == true;
+                bool allowCustomSize = !settingConfig.IsDefaultLevel(currentQualitySetting.id);
 
                 if (!allowCustomSize)
                 {
+                    Debug.Log("CWS: No custom size allowed ...");
                     return;
                 }
 
-                SettingLevel currentQualitySettingX = Game.Instance.customSettings.GetCurrentQualitySetting(WorldsizeX);
-                SettingLevel currentQualitySettingY = Game.Instance.customSettings.GetCurrentQualitySetting(WorldsizeY);
-                if (Int32.TryParse(currentQualitySettingX.id, out width))
-                {
-                    width *= 32;
-                }
-                if (Int32.TryParse(currentQualitySettingY.id, out height))
-                {
-                    height *= 32;
-                }
+                SettingLevel currentQualitySettingX = CustomGameSettings.Get().GetCurrentQualitySetting(WorldsizeX);
+                SettingLevel currentQualitySettingY = CustomGameSettings.Get().GetCurrentQualitySetting(WorldsizeY);
+                Int32.TryParse(currentQualitySettingX.id, out width);
+                Int32.TryParse(currentQualitySettingY.id, out height);
+
+                Debug.Log("CWS: Using " + width + "/" + height + " as new world size");
 
                 //  if (Config.Enabled && Config.CustomWorldSize)
                 //{

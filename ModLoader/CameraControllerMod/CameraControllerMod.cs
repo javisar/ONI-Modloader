@@ -1,6 +1,4 @@
-﻿using System.Diagnostics;
-
-namespace ModLoader
+﻿namespace ModLoader
 {
     using Harmony;
 

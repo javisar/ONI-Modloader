@@ -1,7 +1,7 @@
-﻿namespace ONI_Common.Data
-{
-    using UnityEngine;
+﻿using UnityEngine;
 
+namespace DraggablePanelMod
+{
     public struct SerializeableVector2
     {
         public SerializeableVector2(float x, float y)

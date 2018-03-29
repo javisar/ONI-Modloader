@@ -7,7 +7,7 @@ namespace InsulatedDoorsMod
 {    
     
     [HarmonyPatch(typeof(GeneratedBuildings), "LoadGeneratedBuildings")]
-    internal class InsulatedPressureDoorMod
+    internal static class InsulatedPressureDoorMod
     {
         private static void Prefix()
         {
@@ -16,9 +16,9 @@ namespace InsulatedDoorsMod
             Strings.Add("STRINGS.BUILDINGS.PREFABS.INSULATEDPRESSUREDOOR.DESC", "Insulated Mechanized airlocks have the same function as other doors, but open and close more quickly.");
             Strings.Add("STRINGS.BUILDINGS.PREFABS.INSULATEDPRESSUREDOOR.EFFECT", "Blocks <style=\"liquid\">Liquid</style> and <style=\"gas\">Gas</style> flow, maintaining pressure between areas.\n\nSets Duplicant Access Permissions for area restriction.\n\nFunctions as a Manual Airlock when no <style=\"power\">Power</style> is available.");
 
-            List<string> ls = new List<string>((string[])TUNING.BUILDINGS.PLANORDER[0].data);
-            ls.Add("InsulatedPressureDoor");            
-            TUNING.BUILDINGS.PLANORDER[0].data = (string[]) ls.ToArray();
+	        List<string> ls = new List<string>((string[]) TUNING.BUILDINGS.PLANORDER[0].data) {"InsulatedPressureDoor"};
+
+	        TUNING.BUILDINGS.PLANORDER[0].data = (string[]) ls.ToArray();
 
             TUNING.BUILDINGS.COMPONENT_DESCRIPTION_ORDER.Add("InsulatedPressureDoor");
 
@@ -34,7 +34,7 @@ namespace InsulatedDoorsMod
 	
 
 	[HarmonyPatch(typeof(DoorConfig), "CreateBuildingDef")]
-    internal class InsulatedDoorsMod
+    internal static class InsulatedDoorsMod
     {
 
         private static void Postfix(DoorConfig __instance, ref BuildingDef __result)
@@ -45,7 +45,7 @@ namespace InsulatedDoorsMod
 
 
     [HarmonyPatch(typeof(ManualPressureDoorConfig), "CreateBuildingDef")]
-    internal class ManualPressureDoorConfigMod
+    internal static class ManualPressureDoorConfigMod
     {
 
         private static void Postfix(ManualPressureDoorConfig __instance, ref BuildingDef __result)
@@ -56,7 +56,7 @@ namespace InsulatedDoorsMod
 
 
     [HarmonyPatch(typeof(PressureDoorConfig), "CreateBuildingDef")]
-    internal class PressureDoorConfigMod
+    internal static class PressureDoorConfigMod
     {
 
         private static void Postfix(PressureDoorConfig __instance, ref BuildingDef __result)

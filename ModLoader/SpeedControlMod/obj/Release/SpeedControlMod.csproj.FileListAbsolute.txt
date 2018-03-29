@@ -2,3 +2,7 @@ C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\Mods\SpeedControlMod.dll
 C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\SpeedControlMod\obj\Release\SpeedControlMod.csprojResolveAssemblyReference.cache
 C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\SpeedControlMod\obj\Release\SpeedControlMod.csproj.CoreCompileInputs.cache
 C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\SpeedControlMod\obj\Release\SpeedControlMod.dll
+V:\ONI Modding\ONI-Modloader\Mods\SpeedControlMod.dll
+V:\ONI Modding\ONI-Modloader\ModLoader\SpeedControlMod\obj\Release\SpeedControlMod.csprojResolveAssemblyReference.cache
+V:\ONI Modding\ONI-Modloader\ModLoader\SpeedControlMod\obj\Release\SpeedControlMod.csproj.CoreCompileInputs.cache
+V:\ONI Modding\ONI-Modloader\ModLoader\SpeedControlMod\obj\Release\SpeedControlMod.dll

@@ -400,38 +400,6 @@
             */
         }
 
-        private void InjectOnionDebugHandler()
-        {
-            TypeDefinition debugHandler = this._csharpModule.Types.FirstOrDefault(type => type.Name == "DebugHandler");
-
-            if (debugHandler != null)
-            {
-                PropertyDefinition debugHandlerEnabledProperty =
-                debugHandler.Properties.FirstOrDefault(property => property.Name == "enabled");
-
-                if (debugHandlerEnabledProperty != null)
-                {
-                    debugHandlerEnabledProperty.SetMethod.IsPublic = true;
-                }
-            }
-            else
-            {
-                Console.WriteLine("Can't find type DebugHandler");
-
-                this.Failed = true;
-            }
-
-            MethodBody debugHandlerConstructorBody =
-            CecilHelper.GetMethodDefinition(this._csharpModule, debugHandler, ".ctor").Body;
-
-            Instruction lastInstruction = debugHandlerConstructorBody.Instructions.Last();
-
-            this._onionToCSharpInjector.InjectBefore(
-                                                     "Hooks",
-                                                     "OnDebugHandlerCtor",
-                                                     debugHandlerConstructorBody,
-                                                     lastInstruction);
-        }
 
         private void InjectOnionInitRandom()
         {
@@ -447,7 +415,7 @@
 
         private void InjectOnionPatcher()
         {
-            this.InjectOnionDebugHandler();
+          //  this.InjectOnionDebugHandler();
             this.InjectOnionInitRandom();
         }
 

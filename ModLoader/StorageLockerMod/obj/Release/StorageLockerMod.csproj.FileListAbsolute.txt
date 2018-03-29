@@ -2,3 +2,7 @@ C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\Mods\StorageLockerMod.dll
 C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\StorageLockerMod\obj\Release\StorageLockerMod.csprojResolveAssemblyReference.cache
 C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\StorageLockerMod\obj\Release\StorageLockerMod.csproj.CoreCompileInputs.cache
 C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\StorageLockerMod\obj\Release\StorageLockerMod.dll
+V:\ONI Modding\ONI-Modloader\Mods\StorageLockerMod.dll
+V:\ONI Modding\ONI-Modloader\ModLoader\StorageLockerMod\obj\Release\StorageLockerMod.csprojResolveAssemblyReference.cache
+V:\ONI Modding\ONI-Modloader\ModLoader\StorageLockerMod\obj\Release\StorageLockerMod.csproj.CoreCompileInputs.cache
+V:\ONI Modding\ONI-Modloader\ModLoader\StorageLockerMod\obj\Release\StorageLockerMod.dll

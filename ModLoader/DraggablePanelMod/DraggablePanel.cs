@@ -31,11 +31,10 @@
         // TODO: call when position is set by game
         public static void SetPositionFromFile(KScreen screen)
         {
-            Vector2 newPosition;
 
             DraggablePanel panel = screen.FindOrAddUnityComponent<DraggablePanel>();
 
-            if (panel != null && panel.LoadPosition(out newPosition))
+            if (panel != null && panel.LoadPosition(out Vector2 newPosition))
             {
                 panel.SetPosition(newPosition);
             }

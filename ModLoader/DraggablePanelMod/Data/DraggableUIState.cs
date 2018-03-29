@@ -4,7 +4,6 @@
     using System.Collections.Generic;
 
     using ONI_Common;
-    using ONI_Common.Data;
     using ONI_Common.Json;
 
     using UnityEngine;
@@ -28,9 +27,7 @@
 
             string key = this.ExtractKey(window);
 
-            SerializeableVector2 sVector2;
-
-            bool result = this.WindowPositions.TryGetValue(key, out sVector2);
+            bool result = this.WindowPositions.TryGetValue(key, out SerializeableVector2 sVector2);
 
             position = sVector2.ToVector2();
 

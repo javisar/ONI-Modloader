@@ -20,7 +20,7 @@
     using UnityEngine;
     using Action = Action;
 
-    internal static partial class HarmonyPatches
+    public static class HarmonyPatches
     {
 
         private static bool _configuratorStateChanged;
@@ -549,7 +549,7 @@
                                                                (Action)IDs.ToggleMaterialColorOverlayAction,
                                                                "Toggles MaterialColor overlay",
                                                                "MaterialColor") {
-                                                                                   getSpriteCB = () => GetUISprite()
+                                                                                   getSpriteCB = GetUISprite
                                                                                 });
             }
 
