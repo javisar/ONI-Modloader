@@ -16,13 +16,13 @@ Projects
 
 Examples
 --------
-* CameraControllerMod: Enable further zoom-outs in play and dev mode (taken from Onion patcher).
-* CustomWorldMod: Enables the player to user custom world sizes. Stand alone mod currently diabled, please edit the OnionConfig.json file for changes (taken from Onion patcher)
+* CameraControllerMod: Enable further zoom-outs in play and dev mode (rewritten).
+* CustomWorldMod: Enables the player to user custom world sizes. Stand alone mod currently diabled, please edit the OnionConfig.json file for changes (rewritten)
 * FastModeMod: Duplicants will build an dig very fast.
-* ImprovedGasColourMod: Replaces the oxygen overly with gas colors. Also visualizes the density (taken from Onion patcher, modified).
-* MaterialColor: Adds an overlay option to visualize what a building is made of (taken from Onion patcher).
+* ImprovedGasColourMod: Replaces the oxygen overly with gas colors. Also visualizes the density (taken from Etiam's MateralColor mod pack, modified).
+* MaterialColor: Adds an overlay option to visualize what a building is made of (taken from Etiam's MateralColor mod pack).
 * PressureDoorMod: Removes the energy need for the mechanized pressure door and makes it buildable from all material.
-* SensorsMod: It modifies some ranges y automation sensors (taken from Onion patcher).
+* SensorsMod: It modifies some ranges y automation sensors (taken from Etiam's MateralColor mod pack).
 * StorageLockerMod: Storage lockers won't need a foundation to be built.
 * SpeedControlMod: Overwrites the method SpeedControlScreen.OnChange. Fast Speed set to behave like Ultra Speed in debug mode.
 * Patches: Some incomplete tests.
