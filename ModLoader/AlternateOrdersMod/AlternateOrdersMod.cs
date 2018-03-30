@@ -4,96 +4,98 @@ using System.Collections.Generic;
 using System.Reflection;
 
 namespace AlternateOrdersMod
-{    
-    
-    [HarmonyPatch(typeof(Fabricator), "UpdateOrderQueue", new Type[] { typeof(bool)})]
-    internal class AlternateOrdersMod1
+{
+
+    [HarmonyPatch(typeof(Fabricator), "OnCompleteWork", new Type[] { typeof(Worker) })]
+    internal class AlternateOrdersMod2a
     {
-        private static void Prefix(Fabricator __instance, bool force_update = false)
+        private static void Postfix(Fabricator __instance, Worker worker)
         {
-            Debug.Log(" === AlternateOrdersMod1 Prefix === "+__instance.ToString());
+            Debug.Log(" === AlternateOrdersMod2a Postfix === ");
+            try
+            {
+                FieldInfo userOrders_ = AccessTools.Field(typeof(Fabricator), "userOrders");
+                //FieldInfo operational_ = AccessTools.Field(typeof(Fabricator), "operational");
+                FieldInfo isCancellingOrder_ = AccessTools.Field(typeof(Fabricator), "isCancellingOrder");
+                FieldInfo machineOrders_ = AccessTools.Field(typeof(Fabricator), "machineOrders");
+                //MethodInfo AlreadyMachineQueued = AccessTools.Method(typeof(Fabricator), "AlreadyMachineQueued", new Type[] { typeof(Fabricator.UserOrder) });
+                //MethodInfo CompleteOrder = AccessTools.Method(typeof(Fabricator), "CompleteOrder", new Type[] { typeof(Fabricator.UserOrder) });
+                //MethodInfo UpdateOrderQueue = AccessTools.Method(typeof(Fabricator), "UpdateOrderQueue", new Type[] { typeof(bool) });
+                //MethodInfo OnCompleteWork = AccessTools.Method(typeof(Workable), "OnCompleteWork", new Type[] { typeof(Worker) });
 
-			FieldInfo userOrders_ = AccessTools.Field(typeof(Fabricator), "userOrders");
-            FieldInfo operational_ = AccessTools.Field(typeof(Fabricator), "operational");
-            FieldInfo machineOrders_ = AccessTools.Field(typeof(Fabricator), "machineOrders");
-            MethodInfo AlreadyMachineQueued = AccessTools.Method(typeof(Fabricator), "AlreadyMachineQueued", new Type[] { typeof(Fabricator.UserOrder) });
-
-            List<Fabricator.UserOrder> userOrders = (List <Fabricator.UserOrder>) userOrders_.GetValue(__instance);
-            Operational operational = (Operational) operational_.GetValue(__instance);
-            List<Fabricator.MachineOrder> machineOrders = (List<Fabricator.MachineOrder>) machineOrders_.GetValue(__instance);
+                List<Fabricator.UserOrder> userOrders = (List<Fabricator.UserOrder>)userOrders_.GetValue(__instance);
+                //Operational operational = (Operational)operational_.GetValue(__instance);
+                bool isCancellingOrder = (bool)isCancellingOrder_.GetValue(__instance);
+                List<Fabricator.MachineOrder> machineOrders = (List<Fabricator.MachineOrder>)machineOrders_.GetValue(__instance);
 
 
-            if (!force_update && !operational.IsOperational)
-			{
-				return;
-			}
-			int num = 0;
-			while (num < userOrders.Count && machineOrders.Count < 3)
-			{
-				Fabricator.UserOrder userOrder = userOrders[num];
-				if (!(bool) AlreadyMachineQueued.Invoke(__instance, new object[] { userOrder}) || userOrder.infinite)
-				{
-					Fabricator.MachineOrder machineOrder = new Fabricator.MachineOrder();
-					machineOrder.parentOrder = userOrder;
-					machineOrders.Add(machineOrder);
-				}
-				/*
-				if (!userOrder.infinite)
-				{
-					num++;
-				}
-				*/
-				num++;
-			}
-			
-		}
+                if (!isCancellingOrder)
+                {
+                    if (machineOrders.Count > 0)
+                    {
+                        Fabricator.MachineOrder machineOrder = machineOrders[0];
+                        if (machineOrder.parentOrder.infinite)
+                        {
+                            Fabricator.UserOrder last = userOrders[0];
+                            userOrders.RemoveAt(0);
+                            userOrders.Add(last);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.Log(ex);
+                Debug.Log(ex.StackTrace);
+            }
+        }
 
     }
 
+    [HarmonyPatch(typeof(Refinery), "OnCompleteWork", new Type[] { typeof(Worker) })]
+    internal class AlternateOrdersMod2b
+    {        
+        private static void Postfix(Refinery __instance, Worker worker)
+        {
+            Debug.Log(" === AlternateOrdersMod2b Postfix === ");
+            try
+            {
+                FieldInfo userOrders_ = AccessTools.Field(typeof(Refinery), "userOrders");
+                //FieldInfo operational_ = AccessTools.Field(typeof(Refinery), "operational");
+                FieldInfo isCancellingOrder_ = AccessTools.Field(typeof(Refinery), "isCancellingOrder");
+                FieldInfo machineOrders_ = AccessTools.Field(typeof(Refinery), "machineOrders");
+                //MethodInfo AlreadyMachineQueued = AccessTools.Method(typeof(Refinery), "AlreadyMachineQueued", new Type[] { typeof(Refinery.UserOrder) });
+                //MethodInfo CompleteOrder = AccessTools.Method(typeof(Refinery), "CompleteOrder", new Type[] { typeof(Refinery.UserOrder) });
+                //MethodInfo UpdateOrderQueue = AccessTools.Method(typeof(Refinery), "UpdateOrderQueue", new Type[] { typeof(bool) });
+                //MethodInfo OnCompleteWork = AccessTools.Method(typeof(Workable), "OnCompleteWork", new Type[] { typeof(Worker) });
 
-	[HarmonyPatch(typeof(Refinery), "UpdateOrderQueue", new Type[] { typeof(bool) })]
-	internal class AlternateOrdersMod2
-	{
-		private static void Prefix(Refinery __instance, bool force_update = false)
-		{
-			Debug.Log(" === AlternateOrdersMod2 Prefix === ");
-
-			PropertyInfo userOrders_ = AccessTools.Property(typeof(Refinery), "userOrders");
-			PropertyInfo operational_ = AccessTools.Property(typeof(Refinery), "operational");
-			PropertyInfo machineOrders_ = AccessTools.Property(typeof(Refinery), "machineOrders");
-			MethodInfo AlreadyMachineQueued = AccessTools.Method(typeof(Refinery), "AlreadyMachineQueued", new Type[] { typeof(Refinery.UserOrder) });
-
-			List<Refinery.UserOrder> userOrders = (List<Refinery.UserOrder>)userOrders_.GetValue(__instance, null);
-			Operational operational = (Operational)operational_.GetValue(__instance, null);
-			List<Refinery.MachineOrder> machineOrders = (List<Refinery.MachineOrder>)machineOrders_.GetValue(__instance, null);
-
-
-			if (!force_update && !operational.IsOperational)
-			{
-				return;
-			}
-			int num = 0;
-			while (num < userOrders.Count && machineOrders.Count < 3)
-			{
-				Refinery.UserOrder userOrder = userOrders[num];
-				if (!(bool)AlreadyMachineQueued.Invoke(__instance, new object[] { userOrder }) || userOrder.infinite)
-				{
-					Refinery.MachineOrder machineOrder = new Refinery.MachineOrder();
-					machineOrder.parentOrder = userOrder;
-					machineOrders.Add(machineOrder);
-				}
-				/*
-				if (!userOrder.infinite)
-				{
-					num++;
-				}
-				*/
-				num++;
-			}
-
-		}
-
-	}
+                List<Refinery.UserOrder> userOrders = (List<Refinery.UserOrder>)userOrders_.GetValue(__instance);
+                //Operational operational = (Operational)operational_.GetValue(__instance);
+                bool isCancellingOrder = (bool)isCancellingOrder_.GetValue(__instance);
+                List<Refinery.MachineOrder> machineOrders = (List<Refinery.MachineOrder>)machineOrders_.GetValue(__instance);
 
 
+                if (!isCancellingOrder)
+                {
+                    if (machineOrders.Count > 0)
+                    {
+                        Refinery.MachineOrder machineOrder = machineOrders[0];
+                        if (machineOrder.parentOrder.infinite)
+                        {
+                            Refinery.UserOrder last = userOrders[0];
+                            userOrders.RemoveAt(0);
+                            userOrders.Add(last);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.Log(ex);
+                Debug.Log(ex.StackTrace);
+            }
+        }
+        
+    }
+    
 }

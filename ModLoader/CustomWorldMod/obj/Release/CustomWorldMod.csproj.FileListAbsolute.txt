@@ -3,4 +3,5 @@ C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\CustomWorldMod\obj\
 C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\CustomWorldMod\obj\Release\CustomWorldMod.csproj.CoreCompileInputs.cache
 C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\CustomWorldMod\obj\Release\CustomWorldMod.dll
 E:\ONI\ONI-Modloader\Mods\CustomWorldMod.dll
+E:\ONI\ONI-Modloader\ModLoader\CustomWorldMod\obj\Release\CustomWorldMod.csprojResolveAssemblyReference.cache
 E:\ONI\ONI-Modloader\ModLoader\CustomWorldMod\obj\Release\CustomWorldMod.dll
