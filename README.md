@@ -25,13 +25,13 @@ Examples
 * CustomWorldMod: Enables the player to user custom world sizes. Stand alone mod currently diabled, please edit the OnionConfig.json file for changes (taken from Onion patcher)
 * FastModeMod: Duplicants will build an dig very fast.
 * ImprovedGasColourMod: Replaces the oxygen overly with gas colors. Also visualizes the density (taken from Onion patcher, modified).
-* InsulatedDoorsMod: Doors can be constructed using any buildable element (ie: Abyssalite). Also it adds a new element Insulated Pressure Door (WIP)
+* InsulatedDoorsMod (Not working): Doors can be constructed using any buildable element (ie: Abyssalite). Also it adds a new element Insulated Pressure Door
 * MaterialColor: Adds an overlay option to visualize what a building is made of (taken from Onion patcher).
 * PressureDoorMod: Removes the energy need for the mechanized pressure door and makes it buildable from all material.
 * SensorsMod: It modifies some ranges y automation sensors (taken from Onion patcher).
 * StorageLockerMod: Storage lockers won't need a foundation to be built.
 * SpeedControlMod: Overwrites the method SpeedControlScreen.OnChange. Fast Speed set to behave like Ultra Speed in debug mode.
-* Patches: Some incomplete tests (Do not use)
+* Patches (Do not use): Some incomplete tests 
 
 
 Installation
