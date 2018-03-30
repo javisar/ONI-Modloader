@@ -8,3 +8,4 @@ V:\ONI Modding\ONI-Modloader\Managed\ONI-Common.dll
 V:\ONI Modding\ONI-Modloader\ModLoader\ONI-Common\obj\Release\ONI-Common.csprojResolveAssemblyReference.cache
 V:\ONI Modding\ONI-Modloader\ModLoader\ONI-Common\obj\Release\ONI-Common.csproj.CoreCompileInputs.cache
 V:\ONI Modding\ONI-Modloader\ModLoader\ONI-Common\obj\Release\ONI-Common.dll
+V:\ONI Modding\ONI-Modloader\ModLoader\ONI-Common\obj\Release\ONI-Common.csproj.CopyComplete

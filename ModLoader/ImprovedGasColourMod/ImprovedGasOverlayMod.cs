@@ -50,20 +50,22 @@ namespace ImprovedGasColourMod
                 if (element.id == SimHashes.Oxygen || element.id == SimHashes.ContaminatedOxygen)
                 {
                     float optimallyBreathable = SimDebugView.optimallyBreathable;
-                    intensity = Mathf.Clamp((mass - SimDebugView.minimumBreathable) / optimallyBreathable, 0.05f, 1f);
+                    float minimumBreathable = SimDebugView.minimumBreathable;
+                    intensity = Mathf.Max(0.05f, Mathf.InverseLerp(minimumBreathable, optimallyBreathable, mass));
 
-                    // To red for thin air
-                    if (intensity < 1f)
-                    {
-                        gasColorHSV.V = Mathf.Min(gasColorHSV.V + 1f - intensity, 0.9f);
-                    }
+                    // // To red for thin air
+                    // if (intensity < 1f)
+                    // {
+                    //     gasColorHSV.V = Mathf.Min(gasColorHSV.V + 1f - intensity, 0.9f);
+                    // }
                 }
                 else
                 {
                     intensity = GetGasColorIntensity(gasMass, maxMass);
+                    intensity = Mathf.Max(intensity, 0.15f);
+
                 }
-                // cap the saturation
-                intensity = Mathf.Max(intensity, 0.2f);
+
                 // Pop ear drum marker
                 if (mass > EarPopFloat)
                 {
@@ -75,10 +77,10 @@ namespace ImprovedGasColourMod
 
                     float intens = Mathf.InverseLerp(EarPopFloat, 20f, mass);
 
-                    float min = gasColorHSV.V * 0.7f;
-                    float current = gasColorHSV.V * intens;
+                    float modifier = 1f - intens / 2;
 
-                    gasColorHSV.V = Mathf.Max(min, current);
+                    gasColorHSV.V *= modifier;
+
                 }
 
                 // New code, use the saturation of a color for the pressure
