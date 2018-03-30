@@ -17,6 +17,9 @@
             Debug.Log(" === CameraControllerMod END === ");
         }
     }
+    /// <summary>
+    /// Needed when a new world is generated. SetMaxOrthographicSize is run once and only then.
+    /// </summary>
     [HarmonyPatch(typeof(CameraController), nameof(CameraController.SetMaxOrthographicSize))]
     public static class CameraControllerMod2
     {

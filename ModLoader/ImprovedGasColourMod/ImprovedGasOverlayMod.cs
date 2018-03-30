@@ -11,6 +11,8 @@ namespace ImprovedGasColourMod
         [HarmonyPatch(typeof(SimDebugView), "GetOxygenMapColour")]
         public static class ImprovedGasOverlayMod
         {
+            public const float EarPopFloat = 2.5f;
+
             public static bool Prefix(int cell, ref Color __result)
             {
                 float minMass = ONI_Common.State.ConfiguratorState.GasPressureStart;
@@ -63,15 +65,15 @@ namespace ImprovedGasColourMod
                 // cap the saturation
                 intensity = Mathf.Max(intensity, 0.2f);
                 // Pop ear drum marker
-                if (mass > 2.5f)
+                if (mass > EarPopFloat)
                 {
-                    gasColorHSV.H += 0.02f * Mathf.InverseLerp(2.5f, 3.5f, mass);
+                    gasColorHSV.H += 0.02f * Mathf.InverseLerp(EarPopFloat, 3.5f, mass);
                     if (gasColorHSV.H > 1f)
                     {
                         gasColorHSV.H -= 1f;
                     }
 
-                    float intens = Mathf.InverseLerp(3.5f, 20f, mass);
+                    float intens = Mathf.InverseLerp(EarPopFloat, 20f, mass);
 
                     float min = gasColorHSV.V * 0.7f;
                     float current = gasColorHSV.V * intens;
