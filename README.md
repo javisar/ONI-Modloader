@@ -21,6 +21,13 @@ Projects
 Examples
 --------
 Midnight-Steam's Mods:
+* DefaultDeconstructBuildings: Sets the default settings to "Buildings" when Deconstruct tool is selected
+* ElectrolyzerIgnorePressure: Electrolyzer's ignore max pressure
+* MainMenuResumeGame: Let's you know if the last save was a Manual or Auto Save
+* MaxAttributeMultiplier: Changes the attribute multiplier so Duplicants are faster than The Flash(attributes not changed: ImmuneLevelBoost, TemperatureInsulation, SeedHarvestChance)
+* SculptureFlippable: Makes the sculpture flippable so it can stare at Duplicants from both sides
+* WaterPurifierOutputTemp: Output water and sand are no longer set to 40 degrees Celsius instead the same as input temperature.
+
 * IgnoreMaxPressure: Electrolyzer's ignore max pressure
 * MainMenuResumeGame: Let's the player know if last save was a Manual or Auto Save
 * MaxAttributes: Changes the attribute multiplier so Duplicants are faster than The Flash
