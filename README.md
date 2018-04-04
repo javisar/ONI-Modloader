@@ -20,6 +20,14 @@ Projects
 
 Examples
 --------
+Midnight-Steam's Mods:
+* IgnoreMaxPressure: Electrolyzer's ignore max pressure
+* MainMenuResumeGame: Let's the player know if last save was a Manual or Auto Save
+* MaxAttributes: Changes the attribute multiplier so Duplicants are faster than The Flash
+* SculptureFlippable: Makes the sculpture flippable so it can stare at Duplicants from both sides
+* WaterPurifier: Output water and sand are no longer set to 40 degrees Celsius but the same as input temperature.
+
+Original Mods:
 * AlternateOrdersMod: The Fabricators and Refineries will alternate between infinity orders.
 * CameraControllerMod: Enable further zoom-outs in play and dev mode (taken from Onion patcher).
 * CustomWorldMod: Enables the player to user custom world sizes. Stand alone mod currently diabled, please edit the OnionConfig.json file for changes (taken from Onion patcher)
