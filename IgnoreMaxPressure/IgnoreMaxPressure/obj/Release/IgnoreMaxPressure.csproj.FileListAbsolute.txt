@@ -1,0 +1,14 @@
+C:\Program Files (x86)\Steam\steamapps\common\OxygenNotIncluded\Mods\ONI-Modloader-master\ModLoader\IgnoreMaxPressure\IgnoreMaxPressure\bin\Release\IgnoreMaxPressure.dll
+C:\Program Files (x86)\Steam\steamapps\common\OxygenNotIncluded\Mods\ONI-Modloader-master\ModLoader\IgnoreMaxPressure\IgnoreMaxPressure\bin\Release\IgnoreMaxPressure.pdb
+C:\Program Files (x86)\Steam\steamapps\common\OxygenNotIncluded\Mods\ONI-Modloader-master\ModLoader\IgnoreMaxPressure\IgnoreMaxPressure\bin\Release\0Harmony.dll
+C:\Program Files (x86)\Steam\steamapps\common\OxygenNotIncluded\Mods\ONI-Modloader-master\ModLoader\IgnoreMaxPressure\IgnoreMaxPressure\bin\Release\Assembly-CSharp-firstpass.dll
+C:\Program Files (x86)\Steam\steamapps\common\OxygenNotIncluded\Mods\ONI-Modloader-master\ModLoader\IgnoreMaxPressure\IgnoreMaxPressure\bin\Release\Assembly-CSharp.dll
+C:\Program Files (x86)\Steam\steamapps\common\OxygenNotIncluded\Mods\ONI-Modloader-master\ModLoader\IgnoreMaxPressure\IgnoreMaxPressure\bin\Release\Assembly-UnityScript-firstpass.dll
+C:\Program Files (x86)\Steam\steamapps\common\OxygenNotIncluded\Mods\ONI-Modloader-master\ModLoader\IgnoreMaxPressure\IgnoreMaxPressure\bin\Release\UnityEngine.dll
+C:\Program Files (x86)\Steam\steamapps\common\OxygenNotIncluded\Mods\ONI-Modloader-master\ModLoader\IgnoreMaxPressure\IgnoreMaxPressure\bin\Release\UnityEngine.UI.dll
+C:\Program Files (x86)\Steam\steamapps\common\OxygenNotIncluded\Mods\ONI-Modloader-master\ModLoader\IgnoreMaxPressure\IgnoreMaxPressure\bin\Release\Newtonsoft.Json.dll
+C:\Program Files (x86)\Steam\steamapps\common\OxygenNotIncluded\Mods\ONI-Modloader-master\ModLoader\IgnoreMaxPressure\IgnoreMaxPressure\obj\Release\IgnoreMaxPressure.csprojResolveAssemblyReference.cache
+C:\Program Files (x86)\Steam\steamapps\common\OxygenNotIncluded\Mods\ONI-Modloader-master\ModLoader\IgnoreMaxPressure\IgnoreMaxPressure\obj\Release\IgnoreMaxPressure.csproj.CoreCompileInputs.cache
+C:\Program Files (x86)\Steam\steamapps\common\OxygenNotIncluded\Mods\ONI-Modloader-master\ModLoader\IgnoreMaxPressure\IgnoreMaxPressure\obj\Release\IgnoreMaxPressure.csproj.CopyComplete
+C:\Program Files (x86)\Steam\steamapps\common\OxygenNotIncluded\Mods\ONI-Modloader-master\ModLoader\IgnoreMaxPressure\IgnoreMaxPressure\obj\Release\IgnoreMaxPressure.dll
+C:\Program Files (x86)\Steam\steamapps\common\OxygenNotIncluded\Mods\ONI-Modloader-master\ModLoader\IgnoreMaxPressure\IgnoreMaxPressure\obj\Release\IgnoreMaxPressure.pdb
