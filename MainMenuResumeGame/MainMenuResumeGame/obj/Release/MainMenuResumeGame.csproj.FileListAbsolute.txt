@@ -1,0 +1,14 @@
+C:\Program Files (x86)\Steam\steamapps\common\OxygenNotIncluded\Mods\ONI-Modloader-master\ModLoader\MainMenuResumeGame\MainMenuResumeGame\obj\Release\MainMenuResumeGame.csprojResolveAssemblyReference.cache
+C:\Program Files (x86)\Steam\steamapps\common\OxygenNotIncluded\Mods\ONI-Modloader-master\ModLoader\MainMenuResumeGame\MainMenuResumeGame\obj\Release\MainMenuResumeGame.csproj.CoreCompileInputs.cache
+C:\Program Files (x86)\Steam\steamapps\common\OxygenNotIncluded\Mods\ONI-Modloader-master\ModLoader\MainMenuResumeGame\MainMenuResumeGame\bin\Release\MainMenuResumeGame.dll
+C:\Program Files (x86)\Steam\steamapps\common\OxygenNotIncluded\Mods\ONI-Modloader-master\ModLoader\MainMenuResumeGame\MainMenuResumeGame\bin\Release\MainMenuResumeGame.pdb
+C:\Program Files (x86)\Steam\steamapps\common\OxygenNotIncluded\Mods\ONI-Modloader-master\ModLoader\MainMenuResumeGame\MainMenuResumeGame\bin\Release\0Harmony.dll
+C:\Program Files (x86)\Steam\steamapps\common\OxygenNotIncluded\Mods\ONI-Modloader-master\ModLoader\MainMenuResumeGame\MainMenuResumeGame\bin\Release\Assembly-CSharp-firstpass.dll
+C:\Program Files (x86)\Steam\steamapps\common\OxygenNotIncluded\Mods\ONI-Modloader-master\ModLoader\MainMenuResumeGame\MainMenuResumeGame\bin\Release\Assembly-CSharp.dll
+C:\Program Files (x86)\Steam\steamapps\common\OxygenNotIncluded\Mods\ONI-Modloader-master\ModLoader\MainMenuResumeGame\MainMenuResumeGame\bin\Release\Assembly-UnityScript-firstpass.dll
+C:\Program Files (x86)\Steam\steamapps\common\OxygenNotIncluded\Mods\ONI-Modloader-master\ModLoader\MainMenuResumeGame\MainMenuResumeGame\bin\Release\UnityEngine.dll
+C:\Program Files (x86)\Steam\steamapps\common\OxygenNotIncluded\Mods\ONI-Modloader-master\ModLoader\MainMenuResumeGame\MainMenuResumeGame\bin\Release\UnityEngine.UI.dll
+C:\Program Files (x86)\Steam\steamapps\common\OxygenNotIncluded\Mods\ONI-Modloader-master\ModLoader\MainMenuResumeGame\MainMenuResumeGame\bin\Release\Newtonsoft.Json.dll
+C:\Program Files (x86)\Steam\steamapps\common\OxygenNotIncluded\Mods\ONI-Modloader-master\ModLoader\MainMenuResumeGame\MainMenuResumeGame\obj\Release\MainMenuResumeGame.csproj.CopyComplete
+C:\Program Files (x86)\Steam\steamapps\common\OxygenNotIncluded\Mods\ONI-Modloader-master\ModLoader\MainMenuResumeGame\MainMenuResumeGame\obj\Release\MainMenuResumeGame.dll
+C:\Program Files (x86)\Steam\steamapps\common\OxygenNotIncluded\Mods\ONI-Modloader-master\ModLoader\MainMenuResumeGame\MainMenuResumeGame\obj\Release\MainMenuResumeGame.pdb
