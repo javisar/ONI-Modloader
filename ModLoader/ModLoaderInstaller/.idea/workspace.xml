@@ -7,41 +7,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/oni/modloaderinstaller/GetNewModLoaderHash.java" />
-      <change beforePath="$PROJECT_DIR$/../../Managed/Mods/FastModeMod.dll" afterPath="$PROJECT_DIR$/../../Managed/Mods/FastModeMod.dll" />
-      <change beforePath="$PROJECT_DIR$/../../Managed/Mods/SensorsMod.dll" afterPath="$PROJECT_DIR$/../../Managed/Mods/SensorsMod.dll" />
-      <change beforePath="$PROJECT_DIR$/../../Managed/Mods/SpeedControlMod.dll" afterPath="$PROJECT_DIR$/../../Managed/Mods/SpeedControlMod.dll" />
       <change beforePath="$PROJECT_DIR$/../.vs/ModLoader/v15/.suo" afterPath="$PROJECT_DIR$/../.vs/ModLoader/v15/.suo" />
       <change beforePath="$PROJECT_DIR$/../.vs/ModLoader/v15/Server/sqlite3/storage.ide" afterPath="$PROJECT_DIR$/../.vs/ModLoader/v15/Server/sqlite3/storage.ide" />
-      <change beforePath="$PROJECT_DIR$/../FastModeMod/obj/Debug/FastModeMod.csprojResolveAssemblyReference.cache" afterPath="$PROJECT_DIR$/../FastModeMod/obj/Debug/FastModeMod.csprojResolveAssemblyReference.cache" />
-      <change beforePath="$PROJECT_DIR$/../FastModeMod/obj/Debug/FastModeMod.dll" afterPath="$PROJECT_DIR$/../FastModeMod/obj/Debug/FastModeMod.dll" />
-      <change beforePath="$PROJECT_DIR$/../MaterialColor/MaterialColor.csproj" afterPath="$PROJECT_DIR$/../MaterialColor/MaterialColor.csproj" />
-      <change beforePath="$PROJECT_DIR$/../MaterialColor/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache" afterPath="$PROJECT_DIR$/../MaterialColor/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache" />
-      <change beforePath="$PROJECT_DIR$/../MaterialColor/obj/Debug/MaterialColor.csproj.CoreCompileInputs.cache" afterPath="$PROJECT_DIR$/../MaterialColor/obj/Debug/MaterialColor.csproj.CoreCompileInputs.cache" />
-      <change beforePath="$PROJECT_DIR$/../MaterialColor/obj/Debug/MaterialColor.csproj.FileListAbsolute.txt" afterPath="$PROJECT_DIR$/../MaterialColor/obj/Debug/MaterialColor.csproj.FileListAbsolute.txt" />
-      <change beforePath="$PROJECT_DIR$/../MaterialColor/obj/Debug/MaterialColor.csprojResolveAssemblyReference.cache" afterPath="$PROJECT_DIR$/../MaterialColor/obj/Debug/MaterialColor.csprojResolveAssemblyReference.cache" />
-      <change beforePath="$PROJECT_DIR$/../MaterialColor/obj/Debug/MaterialColor.dll" afterPath="$PROJECT_DIR$/../MaterialColor/obj/Debug/MaterialColor.dll" />
-      <change beforePath="$PROJECT_DIR$/../MaterialColor/obj/Debug/MaterialColor.pdb" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/../ModLoader.sln.DotSettings.user" afterPath="$PROJECT_DIR$/../ModLoader.sln.DotSettings.user" />
-      <change beforePath="$PROJECT_DIR$/../ModLoader/obj/Debug/ModLoader.csprojResolveAssemblyReference.cache" afterPath="$PROJECT_DIR$/../ModLoader/obj/Debug/ModLoader.csprojResolveAssemblyReference.cache" />
-      <change beforePath="$PROJECT_DIR$/../ModLoader/obj/Debug/ModLoader.dll" afterPath="$PROJECT_DIR$/../ModLoader/obj/Debug/ModLoader.dll" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/resources/ModLoader.dll" afterPath="$PROJECT_DIR$/resources/ModLoader.dll" />
-      <change beforePath="$PROJECT_DIR$/src/oni/modloaderinstaller/Constants.java" afterPath="$PROJECT_DIR$/src/oni/modloaderinstaller/Constants.java" />
-      <change beforePath="$PROJECT_DIR$/../Patches/bin/Debug/Patches.dll" afterPath="$PROJECT_DIR$/../Patches/bin/Debug/Patches.dll" />
-      <change beforePath="$PROJECT_DIR$/../Patches/bin/Debug/Patches.pdb" afterPath="$PROJECT_DIR$/../Patches/bin/Debug/Patches.pdb" />
-      <change beforePath="$PROJECT_DIR$/../Patches/obj/Debug/Patches.csprojResolveAssemblyReference.cache" afterPath="$PROJECT_DIR$/../Patches/obj/Debug/Patches.csprojResolveAssemblyReference.cache" />
-      <change beforePath="$PROJECT_DIR$/../Patches/obj/Debug/Patches.dll" afterPath="$PROJECT_DIR$/../Patches/obj/Debug/Patches.dll" />
-      <change beforePath="$PROJECT_DIR$/../Patches/obj/Debug/Patches.pdb" afterPath="$PROJECT_DIR$/../Patches/obj/Debug/Patches.pdb" />
-      <change beforePath="$PROJECT_DIR$/../SensorsMod/PressureSensorGasMod.cs" afterPath="$PROJECT_DIR$/../SensorsMod/PressureSensorGasMod.cs" />
-      <change beforePath="$PROJECT_DIR$/../SensorsMod/PressureSensorLiquidMod.cs" afterPath="$PROJECT_DIR$/../SensorsMod/PressureSensorLiquidMod.cs" />
-      <change beforePath="$PROJECT_DIR$/../SensorsMod/SensorsMod.csproj" afterPath="$PROJECT_DIR$/../SensorsMod/SensorsMod.csproj" />
-      <change beforePath="$PROJECT_DIR$/../SensorsMod/TemperatureSensorMod.cs" afterPath="$PROJECT_DIR$/../SensorsMod/TemperatureSensorMod.cs" />
-      <change beforePath="$PROJECT_DIR$/../SensorsMod/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache" afterPath="$PROJECT_DIR$/../SensorsMod/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache" />
-      <change beforePath="$PROJECT_DIR$/../SensorsMod/obj/Debug/SensorsMod.csproj.CoreCompileInputs.cache" afterPath="$PROJECT_DIR$/../SensorsMod/obj/Debug/SensorsMod.csproj.CoreCompileInputs.cache" />
-      <change beforePath="$PROJECT_DIR$/../SensorsMod/obj/Debug/SensorsMod.csprojResolveAssemblyReference.cache" afterPath="$PROJECT_DIR$/../SensorsMod/obj/Debug/SensorsMod.csprojResolveAssemblyReference.cache" />
-      <change beforePath="$PROJECT_DIR$/../SensorsMod/obj/Debug/SensorsMod.dll" afterPath="$PROJECT_DIR$/../SensorsMod/obj/Debug/SensorsMod.dll" />
-      <change beforePath="$PROJECT_DIR$/../SpeedControlMod/obj/Debug/SpeedControlMod.dll" afterPath="$PROJECT_DIR$/../SpeedControlMod/obj/Debug/SpeedControlMod.dll" />
+      <change beforePath="$PROJECT_DIR$/src/oni/modloaderinstaller/Patcher.java" afterPath="$PROJECT_DIR$/src/oni/modloaderinstaller/Patcher.java" />
+      <change beforePath="$PROJECT_DIR$/../Patches/Patches.csproj" afterPath="$PROJECT_DIR$/../Patches/Patches.csproj" />
+      <change beforePath="$PROJECT_DIR$/../Patches/obj/Release/DesignTimeResolveAssemblyReferencesInput.cache" afterPath="$PROJECT_DIR$/../Patches/obj/Release/DesignTimeResolveAssemblyReferencesInput.cache" />
+      <change beforePath="$PROJECT_DIR$/../Patches/obj/Release/Patches.csproj.CoreCompileInputs.cache" afterPath="$PROJECT_DIR$/../Patches/obj/Release/Patches.csproj.CoreCompileInputs.cache" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -107,18 +78,18 @@
       <file leaf-file-name="Constants.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/oni/modloaderinstaller/Constants.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="759">
-              <caret line="47" column="90" lean-forward="false" selection-start-line="47" selection-start-column="90" selection-end-line="47" selection-end-column="90" />
+            <state relative-caret-position="890">
+              <caret line="41" column="43" lean-forward="true" selection-start-line="41" selection-start-column="43" selection-end-line="41" selection-end-column="43" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ModLoaderInstaller.iml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../../ModLoaderInstaller/ModLoaderInstaller.iml">
+      <file leaf-file-name="ONI-ModLoaderInstaller.iml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ONI-ModLoaderInstaller.iml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="495">
+              <caret line="15" column="9" lean-forward="true" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -139,8 +110,8 @@
       <file leaf-file-name="CreatePatch.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/oni/modloaderinstaller/CreatePatch.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="599">
-              <caret line="43" column="11" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
+            <state relative-caret-position="1022">
+              <caret line="67" column="25" lean-forward="true" selection-start-line="67" selection-start-column="25" selection-end-line="67" selection-end-column="25" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -185,23 +156,9 @@
       <file leaf-file-name="Patcher.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/oni/modloaderinstaller/Patcher.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1254">
-              <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+            <state relative-caret-position="792">
+              <caret line="43" column="60" lean-forward="true" selection-start-line="43" selection-start-column="60" selection-end-line="43" selection-end-column="60" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FileUtils.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/oni/modloaderinstaller/FileUtils.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="924">
-              <caret line="45" column="55" lean-forward="false" selection-start-line="45" selection-start-column="55" selection-end-line="45" selection-end-column="55" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#3423#3424#0" expanded="true" />
-                <element signature="e#3464#3465#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -273,17 +230,17 @@
         <option value="$PROJECT_DIR$/src/oni/modloaderinstaller/CreatePatchOSX.java" />
         <option value="$PROJECT_DIR$/src/oni/modloaderinstaller/MainPanel.java" />
         <option value="$PROJECT_DIR$/src/oni/modloaderinstaller/FileUtils.java" />
-        <option value="$PROJECT_DIR$/src/oni/modloaderinstaller/Patcher.java" />
         <option value="$PROJECT_DIR$/src/oni/modloaderinstaller/Unpatcher.java" />
         <option value="$PROJECT_DIR$/src/oni/modloaderinstaller/FileStatus.java" />
         <option value="$PROJECT_DIR$/src/oni/modloaderinstaller/CreatePatch.java" />
         <option value="$PROJECT_DIR$/src/oni/modloaderinstaller/GetNewModLoaderHash.java" />
         <option value="$PROJECT_DIR$/src/oni/modloaderinstaller/Constants.java" />
+        <option value="$PROJECT_DIR$/src/oni/modloaderinstaller/Patcher.java" />
       </list>
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="776" />
     <option name="y" value="503" />
     <option name="width" value="1612" />
@@ -310,9 +267,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -340,7 +295,9 @@
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -684,11 +641,10 @@
     <option name="totallyTimeSpent" value="1302000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="776" y="503" width="1612" height="876" extended-state="0" />
+    <frame x="-13" y="-13" width="2906" height="1754" extended-state="6" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32986337" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -699,7 +655,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4293821" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23645833" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -714,6 +670,7 @@
       <window_info id="Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32986337" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -738,6 +695,42 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/oni/modloaderinstaller/Unpatcher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="825">
+          <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/oni/modloaderinstaller/Patcher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1254">
+          <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/oni/modloaderinstaller/FileUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="924">
+          <caret line="45" column="55" lean-forward="false" selection-start-line="45" selection-start-column="55" selection-end-line="45" selection-end-column="55" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3423#3424#0" expanded="true" />
+            <element signature="e#3464#3465#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/oni/modloaderinstaller/OperatingSystem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1617">
+          <caret line="65" column="38" lean-forward="false" selection-start-line="65" selection-start-column="38" selection-end-line="65" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/oni/modloaderinstaller/Constants.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -757,14 +750,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/oni/modloaderinstaller/MainPanel.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="825">
           <caret line="25" column="54" lean-forward="false" selection-start-line="25" selection-start-column="38" selection-end-line="25" selection-end-column="54" />
           <folding />
         </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/oni/modloaderinstaller/CreatePatch.java">
@@ -846,14 +839,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/oni/modloaderinstaller/MainPanel.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="297">
           <caret line="9" column="82" lean-forward="false" selection-start-line="9" selection-start-column="82" selection-end-line="9" selection-end-column="82" />
           <folding />
         </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/oni/modloaderinstaller/CreatePatch.java">
@@ -971,13 +964,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ONI-ModLoaderInstaller.iml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/oni/modloaderinstaller/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="627">
@@ -989,14 +975,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/oni/modloaderinstaller/MainPanel.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="825">
           <caret line="25" column="54" lean-forward="false" selection-start-line="25" selection-start-column="38" selection-end-line="25" selection-end-column="54" />
           <folding />
         </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
       </provider>
     </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_161/jre/lib/rt.jar!/java/nio/file/Path.class">
@@ -1033,14 +1019,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/oni/modloaderinstaller/Patcher.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1254">
-          <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/oni/modloaderinstaller/FileStatus.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1320">
@@ -1053,36 +1031,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/oni/modloaderinstaller/FileUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="924">
-          <caret line="45" column="55" lean-forward="false" selection-start-line="45" selection-start-column="55" selection-end-line="45" selection-end-column="55" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3423#3424#0" expanded="true" />
-            <element signature="e#3464#3465#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../ModLoaderInstaller/ModLoaderInstaller.iml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/oni/modloaderinstaller/CreatePatch.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="599">
-          <caret line="43" column="11" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../ModLoaderInstaller/ModLoaderInstaller.iml" />
     <entry file="file://$PROJECT_DIR$/src/oni/modloaderinstaller/GetNewModLoaderHash.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="528">
@@ -1091,10 +1040,48 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ONI-ModLoaderInstaller.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="15" column="9" lean-forward="true" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/oni/modloaderinstaller/CreatePatch.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1022">
+          <caret line="67" column="25" lean-forward="true" selection-start-line="67" selection-start-column="25" selection-end-line="67" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/oni/modloaderinstaller/FileUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1484">
+          <caret line="72" column="0" lean-forward="true" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3423#3424#0" expanded="true" />
+            <element signature="e#3464#3465#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/oni/modloaderinstaller/Patcher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="792">
+          <caret line="43" column="60" lean-forward="true" selection-start-line="43" selection-start-column="60" selection-end-line="43" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/oni/modloaderinstaller/Constants.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="759">
-          <caret line="47" column="90" lean-forward="false" selection-start-line="47" selection-start-column="90" selection-end-line="47" selection-end-column="90" />
+        <state relative-caret-position="890">
+          <caret line="41" column="43" lean-forward="true" selection-start-line="41" selection-start-column="43" selection-end-line="41" selection-end-column="43" />
           <folding />
         </state>
       </provider>

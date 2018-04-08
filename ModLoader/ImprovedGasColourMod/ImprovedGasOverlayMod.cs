@@ -47,11 +47,12 @@ namespace ImprovedGasColourMod
                 float intensity;
                 ColorHSV gasColorHSV = gasColor;
                 float mass = Grid.Mass[cell];
+                float maxMarker;
+                float minMarker;
+                    minMarker = SimDebugView.minimumBreathable;
+                    maxMarker = SimDebugView.optimallyBreathable;
                 if (element.id == SimHashes.Oxygen || element.id == SimHashes.ContaminatedOxygen)
                 {
-                    float optimallyBreathable = SimDebugView.optimallyBreathable;
-                    float minimumBreathable = SimDebugView.minimumBreathable;
-                    intensity = Mathf.Max(0.05f, Mathf.InverseLerp(minimumBreathable, optimallyBreathable, mass));
 
                     // // To red for thin air
                     // if (intensity < 1f)
@@ -61,10 +62,13 @@ namespace ImprovedGasColourMod
                 }
                 else
                 {
-                    intensity = GetGasColorIntensity(gasMass, maxMass);
-                    intensity = Mathf.Max(intensity, 0.15f);
+                    maxMarker *= 2f;
+
+                    //intensity = GetGasColorIntensity(gasMass, maxMass);
+                    //intensity = Mathf.Max(intensity, 0.15f);
 
                 }
+                intensity = Mathf.Max(0.05f, Mathf.InverseLerp(minMarker, maxMarker, mass));
 
                 // Pop ear drum marker
                 if (mass > EarPopFloat)

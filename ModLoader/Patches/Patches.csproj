@@ -72,9 +72,9 @@
     </PluginReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ElectrolyzerMod.cs" />
+    <None Include="ElectrolyzerMod.cs" />
     <Compile Include="FallingWaterMod.cs" />
-    <Compile Include="HydrogenGeneratorMod.cs" />
+    <None Include="HydrogenGeneratorMod.cs" />
     <Compile Include="LogicWireBridgeMod.cs" />
     <Compile Include="NoSteamMod.cs" />
     <Compile Include="OxygenBreatherMod.cs" />
