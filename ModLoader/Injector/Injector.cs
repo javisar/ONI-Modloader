@@ -64,7 +64,7 @@ namespace Injector
                                              game.MainModule.ImportReference(typeof(Path).GetMethod("GetDirectoryName", types))));
 
                            // i.Insert(3, p.Create(OpCodes.Stloc_0));
-                           i.Insert(index++, p.Create(OpCodes.Ldstr, "/ModLoader.dll"));
+                           i.Insert(index++, p.Create(OpCodes.Ldstr, "\\ModLoader.dll"));
                            i.Insert(
                                     index++,
                                     p.Create(

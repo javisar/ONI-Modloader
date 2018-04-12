@@ -9,6 +9,7 @@
     using System.Reflection;
     using UnityEngine;
 
+
     public static class ModLoader
     {
         public const string AssemblyDir = "Assemblies";
@@ -19,6 +20,8 @@
 
         public static void Start()
         {
+            ModLogger.Init();
+
             // Patch in Mod Loader helpers
             HarmonyInstance.Create("Mod Loader")?.PatchAll(Assembly.GetExecutingAssembly());
 
@@ -47,7 +50,7 @@
                 ApplyHarmonyPatches(sortedAssemblies);
                 CallOnLoadMethods(sortedAssemblies);
 
-                UnityEngine.Debug.Log("All mods successfully loaded!");
+                Console.WriteLine("All mods successfully loaded!");
             }
             catch (ModLoadingException mle)
             {
@@ -57,7 +60,7 @@
 
         private static void ApplyHarmonyPatches([NotNull] List<Assembly> modAssemblies)
         {
-            UnityEngine.Debug.Log("Applying Harmony patches");
+            Console.WriteLine("Applying Harmony patches");
             List<string> failedMods = new List<string>();
 
             foreach (Assembly modAssembly in modAssemblies)
@@ -76,8 +79,8 @@
                 catch (Exception e)
                 {
                     failedMods.Add(modAssembly.GetName()                               + ExceptionToString(e));
-                    UnityEngine.Debug.LogError("Patching mod " + modAssembly.GetName() + " failed!");
-                    UnityEngine.Debug.LogException(e);
+                    Console.Error.WriteLine("Patching mod " + modAssembly.GetName() + " failed!");
+                    Console.Error.WriteLine(e);
                 }
             }
 
@@ -89,7 +92,7 @@
 
         private static void CallOnLoadMethods([NotNull] List<Assembly> modAssemblies)
         {
-            UnityEngine.Debug.Log("Calling OnLoad methods");
+            Console.WriteLine("Calling OnLoad methods");
 
             foreach (Assembly modAssembly in modAssemblies)
             {
@@ -119,8 +122,8 @@
 
                         string message = "OnLoad method failed for type " + type.FullName + " of mod "
                                        + modAssembly.GetName().Name;
-                        UnityEngine.Debug.LogError(message);
-                        UnityEngine.Debug.LogException(e);
+                        Console.Error.WriteLine(message);
+                        Console.Error.WriteLine(e);
                         throw new ModLoadingException(message + ExceptionToString(e));
                     }
                 }
@@ -146,13 +149,13 @@
                 oniBaseDirectory = dataDir.Parent;
             }
 
-            UnityEngine.Debug.Log("Path to mods is: " + Path.Combine(oniBaseDirectory?.FullName, "Mods"));
+            Console.WriteLine("Path to mods is: " + Path.Combine(oniBaseDirectory?.FullName, "Mods"));
             return new DirectoryInfo(Path.Combine(oniBaseDirectory?.FullName, "Mods"));
         }
 
         private static DependencyGraph LoadModAssemblies(List<FileInfo> assemblyFiles)
         {
-            UnityEngine.Debug.Log("Loading mod assemblies");
+            Console.WriteLine("Loading mod assemblies");
             List<Assembly> loadedAssemblies = new List<Assembly>();
             List<string> failedAssemblies = new List<string>();
 
@@ -176,14 +179,14 @@
                     try
                     {
                         Assembly modAssembly = Assembly.LoadFrom(file.FullName);
-                        UnityEngine.Debug.Log("Loading " + modAssembly.FullName);
+                        Console.WriteLine("Loading " + modAssembly.FullName);
                         loadedAssemblies.Add(modAssembly);
                     }
                     catch (Exception e)
                     {
                         failedAssemblies.Add(file.Name                        + ExceptionToString(e));
-                        UnityEngine.Debug.LogError("Loading mod " + file.Name + " failed!");
-                        UnityEngine.Debug.LogException(e);
+                        Console.Error.WriteLine("Loading mod " + file.Name + " failed!");
+                        Console.Error.WriteLine(e);
                     }
                 }
             }
