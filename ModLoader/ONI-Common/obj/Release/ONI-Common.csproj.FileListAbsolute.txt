@@ -7,3 +7,6 @@ C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\ONI-Common\obj\Rele
 E:\ONI\ONI-Modloader\Managed\ONI-Common.dll
 E:\ONI\ONI-Modloader\ModLoader\ONI-Common\obj\Release\ONI-Common.csprojResolveAssemblyReference.cache
 E:\ONI\ONI-Modloader\ModLoader\ONI-Common\obj\Release\ONI-Common.dll
+C:\Users\MagicEye\Documents\GitHub\ONI-Modloader\ModLoader\ONI-Common\obj\Release\ONI-Common.csproj.CoreCompileInputs.cache
+C:\Users\MagicEye\Documents\GitHub\ONI-Modloader\ModLoader\ONI-Common\obj\Release\ONI-Common.dll
+C:\Users\MagicEye\Documents\GitHub\ONI-Modloader\Managed\ONI-Common.dll

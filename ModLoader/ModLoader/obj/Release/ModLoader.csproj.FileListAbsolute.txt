@@ -8,3 +8,7 @@ C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\ModLoader\obj\Relea
 E:\ONI\ONI-Modloader\Managed\ModLoader.dll
 E:\ONI\ONI-Modloader\ModLoader\ModLoader\obj\Release\ModLoader.csprojResolveAssemblyReference.cache
 E:\ONI\ONI-Modloader\ModLoader\ModLoader\obj\Release\ModLoader.dll
+C:\Users\MagicEye\Documents\GitHub\ONI-Modloader\Managed\ModLoader.dll
+C:\Users\MagicEye\Documents\GitHub\ONI-Modloader\ModLoader\ModLoader\obj\Release\ModLoader.csprojResolveAssemblyReference.cache
+C:\Users\MagicEye\Documents\GitHub\ONI-Modloader\ModLoader\ModLoader\obj\Release\ModLoader.csproj.CoreCompileInputs.cache
+C:\Users\MagicEye\Documents\GitHub\ONI-Modloader\ModLoader\ModLoader\obj\Release\ModLoader.dll

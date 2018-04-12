@@ -3,6 +3,7 @@
     using global::Injector.IO;
     using Mono.Cecil;
     using ONI_Common.IO;
+    using System;
     using System.IO;
 
     public class InjectionManager
@@ -11,11 +12,23 @@
 
         public const string tmpString = ".tmp";
 
+        public readonly string _modsFolderPath;
+
+        public readonly string _managedFolderPath;
+
         private readonly FileManager _fileManager;
 
         public InjectionManager(FileManager fileManager)
         {
             this._fileManager = fileManager;
+        }
+
+        public InjectionManager(FileManager fileManager, string modsFolderPath, string managedFolderPath)
+        {
+            this._fileManager = fileManager;
+
+            this._modsFolderPath = modsFolderPath;
+            this._managedFolderPath = managedFolderPath;
         }
 
         public Logger Logger { get; set; }
@@ -24,16 +37,38 @@
 
         public void InjectDefaultAndBackup()
         {
-            string           path            = Directory.GetCurrentDirectory();
-            ModuleDefinition onionModule     = CecilHelper.GetModule("ONI-Common.dll",                path);
-            ModuleDefinition csharpModule    = CecilHelper.GetModule("Assembly-CSharp.dll",           path);
-            ModuleDefinition firstPassModule = CecilHelper.GetModule("Assembly-CSharp-firstpass.dll", path);
+            try
+            {
+                ModuleDefinition onionModule = CecilHelper.GetModule("ONI-Common.dll", this._modsFolderPath);
+                ModuleDefinition csharpModule = CecilHelper.GetModule("Assembly-CSharp.dll", this._managedFolderPath);
+                ModuleDefinition firstPassModule = CecilHelper.GetModule("Assembly-CSharp-firstpass.dll", this._managedFolderPath);
 
-            InjectorOnion injection = new InjectorOnion(onionModule, csharpModule, firstPassModule);
-            injection.Inject();
-
-            this.BackupAndSaveCSharpModule(csharpModule);
-            this.BackupAndSaveFirstPassModule(firstPassModule);
+                try
+                {
+                    InjectorOnion injection = new InjectorOnion(onionModule, csharpModule, firstPassModule);
+                    injection.Inject();
+                }
+                catch
+                {
+                    Console.Error.WriteLine("Onion injector errored: \n");
+                    throw;
+                }
+                try
+                {
+                    this.BackupAndSaveCSharpModule(csharpModule, this._managedFolderPath);
+                    this.BackupAndSaveFirstPassModule(firstPassModule, this._managedFolderPath);
+                }
+                catch
+                {
+                    Console.Error.WriteLine("Backup errored: \n");
+                    throw;
+                }
+            }
+            catch
+            {
+                Console.Error.WriteLine("ModuleDefinition errored: \n");
+                throw;
+            }
         }
 
         public void MakeBackup(string filePath)
@@ -50,25 +85,25 @@
 
         public void PatchMod(string filePath)
         {
-            string pathUnityScript = GetTempPathForFile(filePath);
+            string tempDllPath = GetTempPathForFile(filePath);
 
             if (this.TempForFileExists(filePath))
             {
-                File.Delete(pathUnityScript);
+                File.Delete(tempDllPath);
             }
+            File.Move(filePath, tempDllPath);
 
-            File.Move(filePath, pathUnityScript);
-            AssemblyDefinition aUnityScript = AssemblyDefinition.ReadAssembly(pathUnityScript);
-            Injector.Inject(aUnityScript, filePath);
+            AssemblyDefinition unityGameDll = CecilHelper.GetAssembly(tempDllPath);
+            Injector.Inject(unityGameDll, filePath);
 
-            File.Delete(pathUnityScript);
+            File.Delete(tempDllPath);
         }
 
         public bool RestoreBackupForFile(string filePath)
         {
-            string backupPath   = GetBackupPathForFile(filePath);
-            bool   backupExists = this.BackupForFileExists(filePath);
-            bool   pathBlocked  = File.Exists(filePath);
+            string backupPath = GetBackupPathForFile(filePath);
+            bool backupExists = this.BackupForFileExists(filePath);
+            bool pathBlocked = File.Exists(filePath);
 
             if (!backupExists)
             {
@@ -96,22 +131,30 @@
 
         private static string GetTempPathForFile(string filePath) => filePath + tmpString;
 
-        private void BackupAndSaveCSharpModule(ModuleDefinition module)
+        private void BackupAndSaveCSharpModule(ModuleDefinition module, string path)
         {
-            string path = Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "Assembly-CSharp.dll";
+            path += module;
 
             this.MakeBackup(path);
 
             this.SaveModule(module, path);
 
-            // Harmony & Co.
-            this.PatchMod(path);
+            try
+            {
+                // Harmony & Co.
+                this.PatchMod(path);
+            }
+            catch
+            {
+                Console.Error.WriteLine("Patching Assembly-CSharp.dll failed: ");
+                throw;
+            }
         }
 
-        private void BackupAndSaveFirstPassModule(ModuleDefinition module)
+        private void BackupAndSaveFirstPassModule(ModuleDefinition module, string path)
         {
-            string path = Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar
-                                                          + "Assembly-CSharp-firstpass.dll";
+            path += module;
+
             this.MakeBackup(path);
             this.SaveModule(module, path);
         }

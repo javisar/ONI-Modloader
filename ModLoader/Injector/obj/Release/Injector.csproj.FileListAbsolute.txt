@@ -9,3 +9,8 @@ C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\Injector\obj\Releas
 E:\ONI\ONI-Modloader\Managed\Injector.exe
 E:\ONI\ONI-Modloader\ModLoader\Injector\obj\Release\Injector.csprojResolveAssemblyReference.cache
 E:\ONI\ONI-Modloader\ModLoader\Injector\obj\Release\Injector.exe
+C:\Users\MagicEye\Documents\GitHub\ONI-Modloader\ModLoader\Injector\obj\Release\Injector.csprojResolveAssemblyReference.cache
+C:\Users\MagicEye\Documents\GitHub\ONI-Modloader\ModLoader\Injector\obj\Release\Injector.csproj.CoreCompileInputs.cache
+C:\Users\MagicEye\Documents\GitHub\ONI-Modloader\ModLoader\Injector\obj\Release\Injector.exe
+C:\Users\MagicEye\Documents\GitHub\ONI-Modloader\Managed\Injector.exe
+C:\Users\MagicEye\Documents\GitHub\ONI-Modloader\ModLoader\Injector\obj\Release\Injector.csproj.CopyComplete
