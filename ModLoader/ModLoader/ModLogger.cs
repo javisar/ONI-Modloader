@@ -8,7 +8,7 @@
     public class ModLogger : TextWriter
     {
         private static string logPath = Directory.GetCurrentDirectory().ToString() + "\\Mods\\Mod_Log.txt";
-        private static FileStream _filestream = new FileStream(logPath, FileMode.Create);
+        private static FileStream _filestream = new FileStream(logPath, FileMode.Create, FileAccess.Write, FileShare.ReadWrite);
         private static StreamWriter _streamwriter = new StreamWriter(_filestream) { AutoFlush = true };
         private static List<TextWriter> _writers = new List<TextWriter>() { _streamwriter, Console.Out };
 
@@ -17,117 +17,62 @@
             get { return Encoding.ASCII; }
         }
 
-        public class ErrorLogger : ModLogger
+        public class Error : ModLogger
         {
-            public override void Write(string value)
+            new public static void Write(string value)
             {
                 foreach (var writer in ModLogger._writers)
                 {
-                    try
-                    {
-                        ConsoleColor originalColor = Console.ForegroundColor;
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        writer.Write(value);
-                        Console.ForegroundColor = originalColor;
-                    }
-                    catch (Exception e)
-                    {
-                        Console.WriteLine("Logger Write Error: " + e);
-                    }
+                    ConsoleColor originalColor = Console.ForegroundColor;
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    writer.Write("[= ERROR =] " + value);
+                    Console.ForegroundColor = originalColor;
                 }
             }
 
-            public override void WriteLine(string value)
+            new public static void WriteLine(string value)
             {
                 foreach (var writer in ModLogger._writers)
                 {
-                    try
-                    {
-                        ConsoleColor originalColor = Console.ForegroundColor;
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        writer.WriteLine(value);
-                        Console.ForegroundColor = originalColor;
-                    }
-                    catch (Exception e)
-                    {
-                        Console.WriteLine("Logger WriteLine Error: " + e);
-                    }
+                    ConsoleColor originalColor = Console.ForegroundColor;
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    writer.WriteLine("[= ERROR =] " + value);
+                    Console.ForegroundColor = originalColor;
+                }
+            }
+
+            new public static void WriteLine(Object obj)
+            {
+                foreach (var writer in ModLogger._writers)
+                {
+                    ConsoleColor originalColor = Console.ForegroundColor;
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    writer.WriteLine("[= ERROR =] " + obj);
+                    Console.ForegroundColor = originalColor;
                 }
             }
         }
 
-        public override void Write(string value)
+        new public static void Write(string value)
         {
             foreach (var writer in ModLogger._writers)
             {
-                try
-                {
-                    writer.Write(value);
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine("Logger Write Error: " + e);
-                }
+                writer.Write("[= INFO =] " + value);
             }
         }
 
-        public override void WriteLine(string value)
+        new public static void WriteLine(string value)
         {
             foreach (var writer in ModLogger._writers)
             {
-                try
-                {
-                    writer.WriteLine(value);
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine("Logger WriteLine Error: " + e);
-                }
+                writer.WriteLine("[= INFO =] " + value);
             }
-        }
-
-        public static void WriteLine(ConsoleColor color, string value)
-        {
-            ConsoleColor originalColor = Console.ForegroundColor;
-            Console.ForegroundColor = color;
-            foreach (var writer in ModLogger._writers)
-            {
-                try
-                {
-                    writer.WriteLine(value);
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine("Logger WriteLine Error: " + e);
-                }
-            }
-            Console.ForegroundColor = originalColor;
-        }
-
-        public static void WriteLine(ConsoleColor color, string value, string searchString)
-        {
-            ConsoleColor originalColor = Console.ForegroundColor;
-            Console.ForegroundColor = color;
-            foreach (var writer in ModLogger._writers)
-            {
-                try
-                {
-                    writer.WriteLine(value, searchString);
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine("Logger WriteLine Error: " + e);
-                }
-            }
-            Console.ForegroundColor = originalColor;
         }
 
         public static void Init()
         {
             Console.SetOut(new ModLogger());
-            Console.SetError(new ModLogger.ErrorLogger());
-
-            Debug.Log("========================= \n Working? \n =========================");
+            Console.SetError(new ModLogger.Error());
         }
     }
 }

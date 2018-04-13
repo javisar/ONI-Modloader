@@ -9,7 +9,6 @@
     using System.Reflection;
     using UnityEngine;
 
-
     public static class ModLoader
     {
         public const string AssemblyDir = "Assemblies";
@@ -20,8 +19,6 @@
 
         public static void Start()
         {
-            ModLogger.Init();
-
             // Patch in Mod Loader helpers
             HarmonyInstance.Create("Mod Loader")?.PatchAll(Assembly.GetExecutingAssembly());
 
@@ -50,7 +47,7 @@
                 ApplyHarmonyPatches(sortedAssemblies);
                 CallOnLoadMethods(sortedAssemblies);
 
-                Console.WriteLine("All mods successfully loaded!");
+                ModLogger.WriteLine("All mods successfully loaded!");
             }
             catch (ModLoadingException mle)
             {
@@ -60,7 +57,7 @@
 
         private static void ApplyHarmonyPatches([NotNull] List<Assembly> modAssemblies)
         {
-            Console.WriteLine("Applying Harmony patches");
+            ModLogger.WriteLine("Applying Harmony patches");
             List<string> failedMods = new List<string>();
 
             foreach (Assembly modAssembly in modAssemblies)
@@ -79,8 +76,8 @@
                 catch (Exception e)
                 {
                     failedMods.Add(modAssembly.GetName()                               + ExceptionToString(e));
-                    Console.Error.WriteLine("Patching mod " + modAssembly.GetName() + " failed!");
-                    Console.Error.WriteLine(e);
+                    ModLogger.Error.WriteLine("Patching mod " + modAssembly.GetName() + " failed!");
+                    ModLogger.Error.WriteLine(e);
                 }
             }
 
@@ -92,7 +89,7 @@
 
         private static void CallOnLoadMethods([NotNull] List<Assembly> modAssemblies)
         {
-            Console.WriteLine("Calling OnLoad methods");
+            ModLogger.WriteLine("Calling OnLoad methods");
 
             foreach (Assembly modAssembly in modAssemblies)
             {
@@ -122,8 +119,8 @@
 
                         string message = "OnLoad method failed for type " + type.FullName + " of mod "
                                        + modAssembly.GetName().Name;
-                        Console.Error.WriteLine(message);
-                        Console.Error.WriteLine(e);
+                        ModLogger.Error.WriteLine(message);
+                        ModLogger.Error.WriteLine(e);
                         throw new ModLoadingException(message + ExceptionToString(e));
                     }
                 }
@@ -149,13 +146,13 @@
                 oniBaseDirectory = dataDir.Parent;
             }
 
-            Console.WriteLine("Path to mods is: " + Path.Combine(oniBaseDirectory?.FullName, "Mods"));
+            ModLogger.WriteLine("Path to mods is: " + Path.Combine(oniBaseDirectory?.FullName, "Mods"));
             return new DirectoryInfo(Path.Combine(oniBaseDirectory?.FullName, "Mods"));
         }
 
         private static DependencyGraph LoadModAssemblies(List<FileInfo> assemblyFiles)
         {
-            Console.WriteLine("Loading mod assemblies");
+            ModLogger.WriteLine("Loading mod assemblies");
             List<Assembly> loadedAssemblies = new List<Assembly>();
             List<string> failedAssemblies = new List<string>();
 
@@ -179,14 +176,14 @@
                     try
                     {
                         Assembly modAssembly = Assembly.LoadFrom(file.FullName);
-                        Console.WriteLine("Loading " + modAssembly.FullName);
+                        ModLogger.WriteLine("Loading " + modAssembly.FullName);
                         loadedAssemblies.Add(modAssembly);
                     }
                     catch (Exception e)
                     {
                         failedAssemblies.Add(file.Name                        + ExceptionToString(e));
-                        Console.Error.WriteLine("Loading mod " + file.Name + " failed!");
-                        Console.Error.WriteLine(e);
+                        ModLogger.Error.WriteLine("Loading mod " + file.Name + " failed!");
+                        ModLogger.Error.WriteLine(e);
                     }
                 }
             }
