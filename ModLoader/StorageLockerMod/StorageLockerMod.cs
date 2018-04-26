@@ -12,6 +12,7 @@ namespace Patches
             {
                 __result.BuildLocationRule = BuildLocationRule.Tile;
                 __result.ContinuouslyCheckFoundation = false;
+                __result.PermittedRotations = PermittedRotations.R360;
             }
         }
     }

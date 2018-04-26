@@ -6,3 +6,7 @@ V:\ONI Modding\ONI-Modloader\Mods\SensorsMod.dll
 V:\ONI Modding\ONI-Modloader\ModLoader\SensorsMod\obj\Release\SensorsMod.csprojResolveAssemblyReference.cache
 V:\ONI Modding\ONI-Modloader\ModLoader\SensorsMod\obj\Release\SensorsMod.csproj.CoreCompileInputs.cache
 V:\ONI Modding\ONI-Modloader\ModLoader\SensorsMod\obj\Release\SensorsMod.dll
+Y:\Google Drive\ONI Modding\ONI-Modloader\Mods\SensorsMod.dll
+Y:\Google Drive\ONI Modding\ONI-Modloader\ModLoader\SensorsMod\obj\Release\SensorsMod.csprojResolveAssemblyReference.cache
+Y:\Google Drive\ONI Modding\ONI-Modloader\ModLoader\SensorsMod\obj\Release\SensorsMod.csproj.CoreCompileInputs.cache
+Y:\Google Drive\ONI Modding\ONI-Modloader\ModLoader\SensorsMod\obj\Release\SensorsMod.dll

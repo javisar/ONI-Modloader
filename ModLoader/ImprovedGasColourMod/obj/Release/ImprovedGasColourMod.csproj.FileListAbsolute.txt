@@ -6,3 +6,7 @@ V:\ONI Modding\ONI-Modloader\Mods\ImprovedGasColourMod.dll
 V:\ONI Modding\ONI-Modloader\ModLoader\ImprovedGasColourMod\obj\Release\ImprovedGasColourMod.csprojResolveAssemblyReference.cache
 V:\ONI Modding\ONI-Modloader\ModLoader\ImprovedGasColourMod\obj\Release\ImprovedGasColourMod.csproj.CoreCompileInputs.cache
 V:\ONI Modding\ONI-Modloader\ModLoader\ImprovedGasColourMod\obj\Release\ImprovedGasColourMod.dll
+Y:\Google Drive\ONI Modding\ONI-Modloader\Mods\ImprovedGasColourMod.dll
+Y:\Google Drive\ONI Modding\ONI-Modloader\ModLoader\ImprovedGasColourMod\obj\Release\ImprovedGasColourMod.csprojResolveAssemblyReference.cache
+Y:\Google Drive\ONI Modding\ONI-Modloader\ModLoader\ImprovedGasColourMod\obj\Release\ImprovedGasColourMod.csproj.CoreCompileInputs.cache
+Y:\Google Drive\ONI Modding\ONI-Modloader\ModLoader\ImprovedGasColourMod\obj\Release\ImprovedGasColourMod.dll

@@ -5,23 +5,25 @@ using Klei.CustomSettings;
 
 namespace CustomWorldMod
 {
-    public static partial class HarmonyPatches
-    {
+    
         [HarmonyPatch(typeof(CustomGameSettings), nameof(CustomGameSettings.AddSettingConfig))]
-        public static class MyClass
+        public static class CustomWorldMod
         {
             public static SettingConfig UseCustomWorld = new ToggleSettingConfig(UseCustomWorldSize,
                                                                                     "Use custom world size",
                                                                                "Default 256x384 tiles; If enabled, the world will be generated with the values provided",
                                                                                new SettingLevel("Disabled",
                                                                                                 "Name01",
-                                                                                                "Tooltip01"),
+                                                                                                "Default 256"),
                                                                                new SettingLevel("Active",
                                                                                                 "Name02",
-                                                                                                "Tooltip02"),
+                                                                                                "Default 384"),
                                                                                "Disabled");
+            public const string UseCustomWorldSize = "UseCustomWorldSize";
+            public const string WorldsizeX         = "WorldSizeX";
+            public const string WorldsizeY         = "WorldSizeY";
 
-            public static SettingConfig WorldgenSeedX;
+        public static SettingConfig WorldgenSeedX;
 
             public static SettingConfig WorldgenSeedY;
             /// <summary>
@@ -71,8 +73,5 @@ namespace CustomWorldMod
         //     public static void Postfix() { }
         // }
 
-        public const string UseCustomWorldSize = "UseCustomWorldSize";
-        public const string WorldsizeX = "WorldSizeX";
-        public const string WorldsizeY = "WorldSizeY";
-    }
+    
 }

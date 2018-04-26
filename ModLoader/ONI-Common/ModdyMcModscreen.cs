@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Harmony;
 using UnityEngine;
 
 namespace ONI_Common
 {
-    public class Moddy
+    public class ModdyMcModscreen
     {
         public KButton Button_ModOptions;
 

@@ -69,9 +69,7 @@
 
                 try
                 {
-                    {
-                        HarmonyInstance.Create(modAssembly.FullName)?.PatchAll(modAssembly);
-                    }
+                    HarmonyInstance.Create(modAssembly.FullName)?.PatchAll(modAssembly);
                 }
                 catch (Exception e)
                 {

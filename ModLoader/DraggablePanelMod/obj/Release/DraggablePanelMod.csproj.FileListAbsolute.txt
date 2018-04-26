@@ -6,3 +6,7 @@ V:\ONI Modding\ONI-Modloader\Mods\DraggablePanelMod.dll
 V:\ONI Modding\ONI-Modloader\ModLoader\DraggablePanelMod\obj\Release\DraggablePanelMod.csprojResolveAssemblyReference.cache
 V:\ONI Modding\ONI-Modloader\ModLoader\DraggablePanelMod\obj\Release\DraggablePanelMod.csproj.CoreCompileInputs.cache
 V:\ONI Modding\ONI-Modloader\ModLoader\DraggablePanelMod\obj\Release\DraggablePanelMod.dll
+Y:\Google Drive\ONI Modding\ONI-Modloader\Mods\DraggablePanelMod.dll
+Y:\Google Drive\ONI Modding\ONI-Modloader\ModLoader\DraggablePanelMod\obj\Release\DraggablePanelMod.csprojResolveAssemblyReference.cache
+Y:\Google Drive\ONI Modding\ONI-Modloader\ModLoader\DraggablePanelMod\obj\Release\DraggablePanelMod.csproj.CoreCompileInputs.cache
+Y:\Google Drive\ONI Modding\ONI-Modloader\ModLoader\DraggablePanelMod\obj\Release\DraggablePanelMod.dll

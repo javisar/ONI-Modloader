@@ -6,3 +6,7 @@ V:\ONI Modding\ONI-Modloader\Mods\StorageLockerMod.dll
 V:\ONI Modding\ONI-Modloader\ModLoader\StorageLockerMod\obj\Release\StorageLockerMod.csprojResolveAssemblyReference.cache
 V:\ONI Modding\ONI-Modloader\ModLoader\StorageLockerMod\obj\Release\StorageLockerMod.csproj.CoreCompileInputs.cache
 V:\ONI Modding\ONI-Modloader\ModLoader\StorageLockerMod\obj\Release\StorageLockerMod.dll
+Y:\Google Drive\ONI Modding\ONI-Modloader\Mods\StorageLockerMod.dll
+Y:\Google Drive\ONI Modding\ONI-Modloader\ModLoader\StorageLockerMod\obj\Release\StorageLockerMod.csprojResolveAssemblyReference.cache
+Y:\Google Drive\ONI Modding\ONI-Modloader\ModLoader\StorageLockerMod\obj\Release\StorageLockerMod.csproj.CoreCompileInputs.cache
+Y:\Google Drive\ONI Modding\ONI-Modloader\ModLoader\StorageLockerMod\obj\Release\StorageLockerMod.dll

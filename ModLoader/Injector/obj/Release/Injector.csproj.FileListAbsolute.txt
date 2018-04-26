@@ -11,3 +11,8 @@ V:\ONI Modding\ONI-Modloader\ModLoader\Injector\obj\Release\Injector.csprojResol
 V:\ONI Modding\ONI-Modloader\ModLoader\Injector\obj\Release\Injector.csproj.CoreCompileInputs.cache
 V:\ONI Modding\ONI-Modloader\ModLoader\Injector\obj\Release\Injector.csproj.CopyComplete
 V:\ONI Modding\ONI-Modloader\ModLoader\Injector\obj\Release\Injector.exe
+Y:\Google Drive\ONI Modding\ONI-Modloader\Managed\Injector.exe
+Y:\Google Drive\ONI Modding\ONI-Modloader\ModLoader\Injector\obj\Release\Injector.csprojResolveAssemblyReference.cache
+Y:\Google Drive\ONI Modding\ONI-Modloader\ModLoader\Injector\obj\Release\Injector.csproj.CoreCompileInputs.cache
+Y:\Google Drive\ONI Modding\ONI-Modloader\ModLoader\Injector\obj\Release\Injector.csproj.CopyComplete
+Y:\Google Drive\ONI Modding\ONI-Modloader\ModLoader\Injector\obj\Release\Injector.exe

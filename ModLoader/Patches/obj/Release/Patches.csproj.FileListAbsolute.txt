@@ -9,3 +9,7 @@ V:\ONI Modding\ONI-Modloader\Mods\FastModeMod.dll
 V:\ONI Modding\ONI-Modloader\ModLoader\Patches\obj\Release\Patches.csprojResolveAssemblyReference.cache
 V:\ONI Modding\ONI-Modloader\ModLoader\Patches\obj\Release\Patches.csproj.CoreCompileInputs.cache
 V:\ONI Modding\ONI-Modloader\ModLoader\Patches\obj\Release\FastModeMod.dll
+Y:\Google Drive\ONI Modding\ONI-Modloader\Mods\FastModeMod.dll
+Y:\Google Drive\ONI Modding\ONI-Modloader\ModLoader\Patches\obj\Release\Patches.csprojResolveAssemblyReference.cache
+Y:\Google Drive\ONI Modding\ONI-Modloader\ModLoader\Patches\obj\Release\Patches.csproj.CoreCompileInputs.cache
+Y:\Google Drive\ONI Modding\ONI-Modloader\ModLoader\Patches\obj\Release\FastModeMod.dll

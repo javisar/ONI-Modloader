@@ -10,3 +10,8 @@ V:\ONI Modding\ONI-Modloader\ModLoader\ModLoader\obj\Release\ModLoader.csproj.Co
 V:\ONI Modding\ONI-Modloader\ModLoader\ModLoader\obj\Release\ModLoader.dll
 V:\ONI Modding\ONI-Modloader\Managed\ModLoader.dll
 V:\ONI Modding\ONI-Modloader\ModLoader\ModLoader\obj\Release\ModLoader.csproj.CopyComplete
+Y:\Google Drive\ONI Modding\ONI-Modloader\Managed\ModLoader.dll
+Y:\Google Drive\ONI Modding\ONI-Modloader\ModLoader\ModLoader\obj\Release\ModLoader.csprojResolveAssemblyReference.cache
+Y:\Google Drive\ONI Modding\ONI-Modloader\ModLoader\ModLoader\obj\Release\ModLoader.csproj.CoreCompileInputs.cache
+Y:\Google Drive\ONI Modding\ONI-Modloader\ModLoader\ModLoader\obj\Release\ModLoader.csproj.CopyComplete
+Y:\Google Drive\ONI Modding\ONI-Modloader\ModLoader\ModLoader\obj\Release\ModLoader.dll

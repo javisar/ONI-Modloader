@@ -6,3 +6,7 @@ V:\ONI Modding\ONI-Modloader\Mods\PressureDoorMod.dll
 V:\ONI Modding\ONI-Modloader\ModLoader\PressureDoorMod\obj\Release\PressureDoorMod.csprojResolveAssemblyReference.cache
 V:\ONI Modding\ONI-Modloader\ModLoader\PressureDoorMod\obj\Release\PressureDoorMod.csproj.CoreCompileInputs.cache
 V:\ONI Modding\ONI-Modloader\ModLoader\PressureDoorMod\obj\Release\PressureDoorMod.dll
+Y:\Google Drive\ONI Modding\ONI-Modloader\Mods\PressureDoorMod.dll
+Y:\Google Drive\ONI Modding\ONI-Modloader\ModLoader\PressureDoorMod\obj\Release\PressureDoorMod.csprojResolveAssemblyReference.cache
+Y:\Google Drive\ONI Modding\ONI-Modloader\ModLoader\PressureDoorMod\obj\Release\PressureDoorMod.csproj.CoreCompileInputs.cache
+Y:\Google Drive\ONI Modding\ONI-Modloader\ModLoader\PressureDoorMod\obj\Release\PressureDoorMod.dll

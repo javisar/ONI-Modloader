@@ -15,6 +15,7 @@ namespace ImprovedGasColourMod
 
             public static bool Prefix(int cell, ref Color __result)
             {
+              //  ModSettings settings = ONI_Common.ModdyMcModscreen
                 float minMass = ONI_Common.State.ConfiguratorState.GasPressureStart;
                 float maxMass = ONI_Common.State.ConfiguratorState.GasPressureEnd;
 

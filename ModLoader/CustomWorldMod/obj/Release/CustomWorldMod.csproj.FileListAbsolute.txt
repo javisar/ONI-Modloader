@@ -6,3 +6,7 @@ V:\ONI Modding\ONI-Modloader\Mods\CustomWorldMod.dll
 V:\ONI Modding\ONI-Modloader\ModLoader\CustomWorldMod\obj\Release\CustomWorldMod.csprojResolveAssemblyReference.cache
 V:\ONI Modding\ONI-Modloader\ModLoader\CustomWorldMod\obj\Release\CustomWorldMod.csproj.CoreCompileInputs.cache
 V:\ONI Modding\ONI-Modloader\ModLoader\CustomWorldMod\obj\Release\CustomWorldMod.dll
+Y:\Google Drive\ONI Modding\ONI-Modloader\Mods\CustomWorldMod.dll
+Y:\Google Drive\ONI Modding\ONI-Modloader\ModLoader\CustomWorldMod\obj\Release\CustomWorldMod.csprojResolveAssemblyReference.cache
+Y:\Google Drive\ONI Modding\ONI-Modloader\ModLoader\CustomWorldMod\obj\Release\CustomWorldMod.csproj.CoreCompileInputs.cache
+Y:\Google Drive\ONI Modding\ONI-Modloader\ModLoader\CustomWorldMod\obj\Release\CustomWorldMod.dll

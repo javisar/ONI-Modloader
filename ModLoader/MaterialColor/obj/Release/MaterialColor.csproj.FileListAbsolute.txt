@@ -15,3 +15,7 @@ V:\ONI Modding\ONI-Modloader\ModLoader\MaterialColor\obj\Release\MaterialColor.c
 V:\ONI Modding\ONI-Modloader\ModLoader\MaterialColor\obj\Release\MaterialColor.csproj.CoreCompileInputs.cache
 V:\ONI Modding\ONI-Modloader\ModLoader\MaterialColor\obj\Release\MaterialColor.dll
 V:\ONI Modding\ONI-Modloader\Mods\MaterialColor\Assemblies\MaterialColor.dll
+Y:\Google Drive\ONI Modding\ONI-Modloader\Mods\MaterialColor\Assemblies\MaterialColor.dll
+Y:\Google Drive\ONI Modding\ONI-Modloader\ModLoader\MaterialColor\obj\Release\MaterialColor.csprojResolveAssemblyReference.cache
+Y:\Google Drive\ONI Modding\ONI-Modloader\ModLoader\MaterialColor\obj\Release\MaterialColor.csproj.CoreCompileInputs.cache
+Y:\Google Drive\ONI Modding\ONI-Modloader\ModLoader\MaterialColor\obj\Release\MaterialColor.dll
