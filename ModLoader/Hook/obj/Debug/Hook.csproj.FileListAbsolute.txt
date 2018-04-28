@@ -1,6 +1,0 @@
-C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\Hook\bin\Debug\Hook.dll
-C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\Hook\bin\Debug\Hook.pdb
-C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\Hook\obj\Debug\Hook.csprojResolveAssemblyReference.cache
-C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\Hook\obj\Debug\Hook.csproj.CoreCompileInputs.cache
-C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\Hook\obj\Debug\Hook.dll
-C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\Hook\obj\Debug\Hook.pdb
