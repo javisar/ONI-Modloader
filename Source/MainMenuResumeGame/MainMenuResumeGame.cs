@@ -26,9 +26,6 @@ namespace MainMenuResumeGame
                     __instance.Button_ResumeGame.GetComponentsInChildren<LocText>()[1].text = "Auto Save - " + currentSave;
                     //Debug.Log("================== AUTO SAVE DETECTED =================== \n" + latestSaveFile);
                 };
-
-
-
             }
         }
     }
