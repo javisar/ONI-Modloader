@@ -12,34 +12,34 @@ namespace Injector
          {
                   public static void Inject(AssemblyDefinition game, string outputPath)
                   {
-                           TypeDefinition planetRotate = game.MainModule.GetType(string.Empty, "Global");
+                           TypeDefinition global = game.MainModule.GetType(string.Empty, "Global");
 
-                           if (planetRotate == null)
+                           if (global == null)
                            {
                                     Console.WriteLine("Global not found");
                                     Console.Read();
                                     return;
                            }
 
-                           MethodDefinition planetStart = planetRotate.Methods.FirstOrDefault(method => method.Name == "Awake");
+                           MethodDefinition globalStart = global.Methods.FirstOrDefault(method => method.Name == "Awake");
 
-                           if (planetStart == null)
+                           if (globalStart == null)
                            {
                                     Console.WriteLine("Global.Awake not found");
                                     Console.Read();
                                     return;
                            }
 
-                           ILProcessor p = planetStart.Body.GetILProcessor();
+                           ILProcessor p = globalStart.Body.GetILProcessor();
                            Collection<Instruction> i = p.Body.Instructions;
 
-                           /*
-                                       i.Insert(0, p.Create(OpCodes.Nop));
-                                       i.Insert(1, p.Create(OpCodes.Nop));
-                                       i.Insert(2, p.Create(OpCodes.Call, Util.ImportMethod<Assembly>(game, "GetExecutingAssembly")));
-                                       i.Insert(3, p.Create(OpCodes.Callvirt, Util.ImportMethod<Assembly>(game, "get_Location", typeof(string))));
-                                       i.Insert(4, p.Create(OpCodes.Call, Util.ImportMethod<System.IO.Path>(game, "GetDirectoryName")));
-                                       */
+                            /*
+                            i.Insert(0, p.Create(OpCodes.Nop));
+                            i.Insert(1, p.Create(OpCodes.Nop));
+                            i.Insert(2, p.Create(OpCodes.Call, Util.ImportMethod<Assembly>(game, "GetExecutingAssembly")));
+                            i.Insert(3, p.Create(OpCodes.Callvirt, Util.ImportMethod<Assembly>(game, "get_Location", typeof(string))));
+                            i.Insert(4, p.Create(OpCodes.Call, Util.ImportMethod<System.IO.Path>(game, "GetDirectoryName")));
+                            */
                            int index = 0;
 
                            // Assembly.LoadFrom(Application.dataPath + "/Mods/ModLoader.dll")

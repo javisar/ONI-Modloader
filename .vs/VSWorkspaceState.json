@@ -1,9 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\ModLoader",
-    "\\ModLoader\\ModLoader"
+    "\\ModLoader"
   ],
-  "SelectedNode": "\\ModLoader\\ModLoader\\ModLoader.csproj.user",
+  "SelectedNode": "\\ModLoader\\DefaultDeconstructBuildings",
   "PreviewInSolutionExplorer": false
 }

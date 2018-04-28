@@ -7,8 +7,8 @@
     <ProjectGuid>{0A8D7289-BF9D-4110-B512-7DD528DC7EDE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FastModeMod</RootNamespace>
-    <AssemblyName>FastModeMod</AssemblyName>
+    <RootNamespace>Patches</RootNamespace>
+    <AssemblyName>Patches</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile>
@@ -29,7 +29,7 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>none</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\Mods\</OutputPath>
+    <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -44,16 +44,16 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="Assembly-CSharp">
-      <HintPath>Z:\Applications\Steam Games\SteamApps\common\OxygenNotIncluded\OxygenNotIncluded.app\Contents\Resources\Data\Managed\Assembly-CSharp.dll</HintPath>
+      <HintPath>..\lib\Assembly-CSharp.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Assembly-CSharp-firstpass">
-      <HintPath>Z:\Applications\Steam Games\SteamApps\common\OxygenNotIncluded\OxygenNotIncluded.app\Contents\Resources\Data\Managed\Assembly-CSharp-firstpass.dll</HintPath>
+      <HintPath>..\lib\Assembly-CSharp-firstpass.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Core" />
     <Reference Include="UnityEngine">
-      <HintPath>Z:\Applications\Steam Games\SteamApps\common\OxygenNotIncluded\OxygenNotIncluded.app\Contents\Resources\Data\Managed\UnityEngine.dll</HintPath>
+      <HintPath>..\lib\UnityEngine.dll</HintPath>
       <Private>False</Private>
     </Reference>
   </ItemGroup>

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace InsulatedDoorsMod
 {    
-    
+    /*
     [HarmonyPatch(typeof(GeneratedBuildings), "LoadGeneratedBuildings")]
     internal static class InsulatedPressureDoorMod
     {
@@ -32,15 +32,45 @@ namespace InsulatedDoorsMod
         }
     }
 	
-
+    */
 	[HarmonyPatch(typeof(DoorConfig), "CreateBuildingDef")]
     internal static class InsulatedDoorsMod
     {
+        /*
+        private static bool Prefix(DoorConfig __instance, ref BuildingDef __result)
+        {
+            string id = "Door";
+            int width = 1;
+            int height = 2;
+            string anim = "door_internal_kanim";
+            int hitpoints = 30;
+            float construction_time = 10f;
+            float[] tIER = TUNING.BUILDINGS.CONSTRUCTION_MASS_KG.TIER2;
+            string[] aLL_METALS = TUNING.MATERIALS.ALL_METALS;
+            float melting_point = 1600f;
+            BuildLocationRule build_location_rule = BuildLocationRule.Tile;
+            EffectorValues nONE = TUNING.NOISE_POLLUTION.NONE;
+            __result = BuildingTemplates.CreateBuildingDef(id, width, height, anim, hitpoints, construction_time, tIER, aLL_METALS, melting_point, build_location_rule, TUNING.BUILDINGS.DECOR.NONE, nONE, 1f);
+            __result.Entombable = false;
+            __result.IsFoundation = true;
+            __result.MaterialCategory = TUNING.MATERIALS.ANY_BUILDABLE;
+            __result.AudioCategory = "Metal";
+            __result.PermittedRotations = PermittedRotations.R90;
+            __result.SceneLayer = Grid.SceneLayer.TileMain;
+            __result.DefaultAnimState = "off";
+            __result.TileLayer = ObjectLayer.FoundationTile;
+            SoundEventVolumeCache.instance.AddVolume("door_internal_kanim", "Open_DoorInternal", TUNING.NOISE_POLLUTION.NOISY.TIER2);
+            SoundEventVolumeCache.instance.AddVolume("door_internal_kanim", "Close_DoorInternal", TUNING.NOISE_POLLUTION.NOISY.TIER2);
+            return false;
+        }
+        */
 
         private static void Postfix(DoorConfig __instance, ref BuildingDef __result)
-        {          
+        {
+            //__result.AnimFiles = new KAnimFile[0] { };
             __result.MaterialCategory = TUNING.MATERIALS.ANY_BUILDABLE;
         }
+        
     }
 
 

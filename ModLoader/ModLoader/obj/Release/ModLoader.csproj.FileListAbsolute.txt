@@ -5,6 +5,7 @@ C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\Managed\ModLoader.dll
 C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\ModLoader\obj\Release\ModLoader.csprojResolveAssemblyReference.cache
 C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\ModLoader\obj\Release\ModLoader.csproj.CoreCompileInputs.cache
 C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\ModLoader\obj\Release\ModLoader.dll
+<<<<<<< HEAD
 V:\ONI Modding\ONI-Modloader\ModLoader\ModLoader\obj\Release\ModLoader.csprojResolveAssemblyReference.cache
 V:\ONI Modding\ONI-Modloader\ModLoader\ModLoader\obj\Release\ModLoader.csproj.CoreCompileInputs.cache
 V:\ONI Modding\ONI-Modloader\ModLoader\ModLoader\obj\Release\ModLoader.dll
@@ -15,3 +16,8 @@ Y:\Google Drive\ONI Modding\ONI-Modloader\ModLoader\ModLoader\obj\Release\ModLoa
 Y:\Google Drive\ONI Modding\ONI-Modloader\ModLoader\ModLoader\obj\Release\ModLoader.csproj.CoreCompileInputs.cache
 Y:\Google Drive\ONI Modding\ONI-Modloader\ModLoader\ModLoader\obj\Release\ModLoader.csproj.CopyComplete
 Y:\Google Drive\ONI Modding\ONI-Modloader\ModLoader\ModLoader\obj\Release\ModLoader.dll
+=======
+E:\ONI\ONI-Modloader\Managed\ModLoader.dll
+E:\ONI\ONI-Modloader\ModLoader\ModLoader\obj\Release\ModLoader.csprojResolveAssemblyReference.cache
+E:\ONI\ONI-Modloader\ModLoader\ModLoader\obj\Release\ModLoader.dll
+>>>>>>> pr/2

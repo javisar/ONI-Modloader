@@ -2,6 +2,7 @@ C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\Mods\CameraControllerMod.dll
 C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\CameraControllerMod\obj\Release\CameraControllerMod.csproj.CoreCompileInputs.cache
 C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\CameraControllerMod\obj\Release\CameraControllerMod.dll
 C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\CameraControllerMod\obj\Release\CameraControllerMod.csprojResolveAssemblyReference.cache
+<<<<<<< HEAD
 V:\ONI Modding\ONI-Modloader\Mods\CameraControllerMod.dll
 V:\ONI Modding\ONI-Modloader\ModLoader\CameraControllerMod\obj\Release\CameraControllerMod.csproj.CoreCompileInputs.cache
 V:\ONI Modding\ONI-Modloader\ModLoader\CameraControllerMod\obj\Release\CameraControllerMod.dll
@@ -9,3 +10,8 @@ Y:\Google Drive\ONI Modding\ONI-Modloader\Mods\CameraControllerMod.dll
 Y:\Google Drive\ONI Modding\ONI-Modloader\ModLoader\CameraControllerMod\obj\Release\CameraControllerMod.csprojResolveAssemblyReference.cache
 Y:\Google Drive\ONI Modding\ONI-Modloader\ModLoader\CameraControllerMod\obj\Release\CameraControllerMod.csproj.CoreCompileInputs.cache
 Y:\Google Drive\ONI Modding\ONI-Modloader\ModLoader\CameraControllerMod\obj\Release\CameraControllerMod.dll
+=======
+E:\ONI\ONI-Modloader\Mods\CameraControllerMod.dll
+E:\ONI\ONI-Modloader\ModLoader\CameraControllerMod\obj\Release\CameraControllerMod.csprojResolveAssemblyReference.cache
+E:\ONI\ONI-Modloader\ModLoader\CameraControllerMod\obj\Release\CameraControllerMod.dll
+>>>>>>> pr/2

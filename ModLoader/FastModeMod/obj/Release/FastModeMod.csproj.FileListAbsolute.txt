@@ -2,6 +2,7 @@ C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\Mods\FastModeMod.dll
 C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\FastModeMod\obj\Release\FastModeMod.csprojResolveAssemblyReference.cache
 C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\FastModeMod\obj\Release\FastModeMod.csproj.CoreCompileInputs.cache
 C:\Users\thomasgaertner\Source\Repos\ONI-Modloader\ModLoader\FastModeMod\obj\Release\FastModeMod.dll
+<<<<<<< HEAD
 V:\ONI Modding\ONI-Modloader\Mods\FastModeMod.dll
 V:\ONI Modding\ONI-Modloader\ModLoader\FastModeMod\obj\Release\FastModeMod.csprojResolveAssemblyReference.cache
 V:\ONI Modding\ONI-Modloader\ModLoader\FastModeMod\obj\Release\FastModeMod.csproj.CoreCompileInputs.cache
@@ -10,3 +11,8 @@ Y:\Google Drive\ONI Modding\ONI-Modloader\Mods\FastModeMod.dll
 Y:\Google Drive\ONI Modding\ONI-Modloader\ModLoader\FastModeMod\obj\Release\FastModeMod.csprojResolveAssemblyReference.cache
 Y:\Google Drive\ONI Modding\ONI-Modloader\ModLoader\FastModeMod\obj\Release\FastModeMod.csproj.CoreCompileInputs.cache
 Y:\Google Drive\ONI Modding\ONI-Modloader\ModLoader\FastModeMod\obj\Release\FastModeMod.dll
+=======
+E:\ONI\ONI-Modloader\Mods\FastModeMod.dll
+E:\ONI\ONI-Modloader\ModLoader\FastModeMod\obj\Release\FastModeMod.csprojResolveAssemblyReference.cache
+E:\ONI\ONI-Modloader\ModLoader\FastModeMod\obj\Release\FastModeMod.dll
+>>>>>>> pr/2
