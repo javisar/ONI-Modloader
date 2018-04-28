@@ -12,23 +12,13 @@
 
         public const string tmpString = ".tmp";
 
-        public readonly string _modsFolderPath;
-
-        public readonly string _managedFolderPath;
 
         private readonly FileManager _fileManager;
+
 
         public InjectionManager(FileManager fileManager)
         {
             this._fileManager = fileManager;
-        }
-
-        public InjectionManager(FileManager fileManager, string modsFolderPath, string managedFolderPath)
-        {
-            this._fileManager = fileManager;
-
-            this._modsFolderPath = modsFolderPath;
-            this._managedFolderPath = managedFolderPath;
         }
 
         public Logger Logger { get; set; }
@@ -37,11 +27,12 @@
 
         public void InjectDefaultAndBackup()
         {
+            string path = Directory.GetCurrentDirectory();
             try
             {
-                ModuleDefinition onionModule = CecilHelper.GetModule("ONI-Common.dll", this._modsFolderPath);
-                ModuleDefinition csharpModule = CecilHelper.GetModule("Assembly-CSharp.dll", this._managedFolderPath);
-                ModuleDefinition firstPassModule = CecilHelper.GetModule("Assembly-CSharp-firstpass.dll", this._managedFolderPath);
+                ModuleDefinition onionModule = CecilHelper.GetModule("\\ONI-Common.dll", path);
+                ModuleDefinition csharpModule = CecilHelper.GetModule("\\Assembly-CSharp.dll", path);
+                ModuleDefinition firstPassModule = CecilHelper.GetModule("\\Assembly-CSharp-firstpass.dll", path);
 
                 try
                 {
@@ -55,8 +46,8 @@
                 }
                 try
                 {
-                    this.BackupAndSaveCSharpModule(csharpModule, this._managedFolderPath);
-                    this.BackupAndSaveFirstPassModule(firstPassModule, this._managedFolderPath);
+                    this.BackupAndSaveCSharpModule(csharpModule, path);
+                    this.BackupAndSaveFirstPassModule(firstPassModule, path);
                 }
                 catch
                 {
@@ -133,7 +124,7 @@
 
         private void BackupAndSaveCSharpModule(ModuleDefinition module, string path)
         {
-            path += module;
+            path += Path.DirectorySeparatorChar+ module.ToString();
 
             this.MakeBackup(path);
 
@@ -153,7 +144,7 @@
 
         private void BackupAndSaveFirstPassModule(ModuleDefinition module, string path)
         {
-            path += module;
+            path += Path.DirectorySeparatorChar +module.ToString();
 
             this.MakeBackup(path);
             this.SaveModule(module, path);

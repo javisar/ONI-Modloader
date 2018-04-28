@@ -1,53 +1,9 @@
-<<<<<<< HEAD:Source/Injector/Program.cs
-﻿namespace spaar.ModLoader.Injector
+using System;
+using System.IO;
+using Injector.IO;
+
+namespace Injector
 {
-    using global::Injector;
-    using global::Injector.IO;
-    using System;
-    using System.IO;
-
-    internal class Program
-    {
-        private static FileManager _fileManager;
-
-        public static FileManager FileManager
-        {
-            get
-            {
-                return _fileManager ?? (_fileManager = new FileManager());
-            }
-        }
-
-        private static void Main(string[] args)
-        {
-            string currentPath = Directory.GetCurrentDirectory();
-
-            Console.WriteLine("Assembly-UnityScript.dll location:");
-
-            // string pathUnityScript = Console.ReadLine();
-            string pathUnityScript = currentPath + "\\Assembly-CSharp.dll.orig";
-
-            Console.WriteLine("Output path:");
-
-            // string pathOutput = Console.ReadLine();
-            string pathOutput = currentPath + "\\Assembly-CSharp.dll";
-
-            Console.WriteLine("Using Assembly.dll at " + pathUnityScript + " and writing to " + pathOutput);
-
-            new InjectionManager(FileManager).InjectDefaultAndBackup();
-
-            Console.WriteLine("Done.");
-            Console.Read();
-        }
-    }
-=======
-﻿namespace spaar.ModLoader.Injector
-{
-    using global::Injector;
-    using global::Injector.IO;
-    using System;
-    using System.IO;
-
     internal class Program
     {
         private static FileManager _fileManager;
@@ -60,11 +16,7 @@
             set { _modsFolderPath = value; }
         }
 
-        public static string ManagedFolderPath
-        {
-            get { return _managedFolderPath ?? (_managedFolderPath = null); }
-            set { _managedFolderPath = value; }
-        }
+
 
         public static FileManager FileManager
         {
@@ -75,21 +27,24 @@
         {
             ModLogger.Init();
 
-            try
-            {
-                FindCorrectPaths();
-            }
-            catch
-            {
-                Console.Error.WriteLine("Could not find your game files. Please make sure Injector.exe is at least inside the game folders.");
-            }
+            string currentPath = Directory.GetCurrentDirectory();
+            // Paths return garbage for Mac
+            //try
+            //{
+            //    FindCorrectPaths();
+            //}
+            //catch
+            //{
+            //    Console.Error.WriteLine("Could not find your game files. Please make sure Injector.exe is at least inside the Managed folder.");
+            //}
 
-            if (!string.IsNullOrEmpty(Program._modsFolderPath) && !string.IsNullOrEmpty(Program._managedFolderPath))
+         //   if (!string.IsNullOrEmpty(Program._modsFolderPath) && !string.IsNullOrEmpty(Program._managedFolderPath))
             {
                 try
                 {
                     ModLogger.WriteLine(ConsoleColor.Green, "Reading modules: \n");
-                    new InjectionManager(FileManager, Program._modsFolderPath, Program._managedFolderPath).InjectDefaultAndBackup();
+                    new InjectionManager(FileManager).InjectDefaultAndBackup();
+                  //  new InjectionManager(FileManager, Program._managedFolderPath).InjectDefaultAndBackup();
 
                     ModLogger.WriteLine(ConsoleColor.Green, "\nDone! Patch Sucessful.");
                 }
@@ -104,6 +59,7 @@
 
         private static void FindCorrectPaths()
         {
+            // Most stuff not working
             string currentDirectory = Directory.GetCurrentDirectory();
             string searchString = FindGameName();
             string baseFolder = "";
@@ -122,14 +78,12 @@
                 } while (currentDirectory.IndexOf(searchString) != not_found);
 
                 Program.ModsFolderPath = baseFolder + modsFolder;
-                Program.ManagedFolderPath = baseFolder + managedFolder;
             }
             else
             {
                 Console.Error.WriteLine("Could not find {0} folder.", searchString);
 
                 Program.ModsFolderPath = null;
-                Program.ManagedFolderPath = null;
             }
         }
 
@@ -156,5 +110,4 @@
             return null;
         }
     }
->>>>>>> pr/3:ModLoader/Injector/Program.cs
 }
