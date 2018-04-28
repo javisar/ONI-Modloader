@@ -8,12 +8,15 @@ namespace Injector
     {
         private static FileManager _fileManager;
         private static string _modsFolderPath;
+        private static string _managedFolderPath;
 
         public static string ModsFolderPath
         {
             get { return _modsFolderPath ?? (_modsFolderPath = null); }
             set { _modsFolderPath = value; }
         }
+
+
 
         public static FileManager FileManager
         {
@@ -24,6 +27,7 @@ namespace Injector
         {
             ModLogger.Init();
 
+            string currentPath = Directory.GetCurrentDirectory();
             // Paths return garbage for Mac
             //try
             //{
@@ -60,6 +64,7 @@ namespace Injector
             string searchString = FindGameName();
             string baseFolder = "";
             string modsFolder = Path.DirectorySeparatorChar + "Mods" + Path.DirectorySeparatorChar;
+            string managedFolder = Path.DirectorySeparatorChar + searchString + "_Data" + Path.DirectorySeparatorChar + "Managed" + Path.DirectorySeparatorChar;
             const int not_found = -1;
 
             ModLogger.WriteLine(ConsoleColor.Green, "Searching for {0} files . . . \n", searchString);

@@ -104,10 +104,10 @@ namespace Injector
                                     p.Create(
                                              OpCodes.Callvirt,
                                              ImportMethod<MethodBase>(
-                                                                      game,
-                                                                      "Invoke",
-                                                                      typeof(object),
-                                                                      typeof(object[]))));
+                                                                                                    game,
+                                                                                                    "Invoke",
+                                                                                                    typeof(object),
+                                                                                                    typeof(object[]))));
                            i.Insert(index++, p.Create(OpCodes.Pop));
 
                            /*
