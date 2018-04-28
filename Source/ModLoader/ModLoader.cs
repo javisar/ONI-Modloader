@@ -1,4 +1,4 @@
-﻿namespace ModLoader
+namespace ModLoader
 {
     using Harmony;
     using JetBrains.Annotations;
@@ -28,8 +28,8 @@
             List<FileInfo> files = modsDir.GetFiles("*.dll").ToList();
             foreach (DirectoryInfo modDirectory in modsDir.GetDirectories())
             {
-                DirectoryInfo[] sub        = modDirectory?.GetDirectories();
-                DirectoryInfo   assmeblies = sub?.FirstOrDefault(x => x != null && x.Name.Contains(AssemblyDir));
+                DirectoryInfo[] sub = modDirectory?.GetDirectories();
+                DirectoryInfo assmeblies = sub?.FirstOrDefault(x => x != null && x.Name.Contains(AssemblyDir));
                 if (assmeblies != null)
                 {
                     foreach (FileInfo file in assmeblies.GetFiles("*.dll"))
@@ -41,13 +41,13 @@
 
             try
             {
-                DependencyGraph dependencyGraph  = LoadModAssemblies(files);
+                DependencyGraph dependencyGraph = LoadModAssemblies(files);
                 List<Assembly> sortedAssemblies = dependencyGraph?.TopologicalSort();
 
                 ApplyHarmonyPatches(sortedAssemblies);
                 CallOnLoadMethods(sortedAssemblies);
 
-                UnityEngine.Debug.Log("All mods successfully loaded!");
+                ModLogger.WriteLine("All mods successfully loaded!");
             }
             catch (ModLoadingException mle)
             {
@@ -57,7 +57,7 @@
 
         private static void ApplyHarmonyPatches([NotNull] List<Assembly> modAssemblies)
         {
-            UnityEngine.Debug.Log("Applying Harmony patches");
+            ModLogger.WriteLine("Applying Harmony patches");
             List<string> failedMods = new List<string>();
 
             foreach (Assembly modAssembly in modAssemblies)
@@ -69,13 +69,15 @@
 
                 try
                 {
-                    HarmonyInstance.Create(modAssembly.FullName)?.PatchAll(modAssembly);
+                    {
+                        HarmonyInstance.Create(modAssembly.FullName)?.PatchAll(modAssembly);
+                    }
                 }
                 catch (Exception e)
                 {
-                    failedMods.Add(modAssembly.GetName()                               + ExceptionToString(e));
-                    UnityEngine.Debug.LogError("Patching mod " + modAssembly.GetName() + " failed!");
-                    UnityEngine.Debug.LogException(e);
+                    failedMods.Add(modAssembly.GetName() + ExceptionToString(e));
+                    ModLogger.Error.WriteLine("Patching mod " + modAssembly.GetName() + " failed!");
+                    ModLogger.Error.WriteLine(e);
                 }
             }
 
@@ -87,7 +89,7 @@
 
         private static void CallOnLoadMethods([NotNull] List<Assembly> modAssemblies)
         {
-            UnityEngine.Debug.Log("Calling OnLoad methods");
+            ModLogger.WriteLine("Calling OnLoad methods");
 
             foreach (Assembly modAssembly in modAssemblies)
             {
@@ -117,8 +119,8 @@
 
                         string message = "OnLoad method failed for type " + type.FullName + " of mod "
                                        + modAssembly.GetName().Name;
-                        UnityEngine.Debug.LogError(message);
-                        UnityEngine.Debug.LogException(e);
+                        ModLogger.Error.WriteLine(message);
+                        ModLogger.Error.WriteLine(e);
                         throw new ModLoadingException(message + ExceptionToString(e));
                     }
                 }
@@ -144,13 +146,13 @@
                 oniBaseDirectory = dataDir.Parent;
             }
 
-            UnityEngine.Debug.Log("Path to mods is: " + Path.Combine(oniBaseDirectory?.FullName, "Mods"));
+            ModLogger.WriteLine("Path to mods is: " + Path.Combine(oniBaseDirectory?.FullName, "Mods"));
             return new DirectoryInfo(Path.Combine(oniBaseDirectory?.FullName, "Mods"));
         }
 
         private static DependencyGraph LoadModAssemblies(List<FileInfo> assemblyFiles)
         {
-            UnityEngine.Debug.Log("Loading mod assemblies");
+            ModLogger.WriteLine("Loading mod assemblies");
             List<Assembly> loadedAssemblies = new List<Assembly>();
             List<string> failedAssemblies = new List<string>();
 
@@ -174,14 +176,14 @@
                     try
                     {
                         Assembly modAssembly = Assembly.LoadFrom(file.FullName);
-                        UnityEngine.Debug.Log("Loading " + modAssembly.FullName);
+                        ModLogger.WriteLine("Loading " + modAssembly.FullName);
                         loadedAssemblies.Add(modAssembly);
                     }
                     catch (Exception e)
                     {
-                        failedAssemblies.Add(file.Name                        + ExceptionToString(e));
-                        UnityEngine.Debug.LogError("Loading mod " + file.Name + " failed!");
-                        UnityEngine.Debug.LogException(e);
+                        failedAssemblies.Add(file.Name + ExceptionToString(e));
+                        ModLogger.Error.WriteLine("Loading mod " + file.Name + " failed!");
+                        ModLogger.Error.WriteLine(e);
                     }
                 }
             }

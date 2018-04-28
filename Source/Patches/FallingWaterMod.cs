@@ -1,7 +1,7 @@
 ﻿using Harmony;
 using System.Reflection;
 
-namespace ModLoader
+namespace FallingWaterMod
 {
     [HarmonyPatch(typeof(FallingWater))]
     [HarmonyPatch("gravityScale", PropertyMethod.Getter)]

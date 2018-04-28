@@ -64,16 +64,16 @@ namespace Injector
                                              game.MainModule.ImportReference(typeof(Path).GetMethod("GetDirectoryName", types))));
 
                            // i.Insert(3, p.Create(OpCodes.Stloc_0));
-                           i.Insert(index++, p.Create(OpCodes.Ldstr, "/ModLoader.dll"));
+                           i.Insert(index++, p.Create(OpCodes.Ldstr, "\\ModLoader.dll"));
                            i.Insert(
                                     index++,
                                     p.Create(
                                              OpCodes.Call,
                                              ImportMethod<string>(
-                                                                                                game,
-                                                                                                "Concat",
-                                                                                                typeof(string),
-                                                                                                typeof(string))));
+                                                                  game,
+                                                                  "Concat",
+                                                                  typeof(string),
+                                                                  typeof(string))));
                            i.Insert(
                                     index++,
                                     p.Create(
@@ -150,5 +150,4 @@ namespace Injector
                            return assembly.MainModule.ImportReference(reference.Resolve().Methods.First(m => m.Name == method));
                   }
          }
-
 }
