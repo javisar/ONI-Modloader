@@ -20,13 +20,6 @@ Projects
 
 Examples
 --------
-<<<<<<< HEAD
-* CameraControllerMod: Enable further zoom-outs in play and dev mode (rewritten).
-* CustomWorldMod: Enables the player to user custom world sizes (rewritten).
-* FastModeMod: Duplicants will build an dig very fast.
-* ImprovedGasColourMod: Replaces the oxygen overly with gas colors. Also visualizes the density (taken from Etiam's MateralColor mod pack, modified).
-* MaterialColor: Adds an overlay option to visualize what a building is made of (taken from Etiam's MateralColor mod pack).
-=======
 Midnight-Steam's Mods:
 * DefaultDeconstructBuildings: Sets the default settings to "Buildings" when Deconstruct tool is selected
 * ElectrolyzerIgnorePressure: Electrolyzer's ignore max pressure
@@ -38,12 +31,11 @@ Midnight-Steam's Mods:
 Original Mods:
 * AlternateOrdersMod: The Fabricators and Refineries will alternate between infinity orders.
 * CameraControllerMod: Enable further zoom-outs in play and dev mode (taken from Onion patcher).
-* CustomWorldMod: Enables the player to user custom world sizes. Stand alone mod currently diabled, please edit the OnionConfig.json file for changes (taken from Onion patcher)
+* CustomWorldMod: Enables the player to user custom world sizes. (Remade by Killface)
 * FastModeMod: Duplicants will build an dig very fast.
 * ImprovedGasColourMod: Replaces the oxygen overly with gas colors. Also visualizes the density (taken from Onion patcher, modified).
 * InsulatedDoorsMod (Not working): Doors can be constructed using any buildable element (ie: Abyssalite). Also it adds a new element Insulated Pressure Door
 * MaterialColor: Adds an overlay option to visualize what a building is made of (taken from Onion patcher).
->>>>>>> pr/2
 * PressureDoorMod: Removes the energy need for the mechanized pressure door and makes it buildable from all material.
 * SensorsMod: It modifies some ranges y automation sensors (taken from Etiam's MateralColor mod pack).
 * StorageLockerMod: Storage lockers won't need a foundation to be built.
