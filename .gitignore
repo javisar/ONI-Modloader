@@ -8,6 +8,6 @@ ModLoader/lib/UnityEngine.UI.dll
 *.FileListAbsolute.txt
 *.CopyComplete
 *.cache
-*.exe
 *.pdb
 *.zip
+
