@@ -11,51 +11,56 @@ This project uses source code of and is based on:
 * https://forums.kleientertainment.com/topic/81296-mod159-materialcolor-onionpatcher/
 
 
+NOTE: Please don't report bugs you encounter while mods are active. People at Klei work hard and shouldn't be bothered with bug reports which might originate from mods.
+
 Projects
 --------
-* Injector: It injects the call to the modloader in 'Assembly-CSharp.dll', also makes some classes public in 'Assembly-CSharp-firstpass.dll'
+* Injector: It injects the call to the modloader in 'Assembly-CSharp.dll'
 * ModLoader: The modloader itself.
 * OnionHook: Just a helper to generate IL code for the Injector.
 
 
 Examples
 --------
-* AlternateOrdersMod: The Fabricators and Refineries will alternate between infinity orders.
+* AlternateOrdersMod (Not working): The Fabricators and Refineries will alternate between infinity orders.
 * CameraControllerMod: Enable further zoom-outs in play and dev mode (taken from Onion patcher).
 * CustomWorldMod: Enables the player to user custom world sizes. Stand alone mod currently diabled, please edit the OnionConfig.json file for changes (taken from Onion patcher)
+* DraggablePanelMod: Makes panels draggable. Requires ONI-Common.
 * FastModeMod: Duplicants will build an dig very fast.
-* ImprovedGasColourMod: Replaces the oxygen overly with gas colors. Also visualizes the density (taken from Onion patcher, modified).
+* ImprovedGasColourMod: Replaces the oxygen overly with gas colors. Also visualizes the density (taken from Onion patcher, modified). Requires ONI-Common.
 * InsulatedDoorsMod (Not working): Doors can be constructed using any buildable element (ie: Abyssalite). Also it adds a new element Insulated Pressure Door
-* MaterialColor: Adds an overlay option to visualize what a building is made of (taken from Onion patcher).
+* MaterialColor: Adds an overlay option to visualize what a building is made of (taken from Onion patcher). Requires ONI-Common.
+* NoSteamMod: Prevents game closing if Steam is not installed.
+* ONI-Common: Common code for Onion Patches and other mods.
+* OnionPatches: Custom world seeds. DebugHandler hook. Requires ONI-Common.
+* Patches (Do not use): Some incomplete tests 
 * PressureDoorMod: Removes the energy need for the mechanized pressure door and makes it buildable from all material.
 * SensorsMod: It modifies some ranges y automation sensors (taken from Onion patcher).
-* StorageLockerMod: Storage lockers won't need a foundation to be built.
 * SpeedControlMod: Overwrites the method SpeedControlScreen.OnChange. Fast Speed set to behave like Ultra Speed in debug mode.
-* Patches (Do not use): Some incomplete tests 
+* StorageLockerMod: Storage lockers won't need a foundation to be built.
 
 
 Installation
-------------
-Make sure you're using a fresh install of ONI, meaning you'll need the original/unpatched Assembyl-CSharp.dll and Assembly-CSharp-firstpass.dll as it comes with a clean install.
-Note: You'll need to re-run the injector every time ONI gets updated.
+------------------------
+NOTE: Make sure you're using a fresh install of ONI, meaning you'll need the original/unpatched Assembyl-CSharp.dll and Assembly-CSharp-firstpass.dll as it comes with a clean install.
+NOTE: You'll need to re-run the injector every time ONI gets updated.
 
-Click "Clone or Download" for the current version as the releases are currently not up to date.
-
-1. Copy the contents of the "Managed" folder to: ...\OxygenNotIncluded_Data\Managed\
-2. Execute 'Injector.exe'. It will create a backups of 'Assembly-CSharp.dll' and Assembly-CSharp-firstpass.dll with the extension ".orig"  and a new patched set of dlls.
-3. You should now find a folder called "Mods" in your ONI main directory. Otherwise, copy the extracted "Mods" folder.
-4. Move or copy all the mods you'd like to use from the extracted "Mods" folder to the newly created "Mods" in the ONI main directory
-5. Run the game and check ../OxygenNotIncluded_Data/output_log.txt for any errors.
-
-Please don't report bugs you encounter while mods are active. People at Klei work hard and shouldn't be bothered with bug reports which might originate from mods.
-
-
-Alternative Installation
-----------------------
-1. Download last version in Release section.
+1. Download latest version in Release section.
 2. Unzip in the ONI main directory.
-3. Execute 'Injector.exe' (only if you have the unpatched dlls )
+3. Execute 'Injector.exe'. It will create a backups of 'Assembly-CSharp.dll' and Assembly-CSharp-firstpass.dll with the extension ".orig"  and a new patched set of dlls.
 4. Remove all unwanted mods from "Mods" folder. 
+
+
+Developers Installation
+-----------------------
+1. Click "Clone or Download" for the current version as the releases are currently not up to date.
+2. Copy the contents of the "Dist" folder to ONI folder: ...\OxygenNotIncluded\...
+2b. If you compile the Solution with Visual Studio the files will also be copied directly to the ONI folder.
+4. Execute 'Injector.exe' (only if you have the unpatched dlls )
+5. You should now find a folder called "Mods" in your ONI main directory. Otherwise, copy the extracted "Mods" folder.
+6. Move or copy all the mods you'd like to use to the "Mods" folder in the ONI main directory
+7. Run the game and check "../OxygenNotIncluded_Data/output_log.txt" and "../OxygenNotIncluded/Mods/_Logs/..." for any errors.
+
 
 Uninstallation
 --------------
@@ -79,13 +84,13 @@ Creating a Mod
    * UnityEngine.dll
    * UnityEngine.UI.dll
 2. Open the solution with Visual Studio.
-3. Create a new mod or modify the 'Patches' project.
+3. Create a new project. Use as template the examples.
 4. Compile it to generate the mod dll file.
 
 Dlls will be recognized by the mod loader if 
 • they reside in the main mod direcotory 
 OR
-• they are inside a subfolder inside a subfolder names 'Assemblies' (see MaterialColor mod)
+• they are inside a subfolder inside a subfolder names 'Assemblies'.
 
 
 Downloads
@@ -94,12 +99,13 @@ Choose 'Clone or download'.
 See Releases section.
 
 
-Harmony Tutorials
+Harmony/ONI Tutorials
 -----------------
 * https://github.com/pardeike/Harmony/wiki/
 * https://github.com/roxxploxx/RimWorldModGuide/wiki/SHORTTUTORIAL:-Harmony
 * https://github.com/UnlimitedHugs/RimworldHugsLib/wiki/Introduction-to-Patching
 * https://github.com/UnlimitedHugs/RimworldHugsLib/wiki/Detouring
+* https://oxygennotincluded.gamepedia.com/Guide/Working_with_the_Game_Files
 
 
 
