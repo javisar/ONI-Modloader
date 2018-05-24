@@ -21,7 +21,7 @@ public class InsulatedPressureDoorConfig : IBuildingConfig
         BuildLocationRule build_location_rule = BuildLocationRule.Tile;
         EffectorValues nONE = NOISE_POLLUTION.NONE;
         BuildingDef buildingDef = BuildingTemplates.CreateBuildingDef(id, width, height, anim, hitpoints, construction_time, tIER, aLL_METALS, melting_point, build_location_rule, TUNING.BUILDINGS.DECOR.PENALTY.TIER1, nONE, 0.2f);
-        buildingDef.Insulation = 0.01f;
+        //buildingDef.Insulation = 0.01f;
         buildingDef.Overheatable = false;
         buildingDef.RequiresPowerInput = true;
         //buildingDef.UseStructureTemperature = false;

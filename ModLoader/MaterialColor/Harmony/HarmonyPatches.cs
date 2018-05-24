@@ -18,9 +18,11 @@
     using JetBrains.Annotations;
 
     using UnityEngine;
-    using Action = Action;
+	using Action = Action;
+	using System.Reflection;
+	using static KInputController;
 
-    internal static partial class HarmonyPatches
+	internal static partial class HarmonyPatches
     {
 
         private static bool _configuratorStateChanged;
@@ -127,8 +129,10 @@
 
             if (storageLocker != null)
             {
-                SetFilteredStorageColors(storageLocker.filteredStorage, color, dimmedColor);
-            }
+				//SetFilteredStorageColors(storageLocker.filteredStorage, color, dimmedColor);
+				SetFilteredStorageColors(storageLocker, (Color)color, (Color)dimmedColor);
+
+			}
             else
             {
                 // ownable
@@ -136,9 +140,12 @@
 
                 if (ownable != null)
                 {
-                    ownable.ownedTint   = color;
-                    ownable.unownedTint = dimmedColor;
-                    ownable.UpdateTint();
+					//ownable.ownedTint   = color;
+					SetField(ownable, "ownedTint", (Color)color);
+					//ownable.unownedTint = dimmedColor;
+					SetField(ownable, "unownedTint", (Color)dimmedColor);
+					//ownable.UpdateTint();
+					Invoke(ownable, "UpdateTint");
                 }
                 else
                 {
@@ -147,8 +154,9 @@
 
                     if (rationBox != null)
                     {
-                        SetFilteredStorageColors(rationBox.filteredStorage, color, dimmedColor);
-                    }
+						//SetFilteredStorageColors(rationBox.filteredStorage, color, dimmedColor);
+						SetFilteredStorageColors(rationBox, (Color)color, (Color)dimmedColor);
+					}
                     else
                     {
                         // refrigerator
@@ -156,8 +164,9 @@
 
                         if (fridge != null)
                         {
-                            SetFilteredStorageColors(fridge.filteredStorage, color, dimmedColor);
-                        }
+							//SetFilteredStorageColors(fridge.filteredStorage, color, dimmedColor);
+							SetFilteredStorageColors(fridge, (Color)color, (Color)dimmedColor);
+						}
                         else
                         {
                             // anything else
@@ -298,16 +307,38 @@
         }
 
         private static void SetFilteredStorageColors(
-        [NotNull] FilteredStorage storage,
+        [NotNull] object		  _storage,
         Color32                   color,
         Color32                   dimmedColor)
         {
-            storage.filterTint   = color;
-            storage.noFilterTint = dimmedColor;
-            storage.FilterChanged();
+			FilteredStorage storage = (FilteredStorage) GetField(_storage, "filteredStorage");
+
+			//storage.filterTint   = color;
+			SetField(storage, "filterTint", color);
+			//storage.noFilterTint = dimmedColor;
+			SetField(storage, "noFilterTint", dimmedColor);
+			storage.FilterChanged();
         }
 
-        private static void SubscribeToFileChangeNotifier()
+		private static object GetField(object _instance, string name)
+		{
+			FieldInfo fi = AccessTools.Field(_instance.GetType(), name);
+			return fi.GetValue(_instance);
+		}
+
+		private static void SetField(object _instance, string name, object value)
+		{
+			FieldInfo fi = AccessTools.Field(_instance.GetType(), name);
+			fi.SetValue(_instance, value);
+		}
+
+		private static object Invoke(object _instance, string name)
+		{
+			MethodInfo mi = AccessTools.Method(_instance.GetType(), name);
+			return mi.Invoke(_instance, new object[] { });
+		}
+
+		private static void SubscribeToFileChangeNotifier()
         {
             const string jsonFilter = "*.json";
 
@@ -420,8 +451,9 @@
                             }
                             else
                             {
-                                if (cell == __instance.invalidPlaceCell)
-                                {
+								//if (cell == __instance.invalidPlaceCell)
+								if (cell == (int) GetField(__instance, "invalidPlaceCell"))
+								{
                                     __result = ColorHelper.InvalidCellColor;
                                     return false;
                                 }
@@ -435,14 +467,16 @@
                         tileColor = ColorHelper.DefaultCellColor;
                     }
 
-                    if (cell == __instance.selectedCell)
-                    {
+					//if (cell == __instance.selectedCell)
+					if (cell == (int) GetField(__instance, "selectedCell"))
+					{
                         __result = tileColor * 1.5f;
                         return false;
                     }
 
-                    if (cell == __instance.highlightCell)
-                    {
+					//if (cell == __instance.highlightCell)
+					if (cell == (int)GetField(__instance, "highlightCell"))
+					{
                         __result = tileColor * 1.25f;
                         return false;
                     }
@@ -512,7 +546,8 @@
         {
             public static void Postfix(ref BindingEntry[] __result)
             {
-                try
+				State.Logger.Log("GenerateDefaultBindings");
+				try
                 {
                     List<BindingEntry> bind = __result.ToList();
                     BindingEntry entry = new BindingEntry(
@@ -540,7 +575,24 @@
             // TODO: read from file instead
             public static void Postfix(OverlayMenu __instance, ref List<KIconToggleMenu.ToggleInfo> __result)
             {
-                __result.Add(
+				Type oti = AccessTools.Inner(typeof(OverlayMenu), "OverlayToggleInfo");
+				
+				ConstructorInfo ci =  oti.GetConstructor(new Type[] { typeof(string), typeof(string), typeof(SimViewMode), typeof(string), typeof(Action), typeof(string), typeof(string) });
+				object ooti = ci.Invoke(new object[] {
+						"Toggle MaterialColor",
+						"overlay_materialcolor",
+						(SimViewMode)IDs.ToggleMaterialColorOverlayID,
+						string.Empty,
+						(Action)IDs.ToggleMaterialColorOverlayAction,
+						"Toggles MaterialColor overlay",
+						"MaterialColor"
+				});
+				((KIconToggleMenu.ToggleInfo)ooti).getSpriteCB = GetUISprite;
+
+				__result.Add((KIconToggleMenu.ToggleInfo)ooti);
+
+				/*
+				__result.Add(
                              new OverlayMenu.OverlayToggleInfo(
                                                                "Toggle MaterialColor",
                                                                "overlay_materialcolor",
@@ -551,7 +603,8 @@
                                                                "MaterialColor") {
                                                                                    getSpriteCB = () => GetUISprite()
                                                                                 });
-            }
+				*/
+			}
 
             private static Sprite GetUISprite()
             {
@@ -584,7 +637,33 @@
             }
         }
 
-        [HarmonyPatch(typeof(OverlayMenu), "OnToggleSelect")]
+		[HarmonyPatch(typeof(KeyDef))]
+		[HarmonyPatch(new Type[] {typeof(KKeyCode), typeof(Modifier) })]
+		public static class KeyDef_Constructor
+		{
+			[HarmonyPostfix]
+
+			// ReSharper disable once InconsistentNaming
+			public static void ExitKeyDef(KeyDef __instance)
+			{
+				__instance.mActionFlags = new bool[1000];
+			}
+		}
+
+		[HarmonyPatch(typeof(KInputController))]
+		[HarmonyPatch(new Type[] { typeof(bool) })]
+		public static class KInputController_Constructor
+		{
+			[HarmonyPostfix]
+
+			// ReSharper disable once InconsistentNaming
+			public static void KInputControllerMod(KeyDef __instance)
+			{
+				SetField(__instance, "mActionState", new bool[1000]);
+			}
+		}
+
+		[HarmonyPatch(typeof(OverlayMenu), "OnToggleSelect")]
         public static class OverlayMenu_OnToggleSelect_MatCol
         {
             [HarmonyPrefix]
@@ -594,8 +673,9 @@
             {
                 try
                 {
-                    bool toggleMaterialColor = ((OverlayMenu.OverlayToggleInfo)toggle_info).simView
-                                            == (SimViewMode)IDs.ToggleMaterialColorOverlayID;
+					//bool toggleMaterialColor = ((OverlayMenu.OverlayToggleInfo)toggle_info).simView
+					bool toggleMaterialColor = (SimViewMode)GetField(toggle_info, "simView")
+											== (SimViewMode)IDs.ToggleMaterialColorOverlayID;
 
                     if (!toggleMaterialColor)
                     {

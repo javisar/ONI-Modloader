@@ -4,22 +4,22 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0D05225C-C127-40DA-9D80-F1BA481B7616}</ProjectGuid>
+    <ProjectGuid>{E17824E3-3934-4CFF-831C-A8EB3ECD6724}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CustomWorldMod</RootNamespace>
-    <AssemblyName>CustomWorldMod</AssemblyName>
+    <RootNamespace>OnionPatches</RootNamespace>
+    <AssemblyName>OnionPatches</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
+    <DebugSymbols>false</DebugSymbols>
+    <DebugType>none</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>..\..\Dist\Mods\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>3</WarningLevel>
+    <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>none</DebugType>
@@ -27,7 +27,7 @@
     <OutputPath>..\..\Dist\Mods\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <WarningLevel>0</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="0Harmony">
@@ -40,6 +40,10 @@
     </Reference>
     <Reference Include="Assembly-CSharp-firstpass">
       <HintPath>..\lib\Assembly-CSharp-firstpass.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Mono.Cecil">
+      <HintPath>..\lib\Mono.Cecil.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />
@@ -58,8 +62,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="HarmonyPatches.cs" />
+    <Compile Include="CecilHelper.cs" />
+    <Compile Include="InjectorOnion.cs" />
+    <Compile Include="InstructionInserter.cs" />
+    <Compile Include="InstructionRemover.cs" />
+    <Compile Include="MethodInjector.cs" />
+    <Compile Include="OnionPatches.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Publisher.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ONI-Common\ONI-Common.csproj">
+      <Project>{1208647d-c8c2-48db-bf29-60c6f3e2b016}</Project>
+      <Name>ONI-Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

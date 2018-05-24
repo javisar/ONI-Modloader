@@ -1,6 +1,7 @@
 ﻿namespace ONI_Common.OnionHooks
 {
-    using ONI_Common.Data;
+	using ONI_Common;
+	using ONI_Common.Data;
     using ONI_Common.IO;
     using ONI_Common.Json;
     using System;
@@ -8,7 +9,7 @@
 
     public static class Hooks
     {
-        private static readonly Logger _logger = new IO.Logger(Paths.OnionLogFileName);
+        private static readonly Logger _logger = new ONI_Common.IO.Logger(Paths.OnionLogFileName);
 
         private static OnionState _config;
 

@@ -2,10 +2,13 @@
 {
     using global::Injector.IO;
     using Mono.Cecil;
-    using ONI_Common.IO;
-    using System.IO;
+	using Mono.Cecil.Cil;
+	using Mono.Collections.Generic;
+	using System;
+	using System.IO;
+	using System.Linq;
 
-    public class InjectionManager
+	public class InjectionManager
     {
         public const string BackupString = ".orig";
 
@@ -25,18 +28,58 @@
         public void InjectDefaultAndBackup()
         {
             string           path            = Directory.GetCurrentDirectory();
-            ModuleDefinition onionModule     = CecilHelper.GetModule("ONI-Common.dll",                path);
+            //ModuleDefinition onionModule     = CecilHelper.GetModule("ONI-Common.dll",                path);
             ModuleDefinition csharpModule    = CecilHelper.GetModule("Assembly-CSharp.dll",           path);
             ModuleDefinition firstPassModule = CecilHelper.GetModule("Assembly-CSharp-firstpass.dll", path);
 
-            InjectorOnion injection = new InjectorOnion(onionModule, csharpModule, firstPassModule);
-            injection.Inject();
+			//InjectorOnion injection = new InjectorOnion(onionModule, csharpModule, firstPassModule);
+			//injection.Inject();
+			InjectPatchedSign(csharpModule, firstPassModule);
+			FixGameUpdateExceptionHandling(csharpModule);
 
-            this.BackupAndSaveCSharpModule(csharpModule);
+			this.BackupAndSaveCSharpModule(csharpModule);
             this.BackupAndSaveFirstPassModule(firstPassModule);
         }
 
-        public void MakeBackup(string filePath)
+
+		private void FixGameUpdateExceptionHandling(ModuleDefinition _csharpModule)
+		{
+			ExceptionHandler handler = new ExceptionHandler(ExceptionHandlerType.Finally);
+			MethodBody methodBody =
+			CecilHelper.GetMethodDefinition(_csharpModule, "Game", "Update").Body;
+			Collection<Instruction> methodInstructions = methodBody.Instructions;
+
+			handler.TryStart = methodInstructions.First(instruction => instruction.OpCode == OpCodes.Ldsfld);
+
+			Instruction tryEndInstruction =
+			methodInstructions.Last(instruction => instruction.OpCode == OpCodes.Ldloca_S);
+
+			handler.TryEnd = tryEndInstruction;
+			handler.HandlerStart = tryEndInstruction;
+			handler.HandlerEnd = methodInstructions.Last();
+			handler.CatchType = _csharpModule.ImportReference(typeof(Exception));
+
+			methodBody.ExceptionHandlers.Clear();
+			methodBody.ExceptionHandlers.Add(handler);
+		}
+
+		private void InjectPatchedSign(ModuleDefinition _csharpModule, ModuleDefinition _firstPassModule)
+		{
+			_csharpModule.Types.Add(
+										 new TypeDefinition(
+															"Mods",
+															"Patched",
+															TypeAttributes.Class,
+															_csharpModule.TypeSystem.Object));
+			_firstPassModule.Types.Add(
+											new TypeDefinition(
+															   "Mods",
+															   "Patched",
+															   TypeAttributes.Class,
+															   _firstPassModule.TypeSystem.Object));
+		}
+
+		public void MakeBackup(string filePath)
         {
             string backupPath = GetBackupPathForFile(filePath);
 

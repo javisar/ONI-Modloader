@@ -12,25 +12,25 @@ namespace Injector
          {
                   public static void Inject(AssemblyDefinition game, string outputPath)
                   {
-                           TypeDefinition global = game.MainModule.GetType(string.Empty, "Global");
+                           TypeDefinition launchInitializer = game.MainModule.GetType(string.Empty, "LaunchInitializer");
 
-                           if (global == null)
+                           if (launchInitializer == null)
                            {
-                                    Console.WriteLine("Global not found");
+                                    Console.WriteLine("LaunchInitializer not found");
                                     Console.Read();
                                     return;
                            }
 
-                           MethodDefinition globalStart = global.Methods.FirstOrDefault(method => method.Name == "Awake");
+                           MethodDefinition launchInitializerAwake = launchInitializer.Methods.FirstOrDefault(method => method.Name == "Awake");
 
-                           if (globalStart == null)
+                           if (launchInitializerAwake == null)
                            {
-                                    Console.WriteLine("Global.Awake not found");
+                                    Console.WriteLine("LaunchInitializer.Awake not found");
                                     Console.Read();
                                     return;
                            }
 
-                           ILProcessor p = globalStart.Body.GetILProcessor();
+                           ILProcessor p = launchInitializerAwake.Body.GetILProcessor();
                            Collection<Instruction> i = p.Body.Instructions;
 
                             /*
