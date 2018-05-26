@@ -56,8 +56,11 @@
                 return _configuratorState;
             }
 
-            private set => _configuratorState = value;
-        }
+			//private set => _configuratorState = value;
+			private set {
+				_configuratorState = value;
+			}
+		}
 
         [NotNull]
         public static Dictionary<SimHashes, ElementColorInfo> ElementColorInfos
@@ -75,8 +78,12 @@
                 return _elementColorInfos;
             }
 
-            private set => _elementColorInfos = value;
-        }
+			//private set => _elementColorInfos = value;
+			private set
+			{
+				_elementColorInfos = value;
+			}
+		}
 
         [NotNull]
         public static Logger Logger => _logger ?? (_logger = new IO.Logger(Paths.MaterialColorLogFileName));
@@ -96,8 +103,12 @@
                 return _temperatureOvelayState;
             }
 
-            private set => _temperatureOvelayState = value;
-        }
+			//private set => _temperatureOvelayState = value;
+			private set
+			{
+				_temperatureOvelayState = value;
+			}
+		}
 
         [NotNull]
         public static Dictionary<string, Color32> TypeColorOffsets
@@ -114,14 +125,20 @@
                 return _typeColorOffsets;
             }
 
-            private set => _typeColorOffsets = value;
-        }
+			//private set => _typeColorOffsets = value;
+			private set
+			{
+				_typeColorOffsets = value;
+			}
+		}
 
         public static bool TryReloadConfiguratorState()
         {
-            if (!JsonLoader.TryLoadConfiguratorState(out MaterialColorState state))
-            {
-                return false;
+			//if (!JsonLoader.TryLoadConfiguratorState(out MaterialColorState state))
+			MaterialColorState state;
+			if (!JsonLoader.TryLoadConfiguratorState(out state))
+			{
+				return false;
             }
 
             ConfiguratorState = state;
@@ -131,8 +148,10 @@
 
         public static bool TryReloadElementColorInfos()
         {
-            if (!JsonLoader.TryLoadElementColorInfos(out Dictionary<SimHashes, ElementColorInfo> colorInfos))
-            {
+			//if (!JsonLoader.TryLoadElementColorInfos(out Dictionary<SimHashes, ElementColorInfo> colorInfos))
+			Dictionary<SimHashes, ElementColorInfo> colorInfos;
+			if (!JsonLoader.TryLoadElementColorInfos(out colorInfos))
+			{
                 return false;
             }
 
@@ -143,8 +162,10 @@
 
         public static bool TryReloadTemperatureState()
         {
-            if (!JsonLoader.TryLoadTemperatureState(out TemperatureOverlayState temperatureState))
-            {
+			//if (!JsonLoader.TryLoadTemperatureState(out TemperatureOverlayState temperatureState))
+			TemperatureOverlayState temperatureState;
+			if (!JsonLoader.TryLoadTemperatureState(out temperatureState))
+			{
                 return false;
             }
 
@@ -155,8 +176,10 @@
 
         public static bool TryReloadTypeColorOffsets()
         {
-            if (!JsonLoader.TryLoadTypeColorOffsets(out Dictionary<string, Color32> colorOffsets))
-            {
+			//if (!JsonLoader.TryLoadTypeColorOffsets(out Dictionary<string, Color32> colorOffsets))
+			Dictionary<string, Color32> colorOffsets;
+			if (!JsonLoader.TryLoadTypeColorOffsets(out colorOffsets))
+			{
                 return false;
             }
 

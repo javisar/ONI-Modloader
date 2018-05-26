@@ -35,8 +35,10 @@
 
                 foreach (AssemblyName referenced in modAssembly.GetReferencedAssemblies())
                 {
-                    if (this.nameLookup.TryGetValue(referenced.FullName, out Vertex dependencyVertex))
-                    {
+					//if (this.nameLookup.TryGetValue(referenced.FullName, out Vertex dependencyVertex))
+					Vertex dependencyVertex;
+					if (this.nameLookup.TryGetValue(referenced.FullName, out dependencyVertex))
+					{
                         modVertex.dependencies.Add(dependencyVertex);
                         dependencyVertex.dependents.Add(modVertex);
                     }

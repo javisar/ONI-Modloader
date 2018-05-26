@@ -13,8 +13,10 @@
     {
         public static Color GetMaterialColorForType(this SimHashes material, string objectTypeName)
         {
-            if (!ColorHelper.TryGetTypeStandardColor(objectTypeName, out Color32 typeStandardColor))
-            {
+			//if (!ColorHelper.TryGetTypeStandardColor(objectTypeName, out Color32 typeStandardColor))
+			Color32 typeStandardColor;
+			if (!ColorHelper.TryGetTypeStandardColor(objectTypeName, out typeStandardColor))
+			{
                 if (State.ConfiguratorState.ShowMissingTypeColorOffsets)
                 {
                     Debug.LogError($"Can't find <{objectTypeName}> type color");
@@ -41,8 +43,10 @@
         [NotNull]
         public static ElementColorInfo GetMaterialColorInfo(this SimHashes materialHash)
         {
-            if (State.ElementColorInfos.TryGetValue(materialHash, out ElementColorInfo elementColorInfo))
-            {
+			//if (State.ElementColorInfos.TryGetValue(materialHash, out ElementColorInfo elementColorInfo))
+			ElementColorInfo elementColorInfo;
+			if (State.ElementColorInfos.TryGetValue(materialHash, out elementColorInfo))
+			{
                 return elementColorInfo;
             }
 

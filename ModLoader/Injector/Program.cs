@@ -5,7 +5,7 @@
     using System;
     using System.IO;
 
-    internal class Program
+	internal class Program
     {
         private static FileManager _fileManager;
 
@@ -35,8 +35,45 @@
 
             new InjectionManager(FileManager).InjectDefaultAndBackup();
 
-            Console.WriteLine("Done.");
+			CreateModsDirectory();
+
+			Console.WriteLine("Done.");
             Console.Read();
         }
-    }
+
+		private static void CreateModsDirectory()
+		{
+			try
+			{
+				string currentPath = Directory.GetCurrentDirectory();
+				DirectoryInfo dataDir = new DirectoryInfo(currentPath);
+
+				Console.WriteLine("OSVersion: {0}", Environment.OSVersion.ToString());
+
+				DirectoryInfo oniBaseDirectory;
+				if (!Environment.OSVersion.ToString().Contains("Windows"))
+				{
+					oniBaseDirectory = dataDir.Parent?.Parent.Parent;
+				}
+				else
+				{
+					oniBaseDirectory = dataDir.Parent.Parent;
+				}
+
+				string modsDir = Path.Combine(oniBaseDirectory?.FullName, "Mods");
+				Console.WriteLine("Creating mods folder is: " + modsDir);
+
+				if (!Directory.Exists(modsDir))
+				{
+					Directory.CreateDirectory(modsDir);
+				}
+			}
+			catch (Exception e)
+			{
+				Console.WriteLine("Creating mods folder failed!");
+				Console.WriteLine(e.Message);
+			}
+		}
+		
+	}
 }
