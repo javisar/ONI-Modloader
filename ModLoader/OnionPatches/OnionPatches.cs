@@ -34,7 +34,7 @@ namespace OnionPatches
 		{
 			public static void Postfix(DebugHandler __instance)
 			{
-				Debug.Log("DebugHandlerMod");
+				Debug.Log(" === DebugHandlerMod INI === ");
 				//ToDo: debugHandlerEnabledProperty.SetMethod.IsPublic = true;
 				Hooks.OnDebugHandlerCtor();
 			}
@@ -45,7 +45,7 @@ namespace OnionPatches
 		{
 			public static void Postfix(WorldGen __instance, ref int worldSeed, ref int layoutSeed, ref int terrainSeed, ref int noiseSeed)
 			{
-				Debug.Log("InitRandomMod");
+				Debug.Log(" === WorldGenMod INI === ");
 				Hooks.OnInitRandom(ref worldSeed, ref layoutSeed, ref terrainSeed, ref noiseSeed);
 			}
 		}

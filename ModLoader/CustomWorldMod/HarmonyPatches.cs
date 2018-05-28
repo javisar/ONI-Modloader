@@ -44,7 +44,8 @@ namespace CustomWorldMod
 
             public static void Prefix(CustomGameSettings __instance, SettingConfig config)
             {
-                if (config != CustomGameSettingConfigs.ImmuneSystem)
+				Debug.Log(" === CustomGameSettingsMod INI === ");
+				if (config != CustomGameSettingConfigs.ImmuneSystem)
                 {
                     return;
                 }
@@ -78,9 +79,11 @@ namespace CustomWorldMod
 
             public static void Prefix(ref int width, ref int height)
             {
-                // 8x12 default
-                //    if ()
-                {
+				Debug.Log(" === GridSettings_ResetMod INI === ");
+
+				// 8x12 default
+				//    if ()
+				{
                     width = 12 * 32;
                     height = 16 * 32;
                 }

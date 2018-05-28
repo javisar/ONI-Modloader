@@ -1,4 +1,6 @@
 ﻿// PressureDoorConfig
+using System.Reflection;
+using Harmony;
 using TUNING;
 using UnityEngine;
 
@@ -21,8 +23,9 @@ public class InsulatedPressureDoorConfig : IBuildingConfig
         BuildLocationRule build_location_rule = BuildLocationRule.Tile;
         EffectorValues nONE = NOISE_POLLUTION.NONE;
         BuildingDef buildingDef = BuildingTemplates.CreateBuildingDef(id, width, height, anim, hitpoints, construction_time, tIER, aLL_METALS, melting_point, build_location_rule, TUNING.BUILDINGS.DECOR.PENALTY.TIER1, nONE, 0.2f);
-        //buildingDef.Insulation = 0.01f;
-        buildingDef.Overheatable = false;
+		//buildingDef.Insulation = 0.01f;
+		buildingDef.ThermalConductivity = 0.01f;		
+		buildingDef.Overheatable = false;
         buildingDef.RequiresPowerInput = true;
         //buildingDef.UseStructureTemperature = false;
         buildingDef.EnergyConsumptionWhenActive = 120f;
@@ -66,11 +69,10 @@ public class InsulatedPressureDoorConfig : IBuildingConfig
         component.controlEnabled = true;
     }
     
-	/*
+	
     public override void ConfigureBuildingTemplate(GameObject go, Tag prefab_tag)
     {
-        go.AddOrGet<Insulator>();
-        go.AddOrGet<TileTemperature>();        
+        go.AddOrGet<Insulator>();      
     }
-    */
+    
 }
