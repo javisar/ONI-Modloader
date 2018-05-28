@@ -10,4 +10,5 @@ ModLoader/lib/UnityEngine.UI.dll
 *.cache
 *.pdb
 *.zip
-
+ModLoader/**/obj
+ModLoader/**/bin

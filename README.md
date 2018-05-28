@@ -13,6 +13,8 @@ This project uses source code of and is based on:
 
 NOTE: Please don't report bugs you encounter while mods are active. People at Klei work hard and shouldn't be bothered with bug reports which might originate from mods.
 
+NOTE: BE AWARE that many of the mods are still a WIP and may fail.
+
 Projects
 --------
 * Injector: It injects the call to the modloader in 'Assembly-CSharp.dll'
@@ -24,16 +26,16 @@ Examples
 --------
 * AlternateOrdersMod (Not working): The Fabricators and Refineries will alternate between infinity orders.
 * CameraControllerMod: Enable further zoom-outs in play and dev mode (taken from Onion patcher).
-* CustomWorldMod: Enables the player to user custom world sizes. Stand alone mod currently diabled, please edit the OnionConfig.json file for changes (taken from Onion patcher)
-* DraggablePanelMod: Makes panels draggable. REQUIRES ONI-Common.
+* CustomWorldMod (WIP): Enables the player to user custom world sizes. Stand alone mod currently diabled, please edit the OnionConfig.json file for changes (taken from Onion patcher)
+* DraggablePanelMod (WIP): Makes panels draggable. REQUIRES ONI-Common.
 * FastModeMod: Duplicants will build an dig very fast.
 * ImprovedGasColourMod: Replaces the oxygen overly with gas colors. Also visualizes the density (taken from Onion patcher, modified). REQUIRES ONI-Common.
-* InsulatedDoorsMod (Not working): Doors can be constructed using any buildable element (ie: Abyssalite). Also it adds a new element Insulated Pressure Door
+* InsulatedDoorsMod (WIP): Doors can be constructed using any buildable element (ie: Abyssalite). Also it adds a new element Insulated Pressure Door
 * MaterialColor: Adds an overlay option to visualize what a building is made of (taken from Onion patcher). REQUIRES ONI-Common.
 * NoSteamMod: Prevents game closing if Steam is not installed.
 * ONI-Common: Common code for Onion Patches and other mods.
 * OnionPatches: Custom world seeds. DebugHandler hook. REQUIRES ONI-Common.
-* Patches (Do not use): Some incomplete tests 
+* Patches (WIP): Some incomplete tests.
 * PressureDoorMod: Removes the energy need for the mechanized pressure door and makes it buildable from all material.
 * SensorsMod: It modifies some ranges y automation sensors (taken from Onion patcher).
 * SpeedControlMod: Overwrites the method SpeedControlScreen.OnChange. Fast Speed set to behave like Ultra Speed in debug mode.
@@ -42,9 +44,16 @@ Examples
 
 Change Log
 ----------
+* 0.3.3
+  * The Mods are no longer included in the Release file
+  * Cleanup
+  * Added CritterNumberSensor
+  * Fixed issues
+    * https://github.com/javisar/ONI-Modloader/issues/6
+	* https://github.com/javisar/ONI-Modloader/issues/7
 * 0.3.2
   * Refactoring. Make Injector independent from Onion patches.
-  * New NoSteamMod
+  * Added NoSteamMod
   * Deleted not working mods from the release.
 * 0.3.1
   * Added Onion Mods and other mods from Killface1980
@@ -69,7 +78,26 @@ NOTE: You'll need to re-run the injector every time ONI gets updated.
 1. Download latest version in Release section.
 2. Unzip in the ONI main directory.
 3. Execute 'Injector.exe'. It will create a backups of 'Assembly-CSharp.dll' and Assembly-CSharp-firstpass.dll with the extension ".orig"  and a new patched set of dlls.
-4. Remove all unwanted mods from "Mods" folder. 
+4. Download from https://github.com/javisar/ONI-Modloader/tree/master/Dist and move to the Mods folder the desired mods. I recommend to move all config folders.
+
+
+Example of a Final file/folder structure:
+* OxygenNotIncluded
+  * OxygenNotIncluded_Data
+    * Managed
+      * 0Harmony.dll
+	  * Injector.exe
+	  * ModLoader.dll
+	  * Mono.Cecil.dll
+	  * ...
+  * Mods
+    * MaterialColor (and children)
+	* OnionPatcher (and children)
+	* Overlays (and children)
+	* Sprites (and children)
+	* ImprovedGasColourMod.dll (requieres ONI-Common.dll)
+	* MaterialColor.dll (requieres ONI-Common.dll)
+	* ONI-Common.dll
 
 
 Creating a Mod
@@ -91,7 +119,7 @@ Creating a Mod
 
 
 NOTE: Dlls will be recognized by the mod loader if 
-• they reside in the main mod direcotory 
+• they reside in the main mod directory 
 OR
 • they are inside a subfolder inside a subfolder names 'Assemblies'.
 
@@ -111,8 +139,9 @@ Requirements
 
 Downloads
 ---------
-Choose 'Clone or download'.
-See Releases section.
+Modloader: Choose 'Clone or download' from the Release section. Or download from https://github.com/javisar/ONI-Modloader/tree/master/Dist/OxygenNotIncluded_Data/Managed
+Mods: Download from https://github.com/javisar/ONI-Modloader/tree/master/Dist/Mods
+
 
 
 Harmony/ONI Tutorials
