@@ -139,8 +139,8 @@ Requirements
 
 Downloads
 ---------
-Modloader: Choose 'Clone or download' from the Release section. Or download from https://github.com/javisar/ONI-Modloader/tree/master/Dist/OxygenNotIncluded_Data/Managed
-Mods: Download from https://github.com/javisar/ONI-Modloader/tree/master/Dist/Mods
+* Modloader: Choose 'Clone or download' from the Release section. Or download from https://github.com/javisar/ONI-Modloader/tree/master/Dist/OxygenNotIncluded_Data/Managed
+* Mods: Download from https://github.com/javisar/ONI-Modloader/tree/master/Dist/Mods
 
 
 
