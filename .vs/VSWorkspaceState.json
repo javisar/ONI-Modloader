@@ -2,8 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\ModLoader",
-    "\\ModLoader\\ModLoader"
+    "\\ModLoader\\InverseElectrolyzerMod"
   ],
-  "SelectedNode": "\\ModLoader\\ModLoader\\ModLoader.csproj.user",
+  "SelectedNode": "\\ModLoader\\InverseElectrolyzerMod",
   "PreviewInSolutionExplorer": false
 }

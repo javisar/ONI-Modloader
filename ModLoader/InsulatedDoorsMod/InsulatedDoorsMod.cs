@@ -26,12 +26,24 @@ namespace InsulatedDoorsMod
         private static void Postfix()
         {
             
-            Debug.Log(" === GeneratedBuildings Postfix === ");
+            Debug.Log(" === GeneratedBuildings Postfix === " + InsulatedPressureDoorConfig.ID);
             object obj = Activator.CreateInstance(typeof(InsulatedPressureDoorConfig));
             BuildingConfigManager.Instance.RegisterBuilding(obj as IBuildingConfig);
         }
     }
-	
-    
-	
+
+	[HarmonyPatch(typeof(Db), "Initialize")]
+	internal class InsulatedPressureDoorTechMod
+	{
+		private static void Prefix(Db __instance)
+		{
+			Debug.Log(" === Database.Techs loaded === " + InsulatedPressureDoorConfig.ID);
+			List<string> ls = new List<string>((string[])Database.Techs.TECH_GROUPING["TemperatureModulation"]);
+			ls.Add("InsulatedPressureDoor");
+			Database.Techs.TECH_GROUPING["TemperatureModulation"] = (string[])ls.ToArray();
+
+			//Database.Techs.TECH_GROUPING["TemperatureModulation"].Add("InsulatedPressureDoor");
+		}
+	}
+
 }

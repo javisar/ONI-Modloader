@@ -13,7 +13,7 @@ This project uses source code of and is based on:
 
 NOTE: Please don't report bugs you encounter while mods are active. People at Klei work hard and shouldn't be bothered with bug reports which might originate from mods.
 
-NOTE: BE AWARE that many of the mods are still a WIP and may fail.
+NOTE: BE AWARE that many of the mods are still a WIP and may fail. Many saves can be broken if you mess around with the mods.
 
 Projects
 --------
@@ -26,6 +26,7 @@ Examples
 --------
 * AlternateOrdersMod (Not working): The Fabricators and Refineries will alternate between infinity orders.
 * CameraControllerMod: Enable further zoom-outs in play and dev mode (taken from Onion patcher).
+* CritterNumberSensor: Sensor for the critter number in a room (thanks to R9MX4 from Klei forum)
 * CustomWorldMod (WIP): Enables the player to user custom world sizes. Stand alone mod currently diabled, please edit the OnionConfig.json file for changes (taken from Onion patcher)
 * DraggablePanelMod (WIP): Makes panels draggable. REQUIRES ONI-Common.
 * FastModeMod: Duplicants will build an dig very fast.
@@ -139,8 +140,8 @@ Requirements
 
 Downloads
 ---------
-Modloader: Choose 'Clone or download' from the Release section. Or download from https://github.com/javisar/ONI-Modloader/tree/master/Dist/OxygenNotIncluded_Data/Managed
-Mods: Download from https://github.com/javisar/ONI-Modloader/tree/master/Dist/Mods
+* Modloader: Choose 'Clone or download' from the Release section. Or download from https://github.com/javisar/ONI-Modloader/tree/master/Dist/OxygenNotIncluded_Data/Managed
+* Mods: Download from https://github.com/javisar/ONI-Modloader/tree/master/Dist/Mods
 
 
 

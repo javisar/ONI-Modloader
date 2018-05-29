@@ -7,8 +7,8 @@
     <ProjectGuid>{4EA1DE40-7847-4677-A690-E762081CF3D1}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CritterNumberSensor</RootNamespace>
-    <AssemblyName>CritterNumberSensor</AssemblyName>
+    <RootNamespace>CritterNumberSensorMod</RootNamespace>
+    <AssemblyName>CritterNumberSensorMod</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
