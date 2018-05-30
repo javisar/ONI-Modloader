@@ -18,87 +18,68 @@ public class InverseElectrolyzer : StateMachineComponent<InverseElectrolyzer.Sta
 
 	public class States : GameStateMachine<States, StatesInstance, InverseElectrolyzer>
 	{
-		public State disabled;
+		public class OnStates : State
+		{
+			public State waiting;
 
-		public State waiting;
+			public State working_pre;
 
-		public State converting;
+			public State working;
 
-		public State overpressure;
+			public State working_pst;
+		}
+
+		public State off;
+
+		public OnStates on;
 
 		public override void InitializeStates(out BaseState default_state)
 		{
-			default_state = this.disabled;
-			base.root.EventTransition(GameHashes.OperationalChanged, this.disabled, (StatesInstance smi) => !smi.master.operational.IsOperational).EventHandler(GameHashes.OnStorageChange, delegate (StatesInstance smi)
-			{
-				smi.master.UpdateMeter();
-			});
-			this.disabled.EventTransition(GameHashes.OperationalChanged, this.waiting, (StatesInstance smi) => smi.master.operational.IsOperational);
-			this.waiting.Enter("Waiting", delegate (StatesInstance smi)
-			{
-				smi.master.operational.SetActive(false, false);
-			}).EventTransition(GameHashes.OnStorageChange, this.converting, (StatesInstance smi) => ((Component)smi.master).GetComponent<ElementConverter>().HasEnoughMassToStartConverting());
-			this.converting.Enter("Ready", delegate (StatesInstance smi)
+			default_state = this.off;
+			this.off.PlayAnim("off").EventTransition(GameHashes.OperationalChanged, this.on, (StatesInstance smi) => smi.master.operational.IsOperational);
+			this.on.PlayAnim("on").EventTransition(GameHashes.OperationalChanged, this.off, (StatesInstance smi) => !smi.master.operational.IsOperational).DefaultState(this.on.waiting);
+			this.on.waiting.EventTransition(GameHashes.OnStorageChange, this.on.working_pre, (StatesInstance smi) => ((Component)smi.master).GetComponent<ElementConverter>().HasEnoughMassToStartConverting());
+			this.on.working_pre.PlayAnim("working_pre").OnAnimQueueComplete(this.on.working);
+			this.on.working.Enter(delegate (StatesInstance smi)
 			{
 				smi.master.operational.SetActive(true, false);
-			}).Transition(this.waiting, (StatesInstance smi) => !((Component)smi.master).GetComponent<ElementConverter>().CanConvertAtAll(), UpdateRate.SIM_200ms).Transition(this.overpressure, (StatesInstance smi) => !smi.master.RoomForPressure, UpdateRate.SIM_200ms);
-			this.overpressure.Enter("OverPressure", delegate (StatesInstance smi)
-			{
-				smi.master.operational.SetActive(false, false);
-			}).ToggleStatusItem(Db.Get().BuildingStatusItems.PressureOk, (object)null).Transition(this.converting, (StatesInstance smi) => smi.master.RoomForPressure, UpdateRate.SIM_200ms);
+			}).QueueAnim("working_loop", true, null).EventTransition(GameHashes.OnStorageChange, this.on.working_pst, (StatesInstance smi) => !((Component)smi.master).GetComponent<ElementConverter>().CanConvertAtAll())
+				.Exit(delegate (StatesInstance smi)
+				{
+					smi.master.operational.SetActive(false, false);
+				});
+			this.on.working_pst.PlayAnim("working_pst").OnAnimQueueComplete(this.on.waiting);
 		}
 	}
-
-	[SerializeField]
-	public float maxMass = 10f;
-
-	[SerializeField]
-	public bool hasMeter = true;
-
-	[MyCmpAdd]
-	private Storage storage;
 
 	[MyCmpGet]
-	private ElementConverter emitter;
-
-	[MyCmpReq]
 	private Operational operational;
 
-	private MeterController meter;
-
-	private bool RoomForPressure
-	{
-		get
-		{
-			int cell = Grid.PosToCell(base.transform.GetPosition());
-			cell = Grid.CellAbove(cell);
-			return !GameUtil.FloodFillCheck(this.OverPressure, cell, 3, true, true);
-		}
-	}
+	//private ManualDeliveryKG[] deliveryComponents;
 
 	protected override void OnSpawn()
 	{
-		KBatchedAnimController component = base.GetComponent<KBatchedAnimController>();
-		if (this.hasMeter)
-		{
-			this.meter = new MeterController(component, "U2H_meter_target", "meter", Meter.Offset.Behind, new Vector3(-0.4f, 0.5f, -0.1f), "U2H_meter_target", "U2H_meter_tank", "U2H_meter_waterbody", "U2H_meter_level");
-		}
+		base.OnSpawn();
+		//this.deliveryComponents = base.GetComponents<ManualDeliveryKG>();
+		this.OnConduitConnectionChanged(base.GetComponent<ConduitConsumer>().IsConnected);
+		base.Subscribe(-2094018600, this.OnConduitConnectionChanged);
 		base.smi.StartSM();
-		this.UpdateMeter();
 	}
 
-	public void UpdateMeter()
+	private void OnConduitConnectionChanged(object data)
 	{
-		if (this.hasMeter)
+		/*
+		bool pause = (bool)data;
+		ManualDeliveryKG[] array = this.deliveryComponents;
+		foreach (ManualDeliveryKG manualDeliveryKG in array)
 		{
-			float positionPercent = Mathf.Clamp01(this.storage.MassStored() / this.storage.capacityKg);
-			this.meter.SetPositionPercent(positionPercent);
+			Element element = ElementLoader.GetElement(manualDeliveryKG.requestedItemTag);
+			if (element != null && element.IsLiquid)
+			{
+				manualDeliveryKG.Pause(pause, "pipe connected");
+			}
 		}
-	}
-
-	public bool OverPressure(int cell)
-	{
-		return Grid.Mass[cell] > this.maxMass;
+		*/
 	}
 }
 

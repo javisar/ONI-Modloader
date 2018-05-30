@@ -58,9 +58,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="InverseElectrolyzerConfig.cs.bak" />
+    <None Include="InverseElectrolyzer.cs.bak" />
     <Compile Include="InverseElectrolyzerMod.cs" />
     <Compile Include="InverseElectrolyzer.cs" />
     <Compile Include="InverseElectrolyzerConfig.cs" />
+    <Compile Include="ConduitConsumer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
