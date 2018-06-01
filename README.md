@@ -24,14 +24,17 @@ Projects
 
 Examples
 --------
-* AlternateOrdersMod (Not working): The Fabricators and Refineries will alternate between infinity orders.
+* AlternateOrdersMod (WIP): The Fabricators and Refineries will alternate between infinity orders.
 * CameraControllerMod: Enable further zoom-outs in play and dev mode (taken from Onion patcher).
 * CritterNumberSensor: Sensor for the critter number in a room (thanks to R9MX4 from Klei forum)
 * CustomWorldMod (WIP): Enables the player to user custom world sizes. Stand alone mod currently diabled, please edit the OnionConfig.json file for changes (taken from Onion patcher)
 * DraggablePanelMod (WIP): Makes panels draggable. REQUIRES ONI-Common.
 * FastModeMod: Duplicants will build an dig very fast.
 * ImprovedGasColourMod: Replaces the oxygen overly with gas colors. Also visualizes the density (taken from Onion patcher, modified). REQUIRES ONI-Common.
+* InstantResearchMod (WIP): Forces instant research without Debug mode.
 * InsulatedDoorsMod (WIP): Doors can be constructed using any buildable element (ie: Abyssalite). Also it adds a new element Insulated Pressure Door
+* InverseElectrolyzerMod: Combines hydrogen and oxygen into steam.
+* LiquidTankMod: Storage for liquids.
 * MaterialColor: Adds an overlay option to visualize what a building is made of (taken from Onion patcher). REQUIRES ONI-Common.
 * NoSteamMod: Prevents game closing if Steam is not installed.
 * ONI-Common: Common code for Onion Patches and other mods.
