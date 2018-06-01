@@ -11,15 +11,9 @@ public class InverseElectrolyzerConfig : IBuildingConfig
 {
 	public const string ID = "InverseElectrolyzer";
 
-	private const float FILTER_INPUT_RATE = 1f;
+	private const float CO2_CONSUMPTION_RATE = 0.3f;
 
-	private const float DIRTY_WATER_INPUT_RATE = 5f;
-
-	private const float FILTER_CAPACITY = 1200f;
-
-	private const float USED_FILTER_OUTPUT_RATE = 0.2f;
-
-	private const float CLEAN_WATER_OUTPUT_RATE = 5f;
+	private const float H2O_CONSUMPTION_RATE = 1f;
 
 	private static readonly LogicPorts.Port[] INPUT_PORTS = new LogicPorts.Port[1]
 	{
@@ -45,8 +39,8 @@ public class InverseElectrolyzerConfig : IBuildingConfig
 		buildingDef.ExhaustKilowattsWhenActive = 0f;
 		buildingDef.SelfHeatKilowattsWhenActive = 4f;
 		buildingDef.InputConduitType = ConduitType.Gas;
-		buildingDef.OutputConduitType = ConduitType.Liquid;
-		buildingDef.ViewMode = SimViewMode.LiquidVentMap;
+		buildingDef.OutputConduitType = ConduitType.Gas;
+		buildingDef.ViewMode = SimViewMode.GasVentMap;
 		buildingDef.MaterialCategory = MATERIALS.ALL_METALS;
 		buildingDef.AudioCategory = "HollowMetal";
 		buildingDef.PowerInputOffset = new CellOffset(2, 0);
@@ -58,15 +52,27 @@ public class InverseElectrolyzerConfig : IBuildingConfig
 
 	public override void ConfigureBuildingTemplate(GameObject go, Tag prefab_tag)
 	{
+		go.AddOrGet<LoopingSounds>();
+		//go.AddOrGet<InverseElectrolyzer>();
 		go.GetComponent<KPrefabID>().AddPrefabTag(RoomConstraints.ConstraintTags.IndustrialMachinery);
 		//go.AddOrGet<Pump>();
 		//Storage storage = BuildingTemplates.CreateDefaultStorage(go, false);
 		//storage.SetDefaultStoredItemModifiers(Storage.StandardSealedStorage);
+		/*
 		Storage storage = go.AddOrGet<Storage>();
+		storage.capacityKg = 50f;
 		storage.showInUI = true;
+		*/
+		Storage storage = BuildingTemplates.CreateDefaultStorage(go, false);
+		storage.showInUI = true;
+		storage.capacityKg = 30f;
+		storage.SetDefaultStoredItemModifiers(Storage.StandardSealedStorage);
 
-		go.AddOrGet<InverseElectrolyzer>();
-		Prioritizable.AddRef(go);
+		InverseElectrolyzer airFilter = go.AddOrGet<InverseElectrolyzer>();
+		airFilter.filterTag = GameTagExtensions.Create(SimHashes.Hydrogen);
+
+
+		//Prioritizable.AddRef(go);
 
 		/*
 		elementConverter.consumedElements = new ElementConverter.ConsumedElement[2]
@@ -90,16 +96,28 @@ public class InverseElectrolyzerConfig : IBuildingConfig
 		elementConsumer.consumptionRadius = 2;
 		*/
 
+		ElementConsumer elementConsumer = go.AddOrGet<PassiveElementConsumer>();
+		elementConsumer.elementToConsume = SimHashes.Oxygen;
+		elementConsumer.consumptionRate = 1f;
+		elementConsumer.capacityKG = 1f;
+		elementConsumer.consumptionRadius = 3;
+		elementConsumer.showInStatusPanel = true;
+		elementConsumer.sampleCellOffset = new Vector3(0f, 0f, 0f);
+		elementConsumer.isRequired = false;
+		elementConsumer.storeOnConsume = true;
+		elementConsumer.showDescriptor = false;
 
 		ElementConverter elementConverter = go.AddOrGet<ElementConverter>();
 		elementConverter.consumedElements = new ElementConverter.ConsumedElement[2]
 		{
-			new ElementConverter.ConsumedElement(new Tag("Oxygen"), 5*0.888f),
-			new ElementConverter.ConsumedElement(new Tag("Hydrogen"), 5*0.111999989f)
+			//new ElementConverter.ConsumedElement(new Tag("Oxygen"), 5*0.888f),
+			//new ElementConverter.ConsumedElement(new Tag("Hydrogen"), 5*0.111999989f)
+			new ElementConverter.ConsumedElement(GameTagExtensions.Create(SimHashes.Oxygen), 0.888f),
+			new ElementConverter.ConsumedElement(GameTagExtensions.Create(SimHashes.Hydrogen), 0.111999989f)
 		};		
 		elementConverter.outputElements = new ElementConverter.OutputElement[1]
 		{
-			new ElementConverter.OutputElement(5f, SimHashes.Water, 313.15f, true, 0f, 0.5f, false, 0.75f, 255, 0)
+			new ElementConverter.OutputElement(1f, SimHashes.Steam, 423.15f, true, 0f, 0.5f, false, 0.75f, 255, 0)
 		};
 		/*
 		ElementDropper elementDropper = go.AddComponent<ElementDropper>();
@@ -116,22 +134,33 @@ public class InverseElectrolyzerConfig : IBuildingConfig
 		*/
 		ConduitConsumer conduitConsumer = go.AddOrGet<ConduitConsumer>();
 		conduitConsumer.conduitType = ConduitType.Gas;
-		conduitConsumer.consumptionRate = 1f;
-		conduitConsumer.capacityKG = 2f;
-		conduitConsumer.capacityTag = GameTagExtensions.Create(SimHashes.Hydrogen);//GameTags.Oxygen;
+		conduitConsumer.consumptionRate = 2f;
+		conduitConsumer.capacityKG = 5*0.111999989f;
+		conduitConsumer.capacityTag = ElementLoader.FindElementByHash(SimHashes.Hydrogen).tag; //GameTagExtensions.Create(SimHashes.Hydrogen);//GameTags.Oxygen;
 		conduitConsumer.forceAlwaysSatisfied = true;
+		conduitConsumer.alwaysConsume = true;
+
 		//conduitConsumer.wrongElementResult = ConduitConsumer.WrongElementResult.Store;
 		conduitConsumer.wrongElementResult = ConduitConsumer.WrongElementResult.Dump;
-
-		ConduitDispenser conduitDispenser = go.AddOrGet<ConduitDispenser>();
-		conduitDispenser.conduitType = ConduitType.Liquid;
-		conduitDispenser.invertElementFilter = true;
 		/*
+		ConduitConsumer conduitConsumer2 = go.AddOrGet<ConduitConsumer>();
+		conduitConsumer2.conduitType = ConduitType.Gas;
+		//conduitConsumer.consumptionRate = 1f;
+		conduitConsumer2.capacityKG = 5*0.888f;
+		conduitConsumer2.capacityTag = ElementLoader.FindElementByHash(SimHashes.Oxygen).tag; //GameTagExtensions.Create(SimHashes.Oxygen);//GameTags.Oxygen;
+		conduitConsumer2.forceAlwaysSatisfied = true;
+		//conduitConsumer.wrongElementResult = ConduitConsumer.WrongElementResult.Store;
+		conduitConsumer2.wrongElementResult = ConduitConsumer.WrongElementResult.Dump;
+		*/
+		ConduitDispenser conduitDispenser = go.AddOrGet<ConduitDispenser>();
+		conduitDispenser.conduitType = ConduitType.Gas;
+		//conduitDispenser.invertElementFilter = true;
+		
 		conduitDispenser.elementFilter = new SimHashes[1]
 		{
-			SimHashes.DirtyWater
+			SimHashes.Steam
 		};
-		*/
+		
 	}
 
 	public override void DoPostConfigurePreview(BuildingDef def, GameObject go)

@@ -52,6 +52,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InstantResearchMod", "Insta
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InverseElectrolyzerMod", "InverseElectrolyzerMod\InverseElectrolyzerMod.csproj", "{66B47D3F-2308-4E0B-A1E7-57386711F1F5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiquidTankMod", "LiquidTankMod\LiquidTankMod.csproj", "{E7ACAECE-4CD2-4352-A2D3-D7102567FB71}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -191,6 +193,12 @@ Global
 		{66B47D3F-2308-4E0B-A1E7-57386711F1F5}.Patching|Any CPU.Build.0 = Release|Any CPU
 		{66B47D3F-2308-4E0B-A1E7-57386711F1F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{66B47D3F-2308-4E0B-A1E7-57386711F1F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7ACAECE-4CD2-4352-A2D3-D7102567FB71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7ACAECE-4CD2-4352-A2D3-D7102567FB71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7ACAECE-4CD2-4352-A2D3-D7102567FB71}.Patching|Any CPU.ActiveCfg = Release|Any CPU
+		{E7ACAECE-4CD2-4352-A2D3-D7102567FB71}.Patching|Any CPU.Build.0 = Release|Any CPU
+		{E7ACAECE-4CD2-4352-A2D3-D7102567FB71}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7ACAECE-4CD2-4352-A2D3-D7102567FB71}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -218,6 +226,7 @@ Global
 		{4EA1DE40-7847-4677-A690-E762081CF3D1} = {158FCAD8-762C-41AA-8B5A-0218452FDDDD}
 		{8268151B-2A54-4539-8CC2-85F0494AA04A} = {158FCAD8-762C-41AA-8B5A-0218452FDDDD}
 		{66B47D3F-2308-4E0B-A1E7-57386711F1F5} = {158FCAD8-762C-41AA-8B5A-0218452FDDDD}
+		{E7ACAECE-4CD2-4352-A2D3-D7102567FB71} = {158FCAD8-762C-41AA-8B5A-0218452FDDDD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {34648007-CC4C-4A8D-91A2-485820AFC9A9}

@@ -13,13 +13,13 @@ namespace InverseElectrolyzerMod
         private static void Prefix()
         {
             Debug.Log(" === GeneratedBuildings Prefix === "+ InverseElectrolyzerConfig.ID);			
-			Strings.Add("STRINGS.BUILDINGS.PREFABS.INVERSEELECTROLYZER.NAME", "Inverse Electrolyzer");
+			Strings.Add("STRINGS.BUILDINGS.PREFABS.INVERSEELECTROLYZER.NAME", "Combustioneer");
             Strings.Add("STRINGS.BUILDINGS.PREFABS.INVERSEELECTROLYZER.DESC", "");
             Strings.Add("STRINGS.BUILDINGS.PREFABS.INVERSEELECTROLYZER.EFFECT", "");
 
-            List<string> ls = new List<string>((string[])TUNING.BUILDINGS.PLANORDER[11].data);
+            List<string> ls = new List<string>((string[])TUNING.BUILDINGS.PLANORDER[10].data);
             ls.Add(InverseElectrolyzerConfig.ID);            
-            TUNING.BUILDINGS.PLANORDER[11].data = (string[]) ls.ToArray();
+            TUNING.BUILDINGS.PLANORDER[10].data = (string[]) ls.ToArray();
 
             TUNING.BUILDINGS.COMPONENT_DESCRIPTION_ORDER.Add(InverseElectrolyzerConfig.ID);
 
@@ -40,9 +40,9 @@ namespace InverseElectrolyzerMod
 		private static void Prefix(Db __instance)
 		{
 			Debug.Log(" === Database.Techs loaded === " + InverseElectrolyzerConfig.ID);
-			List<string> ls = new List<string>((string[])Database.Techs.TECH_GROUPING["AnimalControl"]);
+			List<string> ls = new List<string>((string[])Database.Techs.TECH_GROUPING["Combustion"]);
 			ls.Add(InverseElectrolyzerConfig.ID);
-			Database.Techs.TECH_GROUPING["AnimalControl"] = (string[])ls.ToArray();
+			Database.Techs.TECH_GROUPING["Combustion"] = (string[])ls.ToArray();
 
 			//Database.Techs.TECH_GROUPING["TemperatureModulation"].Add("InsulatedPressureDoor");
 		}
