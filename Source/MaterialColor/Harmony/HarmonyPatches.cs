@@ -348,7 +348,7 @@
 
             try
             {
-                foreach (BuildingComplete building in Components.BuildingCompletes)
+                foreach (BuildingComplete building in Components.BuildingCompletes.Items)
                 {
                     OnBuildingsCompletesAdd(building);
                 }

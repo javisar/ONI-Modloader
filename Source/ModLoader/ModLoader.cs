@@ -20,7 +20,7 @@ namespace ModLoader
         public static void Start()
         {
             // Patch in Mod Loader helpers
-            HarmonyInstance.Create("Mod Loader")?.PatchAll(Assembly.GetExecutingAssembly());
+            HarmonyInstance.Create("ONI-ModLoader")?.PatchAll(Assembly.GetExecutingAssembly());
 
             // Load mods
             DirectoryInfo modsDir = GetModsDirectory();

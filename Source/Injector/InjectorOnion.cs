@@ -284,6 +284,7 @@
 
         private void FixGameUpdateExceptionHandling()
         {
+            return;
             ExceptionHandler handler = new ExceptionHandler(ExceptionHandlerType.Finally);
             MethodBody methodBody =
             CecilHelper.GetMethodDefinition(this._csharpModule, "Game", "Update").Body;

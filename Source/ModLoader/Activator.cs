@@ -10,11 +10,13 @@
         /// </summary>
         public static void Activate()
         {
-            if (!activated)
+            if (activated)
             {
-                activated = true;
-                ModLoader.Start();
+                return;
             }
+
+            activated = true;
+            ModLoader.Start();
         }
     }
 }
