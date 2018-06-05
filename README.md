@@ -17,9 +17,43 @@ Projects
 * ModLoader: The modloader itself.
 * OnionHook: Just a helper to generate IL code for the Injector.
 
-Mods
-----
+Example Mods
+------------
 https://github.com/javisar/ONI-Modloader-Mods
+
+
+Change Log
+----------
+* 0.4.0
+  * Cosmic Upgrade compatible
+  * Merged Killface1980 pull request
+    * https://github.com/javisar/ONI-Modloader/pull/8
+  * Split repositories for Modloader and Example Mods
+* 0.3.3
+  * The Mods are no longer included in the Release file
+  * Cleanup
+  * Added CritterNumberSensor
+  * Fixed issues
+    * https://github.com/javisar/ONI-Modloader/issues/6
+    * https://github.com/javisar/ONI-Modloader/issues/7
+* 0.3.2
+  * Refactoring. Make Injector independent from Onion patches.
+  * Added NoSteamMod
+  * Deleted not working mods from the release.
+* 0.3.1
+  * Added Onion Mods and other mods from Killface1980
+  * Added CameraControllerMod
+  * Added CustomWorldMod
+  * Added DraggablePanelMod
+  * Added ImprovedGasColourMod
+  * Added MaterialColor Mod
+  * Added ONI-Common
+  * Added PressureDoorMod
+  * Added SensorsMod
+  * Added StorageLockerMod
+* 0.3
+  * First stable version.
+
 
 Installation
 ------------
