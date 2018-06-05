@@ -1,9 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\ModLoader",
-    "\\ModLoader\\InverseElectrolyzerMod"
+    "\\ModLoader"
   ],
-  "SelectedNode": "\\ModLoader\\InverseElectrolyzerMod",
+  "SelectedNode": "\\ModLoader\\DefaultDeconstructBuildings",
   "PreviewInSolutionExplorer": false
 }
