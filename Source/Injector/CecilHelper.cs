@@ -61,9 +61,9 @@
 
                 return assemblyDef;
             }
-            catch
+            catch (Exception ex)
             {
-                Console.Error.WriteLine("Could not read assembly: \n");
+				ModLogger.WriteLine(ConsoleColor.Red, "Could not read assembly: "+ex);
                 throw;
             }
         }
@@ -85,9 +85,9 @@
 
                 return assemblyDef;
             }
-            catch
+            catch (Exception ex)
             {
-                Console.Error.WriteLine("Could not read assembly: \n");
+				ModLogger.WriteLine(ConsoleColor.Red, "Could not read assembly: "+ex);
                 throw;
             }
         }
@@ -103,22 +103,22 @@
 
             try
             {
-                Console.WriteLine(moduleName);
+				ModLogger.WriteLine(ConsoleColor.Green, moduleName);
                 ModuleDefinition moduleDef = ModuleDefinition.ReadModule(moduleStream, parameters);
                 moduleStream.Flush();
                 moduleStream.Close();
 
                 return moduleDef;
             }
-            catch(BadImageFormatException)
+            catch(BadImageFormatException ex)
             {
-                Console.Error.WriteLine(" === Patching old files not yet implemented === ");
-                Console.Error.WriteLine($"Could not read module: {moduleName} \n");
+				ModLogger.WriteLine(ConsoleColor.Red, " === Patching old files not yet implemented === ");
+				ModLogger.WriteLine(ConsoleColor.Red, $"Could not read module: {moduleName} "+ex);
                 throw;
             }
-            catch
+            catch (Exception ex)
             {
-                Console.Error.WriteLine($"Could not read module: {moduleName} \n");
+				ModLogger.WriteLine(ConsoleColor.Red, $"Could not read module: {moduleName} "+ex);
                 throw;
             }
         }

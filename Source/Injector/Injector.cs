@@ -16,7 +16,7 @@ namespace Injector
 
 			if (launchInitializer == null)
 			{
-				Console.WriteLine("LaunchInitializer not found");
+				ModLogger.WriteLine(ConsoleColor.Red, "LaunchInitializer not found");
 				Console.Read();
 				return;
 			}
@@ -25,7 +25,7 @@ namespace Injector
 
 			if (launchInitializerAwake == null)
 			{
-				Console.WriteLine("LaunchInitializer.Awake not found");
+				ModLogger.WriteLine(ConsoleColor.Red, "LaunchInitializer.Awake not found");
 				Console.Read();
 				return;
 			}

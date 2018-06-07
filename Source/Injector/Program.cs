@@ -50,13 +50,13 @@ namespace Injector
                 }
                 catch (Exception exc)
                 {
-                    Console.Error.WriteLine("Encountered errors: " + exc);
+					ModLogger.WriteLine(ConsoleColor.Red, "Encountered errors: " + exc);
                 }
             }
 			
 			CreateModsDirectory();
-			
-            Console.WriteLine("\nPress any key to continue . . . ");
+
+			ModLogger.WriteLine(ConsoleColor.Green, "\nPress any key to continue . . . ");
             Console.ReadKey();
         }
 
@@ -84,7 +84,7 @@ namespace Injector
             }
             else
             {
-                Console.Error.WriteLine("Could not find {0} folder.", searchString);
+				ModLogger.WriteLine(ConsoleColor.Red, "Could not find {0} folder.", searchString);
 
                 Program.ModsFolderPath = null;
             }
@@ -120,7 +120,7 @@ namespace Injector
 				string currentPath = Directory.GetCurrentDirectory();
 				DirectoryInfo dataDir = new DirectoryInfo(currentPath);
 
-				Console.WriteLine("OSVersion: {0}", Environment.OSVersion.ToString());
+				ModLogger.WriteLine(ConsoleColor.Green, "OSVersion: {0}", Environment.OSVersion.ToString());
 
 				DirectoryInfo oniBaseDirectory;
 				if (!Environment.OSVersion.ToString().Contains("Windows"))
@@ -133,17 +133,16 @@ namespace Injector
 				}
 
 				string modsDir = Path.Combine(oniBaseDirectory?.FullName, "Mods");
-				Console.WriteLine("Creating mods folder is: " + modsDir);
+				ModLogger.WriteLine(ConsoleColor.Green, "Creating mods folder is: " + modsDir);
 
 				if (!Directory.Exists(modsDir))
 				{
 					Directory.CreateDirectory(modsDir);
 				}
 			}
-			catch (Exception e)
+			catch (Exception ex)
 			{
-				Console.WriteLine("Creating mods folder failed!");
-				Console.WriteLine(e.Message);
+				ModLogger.WriteLine(ConsoleColor.Red, "Creating mods folder failed! " + ex);
 			}
 		}
     }

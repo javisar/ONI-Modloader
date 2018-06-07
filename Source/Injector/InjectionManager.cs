@@ -40,9 +40,9 @@
 
 					//InjectPatchedSign(csharpModule, firstPassModule);
 				}
-                catch
+                catch (Exception ex)
                 {
-                    Console.Error.WriteLine("Onion injector errored: \n");
+					ModLogger.WriteLine(ConsoleColor.Red, "Onion injector errored: "+ex);
                     throw;
                 }
 				
@@ -51,15 +51,15 @@
                     this.BackupAndSaveCSharpModule(csharpModule, path);
                     this.BackupAndSaveFirstPassModule(firstPassModule, path);
                 }
-                catch
+                catch (Exception ex)
                 {
-                    Console.Error.WriteLine("Backup errored: \n");
+					ModLogger.WriteLine(ConsoleColor.Red, "Backup errored: " + ex);
                     throw;
                 }
             }
-            catch
+            catch (Exception ex)
             {
-                Console.Error.WriteLine("ModuleDefinition errored: \n");
+				ModLogger.WriteLine(ConsoleColor.Red, "ModuleDefinition errored: " +ex);
                 throw;
             }
         }
@@ -137,9 +137,9 @@
                 // Harmony & Co.
                 this.PatchMod(path);
             }
-            catch
+            catch (Exception ex)
             {
-                Console.Error.WriteLine("Patching Assembly-CSharp.dll failed: ");
+				ModLogger.WriteLine(ConsoleColor.Red, "Patching Assembly-CSharp.dll failed: "+ex);
                 throw;
             }
         }
