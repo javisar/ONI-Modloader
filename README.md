@@ -16,7 +16,7 @@ This project uses source code of and is based on:
 
 Projects
 --------
-* Injector: It injects the call to the modloader in 'Assembly-CSharp.dll', also makes some classes public in 'Assembly-CSharp-firstpass.dll'
+* Injector: It injects the call to the modloader in 'Assembly-CSharp.dll'.
 * ModLoader: The modloader itself.
 * OnionHook: Just a helper to generate IL code for the Injector.
 
@@ -124,7 +124,7 @@ Harmony Tutorials
 * https://github.com/roxxploxx/RimWorldModGuide/wiki/SHORTTUTORIAL:-Harmony
 * https://github.com/UnlimitedHugs/RimworldHugsLib/wiki/Introduction-to-Patching
 * https://github.com/UnlimitedHugs/RimworldHugsLib/wiki/Detouring
-
+* https://oxygennotincluded.gamepedia.com/Guide/Working_with_the_Game_Files
 
 
 Disclaimer
