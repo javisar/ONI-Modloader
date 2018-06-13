@@ -11,7 +11,9 @@ namespace ModLoader
 
     public static class ModLoader
     {
-        public const string AssemblyDir = "Assemblies";
+		public const string ModLoaderVersion = "v0.4.0";
+
+		public const string AssemblyDir = "Assemblies";
 
         internal static string failureMessage = string.Empty;
 
@@ -19,8 +21,10 @@ namespace ModLoader
 
         public static void Start()
         {
-            // Patch in Mod Loader helpers
-            HarmonyInstance.Create("ONI-ModLoader")?.PatchAll(Assembly.GetExecutingAssembly());
+			ModLogger.WriteLine("Initializing Modloader "+ModLoaderVersion);
+
+			// Patch in Mod Loader helpers
+			HarmonyInstance.Create("ONI-ModLoader")?.PatchAll(Assembly.GetExecutingAssembly());
 
             // Load mods
             DirectoryInfo modsDir = GetModsDirectory();
