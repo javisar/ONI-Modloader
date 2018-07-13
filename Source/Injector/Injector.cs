@@ -1,5 +1,6 @@
 namespace Injector
 {
+	using Klei.AI;
 	using Mono.Cecil;
 	using Mono.Cecil.Cil;
 	using Mono.Collections.Generic;
@@ -10,9 +11,9 @@ namespace Injector
 
 	public static class Injector
 	{
-		public static void Inject(AssemblyDefinition game, string outputPath)
+		public static void Inject(ModuleDefinition module, AssemblyDefinition game, string className, string methodName, string outputPath)
 		{
-			TypeDefinition launchInitializer = game.MainModule.GetType(string.Empty, "LaunchInitializer");
+			TypeDefinition launchInitializer = game.MainModule.GetType(string.Empty, className);
 
 			if (launchInitializer == null)
 			{
@@ -21,7 +22,7 @@ namespace Injector
 				return;
 			}
 
-			MethodDefinition launchInitializerAwake = launchInitializer.Methods.FirstOrDefault(method => method.Name == "Awake");
+			MethodDefinition launchInitializerAwake = launchInitializer.Methods.FirstOrDefault(method => method.Name == methodName);
 
 			if (launchInitializerAwake == null)
 			{
@@ -128,6 +129,55 @@ namespace Injector
 			i.Insert(10, p.Create(OpCodes.Callvirt, Util.ImportMethod<MethodBase>(game, "Invoke", typeof(object), typeof(object[]))));
 			i.Insert(11, p.Create(OpCodes.Pop));
 			*/
+
+
+			//game.MainModule.Types.Add(CecilHelper.GetTypeDefinition(CecilHelper.GetModule("Injector2.exe", Directory.GetCurrentDirectory()+Path.DirectorySeparatorChar), "Radioactive"));
+
+
+			FieldDefinition fdef = new FieldDefinition("Radioactive", Mono.Cecil.FieldAttributes.Public, new TypeReference("Klei.AI","Disease",game.MainModule,null));
+			TypeDefinition diseases = game.MainModule.GetType("Database", "Diseases");
+			diseases.Fields.Add(fdef);
+			/*
+			MethodDefinition ctor = diseases.Methods.FirstOrDefault(method => method.Name == ".ctor");			
+			ILProcessor p2 = ctor.Body.GetILProcessor();
+			Collection<Instruction> ix = p2.Body.Instructions;
+			
+			index = 0;
+			ix.Insert(
+					 index++,
+					 p.Create(
+							  OpCodes.Ldarg_0));
+
+			
+			ix.Insert(
+					 index++,
+					 p.Create(
+							  OpCodes.Newobj,
+							  ImportMethod<string>(
+																				 game,
+																				 ".ctor",
+																				 typeof(ResourceSet))));
+			ix.Insert(
+					 index++,
+					 p.Create(
+							  OpCodes.Call,
+							  ImportMethod<string>(
+																				 game,
+																				 "Add",
+																				 typeof(Klei.AI.Disease))));
+			ix.Insert(
+					 index++,
+					 p.Create(
+							  OpCodes.Stfld,
+							  ImportField<string>(
+																				 game,
+																				 "Radioactive")));
+
+			ix.Insert(
+					 index++,
+					 p.Create(
+							  OpCodes.Ldarg_0));
+			*/
 			game.Write(outputPath);
 		}
 		public static MethodReference ImportMethod<T>(AssemblyDefinition assembly, string name)
@@ -138,6 +188,11 @@ namespace Injector
 		public static MethodReference ImportMethod<T>(AssemblyDefinition assembly, string name, params Type[] types)
 		{
 			return assembly.MainModule.ImportReference(typeof(T).GetMethod(name, types));
+		}
+
+		public static FieldReference ImportField<T>(AssemblyDefinition assembly, string name)
+		{
+			return assembly.MainModule.ImportReference(typeof(T).GetField(name));
 		}
 
 		public static MethodReference ImportMethod(

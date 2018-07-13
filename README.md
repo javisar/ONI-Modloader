@@ -25,39 +25,6 @@ Example Mods
 https://github.com/javisar/ONI-Modloader-Mods
 
 
-Change Log
-----------
-* 0.4.0
-  * Cosmic Upgrade compatible
-  * Merged Killface1980 pull request
-    * https://github.com/javisar/ONI-Modloader/pull/8
-  * Split repositories for Modloader and Example Mods
-* 0.3.3
-  * The Mods are no longer included in the Release file
-  * Cleanup
-  * Added CritterNumberSensor
-  * Fixed issues
-    * https://github.com/javisar/ONI-Modloader/issues/6
-    * https://github.com/javisar/ONI-Modloader/issues/7
-* 0.3.2
-  * Refactoring. Make Injector independent from Onion patches.
-  * Added NoSteamMod
-  * Deleted not working mods from the release.
-* 0.3.1
-  * Added Onion Mods and other mods from Killface1980
-  * Added CameraControllerMod
-  * Added CustomWorldMod
-  * Added DraggablePanelMod
-  * Added ImprovedGasColourMod
-  * Added MaterialColor Mod
-  * Added ONI-Common
-  * Added PressureDoorMod
-  * Added SensorsMod
-  * Added StorageLockerMod
-* 0.3
-  * First stable version.
-
-
 Installation
 ------------
 Make sure you're using a fresh install of ONI, meaning you'll need the original/unpatched Assembyl-CSharp.dll and Assembly-CSharp-firstpass.dll as it comes with a clean install.
@@ -65,11 +32,11 @@ Note: You'll need to re-run the injector every time ONI gets updated.
 
 Click "Clone or Download" for the current version as the releases are currently not up to date.
 
-1. Copy the contents of the "Managed" folder to: ...\OxygenNotIncluded_Data\Managed\
+1. Copy the contents of the "Managed" folder to: ..\OxygenNotIncluded\OxygenNotIncluded_Data\Managed\
 2. Execute 'Injector.exe'. It will create a backups of 'Assembly-CSharp.dll' and Assembly-CSharp-firstpass.dll with the extension ".orig"  and a new patched set of dlls.
 3. You should now find a folder called "Mods" in your ONI main directory. Otherwise, create "Mods" folder in the ONI main directory.
 4. Move or copy all the mods you'd like to use to the newly created "Mods" in the ONI main directory. You can find some mods in https://github.com/javisar/ONI-Modloader-Mods
-5. Run the game and check ../OxygenNotIncluded_Data/output_log.txt for any errors.
+5. Run the game and check \OxygenNotIncluded\OxygenNotIncluded_Data\output_log.txt and \OxygenNotIncluded\Mods\Mod_Log.txt for any errors.
 
 Please don't report bugs you encounter while mods are active. People at Klei work hard and shouldn't be bothered with bug reports which might originate from mods.
 
@@ -88,8 +55,8 @@ Just rename 'Assembly-CSharp.dll.orig' to 'Assembly-CSharp.dll' and 'Assembly-CS
 
 Requirements
 ------------
-* .NET Framework 3.5
-* Harmony Patcher
+* .NET Framework v4
+* Harmony Patcher v1.0.0
 * Mono.Cecil
 * Visual Studio 2015
 
