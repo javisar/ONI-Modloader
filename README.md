@@ -36,7 +36,7 @@ Click "Clone or Download" for the current version as the releases are currently 
 2. Execute 'Injector.exe'. It will create a backups of 'Assembly-CSharp.dll' and Assembly-CSharp-firstpass.dll with the extension ".orig"  and a new patched set of dlls.
 3. You should now find a folder called "Mods" in your ONI main directory. Otherwise, create "Mods" folder in the ONI main directory.
 4. Move or copy all the mods you'd like to use to the newly created "Mods" in the ONI main directory. You can find some mods in https://github.com/javisar/ONI-Modloader-Mods
-5. Run the game and check \OxygenNotIncluded\OxygenNotIncluded_Data\output_log.txt and \OxygenNotIncluded\Mods\Mod_Log.txt for any errors.
+5. Run the game and check %AppData%\..\LocalLow\Klei\Oxygen Not Included\output_log.txt and \OxygenNotIncluded\Mods\Mod_Log.txt for any errors.
 
 Please don't report bugs you encounter while mods are active. People at Klei work hard and shouldn't be bothered with bug reports which might originate from mods.
 
@@ -56,7 +56,7 @@ Just rename 'Assembly-CSharp.dll.orig' to 'Assembly-CSharp.dll' and 'Assembly-CS
 Requirements
 ------------
 * .NET Framework v4
-* Harmony Patcher v1.0.0
+* Harmony Patcher v1.1.0
 * Mono.Cecil
 * Visual Studio 2015
 
@@ -68,6 +68,7 @@ Creating a Mod
    * Assembly-CSharp-firstpass.dll
    * Assembly-UnityScript-firstpass.dll
    * UnityEngine.dll
+   * UnityEngine.CoreModule.dll
    * UnityEngine.UI.dll
 2. Open the solution with Visual Studio.
 3. Create a new mod or modify the 'Patches' project.
