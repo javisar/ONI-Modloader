@@ -121,15 +121,21 @@ namespace Injector
 				DirectoryInfo dataDir = new DirectoryInfo(currentPath);
 
 				ModLogger.WriteLine(ConsoleColor.Green, "OSVersion: {0}", Environment.OSVersion.ToString());
+				ModLogger.WriteLine(ConsoleColor.Green, "PlatformID: {0}", Environment.OSVersion.Platform.ToString());
 
 				DirectoryInfo oniBaseDirectory;
-				if (!Environment.OSVersion.ToString().Contains("Windows"))
+				PlatformID pid = Environment.OSVersion.Platform;
+				if (pid == PlatformID.MacOSX)
 				{
-					oniBaseDirectory = dataDir.Parent?.Parent.Parent;
+					oniBaseDirectory = dataDir.Parent.Parent;
+				}
+				else if (pid == PlatformID.Unix)
+				{
+					oniBaseDirectory = dataDir.Parent?.Parent;
 				}
 				else
 				{
-					oniBaseDirectory = dataDir.Parent.Parent;
+					oniBaseDirectory = dataDir.Parent?.Parent.Parent;
 				}
 
 				string modsDir = Path.Combine(oniBaseDirectory?.FullName, "Mods");
