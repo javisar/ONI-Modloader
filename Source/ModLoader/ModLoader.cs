@@ -147,7 +147,7 @@ namespace ModLoader
             }
 			else if (Application.platform == RuntimePlatform.LinuxPlayer)
 			{
-				oniBaseDirectory = dataDir.Parent?.Parent;
+				oniBaseDirectory = dataDir.Parent;
 			}
 			else
             {

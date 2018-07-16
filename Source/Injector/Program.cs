@@ -127,7 +127,7 @@ namespace Injector
 				PlatformID pid = Environment.OSVersion.Platform;
 				if (pid == PlatformID.MacOSX)
 				{
-					oniBaseDirectory = dataDir.Parent.Parent;
+					oniBaseDirectory = dataDir.Parent?.Parent;
 				}
 				else if (pid == PlatformID.Unix)
 				{
