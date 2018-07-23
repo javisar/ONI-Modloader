@@ -133,9 +133,13 @@ namespace Injector
 				{
 					oniBaseDirectory = dataDir.Parent?.Parent;
 				}
-				else
+                else if (pid == PlatformID.Win32NT)
+                {
+                    oniBaseDirectory = dataDir.Parent?.Parent;
+                }
+                else
 				{
-					oniBaseDirectory = dataDir.Parent?.Parent.Parent;
+					oniBaseDirectory = dataDir.Parent?.Parent;
 				}
 
 				string modsDir = Path.Combine(oniBaseDirectory?.FullName, "Mods");
