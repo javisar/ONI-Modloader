@@ -31,8 +31,8 @@
             try
             {
                 //ModuleDefinition onionModule = CecilHelper.GetModule("\\ONI-Common.dll", path);
-                ModuleDefinition csharpModule = CecilHelper.GetModule("\\Assembly-CSharp.dll", path);
-                ModuleDefinition firstPassModule = CecilHelper.GetModule("\\Assembly-CSharp-firstpass.dll", path);
+                ModuleDefinition csharpModule = CecilHelper.GetModule(Path.DirectorySeparatorChar+"Assembly-CSharp.dll", path);
+                ModuleDefinition firstPassModule = CecilHelper.GetModule(Path.DirectorySeparatorChar + "Assembly-CSharp-firstpass.dll", path);
 				
                 try
                 {
