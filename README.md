@@ -7,11 +7,22 @@ https://github.com/javisar/ONI-Modloader-Mods
 Forums in Klei:
 https://forums.kleientertainment.com/topic/88186-mod01-oni-modloader/
 
+
+Disclaimers
+----------
+* Please don't report bugs you encounter to Klei while mods are active. People at Klei work hard and shouldn't be bothered with bug reports which might originate from mods.
+* BE AWARE that many of the mods are still a WIP and may fail. If you are having problems use a clean ONI installation and try to test the mods one by one to narrow the error. Then post a issue in github.
+* We do not take any responsibility for broken saves or any other damage. Use this software at your own risk.
+* If you load a savegame, it requires that you have exactly the same mods when you saved it.
+
 This project uses source code of and is based on:
 * https://github.com/zeobviouslyfakeacc/ModLoaderInstaller
 * https://github.com/spaar/besiege-modloader
 * https://github.com/pardeike/Harmony
 * https://forums.kleientertainment.com/topic/81296-mod159-materialcolor-onionpatcher/
+
+
+NOTE: Compiled for EU-280450
 
 
 Projects
@@ -20,25 +31,30 @@ Projects
 * ModLoader: The modloader itself.
 * OnionHook: Just a helper to generate IL code for the Injector.
 
+
 Example Mods
 ------------
 https://github.com/javisar/ONI-Modloader-Mods
 
 
+
 Installation
 ------------
-Make sure you're using a fresh install of ONI, meaning you'll need the original/unpatched Assembyl-CSharp.dll and Assembly-CSharp-firstpass.dll as it comes with a clean install.
-Note: You'll need to re-run the injector every time ONI gets updated.
+Make SURE you're using a fresh install of ONI, meaning you'll need the original/unpatched Assembyl-CSharp.dll and Assembly-CSharp-firstpass.dll as it comes with a clean install.
+You can use "Verify Integrity Files" function in Steam in the ONI game Properties>LocalFiles tab.
+Note: You'll need to re-run the injector EVERY time ONI is updated from Klei.
 
-Click "Clone or Download" for the current version as the releases are currently not up to date.
+Click "Clone or Download" for the current version as the releases may not be up to date.
 
 1. Copy the contents of the "Managed" folder to: ..\OxygenNotIncluded\OxygenNotIncluded_Data\Managed\
-2. Execute 'Injector.exe'. It will create a backups of 'Assembly-CSharp.dll' and Assembly-CSharp-firstpass.dll with the extension ".orig"  and a new patched set of dlls.
+2. Execute 'Injector.exe'. It will create a backups of 'Assembly-CSharp.dll' and Assembly-CSharp-firstpass.dll with the extension ".orig" and a new patched set of dlls.
 3. You should now find a folder called "Mods" in your ONI main directory. Otherwise, create "Mods" folder in the ONI main directory.
 4. Move or copy all the mods you'd like to use to the newly created "Mods" in the ONI main directory. You can find some mods in https://github.com/javisar/ONI-Modloader-Mods
-5. Run the game and check %AppData%\..\LocalLow\Klei\Oxygen Not Included\output_log.txt and \OxygenNotIncluded\Mods\Mod_Log.txt for any errors.
-
-Please don't report bugs you encounter while mods are active. People at Klei work hard and shouldn't be bothered with bug reports which might originate from mods.
+5. Run the game.
+6. Check for errors in the logs in:
+	%USERPROFILE%\AppData\LocalLow\Klei\Oxygen Not Included\output_log.txt 
+	%AppData%\..\LocalLow\Klei\Oxygen Not Included\output_log.txt 
+	\OxygenNotIncluded\Mods\Mod_Log.txt
 
 
 Alternative Installation
@@ -55,7 +71,7 @@ Just rename 'Assembly-CSharp.dll.orig' to 'Assembly-CSharp.dll' and 'Assembly-CS
 
 Requirements
 ------------
-* .NET Framework v4
+* .NET Framework v3.5
 * Harmony Patcher v1.1.0
 * Mono.Cecil
 * Visual Studio 2015
@@ -63,18 +79,20 @@ Requirements
 
 Creating a Mod
 --------------
-1. Copy the following files from ONI folder to the solution folder '\Source\lib\'
+0. Feel free to mess with any of the mods from https://github.com/javisar/ONI-Modloader-Mods
+1. Copy the following files from "ONI Managed folder" to the solution folder '\Source\lib\'
    * Assembly-CSharp.dll
    * Assembly-CSharp-firstpass.dll
    * Assembly-UnityScript-firstpass.dll
    * UnityEngine.dll
-   * UnityEngine.CoreModule.dll
-   * UnityEngine.UI.dll
+   * Any needed unity UnityEngine.*.dll   
 2. Open the solution with Visual Studio.
-3. Create a new mod or modify the 'Patches' project.
-4. Compile it to generate the mod dll file.
+3. Create a new class project.
+4. Add the previous libs to the references of the project.
+5. Compile it to generate the mod dll file.
+6. Check the tutorials at the end of the page.
 
-Dlls will be recognized by the mod loader if 
+Note: Dlls will be recognized by the mod loader if 
 • they reside in the main mod directory 
 OR
 • they are inside a subfolder inside a subfolder names 'Assemblies'
@@ -93,8 +111,3 @@ Harmony Tutorials
 * https://github.com/UnlimitedHugs/RimworldHugsLib/wiki/Introduction-to-Patching
 * https://github.com/UnlimitedHugs/RimworldHugsLib/wiki/Detouring
 * https://oxygennotincluded.gamepedia.com/Guide/Working_with_the_Game_Files
-
-
-Disclaimer
-----------
-We do not take any responsibility for broken saves or any other damage. Use this software at your own risk.
