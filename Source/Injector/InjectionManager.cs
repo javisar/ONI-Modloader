@@ -140,12 +140,12 @@
 				string upgradeS = ((string)fi.GetValue(null));
 				if (upgradeS.Equals("CU"))
 				{
-					ModLogger.WriteLine(ConsoleColor.Green, "Applying patch Cosmic Upgrade");
+					ModLogger.WriteLine(ConsoleColor.Green, "Applying patch to Cosmic Upgrade");
 					this.PatchMod(module, path, "LaunchInitializer", "Awake");
 				}
 				else if (upgradeS.Equals("EU"))
 				{
-					ModLogger.WriteLine(ConsoleColor.Green, "Applying patch Expression Upgrade");
+					ModLogger.WriteLine(ConsoleColor.Green, "Applying patch to Expressive Upgrade");
 					this.PatchMod(module, path, "LaunchInitializer", "Update");
 				}
 				else

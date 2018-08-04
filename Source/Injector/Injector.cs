@@ -17,7 +17,7 @@ namespace Injector
 
 			if (launchInitializer == null)
 			{
-				ModLogger.WriteLine(ConsoleColor.Red, "LaunchInitializer not found");
+				ModLogger.WriteLine(ConsoleColor.Red, className + " not found");
 				Console.Read();
 				return;
 			}
@@ -26,7 +26,7 @@ namespace Injector
 
 			if (launchInitializerAwake == null)
 			{
-				ModLogger.WriteLine(ConsoleColor.Red, "LaunchInitializer.Awake not found");
+				ModLogger.WriteLine(ConsoleColor.Red, className+"."+ methodName+" not found");
 				Console.Read();
 				return;
 			}
@@ -65,7 +65,7 @@ namespace Injector
 							  game.MainModule.ImportReference(typeof(Path).GetMethod("GetDirectoryName", types))));
 
 			// i.Insert(3, p.Create(OpCodes.Stloc_0));
-			i.Insert(index++, p.Create(OpCodes.Ldstr, "/ModLoader.dll"));
+			i.Insert(index++, p.Create(OpCodes.Ldstr, Path.DirectorySeparatorChar+"ModLoader.dll"));
 			i.Insert(
 					 index++,
 					 p.Create(
@@ -134,9 +134,6 @@ namespace Injector
 			//game.MainModule.Types.Add(CecilHelper.GetTypeDefinition(CecilHelper.GetModule("Injector2.exe", Directory.GetCurrentDirectory()+Path.DirectorySeparatorChar), "Radioactive"));
 
 
-			FieldDefinition fdef = new FieldDefinition("Radioactive", Mono.Cecil.FieldAttributes.Public, new TypeReference("Klei.AI","Disease",game.MainModule,null));
-			TypeDefinition diseases = game.MainModule.GetType("Database", "Diseases");
-			diseases.Fields.Add(fdef);
 			/*
 			MethodDefinition ctor = diseases.Methods.FirstOrDefault(method => method.Name == ".ctor");			
 			ILProcessor p2 = ctor.Body.GetILProcessor();
