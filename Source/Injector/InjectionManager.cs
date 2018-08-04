@@ -1,11 +1,12 @@
 ﻿namespace Injector
 {
     using global::Injector.IO;
-    using Mono.Cecil;
+	using Mono.Cecil;
     using System;
     using System.IO;
+	using System.Reflection;
 
-    public class InjectionManager
+	public class InjectionManager
     {
         public const string BackupString = ".orig";
 
@@ -76,7 +77,7 @@
             File.Move(filePath, backupPath);
         }
 
-        public void PatchMod(string filePath)
+        public void PatchMod(ModuleDefinition module, string filePath, string className, string methodName)
         {
             string tempDllPath = GetTempPathForFile(filePath);
 
@@ -87,7 +88,7 @@
             File.Move(filePath, tempDllPath);
 
             AssemblyDefinition unityGameDll = CecilHelper.GetAssembly(tempDllPath);
-            Injector.Inject(unityGameDll, filePath);
+            Injector.Inject(module, unityGameDll, className, methodName, filePath);
 
             File.Delete(tempDllPath);
         }
@@ -129,19 +130,35 @@
             path += Path.DirectorySeparatorChar+ module.ToString();
 
             this.MakeBackup(path);
-
             this.SaveModule(module, path);
 
-            try
-            {
-                // Harmony & Co.
-                this.PatchMod(path);
-            }
-            catch (Exception ex)
-            {
-				ModLogger.WriteLine(ConsoleColor.Red, "Patching Assembly-CSharp.dll failed: "+ex);
-                throw;
-            }
+			try
+			{
+				// Harmony & Co.
+				//FieldInfo fi = AccessTools.Field(typeof(LaunchInitializer), "BUILD_PREFIX");
+				FieldInfo fi = typeof(LaunchInitializer).GetField("BUILD_PREFIX", BindingFlags.Public | BindingFlags.Static);
+				string upgradeS = ((string)fi.GetValue(null));
+				if (upgradeS.Equals("CU"))
+				{
+					ModLogger.WriteLine(ConsoleColor.Green, "Applying patch to Cosmic Upgrade");
+					this.PatchMod(module, path, "LaunchInitializer", "Awake");
+				}
+				else if (upgradeS.Equals("EU"))
+				{
+					ModLogger.WriteLine(ConsoleColor.Green, "Applying patch to Expressive Upgrade");
+					this.PatchMod(module, path, "LaunchInitializer", "Update");
+				}
+				else
+				{
+					ModLogger.WriteLine(ConsoleColor.Red, "Cannot find method to inject for ["+ upgradeS +"] version.");
+				}
+			}
+			catch (Exception ex)
+			{
+				ModLogger.WriteLine(ConsoleColor.Red, "Patching Assembly-CSharp.dll failed: " + ex);
+				throw;
+			}
+			
         }
 
         private void BackupAndSaveFirstPassModule(ModuleDefinition module, string path)
@@ -150,7 +167,20 @@
 
             this.MakeBackup(path);
             this.SaveModule(module, path);
-        }
+
+			/*
+			try
+			{
+				// Harmony & Co.
+				this.PatchMod(path, "App", "Awake");
+			}
+			catch (Exception ex)
+			{
+				ModLogger.WriteLine(ConsoleColor.Red, "Patching Assembly-CSharp.dll failed: " + ex);
+				throw;
+			}
+			*/
+		}
 
 		// public bool IsCurrentAssemblyCSharpPatched()
 		// => CecilHelper.GetModule(Paths.DefaultAssemblyCSharpPath, Paths.ManagedDirectoryPath).Types.Any(TypePatched);
@@ -167,13 +197,13 @@
 										 new TypeDefinition(
 															"Mods",
 															"Patched",
-															TypeAttributes.Class,
+															Mono.Cecil.TypeAttributes.Class,
 															_csharpModule.TypeSystem.Object));
 			_firstPassModule.Types.Add(
 											new TypeDefinition(
 															   "Mods",
 															   "Patched",
-															   TypeAttributes.Class,
+															   Mono.Cecil.TypeAttributes.Class,
 															   _firstPassModule.TypeSystem.Object));
 		}
 	}
