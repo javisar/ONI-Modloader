@@ -1,5 +1,8 @@
 Change Log
 ----------
+* 0.4.5
+  * Updated to EU-280450
+  * Various fixes
 * 0.4.2
   * Compatible with Expression Upgrade. Harmony updated to 1.1.0
 * 0.4.1
