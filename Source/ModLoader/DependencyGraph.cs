@@ -44,7 +44,7 @@
                     }
                     else if (referenced.CodeBase != null)
                     {
-                        UnityEngine.Debug.Log(
+                        ModLogger.WriteLine(
                                               "Dependency " + referenced.FullName + " at " + referenced.CodeBase
                                             + " was not a mod");
                     }
