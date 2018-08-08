@@ -52,9 +52,9 @@ Click "Clone or Download" for the current version as the releases may not be up 
 4. Move or copy all the mods you'd like to use to the newly created "Mods" in the ONI main directory. You can find some mods in https://github.com/javisar/ONI-Modloader-Mods
 5. Run the game.
 6. Check for errors in the logs in:
-	%USERPROFILE%\AppData\LocalLow\Klei\Oxygen Not Included\output_log.txt 
-	%AppData%\..\LocalLow\Klei\Oxygen Not Included\output_log.txt 
-	\OxygenNotIncluded\Mods\Mod_Log.txt
+   * %USERPROFILE%\AppData\LocalLow\Klei\Oxygen Not Included\output_log.txt 
+   * %AppData%\..\LocalLow\Klei\Oxygen Not Included\output_log.txt 
+   * \OxygenNotIncluded\Mods\Mod_Log.txt
 
 
 Alternative Installation
@@ -80,17 +80,20 @@ Requirements
 Creating a Mod
 --------------
 0. Feel free to mess with any of the mods from https://github.com/javisar/ONI-Modloader-Mods
-1. Copy the following files from "ONI Managed folder" to the solution folder '\Source\lib\'
+1. 'Clone or download' the project from the mod repo.
+2. Copy the following files from ONI Managed folder '\OxygenNotIncluded\OxygenNotIncluded_Data\Managed' to the mod solution folder '\Source\lib\'
    * Assembly-CSharp.dll
    * Assembly-CSharp-firstpass.dll
    * Assembly-UnityScript-firstpass.dll
    * UnityEngine.dll
+   * UnityEngine.CoreModule.dll
+   * UnityEngine.UI.dll
    * Any needed unity UnityEngine.*.dll   
-2. Open the solution with Visual Studio.
-3. Create a new class project.
-4. Add the previous libs to the references of the project.
-5. Compile it to generate the mod dll file.
-6. Check the tutorials at the end of the page.
+3. Open the solution with Visual Studio.
+4. Create a new class project.
+5. Add the previous libs to the references of the project.
+6. Compile it to generate the mod dll file.
+7. Check the tutorials at the end of the page.
 
 Note: Dlls will be recognized by the mod loader if 
 • they reside in the main mod directory 
