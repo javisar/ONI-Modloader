@@ -10,7 +10,7 @@ https://forums.kleientertainment.com/topic/88186-mod01-oni-modloader/
 
 Disclaimers
 ----------
-* Please don't report bugs you encounter to Klei while mods are active. People at Klei work hard and shouldn't be bothered with bug reports which might originate from mods.
+* Please DON'T REPORT BUGS you encounter to Klei while mods are active.
 * BE AWARE that many of the mods are still a WIP and may fail. If you are having problems use a clean ONI installation and try to test the mods one by one to narrow the error. Then post a issue in github.
 * We do not take any responsibility for broken saves or any other damage. Use this software at your own risk.
 * If you load a savegame, it requires that you have exactly the same mods when you saved it.
@@ -22,14 +22,14 @@ This project uses source code of and is based on:
 * https://forums.kleientertainment.com/topic/81296-mod159-materialcolor-onionpatcher/
 
 
-NOTE: Compiled for EU-280450
+**NOTE**: Compiled for **EU-280450**
 
 
 Projects
 --------
-* Injector: It injects the call to the modloader in 'Assembly-CSharp.dll'.
-* ModLoader: The modloader itself.
-* OnionHook: Just a helper to generate IL code for the Injector.
+* **Injector**: It injects the call to the modloader in 'Assembly-CSharp.dll'.
+* **ModLoader**: The modloader itself.
+* **OnionHook**: Just a helper to generate IL code for the Injector.
 
 
 Example Mods
