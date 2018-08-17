@@ -51,17 +51,18 @@ Click "Clone or Download" for the current version as the releases may not be up 
 3. You should now find a folder called "Mods" in your ONI main directory. Otherwise, create "Mods" folder in the ONI main directory.
 4. Move or copy all the mods you'd like to use to the newly created "Mods" in the ONI main directory. You can find some mods in https://github.com/javisar/ONI-Modloader-Mods
 5. Run the game.
-6. Check for errors in the logs in:
-   * %USERPROFILE%\AppData\LocalLow\Klei\Oxygen Not Included\output_log.txt 
-   * %AppData%\..\LocalLow\Klei\Oxygen Not Included\output_log.txt 
-   * \OxygenNotIncluded\Mods\Mod_Log.txt
+6. Check for error logs in:
+   * Windows: %USERPROFILE%\AppData\LocalLow\Klei\Oxygen Not Included\output_log.txt (or \OxygenNotIncluded\Mods\Mod_Log.txt)
+   * Linux: $home/.config/unity3d/Klei/Oxygen Not Included/player.log (not sure)
 
 
 Alternative Installation
 ----------------------
 1. Download last version in Release section.
 2. Unzip in the ONI main directory.
-3. Execute 'Injector.exe' (only if you have the unpatched dlls )
+3. Run the Injector (only if you have the unpatched dlls )
+   * Windows: Execute 'Injector.exe'
+   * Linux:  Execute 'mono Injector.exe' in a console.
 4. Copy all wanted mods to "Mods" folder. 
 
 Uninstallation
