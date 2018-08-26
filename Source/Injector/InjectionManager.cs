@@ -148,11 +148,12 @@
 					ModLogger.WriteLine(ConsoleColor.Green, "Applying patch to Expressive Upgrade");
 					this.PatchMod(module, path, "LaunchInitializer", "Update");
 				}
-				else
-				{
-					ModLogger.WriteLine(ConsoleColor.Red, "Cannot find method to inject for ["+ upgradeS +"] version.");
-				}
-			}
+                else
+                {
+                    ModLogger.WriteLine(ConsoleColor.Green, "Applying patch to Unknown Upgrade");
+                    this.PatchMod(module, path, "LaunchInitializer", "Update");
+                }
+            }
 			catch (Exception ex)
 			{
 				ModLogger.WriteLine(ConsoleColor.Red, "Patching Assembly-CSharp.dll failed: " + ex);
