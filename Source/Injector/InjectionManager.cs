@@ -148,7 +148,12 @@
 					ModLogger.WriteLine(ConsoleColor.Green, "Applying patch to Expressive Upgrade");
 					this.PatchMod(module, path, "LaunchInitializer", "Update");
 				}
-                else
+				else if (upgradeS.Equals("RU"))
+				{
+					ModLogger.WriteLine(ConsoleColor.Green, "Applying patch to Rocketry Upgrade");
+					this.PatchMod(module, path, "LaunchInitializer", "Update");
+				}
+				else
                 {
                     ModLogger.WriteLine(ConsoleColor.Green, "Applying patch to Unknown Upgrade");
                     this.PatchMod(module, path, "LaunchInitializer", "Update");
