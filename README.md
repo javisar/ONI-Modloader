@@ -22,7 +22,7 @@ This project uses source code of and is based on:
 * https://forums.kleientertainment.com/topic/81296-mod159-materialcolor-onionpatcher/
 
 
-**NOTE**: Compiled for **EU-280450**
+**NOTE**: Compiled for **RU-284634**
 
 
 Projects
@@ -67,7 +67,7 @@ Alternative Installation
 
 Uninstallation
 --------------
-Just rename 'Assembly-CSharp.dll.orig' to 'Assembly-CSharp.dll' and 'Assembly-CSharp-firstpass.dll.orig' to 'Assembly-CSharp-firstpass.dll'
+Just rename 'Assembly-CSharp.dll.orig' to 'Assembly-CSharp.dll'and 'Assembly-CSharp-firstpass.dll.orig' to 'Assembly-CSharp-firstpass.dll'
 
 
 Requirements
@@ -104,7 +104,7 @@ OR
 
 Downloads
 ---------
-Choose 'Clone or download'.
+Choose 'Clone or Download'.
 See Releases section.
 
 

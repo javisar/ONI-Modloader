@@ -1,5 +1,7 @@
 Change Log
 ----------
+* 0.4.7
+  * Updated to RU-284634
 * 0.4.5
   * Updated to EU-280450
   * Various fixes
