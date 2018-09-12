@@ -2,7 +2,7 @@
 A modloader for Oxygen Not Included based in Harmony
 
 Example mods for ONI-Modloader:
-https://github.com/javisar/ONI-Modloader-Mods
+* https://github.com/javisar/ONI-Modloader-Mods
 
 Forums in Klei:
 https://forums.kleientertainment.com/topic/88186-mod01-oni-modloader/
@@ -32,10 +32,11 @@ Projects
 * **OnionHook**: Just a helper to generate IL code for the Injector.
 
 
-Example Mods
+Harmony Based Mods
 ------------
-https://github.com/javisar/ONI-Modloader-Mods
-
+* https://github.com/javisar/ONI-Modloader-Mods
+* https://github.com/Cairath/ONI-Mods
+* https://github.com/rainbowdesign/OxygenNotIncluded-Mods
 
 
 Installation
