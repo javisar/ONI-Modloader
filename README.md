@@ -37,6 +37,7 @@ Harmony Based Mods
 * https://github.com/javisar/ONI-Modloader-Mods
 * https://github.com/Cairath/ONI-Mods
 * https://github.com/rainbowdesign/OxygenNotIncluded-Mods
+* https://github.com/Midnight-Steam/ONI-Modloader
 
 
 Installation
