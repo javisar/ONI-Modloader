@@ -138,26 +138,9 @@
 				//FieldInfo fi = AccessTools.Field(typeof(LaunchInitializer), "BUILD_PREFIX");
 				FieldInfo fi = typeof(LaunchInitializer).GetField("BUILD_PREFIX", BindingFlags.Public | BindingFlags.Static);
 				string upgradeS = ((string)fi.GetValue(null));
-				if (upgradeS.Equals("CU"))
-				{
-					ModLogger.WriteLine(ConsoleColor.Green, "Applying patch to Cosmic Upgrade");
-					this.PatchMod(module, path, "LaunchInitializer", "Awake");
-				}
-				else if (upgradeS.Equals("EU"))
-				{
-					ModLogger.WriteLine(ConsoleColor.Green, "Applying patch to Expressive Upgrade");
-					this.PatchMod(module, path, "LaunchInitializer", "Update");
-				}
-				else if (upgradeS.Equals("RU"))
-				{
-					ModLogger.WriteLine(ConsoleColor.Green, "Applying patch to Rocketry Upgrade");
-					this.PatchMod(module, path, "LaunchInitializer", "Update");
-				}
-				else
-                {
-                    ModLogger.WriteLine(ConsoleColor.Green, "Applying patch to Unknown Upgrade");
-                    this.PatchMod(module, path, "LaunchInitializer", "Update");
-                }
+
+                ModLogger.WriteLine(ConsoleColor.Green, "Applying patch...");
+                this.PatchMod(module, path, "App", "Awake");
             }
 			catch (Exception ex)
 			{
