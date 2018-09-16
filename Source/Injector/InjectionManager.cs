@@ -49,7 +49,7 @@
 				
                 try
                 {
-                    //this.BackupAndSaveCSharpModule(csharpModule, path);
+                    this.BackupAndSaveCSharpModule(csharpModule, path);
                     this.BackupAndSaveFirstPassModule(firstPassModule, path);
                 }
                 catch (Exception ex)
@@ -140,7 +140,7 @@
 				//string upgradeS = ((string)fi.GetValue(null));
 
                 ModLogger.WriteLine(ConsoleColor.Green, "Applying patch...");
-                this.PatchMod(module, path, "LaunchInitializer", "Awake");
+                this.PatchMod(module, path, "LaunchInitializer", "Update");
             }
 			catch (Exception ex)
 			{
