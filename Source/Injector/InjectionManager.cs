@@ -50,7 +50,7 @@
                 try
                 {
                     this.BackupAndSaveCSharpModule(csharpModule, path);
-                    this.BackupAndSaveFirstPassModule(firstPassModule, path);
+                    //this.BackupAndSaveFirstPassModule(firstPassModule, path);
                 }
                 catch (Exception ex)
                 {
