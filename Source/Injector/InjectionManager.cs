@@ -49,8 +49,8 @@
 				
                 try
                 {
-                    this.BackupAndSaveCSharpModule(csharpModule, path);
-                    //this.BackupAndSaveFirstPassModule(firstPassModule, path);
+                    //this.BackupAndSaveCSharpModule(csharpModule, path);
+                    this.BackupAndSaveFirstPassModule(firstPassModule, path);
                 }
                 catch (Exception ex)
                 {
@@ -135,12 +135,12 @@
 			try
 			{
 				// Harmony & Co.
-				//FieldInfo fi = AccessTools.Field(typeof(LaunchInitializer), "BUILD_PREFIX");
-				FieldInfo fi = typeof(LaunchInitializer).GetField("BUILD_PREFIX", BindingFlags.Public | BindingFlags.Static);
-				string upgradeS = ((string)fi.GetValue(null));
+				
+				//FieldInfo fi = typeof(LaunchInitializer).GetField("BUILD_PREFIX", BindingFlags.Public | BindingFlags.Static);
+				//string upgradeS = ((string)fi.GetValue(null));
 
                 ModLogger.WriteLine(ConsoleColor.Green, "Applying patch...");
-                this.PatchMod(module, path, "App", "Awake");
+                this.PatchMod(module, path, "LaunchInitializer", "Awake");
             }
 			catch (Exception ex)
 			{
@@ -157,18 +157,19 @@
             this.MakeBackup(path);
             this.SaveModule(module, path);
 
-			/*
+			
 			try
 			{
-				// Harmony & Co.
-				this.PatchMod(path, "App", "Awake");
+                // Harmony & Co.
+                ModLogger.WriteLine(ConsoleColor.Green, "Applying patch...");
+                this.PatchMod(module, path, "App", "Awake");
 			}
 			catch (Exception ex)
 			{
 				ModLogger.WriteLine(ConsoleColor.Red, "Patching Assembly-CSharp.dll failed: " + ex);
 				throw;
 			}
-			*/
+			
 		}
 
 		// public bool IsCurrentAssemblyCSharpPatched()
