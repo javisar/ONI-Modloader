@@ -65,27 +65,8 @@ Uninstallation
 Just rename 'Assembly-CSharp.dll.orig' to 'Assembly-CSharp.dll'and 'Assembly-CSharp-firstpass.dll.orig' to 'Assembly-CSharp-firstpass.dll'
 
 
-Mods Installation
+[Mods Installation](https://github.com/javisar/ONI-Modloader-Mods/blob/master/README.md#mods-installation)
 -----------------
-0. Prerequisites:
-   * Make SURE you're using the latest version from Github main branch.
-   * ONI-Modloader must be installed
-   * Make sure you deleted all previous mod files and its config:
-     * \OxygenNotIncluded\Mods\
-     * \OxygenNotIncluded\OxygenNotIncluded_Data\Managed\
-1. Select the mod you want to install.
-2. Click "Clone or Download" and "Download ZIP" for the current version as the releases may not be up to date.
-3. Copy the mod **dll file** from "Mods" to the folder to ([Example of Mod folder structure](https://github.com/javisar/ONI-Modloader/blob/master/.github/modsfolder.png)):
-   * \OxygenNotIncluded\Mods\
-4. Copy the **mod configs files WITH THE SAME FOLDER STRUCTURE** from "Mods" to the folder to ([Example of Mod config structure](https://github.com/javisar/ONI-Modloader/blob/master/.github/modconfig.png)):
-   * \OxygenNotIncluded\Mods\[MOD_NAME]\Config\[MOD_NAME]State.json
-5. **Copy ONI-Common** (and configs) if the mod require it.
-6. Run the game.
-7. Check for error logs in:
-   * \OxygenNotIncluded\Mods\Mod_Log.txt
-   * \OxygenNotIncluded\Mods\_Logs\
-   * Windows: %USERPROFILE%\AppData\LocalLow\Klei\Oxygen Not Included\**output_log.txt**
-   * Linux: $home/.config/unity3d/Klei/Oxygen Not Included/**player.log** (not sure)
 
 
 Requirements
