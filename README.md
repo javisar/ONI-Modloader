@@ -1,11 +1,9 @@
 # ONI-Modloader
 A modloader for Oxygen Not Included based in Harmony
 
-Example mods for ONI-Modloader:
-* https://github.com/javisar/ONI-Modloader-Mods
+[**Example mods for ONI-Modloader**](https://github.com/javisar/ONI-Modloader-Mods)
 
-Forums in Klei:
-https://forums.kleientertainment.com/topic/88186-mod01-oni-modloader/
+[**Forums in Klei**](https://forums.kleientertainment.com/topic/88186-mod01-oni-modloader/)
 
 
 Disclaimers
@@ -23,6 +21,8 @@ This project uses source code of and is based on:
 
 
 **NOTE**: Compiled for **RU-284634**
+
+**Report Bugs** for ONI-Modloader here: https://github.com/javisar/ONI-Modloader/issues
 
 
 Projects
@@ -42,34 +42,58 @@ Harmony Based Mods
 
 Installation
 ------------
-Make SURE you're using a fresh install of ONI, meaning you'll need the original/unpatched Assembyl-CSharp.dll and Assembly-CSharp-firstpass.dll as it comes with a clean install.
-You can use "Verify Integrity Files" function in Steam in the ONI game Properties>LocalFiles tab.
-Note: You'll need to re-run the injector EVERY time ONI is updated from Klei.
+Prerequisites:
+* Make SURE you're using the latest version from Github main branch.
+* Make SURE you're using a fresh install of ONI, meaning you'll need the original/unpatched Assembyl-CSharp.dll and Assembly-CSharp-firstpass.dll as it comes with a clean install.
+* Make sure you deleted all previous files in:
+  * \OxygenNotIncluded\Mods\
+  * \OxygenNotIncluded\Managed\
+* You can use "Verify Integrity Files" function in Steam in the ONI game Properties>LocalFiles tab. https://inxile.zendesk.com/hc/en-us/articles/115004662908-Verify-game-cache-files-Steam-
+* **Note**: You'll need to **re-run the injector** EVERY time ONI is updated from Klei.
 
-Click "Clone or Download" for the current version as the releases may not be up to date.
+1. Click "Clone or Download" and "Download ZIP" for the current version as the releases may not be up to date.
+2. Copy the contents of the "Managed" folder to the folder:
+   * \OxygenNotIncluded\OxygenNotIncluded_Data\Managed\
+3. Execute 'Injector.exe'. It will create a backups of 'Assembly-CSharp.dll' and Assembly-CSharp-firstpass.dll with the extension ".orig" and a new patched set of dlls.
+4. You should now find a folder called "Mods" in your ONI main directory. Otherwise, create "Mods" folder in the ONI main directory.
+   * \OxygenNotIncluded\Mods\
+5. Check for error logs in:
+   * \OxygenNotIncluded\OxygenNotIncluded_Data\Managed\Mod_Log.txt   
 
-1. Copy the contents of the "Managed" folder to: ..\OxygenNotIncluded\OxygenNotIncluded_Data\Managed\
-2. Execute 'Injector.exe'. It will create a backups of 'Assembly-CSharp.dll' and Assembly-CSharp-firstpass.dll with the extension ".orig" and a new patched set of dlls.
-3. You should now find a folder called "Mods" in your ONI main directory. Otherwise, create "Mods" folder in the ONI main directory.
-4. Move or copy all the mods you'd like to use to the newly created "Mods" in the ONI main directory. You can find some mods in https://github.com/javisar/ONI-Modloader-Mods
-5. Run the game.
-6. Check for error logs in:
-   * Windows: %USERPROFILE%\AppData\LocalLow\Klei\Oxygen Not Included\output_log.txt (or \OxygenNotIncluded\Mods\Mod_Log.txt)
-   * Linux: $home/.config/unity3d/Klei/Oxygen Not Included/player.log (not sure)
+[Example of Modloader folder structure](https://github.com/javisar/ONI-Modloader/blob/master/.github/modloader.png)
 
-
-Alternative Installation
-----------------------
-1. Download last version in Release section.
-2. Unzip in the ONI main directory.
-3. Run the Injector (only if you have the unpatched dlls )
-   * Windows: Execute 'Injector.exe'
-   * Linux:  Execute 'mono Injector.exe' in a console.
-4. Copy all wanted mods to "Mods" folder. 
 
 Uninstallation
 --------------
 Just rename 'Assembly-CSharp.dll.orig' to 'Assembly-CSharp.dll'and 'Assembly-CSharp-firstpass.dll.orig' to 'Assembly-CSharp-firstpass.dll'
+
+
+Mods Installation
+-----------------
+Prerequisites:
+* Make SURE you're using the latest version from Github main branch.
+* ONI-Modloader must be installed
+* Make sure you deleted all previous mod files and its config:
+  * \OxygenNotIncluded\Mods\
+  * \OxygenNotIncluded\Managed\
+
+0. Select the mod you want to install.
+1. Click "Clone or Download" and "Download ZIP" for the current version as the releases may not be up to date.
+2. Copy the mod **dll file** from "Mods" to the folder to:
+   * \OxygenNotIncluded\Mods\
+3. Copy the **mod configs files** from "Mods" to the folder to (**WITH THE SAME FOLDER STRUCTURE**):
+   * \OxygenNotIncluded\Mods\[MOD_NAME]\Config\[MOD_NAME]State.json
+4. **Copy ONI-Common** (and configs) if the mod require it.
+5. Run the game.
+6. Check for error logs in:
+   * \OxygenNotIncluded\Mods\Mod_Log.txt
+   * \OxygenNotIncluded\Mods\_Logs\
+   * Windows: %USERPROFILE%\AppData\LocalLow\Klei\Oxygen Not Included\output_log.txt
+   * Linux: $home/.config/unity3d/Klei/Oxygen Not Included/player.log (not sure)
+
+[Example of Mod folder structure](https://github.com/javisar/ONI-Modloader/blob/master/.github/modsfolder.png)
+
+[Example of Mod config structure](https://github.com/javisar/ONI-Modloader/blob/master/.github/modconfig.png)
 
 
 Requirements
