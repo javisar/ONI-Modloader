@@ -92,8 +92,11 @@ Creating a Mod
    * Any needed unity UnityEngine.*.dll   
 3. Open the solution with Visual Studio.
 4. Create a new class project. 
-4.a To create a Project from scratch the right one is: Visual C#-Class Library (.NET Framework). 
-4.b If you dont find it like when you have installed visual studio with unity you need to tools-add tools or features and install: .NET desktop development.
+
+4a. To create a Project from scratch the right one is: Visual C#-Class Library (.NET Framework). 
+
+4b. If you dont find it like when you have installed visual studio with unity you need to tools-add tools or features and install: .NET desktop development.
+
 5. Add the previous libs to the references of the project.
 6. Compile it to generate the mod dll file.
 7. Check the tutorials at the end of the page.
