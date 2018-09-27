@@ -100,6 +100,7 @@ Creating a Mod
 5. Add the previous libs to the references of the project.
 6. Compile it to generate the mod dll file.
 7. Check the tutorials at the end of the page.
+
 7a. Harmony is a code injector which will help you to inject your .dll with the help of the modloader.
 8. If you want to dip deeper into the code you need to peek with a decompiler like jetbrains dotpeek.
 
