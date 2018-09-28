@@ -93,12 +93,12 @@ Creating a Mod
 3. Open the solution with Visual Studio.
 4. Create a new class project. 
    * To create a Project from scratch the right one is: Visual C#-Class Library (.NET Framework). 
-   * If you dont find it like when you have installed visual studio with unity you need to tools-add tools or features and install: .NET desktop development.
+   * If you dont find it like when you have installed Visual Studio with Unity you need to tools-add tools or features and install: .NET Desktop Development.
 5. Add the previous libs to the references of the project.
 6. Compile it to generate the mod dll file.
 7. Check the tutorials at the end of the page.
    * Harmony is a code injector which will help you to inject your .dll with the help of the modloader.
-8. If you want to dip deeper into the code you need to peek with a decompiler like jetbrains dotpeek.
+8. If you want to dip deeper into the code you need to peek with a decompiler like JetBrains dotPeek or ILSpy.
 9. If you need more help please ask at [The Discord Server in the Mod channel ](https://discord.gg/EBncbX2)
 
 Note: Dlls will be recognized by the mod loader if 
