@@ -79,6 +79,17 @@
 
         public void PatchMod(ModuleDefinition module, string filePath, string className, string methodName)
         {
+
+            AssemblyDefinition originalDll = CecilHelper.GetAssembly(filePath);
+            if (Injector.IsPatched(originalDll))
+            {
+                ModLogger.WriteLine(ConsoleColor.Red, module.Name + " already patched.");
+                return;
+            }
+
+            this.MakeBackup(filePath);
+            this.SaveModule(module, filePath);
+
             string tempDllPath = GetTempPathForFile(filePath);
 
             if (this.TempForFileExists(filePath))
@@ -88,7 +99,9 @@
             File.Move(filePath, tempDllPath);
 
             AssemblyDefinition unityGameDll = CecilHelper.GetAssembly(tempDllPath);
-            Injector.Inject(module, unityGameDll, className, methodName, filePath);
+            Injector.Inject(ref unityGameDll, className, methodName);
+            Injector.InjectPatchedSign(ref unityGameDll);
+            unityGameDll.Write(filePath);
 
             File.Delete(tempDllPath);
         }
@@ -127,19 +140,16 @@
 
         private void BackupAndSaveCSharpModule(ModuleDefinition module, string path)
         {
+            ModLogger.WriteLine(ConsoleColor.Green, "Applying patch... "+ module.ToString());
             path += Path.DirectorySeparatorChar+ module.ToString();
-
-            this.MakeBackup(path);
-            this.SaveModule(module, path);
-
+            
 			try
 			{
 				// Harmony & Co.
 				
 				//FieldInfo fi = typeof(LaunchInitializer).GetField("BUILD_PREFIX", BindingFlags.Public | BindingFlags.Static);
 				//string upgradeS = ((string)fi.GetValue(null));
-
-                ModLogger.WriteLine(ConsoleColor.Green, "Applying patch...");
+               
                 this.PatchMod(module, path, "LaunchInitializer", "Update");
             }
 			catch (Exception ex)
@@ -152,16 +162,12 @@
 
         private void BackupAndSaveFirstPassModule(ModuleDefinition module, string path)
         {
-            path += Path.DirectorySeparatorChar +module.ToString();
-
-            this.MakeBackup(path);
-            this.SaveModule(module, path);
-
+            ModLogger.WriteLine(ConsoleColor.Green, "Applying patch... " + module.ToString());
+            path += Path.DirectorySeparatorChar +module.ToString();          
 			
 			try
 			{
                 // Harmony & Co.
-                ModLogger.WriteLine(ConsoleColor.Green, "Applying patch...");
                 this.PatchMod(module, path, "App", "Awake");
 			}
 			catch (Exception ex)
