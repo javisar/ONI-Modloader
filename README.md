@@ -39,6 +39,7 @@ Harmony Based Mods
 * https://github.com/rainbowdesign/OxygenNotIncluded-Mods
 * https://github.com/Midnight-Steam/ONI-Modloader
 * https://github.com/MooreDavid/ONI-MOD-
+* https://github.com/Sijko/ONI-Mods/
 
 
 Installation
@@ -120,3 +121,4 @@ Harmony Tutorials
 * https://github.com/UnlimitedHugs/RimworldHugsLib/wiki/Introduction-to-Patching
 * https://github.com/UnlimitedHugs/RimworldHugsLib/wiki/Detouring
 * https://oxygennotincluded.gamepedia.com/Guide/Working_with_the_Game_Files
+* https://github.com/Mpstark/ModTek/wiki/Writing-ModTek-DLL-mods
