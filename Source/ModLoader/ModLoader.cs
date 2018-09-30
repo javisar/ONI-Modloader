@@ -144,7 +144,7 @@ namespace ModLoader
             return " - " + ex.GetType().Name + ": " + ex.Message;
         }
 
-        private static DirectoryInfo GetModsDirectory()
+        public static DirectoryInfo GetModsDirectory()
         {
             DirectoryInfo dataDir = new DirectoryInfo(Application.dataPath);
 
