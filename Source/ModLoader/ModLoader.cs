@@ -151,7 +151,7 @@ namespace ModLoader
             DirectoryInfo oniBaseDirectory;
             if (Application.platform == RuntimePlatform.OSXPlayer)
             {
-                oniBaseDirectory = dataDir.Parent?.Parent;
+                oniBaseDirectory = dataDir.Parent;
             }
 			else if (Application.platform == RuntimePlatform.LinuxPlayer)
 			{
