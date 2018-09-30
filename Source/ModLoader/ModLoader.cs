@@ -153,7 +153,7 @@ namespace ModLoader
             DirectoryInfo oniBaseDirectory;
             if (Application.platform == RuntimePlatform.OSXPlayer)
             {
-                oniBaseDirectory = new DirectoryInfo(Path.Combine(dataDir.FullName, "/Resources/"));
+                oniBaseDirectory = new DirectoryInfo(Path.Combine(dataDir.FullName, "Resources"));
             }
 			else if (Application.platform == RuntimePlatform.LinuxPlayer)
 			{
