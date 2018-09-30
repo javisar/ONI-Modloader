@@ -52,6 +52,7 @@ Installation
      * \OxygenNotIncluded\OxygenNotIncluded_Data\Managed\
    * You can use "Verify Integrity Files" function in Steam in the ONI game Properties>LocalFiles tab. https://inxile.zendesk.com/hc/en-us/articles/115004662908-Verify-game-cache-files-Steam-
    * **Note**: You'll need to **re-run the injector** EVERY time ONI is updated from Klei.
+   * You can use this **[Visual Studio Project Template](https://github.com/javisar/ONI-Modloader-Mods/blob/master/Source/TemplateMod.zip)**
 1. Click "Clone or Download" and "Download ZIP" for the current version as the releases may not be up to date.
 2. Copy the contents of the "Managed" folder to the folder ([Example of Modloader folder structure](https://github.com/javisar/ONI-Modloader/blob/master/.github/modloader.png)):
    * \OxygenNotIncluded\OxygenNotIncluded_Data\Managed\
