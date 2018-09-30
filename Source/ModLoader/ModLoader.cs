@@ -147,11 +147,13 @@ namespace ModLoader
         public static DirectoryInfo GetModsDirectory()
         {
             DirectoryInfo dataDir = new DirectoryInfo(Application.dataPath);
+            ModLogger.WriteLine("Data dir: " + dataDir.FullName);
+            ModLogger.WriteLine("RuntimePlatform: " + Application.platform);
 
             DirectoryInfo oniBaseDirectory;
             if (Application.platform == RuntimePlatform.OSXPlayer)
             {
-                oniBaseDirectory = dataDir.Parent;
+                oniBaseDirectory = new DirectoryInfo(Path.Combine(dataDir.FullName, "/Contents/Resources/"));
             }
 			else if (Application.platform == RuntimePlatform.LinuxPlayer)
 			{
