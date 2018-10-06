@@ -144,14 +144,16 @@ namespace ModLoader
             return " - " + ex.GetType().Name + ": " + ex.Message;
         }
 
-        private static DirectoryInfo GetModsDirectory()
+        public static DirectoryInfo GetModsDirectory()
         {
             DirectoryInfo dataDir = new DirectoryInfo(Application.dataPath);
+            ModLogger.WriteLine("Data dir: " + dataDir.FullName);
+            ModLogger.WriteLine("RuntimePlatform: " + Application.platform);
 
             DirectoryInfo oniBaseDirectory;
             if (Application.platform == RuntimePlatform.OSXPlayer)
             {
-                oniBaseDirectory = dataDir.Parent?.Parent;
+                oniBaseDirectory = new DirectoryInfo(Path.Combine(dataDir.FullName, "Resources"));
             }
 			else if (Application.platform == RuntimePlatform.LinuxPlayer)
 			{

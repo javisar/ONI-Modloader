@@ -7,10 +7,11 @@
 
     public class ModLogger : TextWriter
     {
-        private static string logPath = Directory.GetCurrentDirectory().ToString() + Path.DirectorySeparatorChar + "Mods" + Path.DirectorySeparatorChar + "Mod_Log.txt";
-        private static FileStream _filestream = new FileStream(logPath, FileMode.Create, FileAccess.Write, FileShare.ReadWrite);
-        private static StreamWriter _streamwriter = new StreamWriter(_filestream) { AutoFlush = true };
-        private static List<TextWriter> _writers = new List<TextWriter>() { _streamwriter, Console.Out };
+        //private static string logPath = ModLoader.GetModsDirectory().FullName + Path.DirectorySeparatorChar + "Mod_Log.txt";
+        //private static FileStream _filestream = new FileStream(logPath, FileMode.Create, FileAccess.Write, FileShare.ReadWrite);
+        //private static StreamWriter _streamwriter = new StreamWriter(_filestream) { AutoFlush = true };
+        //private static List<TextWriter> _writers = new List<TextWriter>() { _streamwriter, Console.Out };
+        private static List<TextWriter> _writers = new List<TextWriter>() { Console.Out };
 
         public override Encoding Encoding
         {

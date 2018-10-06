@@ -25,6 +25,12 @@ This project uses source code of and is based on:
 **Report Bugs** for ONI-Modloader here: https://github.com/javisar/ONI-Modloader/issues
 
 
+How it works
+------------
+The INJECTOR changes some files in the game in order to call the MODLOADER every time you start the game.
+The MODLOADER loads C# Harmony Patcher and also all Harmony Based mods in /Mods/ path.
+
+
 Projects
 --------
 * **Injector**: It injects the call to the modloader in 'Assembly-CSharp.dll'.
@@ -56,7 +62,9 @@ Installation
 1. Click "Clone or Download" and "Download ZIP" for the current version as the releases may not be up to date.
 2. Copy the contents of the "Managed" folder to the folder ([Example of Modloader folder structure](https://github.com/javisar/ONI-Modloader/blob/master/.github/modloader.png)):
    * \OxygenNotIncluded\OxygenNotIncluded_Data\Managed\
-3. Execute 'Injector.exe'. It will create a backups of 'Assembly-CSharp.dll' and Assembly-CSharp-firstpass.dll with the extension ".orig" and a new patched set of dlls.
+3. Execute 'Injector.exe'.
+   * Check for errors in the console output.
+   * It will create a backups of 'Assembly-CSharp.dll' and Assembly-CSharp-firstpass.dll with the extension ".orig" and a new patched set of dlls.   
 4. You should now find a folder called "Mods" in your ONI main directory. Otherwise, create "Mods" folder in the ONI main directory.
    * \OxygenNotIncluded\Mods\
 5. Check for error logs in:
@@ -103,13 +111,10 @@ Creating a Mod
 8. If you want to dip deeper into the code you need to peek with a decompiler like JetBrains dotPeek or ILSpy.
 9. If you need more help please ask at [The Discord Server in the Mod channel ](https://discord.gg/EBncbX2)
 
-Note: Dlls will be recognized by the mod loader if 
-• they reside in the main mod directory 
-OR
-• they are inside a subfolder inside a subfolder names 'Assemblies'
+**Note**: Dlls will be recognized by the mod loader if they reside in the main mod directory and subfolders.
 
 
-Harmony Tutorials
+Tutorials
 -----------------
 * https://github.com/pardeike/Harmony/wiki/
 * https://github.com/roxxploxx/RimWorldModGuide/wiki/SHORTTUTORIAL:-Harmony
@@ -120,7 +125,7 @@ Harmony Tutorials
 * [Transpiler Tutorial](https://gist.github.com/pardeike/c02e29f9e030e6a016422ca8a89eefc9)
 * https://github.com/blushiemagic/tModLoader/wiki/Another-Simple-Harmony-Transpiler-Tutorial
 * [Harmony Transpiler Help](https://ludeon.com/forums/index.php?topic=36406.0)
-* [How to make a Rimworld Mod](https://ludeon.com/forums/index.php?topic=33219.msg338626)
+* https://rimworldwiki.com/wiki/Modding_Tutorials/Decompiling_source_code
 
 
 Downloads
