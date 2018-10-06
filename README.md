@@ -109,12 +109,6 @@ OR
 • they are inside a subfolder inside a subfolder names 'Assemblies'
 
 
-Downloads
----------
-Choose 'Clone or Download'.
-See Releases section.
-
-
 Harmony Tutorials
 -----------------
 * https://github.com/pardeike/Harmony/wiki/
@@ -123,3 +117,15 @@ Harmony Tutorials
 * https://github.com/UnlimitedHugs/RimworldHugsLib/wiki/Detouring
 * https://oxygennotincluded.gamepedia.com/Guide/Working_with_the_Game_Files
 * https://github.com/Mpstark/ModTek/wiki/Writing-ModTek-DLL-mods
+* [Transpiler Tutorial](https://gist.github.com/pardeike/c02e29f9e030e6a016422ca8a89eefc9)
+* https://github.com/blushiemagic/tModLoader/wiki/Another-Simple-Harmony-Transpiler-Tutorial
+* [Harmony Transpiler Help](https://ludeon.com/forums/index.php?topic=36406.0)
+* [How to make a Rimworld Mod](https://ludeon.com/forums/index.php?topic=33219.msg338626)
+
+
+Downloads
+---------
+Choose 'Clone or Download'.
+See Releases section.
+
+
