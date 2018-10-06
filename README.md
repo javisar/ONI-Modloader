@@ -111,13 +111,10 @@ Creating a Mod
 8. If you want to dip deeper into the code you need to peek with a decompiler like JetBrains dotPeek or ILSpy.
 9. If you need more help please ask at [The Discord Server in the Mod channel ](https://discord.gg/EBncbX2)
 
-Note: Dlls will be recognized by the mod loader if 
-• they reside in the main mod directory 
-OR
-• they are inside a subfolder inside a subfolder names 'Assemblies'
+**Note**: Dlls will be recognized by the mod loader if they reside in the main mod directory and subfolders.
 
 
-Harmony Tutorials
+Tutorials
 -----------------
 * https://github.com/pardeike/Harmony/wiki/
 * https://github.com/roxxploxx/RimWorldModGuide/wiki/SHORTTUTORIAL:-Harmony
