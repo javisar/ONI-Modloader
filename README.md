@@ -3,6 +3,8 @@ A modloader for Oxygen Not Included based in Harmony
 
 [**Example mods for ONI-Modloader**](https://github.com/javisar/ONI-Modloader-Mods)
 
+[**Community mods for ONI-Modloader and Community Hub**](https://github.com/javisar/ONI-Modloader-Mods/CommunityModhub)
+
 [**Forums in Klei**](https://forums.kleientertainment.com/topic/88186-mod01-oni-modloader/)
 
 
