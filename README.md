@@ -27,7 +27,7 @@ This project uses source code of and is based on:
 
 Quick Start
 -----------
-1. Download the [**Latest Version**] (https://github.com/javisar/ONI-Modloader/blob/master/Managed/ModLoader.dll)
+1. Download the [**Latest Version**](https://github.com/javisar/ONI-Modloader/blob/master/Managed/ModLoader.dll)
 2. Copy ModLoader.dll to ONI Managed "\OxygenNotIncluded\OxygenNotIncluded_Data\Managed\" folder.
 3. Move your mods to "\OxygenNotIncluded\Mods\" folder
 
