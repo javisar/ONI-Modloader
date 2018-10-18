@@ -11,7 +11,7 @@ namespace ModLoader
 
     public static class ModLoader
     {
-		public const string ModLoaderVersion = "v0.5.0";
+		public const string ModLoaderVersion = "v0.5.1";
 
 		//public const string AssemblyDir = "Assemblies";
 
