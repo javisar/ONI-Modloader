@@ -66,7 +66,7 @@ Installation
    * You can use this **[Visual Studio Project Template](https://github.com/javisar/ONI-Modloader-Mods/blob/master/Source/TemplateMod.zip)**
    * Deprecated: Note: You'll need to **re-run the injector** EVERY time ONI is updated from Klei.
 1. Click "Clone or Download" and "Download ZIP" for the current version as the releases may not be up to date.
-2. Copy the contents of the "Managed" folder to the folder ([Example of Modloader folder structure](https://github.com/javisar/ONI-Modloader/blob/master/.github/modloader.png)):
+2. Copy the contents of the "Managed" folder to the folder ():
    * \OxygenNotIncluded\OxygenNotIncluded_Data\Managed\
 3. Deprecated: Execute 'Injector.exe'.
    * Check for errors in the console output.
