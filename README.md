@@ -20,7 +20,7 @@ This project uses source code of and is based on:
 * https://forums.kleientertainment.com/topic/81296-mod159-materialcolor-onionpatcher/
 
 
-**NOTE**: Compiled for **SU-290148**
+**NOTE**: Compiled for **SU-290261**
 
 **Report Bugs** for ONI-Modloader here: https://github.com/javisar/ONI-Modloader/issues
 
@@ -34,8 +34,8 @@ Quick Start
 
 How it works
 ------------
-* The MODLOADER loads C# Harmony Patcher and also all Harmony Based mods in /Mods/ path.
-* Deprecated: The INJECTOR changes some files in the game in order to call the MODLOADER every time you start the game.
+The MODLOADER loads C# Harmony Patcher and also all Harmony Based mods in /Mods/ path.
+Deprecated: The INJECTOR changes some files in the game in order to call the MODLOADER every time you start the game.
 
 
 Projects
@@ -93,7 +93,6 @@ Requirements
 * .NET Framework v3.5
 * Harmony Patcher v1.2.0.1
 * Visual Studio 2015
-* Deprecated: Mono.Cecil
 
 
 Creating a Mod
