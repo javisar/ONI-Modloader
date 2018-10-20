@@ -68,9 +68,9 @@ Installation
    * \OxygenNotIncluded\OxygenNotIncluded_Data\Managed\
 3. ~~Execute 'Injector.exe'.~~
    * ~~Check for errors in the console output.~~
-   * ~~It will create a backups of 'Assembly-CSharp.dll' and Assembly-CSharp-firstpass.dll with the extension ".orig" and a new patched set of dlls. ~~  
+   * ~~It will create a backups of 'Assembly-CSharp.dll' and Assembly-CSharp-firstpass.dll with the extension ".orig" and a new patched set of dlls.~~  
 4. ~~You should now find a folder called "Mods" in your ONI main directory. Otherwise, create "Mods" folder in the ONI main directory.~~
-   * ~~\OxygenNotIncluded\Mods\~~
+   * \OxygenNotIncluded\Mods\
 5. Check for error logs in:
    * \OxygenNotIncluded\OxygenNotIncluded_Data\Managed\Mod_Log.txt   
 
