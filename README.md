@@ -1,5 +1,5 @@
 # ONI-Modloader
-A modloader for Oxygen Not Included based in Harmony
+A mod loader for Oxygen Not Included based in Harmony
 
 [**Example mods for ONI-Modloader**](https://github.com/javisar/ONI-Modloader-Mods)
 
@@ -20,7 +20,7 @@ This project uses source code of and is based on:
 * https://forums.kleientertainment.com/topic/81296-mod159-materialcolor-onionpatcher/
 
 
-**NOTE**: Compiled for **SU-290261**
+**NOTE**: Compiled for **SU-290532**
 
 **Report Bugs** for ONI-Modloader here: https://github.com/javisar/ONI-Modloader/issues
 
@@ -35,14 +35,14 @@ Quick Start
 How it works
 ------------
 The MODLOADER loads C# Harmony Patcher and also all Harmony Based mods in /Mods/ path.
-Deprecated: The INJECTOR changes some files in the game in order to call the MODLOADER every time you start the game.
+~~The INJECTOR changes some files in the game in order to call the MODLOADER every time you start the game.~~
 
 
 Projects
 --------
 * **ModLoader**: The modloader itself.
-* Deprecated: Injector: It injects the call to the modloader in 'Assembly-CSharp.dll'.
-* Deprecated: OnionHook: Just a helper to generate IL code for the Injector.
+* ~~Injector: It injects the call to the modloader in 'Assembly-CSharp.dll'.~~
+* ~~OnionHook: Just a helper to generate IL code for the Injector.~~
 
 
 Harmony Based Mods
@@ -59,20 +59,18 @@ Installation
 ------------
 0. Prerequisites:
    * Make SURE you're using the latest version from Github main branch.
-   * Make SURE you're using a fresh install of ONI.
+   * Make SURE you're using a fresh install of ONI. Check [Verify Integrity Files](https://inxile.zendesk.com/hc/en-us/articles/115004662908-Verify-game-cache-files-Steam-) function in Steam in the ONI game Properties>LocalFiles tab.
    * Make sure you deleted all previous modloader file in:
      * \OxygenNotIncluded\OxygenNotIncluded_Data\Managed\
-   * You can use "Verify Integrity Files" function in Steam in the ONI game Properties>LocalFiles tab. https://inxile.zendesk.com/hc/en-us/articles/115004662908-Verify-game-cache-files-Steam-
-   * You can use this **[Visual Studio Project Template](https://github.com/javisar/ONI-Modloader-Mods/blob/master/Source/TemplateMod.zip)**
-   * Deprecated: Note: You'll need to **re-run the injector** EVERY time ONI is updated from Klei.
+   * ~~Note: You'll need to **re-run the injector** EVERY time ONI is updated from Klei.~~
 1. Click "Clone or Download" and "Download ZIP" for the current version as the releases may not be up to date.
 2. Copy the contents of the "Managed" folder to the folder ():
    * \OxygenNotIncluded\OxygenNotIncluded_Data\Managed\
-3. Deprecated: Execute 'Injector.exe'.
-   * Check for errors in the console output.
-   * It will create a backups of 'Assembly-CSharp.dll' and Assembly-CSharp-firstpass.dll with the extension ".orig" and a new patched set of dlls.   
-4. Deprecated: You should now find a folder called "Mods" in your ONI main directory. Otherwise, create "Mods" folder in the ONI main directory.
-   * \OxygenNotIncluded\Mods\
+3. ~~Execute 'Injector.exe'.~~
+   * ~~Check for errors in the console output.~~
+   * ~~It will create a backups of 'Assembly-CSharp.dll' and Assembly-CSharp-firstpass.dll with the extension ".orig" and a new patched set of dlls. ~~  
+4. ~~You should now find a folder called "Mods" in your ONI main directory. Otherwise, create "Mods" folder in the ONI main directory.~~
+   * ~~\OxygenNotIncluded\Mods\~~
 5. Check for error logs in:
    * \OxygenNotIncluded\OxygenNotIncluded_Data\Managed\Mod_Log.txt   
 
@@ -81,7 +79,7 @@ Uninstallation
 --------------
 Remove ModLoader.dll from \OxygenNotIncluded\OxygenNotIncluded_Data\Managed\ folder.
 
-Deprecated: Just rename 'Assembly-CSharp.dll.orig' to 'Assembly-CSharp.dll'and 'Assembly-CSharp-firstpass.dll.orig' to 'Assembly-CSharp-firstpass.dll'
+~~Just rename 'Assembly-CSharp.dll.orig' to 'Assembly-CSharp.dll'and 'Assembly-CSharp-firstpass.dll.orig' to 'Assembly-CSharp-firstpass.dll'~~
 
 
 [Mods Installation](https://github.com/javisar/ONI-Modloader-Mods/blob/master/README.md#mods-installation)
@@ -108,6 +106,7 @@ Creating a Mod
 4. Create a new class project. 
    * To create a Project from scratch the right one is: Visual C#-Class Library (.NET Framework). 
    * If you don't find it like when you have installed Visual Studio with Unity you need to tools-add tools or features and install: .NET Desktop Development.
+   * It's available a **[Visual Studio Project Template](https://github.com/javisar/ONI-Modloader-Mods/blob/master/Source/TemplateMod.zip)**
 5. Add the previous libs as references of the project.
 6. Compile it to generate the mod dll file.
 7. Check the tutorials at the end of the page.
