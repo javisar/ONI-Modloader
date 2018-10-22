@@ -58,11 +58,13 @@ Installation
    * Make SURE you're using the latest version from Github main branch.
    * Make SURE you're using a fresh install of ONI. Check [Verify Integrity Files](https://inxile.zendesk.com/hc/en-us/articles/115004662908-Verify-game-cache-files-Steam-) function in Steam in the ONI game Properties>LocalFiles tab.
    * Make sure you deleted all previous modloader file in:
-     * \OxygenNotIncluded\OxygenNotIncluded_Data\Managed\
+     * Windows: \OxygenNotIncluded\OxygenNotIncluded_Data\Managed\
+	 * Mac: /OxygenNotIncluded/OxygenNotIncluded.app/Contents/Resources/Data/Managed/
    * ~~Note: You'll need to **re-run the injector** EVERY time ONI is updated from Klei.~~
 1. Click "Clone or Download" and "Download ZIP" for the current version as the releases may not be up to date.
 2. Copy the contents of the "Managed" folder to the folder ():
-   * \OxygenNotIncluded\OxygenNotIncluded_Data\Managed\
+   * Windows: \OxygenNotIncluded\OxygenNotIncluded_Data\Managed\
+   * Mac: /OxygenNotIncluded/OxygenNotIncluded.app/Contents/Resources/Data/Managed/
 3. ~~Execute 'Injector.exe'.~~
    * ~~Check for errors in the console output.~~
    * ~~It will create a backups of 'Assembly-CSharp.dll' and Assembly-CSharp-firstpass.dll with the extension ".orig" and a new patched set of dlls.~~  
