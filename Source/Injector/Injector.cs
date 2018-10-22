@@ -11,7 +11,7 @@ namespace Injector
 
 	public static class Injector
 	{
-		public static void Inject(ModuleDefinition module, AssemblyDefinition game, string className, string methodName, string outputPath)
+		public static void Inject(ref AssemblyDefinition game, string className, string methodName)
 		{
 			TypeDefinition launchInitializer = game.MainModule.GetType(string.Empty, className);
 
@@ -175,9 +175,26 @@ namespace Injector
 					 p.Create(
 							  OpCodes.Ldarg_0));
 			*/
-			game.Write(outputPath);
+			
 		}
-		public static MethodReference ImportMethod<T>(AssemblyDefinition assembly, string name)
+
+        public static void InjectPatchedSign(ref AssemblyDefinition game)
+        {
+            game.MainModule.Types.Add(
+                                         new TypeDefinition(
+                                                            "Mods",
+                                                            "Patched",
+                                                            Mono.Cecil.TypeAttributes.Class,
+                                                            game.MainModule.TypeSystem.Object));       
+        }
+
+        public static bool IsPatched(AssemblyDefinition game)
+        {
+            TypeDefinition type = game.MainModule.GetType("Mods", "Patched");
+            return type != null ? true : false;
+        }
+
+        public static MethodReference ImportMethod<T>(AssemblyDefinition assembly, string name)
 		{
 			return assembly.MainModule.ImportReference(typeof(T).GetMethod(name, Type.EmptyTypes));
 		}

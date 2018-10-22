@@ -11,9 +11,9 @@ namespace ModLoader
 
     public static class ModLoader
     {
-		public const string ModLoaderVersion = "v0.4.8";
+		public const string ModLoaderVersion = "v0.5.1";
 
-		public const string AssemblyDir = "Assemblies";
+		//public const string AssemblyDir = "Assemblies";
 
         internal static string failureMessage = string.Empty;
 
@@ -28,12 +28,12 @@ namespace ModLoader
 
             // Load mods
             DirectoryInfo modsDir = GetModsDirectory();
-
-            List<FileInfo> files = modsDir.GetFiles("*.dll").ToList();
+            /*
+            List<FileInfo> files = modsDir.GetFiles("*.dll").ToList();            
             foreach (DirectoryInfo modDirectory in modsDir.GetDirectories())
             {
                 DirectoryInfo[] sub = modDirectory?.GetDirectories();
-                DirectoryInfo assmeblies = sub?.FirstOrDefault(x => x != null && x.Name.Contains(AssemblyDir));
+                DirectoryInfo assmeblies = sub?.FirstOrDefault(x => x != null && x.Name.Contains(AssemblyDir));                
                 if (assmeblies != null)
                 {
                     foreach (FileInfo file in assmeblies.GetFiles("*.dll"))
@@ -41,6 +41,14 @@ namespace ModLoader
                         files.Add(file);
                     }
                 }
+            }
+            */
+            string[] pathFiles = Directory.GetFiles(modsDir.FullName, "*.dll", SearchOption.AllDirectories);
+
+            List<FileInfo> files = new List<FileInfo>();
+            foreach (var file in pathFiles)
+            {
+                files.Add(new FileInfo(file));
             }
 
             try
@@ -136,14 +144,16 @@ namespace ModLoader
             return " - " + ex.GetType().Name + ": " + ex.Message;
         }
 
-        private static DirectoryInfo GetModsDirectory()
+        public static DirectoryInfo GetModsDirectory()
         {
             DirectoryInfo dataDir = new DirectoryInfo(Application.dataPath);
+            ModLogger.WriteLine("Data dir: " + dataDir.FullName);
+            ModLogger.WriteLine("RuntimePlatform: " + Application.platform);
 
             DirectoryInfo oniBaseDirectory;
             if (Application.platform == RuntimePlatform.OSXPlayer)
             {
-                oniBaseDirectory = dataDir.Parent?.Parent;
+                oniBaseDirectory = new DirectoryInfo(Path.Combine(dataDir.FullName, "Resources"));
             }
 			else if (Application.platform == RuntimePlatform.LinuxPlayer)
 			{

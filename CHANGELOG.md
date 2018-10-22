@@ -1,5 +1,10 @@
 Change Log
 ----------
+* 0.5
+  * Injector checks if game already patched
+  * Loads all dlls in Mods path.
+  * Hooks fixed
+  * MacOS/Linux path fixes
 * 0.4.7
   * Updated to RU-284634
 * 0.4.5
