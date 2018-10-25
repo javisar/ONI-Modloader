@@ -4,7 +4,8 @@ A simple mod loader for **Oxygen Not Included** based in Harmony
 [**Forums in Klei**](https://forums.kleientertainment.com/topic/88186-mod01-oni-modloader/)
 
 
-**Mods based in Harmony**
+Mods based in Harmony
+---------------------
 * [**Javisar's Mods**](https://github.com/javisar/ONI-Modloader-Mods)
 * [**Cairath's Mods**](https://github.com/Cairath/ONI-Mods)
 * [**Rainbow's Designs Mods**](https://github.com/rainbowdesign/OxygenNotIncluded-Mods)
@@ -44,8 +45,8 @@ Quick Start
 
 How it works
 ------------
-The MODLOADER loads C# Harmony Patcher and also all Harmony Based mods in /Mods/ path.
-~~The INJECTOR changes some files in the game in order to call the MODLOADER every time you start the game.~~
+* The MODLOADER loads C# Harmony Patcher and also all Harmony Based mods in /Mods/ path.
+* ~~The INJECTOR changes some files in the game in order to call the MODLOADER every time you start the game.~~
 
 
 Projects
