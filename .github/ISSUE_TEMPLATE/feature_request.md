@@ -1,6 +1,6 @@
 ---
-name: Feature/Mod request
-about: Suggest an idea for this project
+name: Feature/Mod Request
+about: Suggest a feature for the ModLoader or a Mod Request
 
 ---
 

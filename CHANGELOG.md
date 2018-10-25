@@ -1,5 +1,8 @@
 Change Log
 ----------
+* 0.5.1
+  * Updated to SU-290532
+  * Injector deprecated. Now ONI has its own Harmony and it starts the modloader by itself.
 * 0.5
   * Injector checks if game already patched
   * Loads all dlls in Mods path.

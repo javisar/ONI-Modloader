@@ -1,11 +1,19 @@
 # ONI-Modloader
-A mod loader for Oxygen Not Included based in Harmony
-
-[**Community mods for ONI-Modloader and Community Hub**](https://github.com/javisar/ONI-Modloader-Mods/CommunityModhub)
-
-[**Example mods for ONI-Modloader**](https://github.com/javisar/ONI-Modloader-Mods)
+A simple mod loader for **Oxygen Not Included** based in Harmony
 
 [**Forums in Klei**](https://forums.kleientertainment.com/topic/88186-mod01-oni-modloader/)
+
+
+**Mods based in Harmony**
+* [**Javisar's Mods**](https://github.com/javisar/ONI-Modloader-Mods)
+* [**Cairath's Mods**](https://github.com/Cairath/ONI-Mods)
+* [**Rainbow's Designs Mods**](https://github.com/rainbowdesign/OxygenNotIncluded-Mods)
+* [**MidnightSteam's Mods**](https://github.com/Midnight-Steam/ONI-Modloader)
+* [**MooreDavid's Mods**](https://github.com/MooreDavid/ONI-MOD-)
+* [**Sijko's Mods**](https://github.com/Sijko/ONI-Mods/)
+
+For **Mod Request to the Community** post them in [Klei Forums](https://forums.kleientertainment.com/forums/topic/88186-mod05-oni-modloader/) or in [ModLoader GitHub](https://github.com/javisar/ONI-Modloader/issues/new?template=feature_request.md).
+
 
 
 Disclaimers
@@ -45,11 +53,6 @@ Projects
 * **ModLoader**: The modloader itself.
 * ~~Injector: It injects the call to the modloader in 'Assembly-CSharp.dll'.~~
 * ~~OnionHook: Just a helper to generate IL code for the Injector.~~
-
-
-Harmony Based Mods
-------------
-[**Are listed at the Community Hub**](https://github.com/javisar/ONI-Modloader-Mods/CommunityModhub)
 
 
 Installation
