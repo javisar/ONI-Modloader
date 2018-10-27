@@ -11,7 +11,7 @@ namespace ModLoader
 
     public static class ModLoader
     {
-		public const string ModLoaderVersion = "v0.5.1";
+		public const string ModLoaderVersion = "v0.5.1b";
 
 		//public const string AssemblyDir = "Assemblies";
 
@@ -194,8 +194,15 @@ namespace ModLoader
                     try
                     {
                         Assembly modAssembly = Assembly.LoadFrom(file.FullName);
-                        ModLogger.WriteLine("Loading " + modAssembly.FullName);
-                        loadedAssemblies.Add(modAssembly);
+                        if (loadedAssemblies.Contains(modAssembly))
+                        {
+                            ModLogger.WriteLine("Skipping duplicate mod " + modAssembly.FullName);
+                        }
+                        else
+                        {
+                            ModLogger.WriteLine("Loading " + modAssembly.FullName);
+                            loadedAssemblies.Add(modAssembly);
+                        }
                     }
                     catch (Exception e)
                     {
