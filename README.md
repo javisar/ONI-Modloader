@@ -25,12 +25,12 @@ This project uses source code of and is based on:
 
 Mods based in Harmony
 ---------------------
-* [**Javisar's Mods**](https://github.com/javisar/ONI-Modloader-Mods)
-* [**Cairath's Mods**](https://github.com/Cairath/ONI-Mods)
-* [**Rainbow's Designs Mods**](https://github.com/rainbowdesign/OxygenNotIncluded-Mods)
+* [**Javisar's Mods**](https://github.com/javisar/ONI-Modloader-Mods) [Forum](https://forums.kleientertainment.com/forums/topic/97444-mods-trevices-mods-lair/)
+* [**Cairath's Mods**](https://github.com/Cairath/ONI-Mods) [Forum](https://forums.kleientertainment.com/forums/topic/94120-mods-cairaths-mod-corner/)
+* [**Rainbow's Designs Mods**](https://github.com/rainbowdesign/OxygenNotIncluded-Mods) [Forum](https://forums.kleientertainment.com/forums/topic/95313-rainbowdesigns-mods/)
 * [**MidnightSteam's Mods**](https://github.com/Midnight-Steam/ONI-Modloader)
-* [**MooreDavid's Mods**](https://github.com/MooreDavid/ONI-MOD-)
-* [**Sijko's Mods**](https://github.com/Sijko/ONI-Mods/)
+* [**MooreDavid's Mods**](https://github.com/MooreDavid/ONI-MOD-) [Forum](https://forums.kleientertainment.com/forums/topic/96381-seekers-modding-bucket/)
+* [**Sijko's Mods**](https://github.com/Sijko/ONI-Mods/) [Forum](https://forums.kleientertainment.com/forums/topic/95988-mods-small-mods/)
 
 For **Mod Request to the Community** post them in [Klei Forums](https://forums.kleientertainment.com/forums/topic/88186-mod05-oni-modloader/) or in [ModLoader GitHub](https://github.com/javisar/ONI-Modloader/issues/new?template=feature_request.md).
 
