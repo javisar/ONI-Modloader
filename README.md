@@ -31,6 +31,7 @@ Mods based in Harmony
 * [**MidnightSteam's Mods**](https://github.com/Midnight-Steam/ONI-Modloader)
 * [**MooreDavid's Mods**](https://github.com/MooreDavid/ONI-MOD-) [Forum](https://forums.kleientertainment.com/forums/topic/96381-seekers-modding-bucket/)
 * [**Sijko's Mods**](https://github.com/Sijko/ONI-Mods/) [Forum](https://forums.kleientertainment.com/forums/topic/95988-mods-small-mods/)
+* [**Blindfold's Mods**](https://github.com/Blindfold-Games/ONI-Blind-MODS)
 
 For **Mod Request to the Community** post them in [Klei Forums](https://forums.kleientertainment.com/forums/topic/88186-mod05-oni-modloader/) or in [ModLoader GitHub](https://github.com/javisar/ONI-Modloader/issues/new?template=feature_request.md).
 
