@@ -120,6 +120,24 @@ Creating a Mod
 **Note**: Dlls will be recognized by the mod loader if they reside in the main mod directory and subfolders.
 
 
+How to debug mods
+-----------------
+* Check in output_log.txt the Unity version used by ONI. Look for it in the first lines: Example: Initialize engine version: 2018.2.7f1
+* Download from [here](https://github.com/0xd4d/dnSpy/releases) the corresponding "mono.dll" file. This is mono modified to enable debugging.
+* Replace mono.dll in ONI folder: \OxygenNotIncluded\Mono\EmbedRuntime\
+* Visual Studio
+   1. Install Unity for Visual Studio
+   2. Configure your VS project to output Debugging Info. You must generate .pdb file with complete info.
+   3. Compile your project
+   4. Execute "lib\pdb2mdb.exe name.dll". This will generate in the same folder a .mdb file. "pdb2mdb.exe" for VS can be found [here](https://gist.github.com/jbevain/ba23149da8369e4a966f)
+   5. Exe, pdb and mdb files must be in Mods ONI folder.
+   6. Run Oxygen Not Included.
+   7. In VS, select option "Attach to Unity Debugger" and enter the IP: 127.0.0.1:55555
+   8. Now your VS must be connected to the Game and stop in your breakpoints.
+* dnSpy
+   1. Follow this [guide](https://github.com/0xd4d/dnSpy/wiki/Debugging-Unity-Games)
+
+
 Tutorials
 -----------------
 * https://github.com/pardeike/Harmony/wiki/
