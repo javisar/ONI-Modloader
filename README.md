@@ -108,6 +108,14 @@ Creating a Mod
 
 How to debug mods
 -----------------
+**SIMPLE (recommended)**
+The easier way to debug a mod is to use the Unity debug logs:
+* Include in your VS project references the library from ONI managed folder: UnityEngine.CoreModule
+* Insert in your code log dump lines like:
+   Debug.Log("...");
+* Check for the logs in output_log.txt or Player.log
+
+**ADVANCED**
 * Check in output_log.txt the Unity version used by ONI. Look for it in the first lines: Example: Initialize engine version: 2018.2.7f1
 * Download from [here](https://github.com/0xd4d/dnSpy/releases) the corresponding "mono.dll" file. This is mono modified to enable debugging.
 * Replace mono.dll in ONI folder: \OxygenNotIncluded\Mono\EmbedRuntime\
