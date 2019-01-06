@@ -46,14 +46,6 @@ Quick Start
 How it works
 ------------
 * The MODLOADER loads C# Harmony Patcher and also all Harmony Based mods in /Mods/ path.
-* ~~The INJECTOR changes some files in the game in order to call the MODLOADER every time you start the game.~~
-
-
-Projects
---------
-* **ModLoader**: The modloader itself.
-* ~~Injector: It injects the call to the modloader in 'Assembly-CSharp.dll'.~~
-* ~~OnionHook: Just a helper to generate IL code for the Injector.~~
 
 
 Installation
@@ -64,25 +56,19 @@ Installation
    * Make sure you deleted all previous modloader file in:
      * Windows: \OxygenNotIncluded\OxygenNotIncluded_Data\Managed\
 	 * Mac: /OxygenNotIncluded/OxygenNotIncluded.app/Contents/Resources/Data/Managed/
-   * ~~Note: You'll need to **re-run the injector** EVERY time ONI is updated from Klei.~~
 1. Click "Clone or Download" and "Download ZIP" for the current version as the releases may not be up to date.
 2. Copy the contents of the "Managed" folder to the folder ():
    * Windows: \OxygenNotIncluded\OxygenNotIncluded_Data\Managed\
    * Mac: /OxygenNotIncluded/OxygenNotIncluded.app/Contents/Resources/Data/Managed/
-3. ~~Execute 'Injector.exe'.~~
-   * ~~Check for errors in the console output.~~
-   * ~~It will create a backups of 'Assembly-CSharp.dll' and Assembly-CSharp-firstpass.dll with the extension ".orig" and a new patched set of dlls.~~  
-4. ~~You should now find a folder called "Mods" in your ONI main directory. Otherwise, create "Mods" folder in the ONI main directory.~~
+3. Create "Mods" folder in the ONI main directory.
    * \OxygenNotIncluded\Mods\
-5. Check for error logs in:
+4. Check for error logs in:
    * \OxygenNotIncluded\OxygenNotIncluded_Data\Managed\Mod_Log.txt   
 
 
 Uninstallation
 --------------
 Remove ModLoader.dll from \OxygenNotIncluded\OxygenNotIncluded_Data\Managed\ folder.
-
-~~Just rename 'Assembly-CSharp.dll.orig' to 'Assembly-CSharp.dll'and 'Assembly-CSharp-firstpass.dll.orig' to 'Assembly-CSharp-firstpass.dll'~~
 
 
 [Mods Installation](https://github.com/javisar/ONI-Modloader-Mods/blob/master/README.md#mods-installation)
