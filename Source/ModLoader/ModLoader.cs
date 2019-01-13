@@ -11,7 +11,7 @@ namespace ModLoader
 
     public static class ModLoader
     {
-		public const string ModLoaderVersion = "v0.5.1b";
+		public const string ModLoaderVersion = "v0.5.2";
 
 		//public const string AssemblyDir = "Assemblies";
 
@@ -55,9 +55,9 @@ namespace ModLoader
             {
                 DependencyGraph dependencyGraph = LoadModAssemblies(files);
                 List<Assembly> sortedAssemblies = dependencyGraph?.TopologicalSort();
-
-                ApplyHarmonyPatches(sortedAssemblies);
-                CallOnLoadMethods(sortedAssemblies);
+                List<Assembly> loadableMods = CheckForDependences(sortedAssemblies);
+                List<Assembly> loadedMods = ApplyHarmonyPatches(loadableMods);
+                CallOnLoadMethods(loadedMods);
 
                 ModLogger.WriteLine("All mods successfully loaded!");
             }
@@ -67,10 +67,11 @@ namespace ModLoader
             }
         }
 
-        private static void ApplyHarmonyPatches([NotNull] List<Assembly> modAssemblies)
+        private static List<Assembly> CheckForDependences(List<Assembly> modAssemblies)
         {
-            ModLogger.WriteLine("Applying Harmony patches");
+            ModLogger.WriteLine("CheckForDependences");
             List<string> failedMods = new List<string>();
+            List<Assembly> loadableMods = new List<Assembly>();
 
             foreach (Assembly modAssembly in modAssemblies)
             {
@@ -81,9 +82,71 @@ namespace ModLoader
 
                 try
                 {
+                    ModLogger.WriteLine("Loading: " + modAssembly.FullName);
+
+                    bool correct = true;
+                    foreach (AssemblyName referenced in modAssembly.GetReferencedAssemblies())
                     {
-                        HarmonyInstance.Create(modAssembly.FullName)?.PatchAll(modAssembly);
+                        ModLogger.WriteLine("\t" + referenced.FullName);
+                        try
+                        {
+                            Assembly dependence = Assembly.ReflectionOnlyLoad(referenced.FullName);
+                            if (dependence == null)
+                            {
+                                correct = false;
+                                ModLogger.Error.WriteLine("\tCannot find dependence: " + referenced.FullName);
+                                continue;
+                            }
+
+                        }
+                        catch (Exception ex)
+                        {
+                            correct = false;
+                            ModLogger.Error.WriteLine("\tCannot find dependence: " + referenced.FullName);
+                            ModLogger.Error.WriteLine(ex);
+                            continue;
+                        }
                     }
+                    if (correct)
+                    {                        
+                        loadableMods.Add(modAssembly);
+                    }
+                    else
+                    {
+                        failedMods.Add(modAssembly.GetName().ToString());
+                    }
+
+                }
+                catch (Exception e)
+                {
+                    failedMods.Add(modAssembly.GetName() + ExceptionToString(e));
+                    ModLogger.Error.WriteLine("Patching mod " + modAssembly.GetName() + " failed!");
+                    ModLogger.Error.WriteLine(e);
+                }
+            }
+            return loadableMods;
+        }
+
+        private static List<Assembly> ApplyHarmonyPatches([NotNull] List<Assembly> modAssemblies)
+        {
+            ModLogger.WriteLine("Applying Harmony patches");
+            List<string> failedMods = new List<string>();
+            List<Assembly> loadedMods = new List<Assembly>();
+
+            foreach (Assembly modAssembly in modAssemblies)
+            {
+                if (modAssembly == null)
+                {
+                    continue;
+                }
+
+                try
+                {
+                    ModLogger.WriteLine("Loading: " + modAssembly.FullName);
+                    Assembly loaded = Assembly.LoadFrom(modAssembly.Location);
+                    HarmonyInstance.Create(loaded.FullName)?.PatchAll(loaded);
+                    loadedMods.Add(loaded);
+
                 }
                 catch (Exception e)
                 {
@@ -95,8 +158,18 @@ namespace ModLoader
 
             if (failedMods.Count > 0)
             {
-                throw new ModLoadingException("The following mods could not be patched:", failedMods);
+                //throw new ModLoadingException("The following mods could not be patched:", failedMods);
+                string message = "\nThe following mods could not be patched:\n" + String.Join("\n\t", failedMods.ToArray());
+                ModLogger.Error.WriteLine(message);
+                /*
+                MainMenu mainMenus = (MainMenu)UnityEngine.Object.FindObjectOfType(typeof(MainMenu));
+
+
+                ConfirmDialogScreen confirmDialogScreen = Util.KInstantiateUI<ConfirmDialogScreen>(ScreenPrefabs.Instance.ConfirmDialogScreen.gameObject, mainMenus.gameObject, force_active: true);
+                confirmDialogScreen.PopupConfirmDialog(message, null, null);
+                */
             }
+            return loadedMods;
         }
 
         private static void CallOnLoadMethods([NotNull] List<Assembly> modAssemblies)
@@ -193,14 +266,15 @@ namespace ModLoader
 
                     try
                     {
-                        Assembly modAssembly = Assembly.LoadFrom(file.FullName);
+                        //Assembly modAssembly = Assembly.LoadFrom(file.FullName);
+                        Assembly modAssembly = Assembly.ReflectionOnlyLoadFrom(file.FullName);
                         if (loadedAssemblies.Contains(modAssembly))
                         {
                             ModLogger.WriteLine("Skipping duplicate mod " + modAssembly.FullName);
                         }
                         else
                         {
-                            ModLogger.WriteLine("Loading " + modAssembly.FullName);
+                            ModLogger.WriteLine("Preloading " + modAssembly.FullName);
                             loadedAssemblies.Add(modAssembly);
                         }
                     }
@@ -215,7 +289,7 @@ namespace ModLoader
 
             if (failedAssemblies.Count > 0)
             {
-                throw new ModLoadingException("The following mods could not be loaded:", failedAssemblies);
+                throw new ModLoadingException("The following mods could not be preloaded:", failedAssemblies);
             }
 
             return new DependencyGraph(loadedAssemblies);
