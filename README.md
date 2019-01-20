@@ -18,7 +18,7 @@ This project uses source code of and is based on:
 * https://forums.kleientertainment.com/topic/81296-mod159-materialcolor-onionpatcher/
 
 
-**NOTE**: Compiled for **SU-290532**
+**NOTE**: Compiled for **Q1-303707**
 
 **Report Bugs** for ONI-Modloader here: https://github.com/javisar/ONI-Modloader/issues
 
@@ -113,7 +113,7 @@ The easier way to debug a mod is to use the Unity debug logs:
 * Include in your VS project references the library from ONI managed folder: UnityEngine.CoreModule
 * Insert in your code log dump lines like:
    Debug.Log("...");
-* Check for the logs in output_log.txt or Player.log
+* Check for the [logs](http://support.kleientertainment.com/customer/portal/articles/2744766-logs-and-useful-information-for-bug-reports) in output_log.txt or Player.log
 
 **ADVANCED**
 * Check in output_log.txt the Unity version used by ONI. Look for it in the first lines: Example: Initialize engine version: 2018.2.7f1
