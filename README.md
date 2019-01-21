@@ -11,11 +11,7 @@ Disclaimers
 * We do not take any responsibility for broken saves or any other damage. Use this software at your own risk.
 * If you load a savegame, it requires that you have exactly the same mods when you saved it.
 
-This project uses source code of and is based on:
-* https://github.com/pardeike/Harmony
-* https://github.com/zeobviouslyfakeacc/ModLoaderInstaller
-* https://github.com/spaar/besiege-modloader
-* https://forums.kleientertainment.com/topic/81296-mod159-materialcolor-onionpatcher/
+This project uses source code of and is based on: [Harmony](https://github.com/pardeike/Harmony), [ModLoader Installer](https://github.com/zeobviouslyfakeacc/ModLoaderInstaller), [Besiege Modloader](https://github.com/spaar/besiege-modloader), [OnionPatcher](https://forums.kleientertainment.com/topic/81296-mod159-materialcolor-onionpatcher/)
 
 
 **NOTE**: Compiled for **Q1-303707**
@@ -32,6 +28,7 @@ Mods based in Harmony
 * [**MooreDavid's Mods**](https://github.com/MooreDavid/ONI-MOD-) [Forum](https://forums.kleientertainment.com/forums/topic/96381-seekers-modding-bucket/)
 * [**Sijko's Mods**](https://github.com/Sijko/ONI-Mods/) [Forum](https://forums.kleientertainment.com/forums/topic/95988-mods-small-mods/)
 * [**Blindfold's Mods**](https://github.com/Blindfold-Games/ONI-Blind-MODS)
+* [**EtiamNullam's Mods**](https://github.com/EtiamNullam/Etiam-ONI-Modpack) [Forum](https://forums.kleientertainment.com/forums/topic/101902-mods-etiams-modpack/)
 
 For **Mod Request to the Community** post them in [Klei Forums](https://forums.kleientertainment.com/forums/topic/88186-mod05-oni-modloader/) or in [ModLoader GitHub](https://github.com/javisar/ONI-Modloader/issues/new?template=feature_request.md).
 
