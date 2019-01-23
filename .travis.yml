@@ -1,0 +1,28 @@
+language: csharp
+solution: Source/ModLoader.sln
+mono: 3.2.8
+before_script:
+  - wget --output-document=./Source/lib/lib.zip "https://drive.google.com/uc?id=$GDRIVE_LIB_FILE_UID&export=download"
+  - unzip -u ./Source/lib/lib.zip -d ./Source/lib
+script:
+  - xbuild /p:Configuration=Release /p:PostBuildEvent="" ./Source/ModLoader.sln
+before_deploy:
+  # - zip -j Blind-MODs-$TRAVIS_BRANCH.zip Mods/*.dll
+  - zip -j ModLoader.zip Mods/*.dll
+  # - export TRAVIS_TAG=${TRAVIS_TAG:-latest}
+  - export ONI_VERSION=`cat Source/lib/oni_version`
+  - export ONI_VERSION=${ONI_VERSION/-/--}
+  - export ONI_VERSION_SHIELD=${ONI_VERSION+"![Build for ONI version](https://img.shields.io/badge/ONI_version-$ONI_VERSION-brightgreen.svg)"}
+  - export RELEASE_BODY=${ONI_VERSION_SHIELD+"Compatible with $ONI_VERSION_SHIELD"}
+  - echo $RELEASE_BODY
+deploy:
+  provider: releases
+  api_key: $GITHUB_OAUTH_TOKEN
+  # file: Blind-MODs-$TRAVIS_BRANCH.zip
+  file: ModLoader.zip
+  skip_cleanup: true
+  overwrite: true
+  body: "$RELEASE_BODY"
+  on:
+    branch: master
+    tags: true

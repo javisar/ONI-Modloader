@@ -4,14 +4,15 @@ namespace ModLoader
     using JetBrains.Annotations;
     using System;
     using System.Collections.Generic;
-    using System.IO;
+	using System.Diagnostics;
+	using System.IO;
     using System.Linq;
     using System.Reflection;
     using UnityEngine;
 
     public static class ModLoader
     {
-		public const string ModLoaderVersion = "v0.5.1b";
+		public static string ModLoaderVersion = FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location).FileVersion;
 
 		//public const string AssemblyDir = "Assemblies";
 
@@ -21,7 +22,7 @@ namespace ModLoader
 
         public static void Start()
         {
-			ModLogger.WriteLine("Initializing Modloader "+ModLoaderVersion);
+			ModLogger.WriteLine("Initializing Modloader v"+ModLoaderVersion.ToString());
 
 			// Patch in Mod Loader helpers
 			HarmonyInstance.Create("ONI-ModLoader")?.PatchAll(Assembly.GetExecutingAssembly());
