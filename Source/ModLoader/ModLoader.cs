@@ -53,7 +53,7 @@ namespace ModLoader
 
             try
             {
-                DependencyGraph dependencyGraph = LoadModAssemblies(files);
+                DependencyGraph dependencyGraph = PreloadModAssemblies(files);
                 List<Assembly> sortedAssemblies = dependencyGraph?.TopologicalSort();
                 List<Assembly> loadableMods = CheckForDependences(sortedAssemblies);
                 List<Assembly> loadedMods = ApplyHarmonyPatches(loadableMods);
@@ -241,7 +241,7 @@ namespace ModLoader
             return new DirectoryInfo(Path.Combine(oniBaseDirectory?.FullName, "Mods"));
         }
 
-        private static DependencyGraph LoadModAssemblies(List<FileInfo> assemblyFiles)
+        private static DependencyGraph PreloadModAssemblies(List<FileInfo> assemblyFiles)
         {
             ModLogger.WriteLine("Loading mod assemblies");
             List<Assembly> loadedAssemblies = new List<Assembly>();
@@ -281,7 +281,7 @@ namespace ModLoader
                     catch (Exception e)
                     {
                         failedAssemblies.Add(file.Name + ExceptionToString(e));
-                        ModLogger.Error.WriteLine("Loading mod " + file.Name + " failed!");
+                        ModLogger.Error.WriteLine("Preloading mod " + file.Name + " failed!");
                         ModLogger.Error.WriteLine(e);
                     }
                 }
