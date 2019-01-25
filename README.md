@@ -98,7 +98,7 @@ Creating a Mod
 7. Check the tutorials at the end of the page.
    * Harmony is a code injector which will help you to inject your .dll with the help of the modloader.
 8. If you want to go into the ONI code you need to peek with a decompiler like JetBrains dotPeek or ILSpy.
-9. If you need more help please ask at [The Discord Server in the Mod channel ](https://discord.gg/EBncbX2)
+9. If you need more help please ask at [The Discord Server in the Modding Channel](https://discord.gg/EBncbX2)
 
 **Note**: Dlls will be recognized by the mod loader if they reside in the main mod directory and subfolders.
 

@@ -1,7 +1,9 @@
 Change Log
 ----------
 * 0.5.2
-  * Check for dependences in mods
+  * Tested for Q1-303707
+  * Check for dependencies in mods
+  * Avoid black hole/crash when a dependence is not found
 * 0.5.1
   * Updated to SU-290532
   * Injector deprecated. Now ONI has its own Harmony and it starts the modloader by itself.
