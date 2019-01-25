@@ -11,14 +11,10 @@ Disclaimers
 * We do not take any responsibility for broken saves or any other damage. Use this software at your own risk.
 * If you load a savegame, it requires that you have exactly the same mods when you saved it.
 
-This project uses source code of and is based on:
-* https://github.com/pardeike/Harmony
-* https://github.com/zeobviouslyfakeacc/ModLoaderInstaller
-* https://github.com/spaar/besiege-modloader
-* https://forums.kleientertainment.com/topic/81296-mod159-materialcolor-onionpatcher/
+This project uses source code of and is based on: [Harmony](https://github.com/pardeike/Harmony), [ModLoader Installer](https://github.com/zeobviouslyfakeacc/ModLoaderInstaller), [Besiege Modloader](https://github.com/spaar/besiege-modloader), [OnionPatcher](https://forums.kleientertainment.com/topic/81296-mod159-materialcolor-onionpatcher/)
 
 
-**NOTE**: Compiled for **SU-290532**
+**NOTE**: Compiled for **Q1-303707**
 
 **Report Bugs** for ONI-Modloader here: https://github.com/javisar/ONI-Modloader/issues
 
@@ -32,6 +28,7 @@ Mods based in Harmony
 * [**MooreDavid's Mods**](https://github.com/MooreDavid/ONI-MOD-) [Forum](https://forums.kleientertainment.com/forums/topic/96381-seekers-modding-bucket/)
 * [**Sijko's Mods**](https://github.com/Sijko/ONI-Mods/) [Forum](https://forums.kleientertainment.com/forums/topic/95988-mods-small-mods/)
 * [**Blindfold's Mods**](https://github.com/Blindfold-Games/ONI-Blind-MODS)
+* [**EtiamNullam's Mods**](https://github.com/EtiamNullam/Etiam-ONI-Modpack) [Forum](https://forums.kleientertainment.com/forums/topic/101902-mods-etiams-modpack/)
 
 For **Mod Request to the Community** post them in [Klei Forums](https://forums.kleientertainment.com/forums/topic/88186-mod05-oni-modloader/) or in [ModLoader GitHub](https://github.com/javisar/ONI-Modloader/issues/new?template=feature_request.md).
 
@@ -101,7 +98,7 @@ Creating a Mod
 7. Check the tutorials at the end of the page.
    * Harmony is a code injector which will help you to inject your .dll with the help of the modloader.
 8. If you want to go into the ONI code you need to peek with a decompiler like JetBrains dotPeek or ILSpy.
-9. If you need more help please ask at [The Discord Server in the Mod channel ](https://discord.gg/EBncbX2)
+9. If you need more help please ask at [The Discord Server in the Modding Channel](https://discord.gg/EBncbX2)
 
 **Note**: Dlls will be recognized by the mod loader if they reside in the main mod directory and subfolders.
 
@@ -113,7 +110,7 @@ The easier way to debug a mod is to use the Unity debug logs:
 * Include in your VS project references the library from ONI managed folder: UnityEngine.CoreModule
 * Insert in your code log dump lines like:
    Debug.Log("...");
-* Check for the logs in output_log.txt or Player.log
+* Check for the [logs](http://support.kleientertainment.com/customer/portal/articles/2744766-logs-and-useful-information-for-bug-reports) in output_log.txt or Player.log
 
 **ADVANCED**
 * Check in output_log.txt the Unity version used by ONI. Look for it in the first lines: Example: Initialize engine version: 2018.2.7f1
