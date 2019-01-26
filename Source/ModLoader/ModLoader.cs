@@ -82,12 +82,12 @@ namespace ModLoader
 
                 try
                 {
-                    ModLogger.WriteLine("Loading: " + modAssembly.FullName);
-
+                    ModLogger.WriteLine("\tChecking " + modAssembly.FullName);
+                    
                     bool correct = true;
                     foreach (AssemblyName referenced in modAssembly.GetReferencedAssemblies())
                     {
-                        ModLogger.WriteLine("\t" + referenced.FullName);
+                        ModLogger.WriteLine("\t\t" + referenced.FullName);
                         try
                         {
                             Assembly dependence = Assembly.ReflectionOnlyLoad(referenced.FullName);
@@ -95,18 +95,25 @@ namespace ModLoader
                             {
                                 correct = false;
                                 ModLogger.Error.WriteLine("\tCannot find dependence: " + referenced.FullName);
-                                continue;
-                            }
 
+                                continue;
+                                
+                            }
                         }
                         catch (Exception ex)
                         {
-                            correct = false;
-                            ModLogger.Error.WriteLine("\tCannot find dependence: " + referenced.FullName);
-                            ModLogger.Error.WriteLine(ex);
-                            continue;
+                            ModLogger.WriteLine("\t\t\tChecking embedded dependences:");
+                            correct = CheckForEmbeddedDependence(referenced.Name, modAssembly);
+                            if (!correct)
+                            {
+                                ModLogger.Error.WriteLine("\tCannot find dependence: " + referenced.FullName);
+                                ModLogger.Error.WriteLine(ex);
+                                continue;
+                            }
+                            
                         }
                     }
+
                     if (correct)
                     {                        
                         loadableMods.Add(modAssembly);
@@ -125,6 +132,19 @@ namespace ModLoader
                 }
             }
             return loadableMods;
+        }
+
+        private static bool CheckForEmbeddedDependence(string name, Assembly modAssembly)
+        {
+            // Load embedded resources to check inner dependences
+            string[] resources = modAssembly.GetManifestResourceNames();
+            foreach (string resource in resources)
+            {
+                ModLogger.WriteLine("\t\t\t" + resource);
+                if (resource.Contains(name))
+                    return true;               
+            }
+            return false;
         }
 
         private static List<Assembly> ApplyHarmonyPatches([NotNull] List<Assembly> modAssemblies)
