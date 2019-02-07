@@ -36,8 +36,12 @@ For **Mod Request to the Community** post them in [Klei Forums](https://forums.k
 Quick Start
 -----------
 1. Download the [**Latest Version**](https://github.com/javisar/ONI-Modloader/blob/master/Managed/ModLoader.dll)
-2. Copy ModLoader.dll to ONI Managed "\OxygenNotIncluded\OxygenNotIncluded_Data\Managed\" folder.
-3. Move your mods to "\OxygenNotIncluded\Mods\" folder
+2. Copy ModLoader.dll to ONI Managed folder:
+   * Windows: \OxygenNotIncluded\OxygenNotIncluded_Data\Managed\
+   * Mac: /OxygenNotIncluded/OxygenNotIncluded.app/Contents/Resources/Data/Managed/
+3. Move your mods to the Mods folder:
+   * Windows: \OxygenNotIncluded\Mods\
+   * Mac: /OxygenNotIncluded/OxygenNotIncluded.app/Contents/Resources/Mods/
 
 
 How it works
@@ -58,7 +62,8 @@ Installation
    * Windows: \OxygenNotIncluded\OxygenNotIncluded_Data\Managed\
    * Mac: /OxygenNotIncluded/OxygenNotIncluded.app/Contents/Resources/Data/Managed/
 3. Create "Mods" folder in the ONI main directory.
-   * \OxygenNotIncluded\Mods\
+   * Windows: \OxygenNotIncluded\Mods\
+   * Mac: /OxygenNotIncluded/OxygenNotIncluded.app/Contents/Resources/Mods/
 4. Check for error logs in:
    * \OxygenNotIncluded\OxygenNotIncluded_Data\Managed\Mod_Log.txt   
 
