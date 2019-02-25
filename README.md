@@ -14,7 +14,7 @@ Disclaimers
 This project uses source code of and is based on: [Harmony](https://github.com/pardeike/Harmony), [ModLoader Installer](https://github.com/zeobviouslyfakeacc/ModLoaderInstaller), [Besiege Modloader](https://github.com/spaar/besiege-modloader), [OnionPatcher](https://forums.kleientertainment.com/topic/81296-mod159-materialcolor-onionpatcher/)
 
 
-**NOTE**: Compiled for **Q1-303707**
+**NOTE**: Compiled for **Q2-311032**
 
 **Report Bugs** for ONI-Modloader here: https://github.com/javisar/ONI-Modloader/issues
 
@@ -29,6 +29,8 @@ Mods based in Harmony
 * [**Sijko's Mods**](https://github.com/Sijko/ONI-Mods/) [Forum](https://forums.kleientertainment.com/forums/topic/95988-mods-small-mods/)
 * [**Blindfold's Mods**](https://github.com/Blindfold-Games/ONI-Blind-MODS)
 * [**EtiamNullam's Mods**](https://github.com/EtiamNullam/Etiam-ONI-Modpack) [Forum](https://forums.kleientertainment.com/forums/topic/101902-mods-etiams-modpack/)
+* [**AntiBlueQuirk's Mods**](https://github.com/AntiBlueQuirk/ONI-MaterialProbeMod) [Forum](https://forums.kleientertainment.com/forums/topic/103110-mods-material-probe/)
+* [**lfricken's Mods**](https://github.com/lfricken/oni-mods) [Forum](https://forums.kleientertainment.com/forums/topic/103271-lfricken-mods/)
 
 For **Mod Request to the Community** post them in [Klei Forums](https://forums.kleientertainment.com/forums/topic/88186-mod05-oni-modloader/) or in [ModLoader GitHub](https://github.com/javisar/ONI-Modloader/issues/new?template=feature_request.md).
 
@@ -42,6 +44,7 @@ Quick Start
 3. Move your mods to the Mods folder:
    * Windows: \OxygenNotIncluded\Mods\
    * Mac: /OxygenNotIncluded/OxygenNotIncluded.app/Contents/Resources/Mods/
+4. Start your game and check for [logs](http://support.kleientertainment.com/customer/portal/articles/2744766-logs-and-useful-information-for-bug-reports) in output_log.txt or Player.log.
 
 
 How it works
@@ -58,7 +61,7 @@ Installation
      * Windows: \OxygenNotIncluded\OxygenNotIncluded_Data\Managed\
 	 * Mac: /OxygenNotIncluded/OxygenNotIncluded.app/Contents/Resources/Data/Managed/
 1. Click "Clone or Download" and "Download ZIP" for the current version as the releases may not be up to date.
-2. Copy the contents of the "Managed" folder to the folder ():
+2. Copy the contents of the "Managed" folder to the folder:
    * Windows: \OxygenNotIncluded\OxygenNotIncluded_Data\Managed\
    * Mac: /OxygenNotIncluded/OxygenNotIncluded.app/Contents/Resources/Data/Managed/
 3. Create "Mods" folder in the ONI main directory.
