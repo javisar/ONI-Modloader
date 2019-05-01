@@ -101,6 +101,7 @@ Creating a Mod
    * To create a Project from scratch the right one is: Visual C#-Class Library (.NET Framework). 
    * If you don't find it like when you have installed Visual Studio with Unity you need to tools-add tools or features and install: .NET Desktop Development.
    * It's available a **[Visual Studio Project Template](https://github.com/javisar/ONI-Modloader-Mods/blob/master/Source/TemplateMod.zip)**
+     * Copy the .zip file to ~\Documents\Visual Studio 2019\Templates\ProjectTemplates\Visual C# to access the template in VS
 5. Add the previous libs as references of the project.
 6. Compile it to generate the mod dll file.
 7. Check the tutorials at the end of the page.
@@ -130,6 +131,7 @@ The easier way to debug a mod is to use the Unity debug logs:
    3. Compile your project
    4. Execute "lib\pdb2mdb.exe name.dll". This will generate in the same folder a .mdb file. "pdb2mdb.exe" for VS can be found [here](https://gist.github.com/jbevain/ba23149da8369e4a966f)
    5. Exe, pdb and mdb files must be in Mods ONI folder.
+      * If you use the **[Project Template](https://github.com/javisar/ONI-Modloader-Mods/blob/master/Source/TemplateMod.zip)**, steps 4 and 5 will execute as a script automatically after the mod is rebuilt
    6. Run Oxygen Not Included.
    7. In VS, select option "Attach to Unity Debugger" and enter the IP: 127.0.0.1:55555
    8. Now your VS must be connected to the Game and stop in your breakpoints.
