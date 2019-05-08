@@ -14,7 +14,7 @@ Disclaimers
 This project uses source code of and is based on: [Harmony](https://github.com/pardeike/Harmony), [ModLoader Installer](https://github.com/zeobviouslyfakeacc/ModLoaderInstaller), [Besiege Modloader](https://github.com/spaar/besiege-modloader), [OnionPatcher](https://forums.kleientertainment.com/topic/81296-mod159-materialcolor-onionpatcher/)
 
 
-**NOTE**: Compiled for **Q2-311032**
+**NOTE**: Compiled for **Q2-312713**
 
 **Report Bugs** for ONI-Modloader here: https://github.com/javisar/ONI-Modloader/issues
 
@@ -31,12 +31,15 @@ Mods based in Harmony
 * [**EtiamNullam's Mods**](https://github.com/EtiamNullam/Etiam-ONI-Modpack) [Forum](https://forums.kleientertainment.com/forums/topic/101902-mods-etiams-modpack/)
 * [**AntiBlueQuirk's Mods**](https://github.com/AntiBlueQuirk/ONI-MaterialProbeMod) [Forum](https://forums.kleientertainment.com/forums/topic/103110-mods-material-probe/)
 * [**lfricken's Mods**](https://github.com/lfricken/oni-mods) [Forum](https://forums.kleientertainment.com/forums/topic/103271-lfricken-mods/)
+**Find more in the [Steam Workshop](https://steamcommunity.com/app/457140/workshop/)**
 
-For **Mod Request to the Community** post them in [Klei Forums](https://forums.kleientertainment.com/forums/topic/88186-mod05-oni-modloader/) or in [ModLoader GitHub](https://github.com/javisar/ONI-Modloader/issues/new?template=feature_request.md).
+For **Mod Request to the Community** post them in [Klei Forums](https://forums.kleientertainment.com/forums/forum/204-oxygen-not-included-mods-and-tools/)
+For **ONI-Modloader feature request** post them in [ModLoader GitHub](https://github.com/javisar/ONI-Modloader/issues/new?template=feature_request.md).
 
 
 Quick Start
 -----------
+**ONI-Modloader**
 1. Download the [**Latest Version**](https://github.com/javisar/ONI-Modloader/blob/master/Managed/ModLoader.dll)
 2. Copy ModLoader.dll to ONI Managed folder:
    * Windows: \OxygenNotIncluded\OxygenNotIncluded_Data\Managed\
@@ -46,6 +49,13 @@ Quick Start
    * Mac: /OxygenNotIncluded/OxygenNotIncluded.app/Contents/Resources/Mods/
 4. Start your game and check for [logs](http://support.kleientertainment.com/customer/portal/articles/2744766-logs-and-useful-information-for-bug-reports) in output_log.txt or Player.log.
 
+**ONI builtin Modloader (Steam)**
+1. If you want to use instead the ONI builtin modloader (used for Steam), you have to **remove 'ModLoader.dll' from 'Managed' folder**. If ONI detects a modloader, it bypasses Steam mods.
+2. Move your mods to the Mods folder. Be sure that you put each mod in its own folder:
+   * Windows: %USERPROFILE%\Documents\Klei\OxygenNotIncluded\mods\dev\
+   * Mac: ???
+3. Start your game and check for [logs](http://support.kleientertainment.com/customer/portal/articles/2744766-logs-and-useful-information-for-bug-reports) in output_log.txt or Player.log.
+
 
 How it works
 ------------
@@ -54,6 +64,7 @@ How it works
 
 Installation
 ------------
+**ONI-Modloader**
 0. Prerequisites:
    * Make SURE you're using the latest version from Github main branch.
    * Make SURE you're using a fresh install of ONI. Check [Verify Integrity Files](https://inxile.zendesk.com/hc/en-us/articles/115004662908-Verify-game-cache-files-Steam-) function in Steam in the ONI game Properties>LocalFiles tab.
@@ -104,10 +115,17 @@ Creating a Mod
      * Copy the .zip file to ~\Documents\Visual Studio 2019\Templates\ProjectTemplates\Visual C# to access the template in VS
 5. Add the previous libs as references of the project.
 6. Compile it to generate the mod dll file.
-7. Check the tutorials at the end of the page.
+7. Test your mod. Move you mod folder to:
+     a. ONI-Modloader	
+        * Windows: %PROGRAMFILES(X86)%\Steam\steamapps\common\OxygenNotIncluded\Mods\
+        * Mac: /OxygenNotIncluded/OxygenNotIncluded.app/Contents/Resources/Mods/
+     b. ONI Builtin Modloader (Steam)
+        * Windows: %USERPROFILE%\Documents\Klei\OxygenNotIncluded\mods\local\
+        * Mac: ???
+8. Check the tutorials at the end of the page.
    * Harmony is a code injector which will help you to inject your .dll with the help of the modloader.
-8. If you want to go into the ONI code you need to peek with a decompiler like JetBrains dotPeek or ILSpy.
-9. If you need more help please ask at [The Discord Server in the Modding Channel](https://discord.gg/EBncbX2)
+9. If you want to go into the ONI code you need to peek with a decompiler like JetBrains dotPeek or ILSpy.
+10. If you need more help please ask at [The Discord Server in the Modding Channel](https://discord.gg/EBncbX2)
 
 **Note**: Dlls will be recognized by the mod loader if they reside in the main mod directory and subfolders.
 
