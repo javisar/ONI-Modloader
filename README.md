@@ -8,13 +8,14 @@ Disclaimers
 -----------
 * Please DON'T REPORT BUGS you encounter to Klei while mods are active.
 * BE AWARE that many of the mods are still a WIP and may fail. If you are having problems use a clean ONI installation and try to test the mods one by one to narrow the error. Then post a issue in github.
-* We do not take any responsibility for broken saves or any other damage. Use this software at your own risk.
-* If you load a savegame, it requires that you have exactly the same mods when you saved it.
+* We DO NOT take any responsibility for broken saves or any other damage. Use this software at your own risk.
+* If you load a savegame, it probably requires that you have exactly the same mods when you saved it.
+
 
 This project uses source code of and is based on: [Harmony](https://github.com/pardeike/Harmony), [ModLoader Installer](https://github.com/zeobviouslyfakeacc/ModLoaderInstaller), [Besiege Modloader](https://github.com/spaar/besiege-modloader), [OnionPatcher](https://forums.kleientertainment.com/topic/81296-mod159-materialcolor-onionpatcher/)
 
 
-**NOTE**: Compiled for **Q2-312713**
+**NOTE**: Tested on **LU-361684**
 
 **Report Bugs** for ONI-Modloader here: https://github.com/javisar/ONI-Modloader/issues
 
