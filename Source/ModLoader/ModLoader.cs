@@ -43,27 +43,31 @@ namespace ModLoader
                 }
             }
             */
-            string[] pathFiles = Directory.GetFiles(modsDir.FullName, "*.dll", SearchOption.AllDirectories);
 
-            List<FileInfo> files = new List<FileInfo>();
-            foreach (var file in pathFiles)
+            if (modsDir.Exists)
             {
-                files.Add(new FileInfo(file));
-            }
+                string[] pathFiles = Directory.GetFiles(modsDir.FullName, "*.dll", SearchOption.AllDirectories);
 
-            try
-            {
-                DependencyGraph dependencyGraph = PreloadModAssemblies(files);
-                List<Assembly> sortedAssemblies = dependencyGraph?.TopologicalSort();
-                List<Assembly> loadableMods = CheckForDependences(sortedAssemblies);
-                List<Assembly> loadedMods = ApplyHarmonyPatches(loadableMods);
-                CallOnLoadMethods(loadedMods);
+                List<FileInfo> files = new List<FileInfo>();
+                foreach (var file in pathFiles)
+                {
+                    files.Add(new FileInfo(file));
+                }
 
-                ModLogger.WriteLine("All mods successfully loaded!");
-            }
-            catch (ModLoadingException mle)
-            {
-                failureMessage = mle.Message;
+                try
+                {
+                    DependencyGraph dependencyGraph = PreloadModAssemblies(files);
+                    List<Assembly> sortedAssemblies = dependencyGraph?.TopologicalSort();
+                    List<Assembly> loadableMods = CheckForDependences(sortedAssemblies);
+                    List<Assembly> loadedMods = ApplyHarmonyPatches(loadableMods);
+                    CallOnLoadMethods(loadedMods);
+
+                    ModLogger.WriteLine("All mods successfully loaded!");
+                }
+                catch (ModLoadingException mle)
+                {
+                    failureMessage = mle.Message;
+                }
             }
         }
 
