@@ -54,7 +54,7 @@ Quick Start
 1. If you want to use instead the ONI builtin modloader (used for Steam), you have to **remove 'ModLoader.dll' from 'Managed' folder**. If ONI detects a modloader, it bypasses Steam mods.
 2. Move your mods to the Mods folder. Be sure that you put each mod in its own folder:
    * Windows: %USERPROFILE%\Documents\Klei\OxygenNotIncluded\mods\dev\
-   * Mac: ???
+   * Mac: "/%USERPROFILE%/Library/Application Support/unity.Klei.Oxygen Not Included/mods/dev"
 3. Start your game and check for [logs](http://support.kleientertainment.com/customer/portal/articles/2744766-logs-and-useful-information-for-bug-reports) in output_log.txt or Player.log.
 
 
